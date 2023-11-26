@@ -21,7 +21,7 @@ class LoginController extends Controller
         $res=auth()->guard('admin')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')]);
       //  return $res;
         if($res){
-            toastr()->success('Your account has been restored.');
+           // toastr()->success('Your account has been restored.');
              return  redirect('/admin/home');
         }else{
             return "not done";
