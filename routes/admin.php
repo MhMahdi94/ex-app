@@ -16,7 +16,7 @@ Route::group([
     'middleware'=> 'admin'
   ], function () {
     Route::get('/', function () {
-          return view('welcome');
+          return 'hi';
       });
     //auth
     Route::get('/login',[LoginController::class, 'show_login_view'])->name('admin.show_login');
