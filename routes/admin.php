@@ -15,9 +15,9 @@ Route::group([
     'as' => 'admin.',
     'middleware'=> 'admin'
   ], function () {
-    Route::get('/', function () {
-          return 'hi';
-      });
+    // Route::get('/', function () {
+    //       return view('welcome');
+    //   });
     //auth
     Route::get('/login',[LoginController::class, 'show_login_view'])->name('admin.show_login');
     Route::post('login',[LoginController::class, 'login'])->name('admin.login');
