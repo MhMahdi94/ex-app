@@ -31,15 +31,14 @@ Company Page
                             <label for="name">Name</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                           <label>Owner</label>
                           <select class="form-control select2" style="width: 100%;" required name="owner_id">
-                            {{-- <option >Select Owner</option> --}}
-                            @foreach ($owners as $owner )
+                           @foreach ($owners as $owner )
                               <option value="{{ $owner->id }}">{{ $owner->name }}</option>
                             @endforeach
                           </select>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>

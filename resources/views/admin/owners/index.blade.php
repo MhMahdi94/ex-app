@@ -61,6 +61,7 @@ Owners Page
                 <thead>
                   <tr>
                     <th>Name</th>
+                    <th>Company</th>
                     <th>Email</th>
                     <th>Mobile No</th>
                     <th>Status</th>
@@ -71,6 +72,7 @@ Owners Page
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
+                            <td>{{ $item->company->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->mobile_no }}</td>
                             <td><span class="badge {{ $item->status?'bg-teal':'bg-red' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>

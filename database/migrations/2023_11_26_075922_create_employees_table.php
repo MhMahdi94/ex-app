@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('password');
             $table->tinyInteger('status')->default(1);
             $table->tinyInteger('is_owner')->default(0); //0 not owner 1 owner
+            $table->integer('company_id');
             $table->rememberToken();
             $table->timestamps();
         });

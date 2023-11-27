@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Owners;
 
 use App\Http\Controllers\Controller;
+use App\Models\Company;
 use App\Models\Employees;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -25,7 +26,8 @@ class OwnerController extends Controller
     public function create()
     {
         //
-        return view('admin.owners.create');
+        $companies=Company::get();
+        return view('admin.owners.create', compact('companies'));
     }
 
     /**
@@ -34,11 +36,14 @@ class OwnerController extends Controller
     public function store(Request $request)
     {
         //
+        //return $request->all();
         Employees::create([
+            'company_id'=>$request->company_id,
             'name'=>$request->name,
             'email'=>$request->email,
             'mobile_no'=>$request->mobile_no,
             'password'=>Hash::make( $request->password),
+            
             'is_owner'=>1
         ]);
         return redirect()->back();

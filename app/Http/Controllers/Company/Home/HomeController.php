@@ -1,13 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Companies;
+namespace App\Http\Controllers\Company\Home;
 
 use App\Http\Controllers\Controller;
-use App\Models\Company;
-use App\Models\Employees;
 use Illuminate\Http\Request;
 
-class CompanyController extends Controller
+class HomeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +13,7 @@ class CompanyController extends Controller
     public function index()
     {
         //
-        $data=Company::get();
-        return view('admin.companies.index', compact('data'));
+        return view('company.home.home');
     }
 
     /**
@@ -25,8 +22,6 @@ class CompanyController extends Controller
     public function create()
     {
         //
-        // $owners=Employees::where('is_owner',1)->get();
-        return view('admin.companies.create');
     }
 
     /**
@@ -35,20 +30,6 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         //
-        Company::create(
-            [
-                'name'=>$request->name,
-                'owner_id'=>$request->owner_id,
-                'email'=>$request->email,
-                'description'=>$request->description,
-                'noOfDept'=>$request->noOfDept,
-                'noOfEmployee'=>$request->noOfEmployee,
-                //'mobile_no'=>$request->mobile_no,
-                'subscriptionStart'=>$request->subscriptionStart,
-                'subscriptionEnd'=>$request->subscriptionEnd,
-            ]
-        );
-        return redirect()->back();
     }
 
     /**

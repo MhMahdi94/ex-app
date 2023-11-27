@@ -62,7 +62,7 @@ Companies Page
                 <thead>
                   <tr>
                     <th>Name</th>
-                    <th>Owner</th>
+                    {{-- <th>Owner</th> --}}
                     <th>Email</th>
                     {{-- <th>Description</th> --}}
                     <th>Departments</th>
@@ -77,7 +77,7 @@ Companies Page
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->owner->name }}</td>
+                            {{-- <td>{{ $item->owner->name }}</td> --}}
                             <td>{{ $item->email }}</td>
                             {{-- <td>{{ $item->description }}</td> --}}
                             <td>{{ $item->noOfDept }}</td>

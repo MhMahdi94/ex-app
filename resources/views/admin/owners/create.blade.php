@@ -22,11 +22,20 @@ Owners Page
 
               
             </div>
+{{ $companies }}
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
                 <form method="POST" action="{{ route('admin.owners.owners_store') }}" class='needs-validation' novalidate>
                     @csrf
                     <div class="card-body">
+                        <div class="form-group">
+                          <label for="name">Company</label>
+                          <select name="company_id" id="" class="form-control select2">
+                            @foreach ($companies as $company)
+                              <option value="{{ $company->id }}">{{ $company->name }}</option>
+                            @endforeach
+                          </select>
+                        </div>
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
@@ -40,6 +49,7 @@ Owners Page
                             <label for="mobile_no">Mobile No</label>
                             <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
                         </div>
+                        
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
