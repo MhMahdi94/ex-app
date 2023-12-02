@@ -52,6 +52,13 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('company.stock.stock_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+                        <p>
+                            Stock Managment
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                       {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
@@ -77,7 +84,8 @@
                     </ul>
                   </li>
                 
-                <li class="nav-item">
+                
+                  <li class="nav-item">
                     <a href="{{ route('admin.companies.companies_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
                         <p>
@@ -86,15 +94,7 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.packages.packages_index') }}" class="nav-link {{ request()->is('thrs/admin/packages') ? 'active' : '' }}">
-
-                        <p>
-                            Stock Managment
-
-                        </p>
-                    </a>
-                </li>
+               
                 <li class="nav-item">
                     <a href="{{ route('admin.requests.requests_index') }}" class="nav-link">
 

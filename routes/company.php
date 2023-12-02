@@ -8,6 +8,7 @@ use App\Http\Controllers\Company\Employee\EmployeeDetailsController;
 use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
 use App\Http\Controllers\Company\Leave\LeaveRequestController;
 use App\Http\Controllers\Company\Leave\LeaveSettingController;
+use App\Http\Controllers\Company\Stock\ProductController;
 use Illuminate\Support\Facades\Route;
 Route::group([
     "namespace"=>"Company",
@@ -86,6 +87,18 @@ Route::group([
         Route::put('/update/{id}',[LeaveRequestController::class, 'update'])->name('leave_requests_update');
         Route::delete('/delete/{id}',[LeaveRequestController::class, 'destroy'])->name('leave_requests_destroy');
         Route::get('/details/{id}',[LeaveRequestController::class, 'details'])->name('leave_requests_details');
+      });
+      
+      //stock
+      Route::group(['prefix' => '/stock',
+      'as' => 'stock.',],function ()  {
+        Route::get('/',[ProductController::class, 'index'])->name('stock_index');
+        Route::get('/create',[ProductController::class, 'create'])->name('stock_create');
+        Route::post('/store',[ProductController::class, 'store'])->name('stock_store');
+        Route::get('/edit/{id}',[ProductController::class, 'edit'])->name('stock_edit');
+        Route::put('/update/{id}',[ProductController::class, 'update'])->name('stock_update');
+        Route::delete('/delete/{id}',[ProductController::class, 'destroy'])->name('stock_destroy');
+        Route::get('/details/{id}',[ProductController::class, 'details'])->name('stock_details');
       });
   });
 
