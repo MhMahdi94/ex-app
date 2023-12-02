@@ -49,70 +49,71 @@ Stock Page
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->quantity }}</td>
                             <td class="row">
-                              <div class="modal fade" id="modal-lg">
-                                <div class="modal-dialog modal-lg">
-                                  <div class="modal-content">
-                                    <div class="modal-header">
-                                      <h4 class="modal-title">Import/Export</h4>
-                                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                                    </div>
-                                    <div class="modal-body">
-                                      <form method="POST" action="{{ route('company.stock.stock_update',$item->id) }}" class='needs-validation' novalidate>
-                                        @csrf
-                                        @method('put')
-                                        <input type="hidden" name="product_id" value="{{ $item->id }}">
-                                        <div class="card-body row">
-                                            <div class="form-group col-12">
-                                                <label for="name">Name</label>
-                                                <input type="text" readonly name="name" value="{{ $item->name }}" class="form-control" id="name" placeholder="Enter Name" required>
-                                            </div>
-                                            <div class="form-group col-12">
-                                              <label for="operation_id">Operation</label>
-                                              <select name="operation_id" id="" class="form-control select2">
-                                                
-                                                  <option value="0">Import</option>
-                                                  <option value="1">Export</option>
-                                                
-                                              </select>
-                                            </div>
-                                            <div class="form-group col-6">
-                                                <label for="current_quantity">Current Quantity</label>
-                                                <input type="text" readonly name="current_quantity" value="{{ $item->quantity }}" class="form-control" id="current_quantity" placeholder="Enter Name" required>
-                                            </div>
-                                           
-                                            <div class="form-group col-6">
-                                              <label for="quantity">Total Import/Export</label>
-                                              <input type="number" name="quantity" class="form-control" id="quantity" placeholder="Total Import/Export" required>
-                                            </div>
-                                            <div class="form-group col-12">
-                                              <label for="quantity">Notes</label>
-                                              <textarea class="form-control" rows="3" placeholder="Enter ..." name="notes"></textarea>
-                                            </div>
-                                            
-                                        </div>
-                                        <!-- /.card-body -->
-                        
-                                        <div class="modal-footer justify-content-between">
-                                          <button type="submit" class="btn btn-primary">Submit</button>
-                                        </div>
-                                      </form>
-                                    </div>
-                                    {{-- <div class="modal-footer justify-content-between">
-                                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                      <button type="button" class="btn btn-primary">Save changes</button>
-                                    </div> --}}
-                                  </div>
-                                  <!-- /.modal-content -->
-                                </div>
-                                <!-- /.modal-dialog -->
-                              </div>
-                                <a class="btn btn-info"  data-toggle="modal" data-target="#modal-lg">Import/Export</a>
+                              
+                                <a class="btn btn-info"  data-toggle="modal" data-target="#modal-lg{{ $item->id }}">Import/Export</a>
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                
                             </td>
                         </tr> 
+                        <div class="modal fade" id="modal-lg{{ $item->id }}">
+                          <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h4 class="modal-title">Import/Export</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form method="POST" action="{{ route('company.stock.stock_update',$item->id) }}" class='needs-validation' novalidate>
+                                  @csrf
+                                  @method('put')
+                                  <input type="hidden" name="product_id" value="{{ $item->id }}">
+                                  <div class="card-body row">
+                                      <div class="form-group col-12">
+                                          <label for="name">Name</label>
+                                          <input type="text" readonly name="name" value="{{ $item->name }}" class="form-control" id="name" placeholder="Enter Name" required>
+                                      </div>
+                                      <div class="form-group col-12">
+                                        <label for="operation_id">Operation</label>
+                                        <select name="operation_id" id="" class="form-control select2">
+                                          
+                                            <option value="0">Import</option>
+                                            <option value="1">Export</option>
+                                          
+                                        </select>
+                                      </div>
+                                      <div class="form-group col-6">
+                                          <label for="current_quantity">Current Quantity</label>
+                                          <input type="text" readonly name="current_quantity" value="{{ $item->quantity }}" class="form-control" id="current_quantity" placeholder="Enter Name" required>
+                                      </div>
+                                     
+                                      <div class="form-group col-6">
+                                        <label for="quantity">Total Import/Export</label>
+                                        <input type="number" name="quantity" class="form-control" id="quantity" placeholder="Total Import/Export" required>
+                                      </div>
+                                      <div class="form-group col-12">
+                                        <label for="quantity">Notes</label>
+                                        <textarea class="form-control" rows="3" placeholder="Enter ..." name="notes"></textarea>
+                                      </div>
+                                      
+                                  </div>
+                                  <!-- /.card-body -->
+                  
+                                  <div class="modal-footer justify-content-between">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                  </div>
+                                </form>
+                              </div>
+                              {{-- <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
+                              </div> --}}
+                            </div>
+                            <!-- /.modal-content -->
+                          </div>
+                          <!-- /.modal-dialog -->
+                        </div>
                     @endforeach
                 </tbody>
               </table>

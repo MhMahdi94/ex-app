@@ -1,15 +1,15 @@
 @extends('layout.company')
 @section('title')
-Department
+Import/Export
 @endsection
 @section('page_name')
-Department Page
+Import/Export Page
 @endsection
 @section('active_link')
-<a href="#">Department</a>
+<a href="#">Import/Export</a>
 @endsection
 @section('active_content')
-Department Page
+Import/Export Page
 @endsection
 @section('content')
  <!-- /.row -->
@@ -18,7 +18,7 @@ Department Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit Department</h3>
+              <h3 class="card-title">Import/Export</h3>
 
               
             </div>

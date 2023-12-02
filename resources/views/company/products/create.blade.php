@@ -54,7 +54,7 @@ Add Product Page
       </div>
 </div>
 
-<script>
+{{-- <script>
     (function () {
   'use strict'
 
@@ -74,5 +74,5 @@ Add Product Page
       }, false)
     })
 })()
-</script>
+</script> --}}
  @endsection
