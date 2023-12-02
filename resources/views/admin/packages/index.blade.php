@@ -67,10 +67,13 @@ Packages Page
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
-                            <td>
+                            <td class="row">
                                 <a class="mr-2 btn btn-info" href="{{ route('admin.packages.packages_edit',$item->id ) }}">Edit</a>
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
-                                <a class="mr-2 btn btn-danger" data-toggle="modal" data-target="#modal-danger" data-url="{{ route('admin.packages.packages_destroy', $item->id) }}" >Delete</a>
+                                <form method="post" class="delete-form" data-route="{{route('admin.packages.packages_destroy', $item->id) }}">
+                                  @method('delete')
+                                  <button type="submit" class="btn btn-danger  ">Delete</button>
+                                </form>
                             </td>
                         </tr> 
                     @endforeach
@@ -87,39 +90,55 @@ Packages Page
 <script
   src="https://code.jquery.com/jquery-3.7.1.js"
   integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script>
-    $('#delete_admin').click(function(){
-        console.log('click')
-        var userURL = $(this).data('url');
-        console.log(userURL)
-         var token = $("meta[name='csrf-token']").attr("content");
-         console.log(token)
-   
 
-    // $.ajax(
+  $(document).ready(function() {
 
-    // {
-
-    //     url: "users/"+id,
-
-    //     type: 'DELETE',
-
-    //     data: {
-
-    //         "id": id,
-
-    //         "_token": token,
-
-    //     },
-
-    //     success: function (){
-
-    //         console.log("it Works");
-
-    //     }
-
-    // });
-    })
+$('.delete-form').on('submit', function(e) {
+  e.preventDefault();
+  console.log($(this).data('route'));
+  Swal.fire({
+    title: "Are you sure?",
+  // text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!"
+  }).then((result) => {
+  
+    if (result.isConfirmed) {
+      $.ajax({
+        type: 'delete',
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        url: $(this).data('route'),
+        data: {
+          '_method': 'delete'
+        },
+        success: function (response, textStatus, xhr) {
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your admin has been deleted.",
+            icon: "success"
+          });
+          setTimeout(function() {
+            //your code to be executed after 1 second
+            location.reload;
+          }, 3000);
+          
+        }
+    });
+    
+    }
+});
+  
+ })
+});
+    
 </script>
  @endsection

@@ -79,5 +79,6 @@ class OwnerController extends Controller
     public function destroy(string $id)
     {
         //
+        Employees::find($id)->delete();
     }
 }

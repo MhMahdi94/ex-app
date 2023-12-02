@@ -75,5 +75,6 @@ class PackagesController extends Controller
     public function destroy(string $id)
     {
         //
+        Package::find($id)->delete();
     }
 }

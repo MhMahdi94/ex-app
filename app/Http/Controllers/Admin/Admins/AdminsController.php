@@ -99,5 +99,6 @@ class AdminsController extends Controller
     public function destroy(string $id)
     {
         //
+        Admin::find($id)->delete();
     }
 }

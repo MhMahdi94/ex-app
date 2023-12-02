@@ -81,5 +81,6 @@ class CompanyController extends Controller
     public function destroy(string $id)
     {
         //
+        Company::find($id)->delete();
     }
 }
