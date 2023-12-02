@@ -1,15 +1,15 @@
-@extends('layout.admin')
+@extends('layout.company')
 @section('title')
-Owners
+Company
 @endsection
 @section('page_name')
-Owners Page
+Company Page
 @endsection
 @section('active_link')
-<a href="#">Owners</a>
+<a href="#">Company</a>
 @endsection
 @section('active_content')
-Owners Page
+Company Page
 @endsection
 @section('content')
  <!-- /.row -->
@@ -18,23 +18,17 @@ Owners Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Owner</h3>
+              <h3 class="card-title">Create Employee</h3>
 
               
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
-                <form method="POST" action="{{ route('admin.owners.owners_store') }}" class='needs-validation' novalidate>
+             
+                <form method="POST" action="{{ route('company.employees.employees_store') }}" class='needs-validation' novalidate>
                     @csrf
+                    <input type="hidden" name="company_id" value="{{ $employee->company->id }}">
                     <div class="card-body">
-                        <div class="form-group">
-                          <label for="name">Company</label>
-                          <select name="company_id" id="" class="form-control select2">
-                            @foreach ($companies as $company)
-                              <option value="{{ $company->id }}">{{ $company->name }}</option>
-                            @endforeach
-                          </select>
-                        </div>
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
@@ -48,7 +42,6 @@ Owners Page
                             <label for="mobile_no">Mobile No</label>
                             <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
                         </div>
-                        
                         <div class="form-group">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
