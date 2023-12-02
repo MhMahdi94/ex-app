@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\Admins\AdminsController;
 use App\Http\Controllers\Company\Auth\LoginController;
+use App\Http\Controllers\Company\Department\DepartmentController;
 use App\Http\Controllers\Company\Employee\EmployeeController;
 use App\Http\Controllers\Company\Employee\EmployeeDetailsController;
 use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
@@ -38,6 +39,17 @@ Route::group([
          Route::put('/update/{id}',[EmployeeController::class, 'update'])->name('employees_update');
          Route::delete('/delete/{id}',[EmployeeController::class, 'destroy'])->name('employees_destroy');
          Route::get('/details/{id}',[EmployeeController::class, 'details'])->name('employees_details');
+       });
+       //department
+       Route::group(['prefix' => '/department',
+       'as' => 'department.',],function ()  {
+         Route::get('/',[DepartmentController::class, 'index'])->name('department_index');
+         Route::get('/create',[DepartmentController::class, 'create'])->name('department_create');
+         Route::post('/store',[DepartmentController::class, 'store'])->name('department_store');
+         Route::get('/edit/{id}',[DepartmentController::class, 'edit'])->name('department_edit');
+         Route::put('/update/{id}',[DepartmentController::class, 'update'])->name('department_update');
+         Route::delete('/delete/{id}',[DepartmentController::class, 'destroy'])->name('department_destroy');
+         Route::get('/details/{id}',[DepartmentController::class, 'details'])->name('department_details');
        });
       //company
       //employee-details

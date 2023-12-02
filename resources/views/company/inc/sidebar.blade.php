@@ -45,6 +45,13 @@
                         </p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('company.department.department_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+                        <p>
+                            Department Managment
+                        </p>
+                    </a>
+                </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
                       {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
