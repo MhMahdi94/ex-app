@@ -67,5 +67,10 @@ class DatabaseSeeder extends Seeder
         'noOfDepts'=>'6',
         'status'=>true,
        ]);
+
+       $this->call([
+        LeaveTypeSeeder::class,
+        LeaveRequestSeeder::class,
+       ]);
     }
 }

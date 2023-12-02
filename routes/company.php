@@ -5,6 +5,8 @@ use App\Http\Controllers\Company\Auth\LoginController;
 use App\Http\Controllers\Company\Employee\EmployeeController;
 use App\Http\Controllers\Company\Employee\EmployeeDetailsController;
 use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
+use App\Http\Controllers\Company\Leave\LeaveRequestController;
+use App\Http\Controllers\Company\Leave\LeaveSettingController;
 use Illuminate\Support\Facades\Route;
 Route::group([
     "namespace"=>"Company",
@@ -48,6 +50,30 @@ Route::group([
         Route::put('/update/{id}',[EmployeeDetailsController::class, 'update'])->name('employee_details_update');
         Route::delete('/delete/{id}',[EmployeeDetailsController::class, 'destroy'])->name('employee_details_destroy');
         Route::get('/details/{id}',[EmployeeDetailsController::class, 'details'])->name('employee_details_details');
+      });
+
+      //leave settings
+      Route::group(['prefix' => '/leave-settings',
+      'as' => 'leave-settings.',],function ()  {
+        Route::get('/',[LeaveSettingController::class, 'index'])->name('leave_settings_index');
+        Route::get('/create',[LeaveSettingController::class, 'create'])->name('leave_settings_create');
+        Route::post('/store',[LeaveSettingController::class, 'store'])->name('leave_settings_store');
+        Route::get('/edit/{id}',[LeaveSettingController::class, 'edit'])->name('leave_settings_edit');
+        Route::put('/update/{id}',[LeaveSettingController::class, 'update'])->name('leave_settings_update');
+        Route::delete('/delete/{id}',[LeaveSettingController::class, 'destroy'])->name('leave_settings_destroy');
+        Route::get('/details/{id}',[LeaveSettingController::class, 'details'])->name('leave_settings_details');
+      });
+
+      //leave requests
+      Route::group(['prefix' => '/leave-requests',
+      'as' => 'leave-requests.',],function ()  {
+        Route::get('/',[LeaveRequestController::class, 'index'])->name('leave_requests_index');
+        Route::get('/create',[LeaveRequestController::class, 'create'])->name('leave_requests_create');
+        Route::post('/store',[LeaveRequestController::class, 'store'])->name('leave_requests_store');
+        Route::get('/edit/{id}',[LeaveRequestController::class, 'edit'])->name('leave_requests_edit');
+        Route::put('/update/{id}',[LeaveRequestController::class, 'update'])->name('leave_requests_update');
+        Route::delete('/delete/{id}',[LeaveRequestController::class, 'destroy'])->name('leave_requests_destroy');
+        Route::get('/details/{id}',[LeaveRequestController::class, 'details'])->name('leave_requests_details');
       });
   });
 

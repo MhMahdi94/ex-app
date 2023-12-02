@@ -55,29 +55,21 @@
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <a href="../../index.html" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
+                        <a href="{{ route('company.leave-settings.leave_settings_create') }}" class="nav-link">
+                          {{-- <i class="far fa-circle nav-icon"></i> --}}
                           <p>Leave Settings</p>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="../../index2.html" class="nav-link">
-                          <i class="far fa-circle nav-icon"></i>
+                        <a href="{{ route('company.leave-requests.leave_requests_index') }}" class="nav-link">
+                          {{-- <i class="far fa-circle nav-icon"></i> --}}
                           <p>Leave Request</p>
                         </a>
                       </li>
                       
                     </ul>
                   </li>
-                <li class="nav-item">
-                    <a href="{{ route('admin.owners.owners_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
-
-                        <p>
-                            Leave Managment
-
-                        </p>
-                    </a>
-                </li>
+                
                 <li class="nav-item">
                     <a href="{{ route('admin.companies.companies_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
