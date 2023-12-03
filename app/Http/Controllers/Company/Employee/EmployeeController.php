@@ -17,7 +17,7 @@ class EmployeeController extends Controller
     public function index()
     {
         //
-        $data=Employees::query()->where('company_id','1')->get();
+        $data=Employees::query()->where('company_id',Auth::guard('employee')->user()->company_id)->get();
         //return $data;
         return view('company.employees.index',compact('data'));
     }
@@ -47,8 +47,9 @@ class EmployeeController extends Controller
     {
         //
       //  return $request->all();
+      //return Auth::guard('employee')->user()->company_id;
         Employees::create([
-            'company_id'=>Auth::guard('employee')->id(),
+            'company_id'=>Auth::guard('employee')->user()->company_id,
             'name'=>$request->name,
             'email'=>$request->email,
             'mobile_no'=>$request->mobile_no,
