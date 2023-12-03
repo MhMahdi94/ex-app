@@ -27,7 +27,7 @@ Company Page
              
                 <form method="POST" action="{{ route('company.employees.employees_store') }}" class='needs-validation' novalidate>
                     @csrf
-                    <input type="hidden" name="company_id" value="{{ $employee->company->id }}">
+                    {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">Name</label>
