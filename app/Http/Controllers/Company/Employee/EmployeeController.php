@@ -48,7 +48,7 @@ class EmployeeController extends Controller
         //
       //  return $request->all();
         Employees::create([
-            'company_id'=>$request->company_id,
+            'company_id'=>Auth::guard('employee')->id(),
             'name'=>$request->name,
             'email'=>$request->email,
             'mobile_no'=>$request->mobile_no,
