@@ -6,6 +6,7 @@ use App\Http\Controllers\Company\Auth\LoginController;
 use App\Http\Controllers\Company\Department\DepartmentController;
 use App\Http\Controllers\Company\Employee\EmployeeController;
 use App\Http\Controllers\Company\Employee\EmployeeDetailsController;
+use App\Http\Controllers\Company\FinancialYear\FinancialYearController;
 use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
 use App\Http\Controllers\Company\Leave\LeaveRequestController;
 use App\Http\Controllers\Company\Leave\LeaveSettingController;
@@ -118,6 +119,19 @@ Route::group([
         Route::put('/update/{id}',[COALEVELONEController::class, 'update'])->name('coa_update');
         Route::delete('/delete/{id}',[COALEVELONEController::class, 'destroy'])->name('coa_destroy');
         Route::get('/details/{id}',[COALEVELONEController::class, 'details'])->name('coa_details');
+      });
+
+      //financial calendar
+      Route::group(['prefix' => '/financial-calendar',
+      'as' => 'financial_calendar.',],function ()  {
+        Route::get('/',[FinancialYearController::class, 'index'])->name('financial_year_index');
+        Route::get('/create',[FinancialYearController::class, 'create'])->name('financial_year_create');
+        Route::post('/store',[FinancialYearController::class, 'store'])->name('financial_year_store');
+        Route::get('/edit/{id}',[FinancialYearController::class, 'edit'])->name('financial_year_edit');
+        Route::get('/show/{id}',[FinancialYearController::class, 'show'])->name('financial_year_show');
+        Route::put('/update/{id}',[FinancialYearController::class, 'update'])->name('financial_year_update');
+        Route::delete('/delete/{id}',[FinancialYearController::class, 'destroy'])->name('financial_year_destroy');
+        Route::get('/details/{id}',[FinancialYearController::class, 'details'])->name('financial_year_details');
       });
   });
 
