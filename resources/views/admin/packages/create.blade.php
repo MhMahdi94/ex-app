@@ -3,13 +3,13 @@
 Admins
 @endsection
 @section('page_name')
-Packages Page
+Services Page
 @endsection
 @section('active_link')
-<a href="#">Packages</a>
+<a href="#">Services</a>
 @endsection
 @section('active_content')
-Packages Page
+Services Page
 @endsection
 @section('content')
  <!-- /.row -->
@@ -18,7 +18,7 @@ Packages Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Package</h3>
+              <h3 class="card-title">Create Service</h3>
 
               
             </div>
@@ -30,6 +30,10 @@ Packages Page
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="desc">Description</label>
+                          <textarea type="text" name="desc" class="form-control" id="desc" placeholder="Enter Description" required></textarea>
                         </div>
                     </div>
                     <!-- /.card-body -->

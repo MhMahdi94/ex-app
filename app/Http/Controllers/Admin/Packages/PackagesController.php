@@ -34,7 +34,10 @@ class PackagesController extends Controller
     {
         //
         Package::create(
-            ['name'=>$request->name]
+            [
+                'name'=>$request->name,
+                'desc'=>$request->desc,
+            ]
         );
         return redirect()->back();
     }
@@ -65,6 +68,7 @@ class PackagesController extends Controller
         //
         $package=Package::find($id);
         $package->name=$request->name;
+        $package->desc=$request->desc;
         $package->save();
         return redirect()->back();
     }

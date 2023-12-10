@@ -9,6 +9,7 @@ class Package extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'name'
+        'name',
+        'desc'
     ];
 }

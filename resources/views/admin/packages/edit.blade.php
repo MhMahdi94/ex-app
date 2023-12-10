@@ -1,15 +1,15 @@
 @extends('layout.admin')
 @section('title')
-Admins
+Services
 @endsection
 @section('page_name')
-Admins Page
+Services Page
 @endsection
 @section('active_link')
-<a href="#">Admins</a>
+<a href="#">Services</a>
 @endsection
 @section('active_content')
-Admins Page
+Services Page
 @endsection
 @section('content')
  <!-- /.row -->
@@ -18,12 +18,11 @@ Admins Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit Admin</h3>
+              <h3 class="card-title">Edit Service</h3>
 
               
             </div>
             <!-- /.card-header -->
-          
             <div class="card-body table-responsive p-0">
                 <form method="POST" action="../update/{{ $package->id }}" class='needs-validation' novalidate>
                     @csrf
@@ -32,6 +31,10 @@ Admins Page
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" name="name" value="{{ $package->name }}" class="form-control" id="name" placeholder="Enter Name" required>
+                        </div>
+                        <div class="form-group">
+                          <label for="desc">Description</label>
+                          <textarea type="text" name="desc"  value="" class="form-control" id="desc" placeholder="Enter Description" required> {{ $package->desc }}</textarea>
                         </div>
                     </div>
                     <!-- /.card-body -->

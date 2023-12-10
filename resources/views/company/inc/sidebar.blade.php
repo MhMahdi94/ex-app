@@ -117,7 +117,7 @@
                       
                     </ul>
                   </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="{{ route('admin.companies.companies_index') }}"
                         class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
@@ -126,7 +126,7 @@
 
                         </p>
                     </a>
-                </li>
+                </li> --}}
 
                 <li class="nav-item">
                     <a href="{{ route('admin.requests.requests_index') }}" class="nav-link">

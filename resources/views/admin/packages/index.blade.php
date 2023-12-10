@@ -1,15 +1,15 @@
 @extends('layout.admin')
 @section('title')
-Admins
+Services
 @endsection
 @section('page_name')
-Packages Page
+Services Page
 @endsection
 @section('active_link')
-<a href="#">Admins</a>
+<a href="#">Services</a>
 @endsection
 @section('active_content')
-Packages Page
+Services Page
 @endsection
 @section('content')
  <!-- /.row -->
@@ -18,17 +18,17 @@ Packages Page
         <div class="modal-dialog">
           <div class="modal-content bg-danger">
             <div class="modal-header">
-              <h4 class="modal-title">Delete package</h4>
+              <h4 class="modal-title">Delete service</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
             <div class="modal-body">
-              <p>Are You Sure to Delete this package?</p>
+              <p>Are You Sure to Delete this service?</p>
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-outline-light" data-dismiss="modal">No, Cancel please</button>
-              <button type="button" class="btn btn-outline-light delete" id="delete_package">Yes, Delete package</button>
+              <button type="button" class="btn btn-outline-light delete" id="delete_package">Yes, Delete service</button>
             </div>
           </div>
           <!-- /.modal-content -->
@@ -39,11 +39,11 @@ Packages Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Packages List</h3>
+              <h3 class="card-title">Services List</h3>
               
               
               <div class="card-tools row">
-                <a class="mr-2 btn btn-info" href="{{ route('admin.packages.packages_create') }}">Add Package</a>
+                <a class="mr-2 btn btn-info" href="{{ route('admin.packages.packages_create') }}">Add Service</a>
                 <div class="input-group input-group-sm" style="width: 150px;">
                   <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
@@ -59,7 +59,7 @@ Packages Page
                 <thead>
                   <tr>
                     <th>Name</th>
-                    
+                    <th>Desc</th>
                     <th>Actions</th>
                   </tr>
                 </thead>
@@ -67,6 +67,7 @@ Packages Page
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
+                            <td>{{ $item->desc }}</td>
                             <td class="row">
                                 <a class="mr-2 btn btn-info" href="{{ route('admin.packages.packages_edit',$item->id ) }}">Edit</a>
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -123,13 +124,16 @@ $('.delete-form').on('submit', function(e) {
         success: function (response, textStatus, xhr) {
           Swal.fire({
             title: "Deleted!",
-            text: "Your admin has been deleted.",
+            text: "Your service has been deleted.",
             icon: "success"
-          });
-          setTimeout(function() {
+          }).then((res)=>{
+            // setTimeout(function() {
             //your code to be executed after 1 second
-            location.reload;
-          }, 3000);
+            window.location.reload;
+          // }, 3000);
+          })
+          ;
+         
           
         }
     });
