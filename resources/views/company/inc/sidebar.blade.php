@@ -37,7 +37,8 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('company.employees.employees_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+                    <a href="{{ route('company.employees.employees_index') }}"
+                        class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
                         <p>
                             Employees Managment
@@ -46,14 +47,16 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('company.department.department_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+                    <a href="{{ route('company.department.department_index') }}"
+                        class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
                         <p>
                             Department Managment
                         </p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('company.stock.stock_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+                    <a href="{{ route('company.stock.stock_index') }}"
+                        class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
                         <p>
                             Stock Managment
                         </p>
@@ -61,32 +64,56 @@
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
+                        {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
+                        <p>
+                            Leave Managment
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('company.leave-settings.leave_settings_create') }}" class="nav-link">
+                                {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                <p>Leave Settings</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('company.leave-requests.leave_requests_index') }}" class="nav-link">
+                                {{-- <i class="far fa-circle nav-icon"></i> --}}
+                                <p>Leave Request</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+                <li class="nav-item has-treeview">
+                    <a href="#" class="nav-link">
                       {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
                       <p>
-                        Leave Managment
+                        Accountant Managment
                         <i class="right fas fa-angle-left"></i>
                       </p>
                     </a>
                     <ul class="nav nav-treeview">
                       <li class="nav-item">
-                        <a href="{{ route('company.leave-settings.leave_settings_create') }}" class="nav-link">
+                        <a href="{{ route('company.coa.coa_index') }}" class="nav-link">
                           {{-- <i class="far fa-circle nav-icon"></i> --}}
-                          <p>Leave Settings</p>
+                          <p>Chart of Accounts</p>
                         </a>
                       </li>
                       <li class="nav-item">
-                        <a href="{{ route('company.leave-requests.leave_requests_index') }}" class="nav-link">
+                        <a href="{{ route('company.coa.coa_index') }}" class="nav-link">
                           {{-- <i class="far fa-circle nav-icon"></i> --}}
-                          <p>Leave Request</p>
+                          <p>Expenses</p>
                         </a>
                       </li>
                       
                     </ul>
                   </li>
-                
-                
-                  <li class="nav-item">
-                    <a href="{{ route('admin.companies.companies_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+                <li class="nav-item">
+                    <a href="{{ route('admin.companies.companies_index') }}"
+                        class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
                         <p>
                             Accountant Managment
@@ -94,7 +121,7 @@
                         </p>
                     </a>
                 </li>
-               
+
                 <li class="nav-item">
                     <a href="{{ route('admin.requests.requests_index') }}" class="nav-link">
 

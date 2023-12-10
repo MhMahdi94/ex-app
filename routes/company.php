@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Admins\AdminsController;
+use App\Http\Controllers\Company\Account\COALEVELONEController;
 use App\Http\Controllers\Company\Auth\LoginController;
 use App\Http\Controllers\Company\Department\DepartmentController;
 use App\Http\Controllers\Company\Employee\EmployeeController;
@@ -99,6 +100,24 @@ Route::group([
         Route::put('/update/{id}',[ProductController::class, 'update'])->name('stock_update');
         Route::delete('/delete/{id}',[ProductController::class, 'destroy'])->name('stock_destroy');
         Route::get('/details/{id}',[ProductController::class, 'details'])->name('stock_details');
+      });
+
+      //coa
+      Route::group(['prefix' => '/coa',
+      'as' => 'coa.',],function ()  {
+        Route::get('/',[COALEVELONEController::class, 'index'])->name('coa_index');
+        Route::get('/assets',[COALEVELONEController::class, 'assets'])->name('coa_assets');
+        Route::get('/liabilities',[COALEVELONEController::class, 'liabilities'])->name('coa_liabilities');
+        Route::get('/equity',[COALEVELONEController::class, 'equity'])->name('coa_equity');
+        Route::get('/expenses',[COALEVELONEController::class, 'expenses'])->name('coa_expenses');
+        Route::get('/revenue',[COALEVELONEController::class, 'revenue'])->name('coa_revenue');
+        Route::get('/create',[COALEVELONEController::class, 'create'])->name('coa_create');
+        Route::post('/store',[COALEVELONEController::class, 'store'])->name('coa_store');
+        Route::get('/edit/{id}',[COALEVELONEController::class, 'edit'])->name('coa_edit');
+        Route::get('/show/{id}',[COALEVELONEController::class, 'show'])->name('coa_show');
+        Route::put('/update/{id}',[COALEVELONEController::class, 'update'])->name('coa_update');
+        Route::delete('/delete/{id}',[COALEVELONEController::class, 'destroy'])->name('coa_destroy');
+        Route::get('/details/{id}',[COALEVELONEController::class, 'details'])->name('coa_details');
       });
   });
 
