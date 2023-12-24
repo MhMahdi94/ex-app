@@ -11,12 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('c_o_a_l_e_v_e_l_t_w_o_s', function (Blueprint $table) {
+        Schema::create('banks', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
             $table->string('name');
-            $table->string('desc')->nullable();
-            $table->integer('parent_id');
             $table->timestamps();
         });
     }
@@ -26,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('c_o_a_l_e_v_e_l_t_w_o_s');
+        Schema::dropIfExists('banks');
     }
 };

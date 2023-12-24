@@ -14,7 +14,7 @@ Chart of Account Page
 @section('content')
 
     <div class="container">
-        
+ 
         <div class="row">
             <div class="col-12">
               <div class="card">
@@ -46,15 +46,17 @@ Chart of Account Page
                     <thead>
                       <tr>
                         <th>Name</th>
-                        <th>Code</th>
+                        <th>Account No</th>
+                        <th>Balance</th>
                         {{-- <th>Actions</th> --}}
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($data1 as $item)
+                      @foreach ($data as $item)
                             <tr>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->code}}</td>
+                                <td>{{ $item->account_name }}</td>
+                                <td>{{ $item->account_no}}</td>
+                                <td>{{ $item->account_balance}}</td>
                                 <td class="row">
                                     {{-- <a class="mr-2 btn btn-info" href="{{ route('company.department.department_edit',$item->id ) }}">Edit</a>
                                     <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
@@ -69,24 +71,7 @@ Chart of Account Page
                                 </td>
                             </tr> 
                         @endforeach
-                        @foreach ($data as $item)
-                            <tr>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->code}}</td>
-                                <td class="row">
-                                    {{-- <a class="mr-2 btn btn-info" href="{{ route('company.department.department_edit',$item->id ) }}">Edit</a>
-                                    <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
-                                    {{-- <input type="hidden" id="employee_id" value="{{ $item->id }}"> --}}
-                                    {{-- <a class="mr-2 btn btn-danger" data-toggle="modal" data-target="#modal-danger" id='{{ $item->id }}'
-                                    data-route="{{ route('company.employees.employees_destroy', $item->id) }}"
-                                    data-url="{{ route('company.employees.employees_destroy', $item->id) }}" >Delete</a> --}}
-                                    {{-- <form method="post" class="delete-form" data-route="{{route('company.department.department_destroy', $item->id) }}">
-                                      @method('delete')
-                                      <button type="submit" class="btn btn-danger  ">Delete</button>
-                                    </form> --}}
-                                </td>
-                            </tr> 
-                        @endforeach
+                       
                     </tbody>
                   </table>
                 </div>

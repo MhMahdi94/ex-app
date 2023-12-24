@@ -46,15 +46,17 @@ Chart of Account Page
                     <thead>
                       <tr>
                         <th>Name</th>
-                        <th>Code</th>
+                        <th>Account No</th>
+                        <th>Balance</th>
                         {{-- <th>Actions</th> --}}
                       </tr>
                     </thead>
                     <tbody>
                         @foreach ($data as $item)
                             <tr>
-                                <td>{{ $item->name }}</td>
-                                <td>{{ $item->code}}</td>
+                              <td>{{ $item->account_name }}</td>
+                              <td>{{ $item->account_no}}</td>
+                              <td>{{ $item->account_balance}}</td>
                                 <td class="row">
                                     {{-- <a class="mr-2 btn btn-info" href="{{ route('company.department.department_edit',$item->id ) }}">Edit</a>
                                     <meta name="csrf-token" content="{{ csrf_token() }}"> --}}

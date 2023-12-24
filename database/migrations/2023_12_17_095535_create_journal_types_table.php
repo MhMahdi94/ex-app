@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('c_o_a_l_e_v_e_l_o_n_e_s', function (Blueprint $table) {
+        Schema::create('journal_types', function (Blueprint $table) {
             $table->id();
-            $table->string('code');
             $table->string('name');
-            $table->string('desc')->nullable();
             $table->timestamps();
         });
     }
@@ -25,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('c_o_a_l_e_v_e_l_o_n_e_s');
+        Schema::dropIfExists('journal_types');
     }
 };

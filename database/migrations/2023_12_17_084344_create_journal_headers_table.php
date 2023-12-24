@@ -11,16 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('financial_calendars', function (Blueprint $table) {
+        Schema::create('journal_headers', function (Blueprint $table) {
             $table->id();
-            $table->integer('financial_year');
-            $table->string('financial_desc');
-            $table->date('start_date');
-            $table->date('end_date');
-            $table->tinyInteger('is_open')->default(0);
+            $table->dateTime('journal_date');
+            $table->string('journal_description');
+            $table->integer('journal_type');
+            $table->integer('journal_report');
+            $table->double('total_debit');
+            $table->double('total_credit');
+            $table->double('balance');
             $table->integer('company_id');
             $table->integer('added_by');
-            $table->integer('updated_by');
+            $table->integer('updated_by')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('financial_calendars');
+        Schema::dropIfExists('journal_headers');
     }
 };

@@ -1,13 +1,16 @@
 <?php
 
 use App\Http\Controllers\Admin\Admins\AdminsController;
+use App\Http\Controllers\Company\Account\AccountController;
 use App\Http\Controllers\Company\Account\COALEVELONEController;
 use App\Http\Controllers\Company\Auth\LoginController;
 use App\Http\Controllers\Company\Department\DepartmentController;
+use App\Http\Controllers\Company\Documents\DocumentController;
 use App\Http\Controllers\Company\Employee\EmployeeController;
 use App\Http\Controllers\Company\Employee\EmployeeDetailsController;
 use App\Http\Controllers\Company\FinancialYear\FinancialYearController;
 use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
+use App\Http\Controllers\Company\Journals\JournalsController;
 use App\Http\Controllers\Company\Leave\LeaveRequestController;
 use App\Http\Controllers\Company\Leave\LeaveSettingController;
 use App\Http\Controllers\Company\Stock\ProductController;
@@ -104,21 +107,21 @@ Route::group([
       });
 
       //coa
-      Route::group(['prefix' => '/coa',
+      Route::group(['prefix' => '/accounts',
       'as' => 'coa.',],function ()  {
-        Route::get('/',[COALEVELONEController::class, 'index'])->name('coa_index');
-        Route::get('/assets',[COALEVELONEController::class, 'assets'])->name('coa_assets');
-        Route::get('/liabilities',[COALEVELONEController::class, 'liabilities'])->name('coa_liabilities');
-        Route::get('/equity',[COALEVELONEController::class, 'equity'])->name('coa_equity');
-        Route::get('/expenses',[COALEVELONEController::class, 'expenses'])->name('coa_expenses');
-        Route::get('/revenue',[COALEVELONEController::class, 'revenue'])->name('coa_revenue');
-        Route::get('/create',[COALEVELONEController::class, 'create'])->name('coa_create');
-        Route::post('/store',[COALEVELONEController::class, 'store'])->name('coa_store');
-        Route::get('/edit/{id}',[COALEVELONEController::class, 'edit'])->name('coa_edit');
-        Route::get('/show/{id}',[COALEVELONEController::class, 'show'])->name('coa_show');
-        Route::put('/update/{id}',[COALEVELONEController::class, 'update'])->name('coa_update');
-        Route::delete('/delete/{id}',[COALEVELONEController::class, 'destroy'])->name('coa_destroy');
-        Route::get('/details/{id}',[COALEVELONEController::class, 'details'])->name('coa_details');
+        Route::get('/',[AccountController::class, 'index'])->name('coa_index');
+        Route::get('/assets',[AccountController::class, 'assets'])->name('coa_assets');
+        Route::get('/liabilities',[AccountController::class, 'liabilities'])->name('coa_liabilities');
+        Route::get('/equity',[AccountController::class, 'equity'])->name('coa_equity');
+        Route::get('/expenses',[AccountController::class, 'expenses'])->name('coa_expenses');
+        Route::get('/revenue',[AccountController::class, 'revenue'])->name('coa_revenue');
+        Route::get('/create',[AccountController::class, 'create'])->name('coa_create');
+        Route::post('/store',[AccountController::class, 'store'])->name('coa_store');
+        Route::get('/edit/{id}',[AccountController::class, 'edit'])->name('coa_edit');
+        Route::get('/show/{id}',[AccountController::class, 'show'])->name('coa_show');
+        Route::put('/update/{id}',[AccountController::class, 'update'])->name('coa_update');
+        Route::delete('/delete/{id}',[AccountController::class, 'destroy'])->name('coa_destroy');
+        Route::get('/details/{id}',[AccountController::class, 'details'])->name('coa_details');
       });
 
       //financial calendar
@@ -133,6 +136,32 @@ Route::group([
         Route::delete('/delete/{id}',[FinancialYearController::class, 'destroy'])->name('financial_year_destroy');
         Route::get('/details/{id}',[FinancialYearController::class, 'details'])->name('financial_year_details');
       });
+
+      //journals
+      Route::group(['prefix' => '/journals',
+      'as' => 'journals.',],function ()  {
+        Route::get('/',[JournalsController::class, 'index'])->name('journals_index');
+        Route::get('/create',[JournalsController::class, 'create'])->name('journals_create');
+        Route::post('/store',[JournalsController::class, 'store'])->name('journals_store');
+        Route::get('/edit/{id}',[JournalsController::class, 'edit'])->name('journals_edit');
+        Route::get('/show/{id}',[JournalsController::class, 'show'])->name('journals_show');
+        Route::put('/update/{id}',[JournalsController::class, 'update'])->name('journals_update');
+        Route::delete('/delete/{id}',[JournalsController::class, 'destroy'])->name('journals_destroy');
+        Route::get('/details/{id}',[JournalsController::class, 'details'])->name('journals_details');
+      });
+
+       //documents
+       Route::group(['prefix' => '/documents',
+       'as' => 'documents.',],function ()  {
+         Route::get('/',[DocumentController::class, 'index'])->name('document_index');
+         Route::get('/create',[DocumentController::class, 'create'])->name('document_create');
+         Route::post('/store',[DocumentController::class, 'store'])->name('document_store');
+         Route::get('/edit/{id}',[DocumentController::class, 'edit'])->name('document_edit');
+         Route::get('/show/{id}',[DocumentController::class, 'show'])->name('document_show');
+         Route::put('/update/{id}',[DocumentController::class, 'update'])->name('document_update');
+         Route::delete('/delete/{id}',[DocumentController::class, 'destroy'])->name('document_destroy');
+         Route::get('/details/{id}',[DocumentController::class, 'details'])->name('document_details');
+       });
   });
 
 
