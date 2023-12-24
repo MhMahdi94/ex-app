@@ -116,12 +116,12 @@
                           <p>Documents</p>
                         </a>
                       </li>
-                      <li class="nav-item">
+                      {{-- <li class="nav-item">
                         <a href="{{ route('company.financial_calendar.financial_year_index') }}" class="nav-link">
-                          {{-- <i class="far fa-circle nav-icon"></i> --}}
+                          
                           <p>Financial Calendar</p>
                         </a>
-                      </li>
+                      </li> --}}
                       <li class="nav-item">
                         <a href="{{ route('company.coa.coa_index') }}" class="nav-link">
                           {{-- <i class="far fa-circle nav-icon"></i> --}}
