@@ -34,7 +34,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('admin.owners.owners_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+            <a href="{{ route('business.categories.category_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
                 <p>
                     Categories Managment
