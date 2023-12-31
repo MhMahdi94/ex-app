@@ -42,7 +42,7 @@ class AdminsController extends Controller
                 'mobile_no'=>$request->mobile_no,
                 'password'=>$request->password
             ]);
-            
+            toastr()->success('Data has been saved successfully!', 'Congrats');
             return redirect()->back();
         } catch (\Throwable $th) {
             //throw $th;

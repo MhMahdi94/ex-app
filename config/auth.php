@@ -48,6 +48,10 @@ return [
             'driver' => 'session',
             'provider' => 'employees',
         ],
+        'business' => [
+            'driver' => 'session',
+            'provider' => 'businesses',
+        ],
     ],
 
     /*
@@ -79,6 +83,10 @@ return [
         'employees' => [
             'driver' => 'eloquent',
             'model' => App\Models\Employees::class,
+        ],
+        'businesses' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Business::class,
         ],
         // 'users' => [
         //     'driver' => 'database',

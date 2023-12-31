@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\Admin\Admins\AdminsController;
 use App\Http\Controllers\Admin\Auth\LoginController;
+use App\Http\Controllers\Admin\Business\BusinessController;
+use App\Http\Controllers\Admin\BusinessOwner\BusinessOwnerController;
 use App\Http\Controllers\Admin\Companies\CompanyController;
 use App\Http\Controllers\Admin\Home\HomeController;
 use App\Http\Controllers\Admin\Owners\OwnerController;
@@ -69,7 +71,26 @@ Route::group([
          Route::put('/update/{id}',[PackagesController::class, 'update'])->name('packages_update');
          Route::delete('/delete/{id}',[PackagesController::class, 'destroy'])->name('packages_destroy');
        });
-
+      //business
+      Route::group(['prefix' => '/business',
+      'as' => 'business.',],function ()  {
+        Route::get('/',[BusinessController::class, 'index'])->name('business_index');
+        Route::get('/create',[BusinessController::class, 'create'])->name('business_create');
+        Route::post('/store',[BusinessController::class, 'store'])->name('business_store');
+        Route::get('/edit/{id}',[BusinessController::class, 'edit'])->name('business_edit');
+        Route::put('/update/{id}',[BusinessController::class, 'update'])->name('business_update');
+        Route::delete('/delete/{id}',[BusinessController::class, 'destroy'])->name('business_destroy');
+      });
+      //business owner
+      Route::group(['prefix' => '/business_owner',
+      'as' => 'business_owner.',],function ()  {
+        Route::get('/',[BusinessOwnerController::class, 'index'])->name('business_owner_index');
+        Route::get('/create',[BusinessOwnerController::class, 'create'])->name('business_owner_create');
+        Route::post('/store',[BusinessOwnerController::class, 'store'])->name('business_owner_store');
+        Route::get('/edit/{id}',[BusinessOwnerController::class, 'edit'])->name('business_owner_edit');
+        Route::put('/update/{id}',[BusinessOwnerController::class, 'update'])->name('business_owner_update');
+        Route::delete('/delete/{id}',[BusinessOwnerController::class, 'destroy'])->name('business_owner_destroy');
+      });
        //requests
        Route::group(['prefix' => '/requests',
        'as' => 'requests.',],function ()  {

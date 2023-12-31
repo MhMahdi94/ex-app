@@ -1,5 +1,5 @@
 @extends('layout.admin')
-@section('title')
+{{-- @section('title')
 Companies
 @endsection
 @section('page_name')
@@ -10,99 +10,79 @@ Companies Page
 @endsection
 @section('active_content')
 Companies Page
-@endsection
+@endsection --}}
 @section('content')
  <!-- /.row -->
-<div class="container">
+<div class="page-content">
   
-    <div class="modal fade" id="modal-danger">
-        <div class="modal-dialog">
-          <div class="modal-content bg-danger">
-            <div class="modal-header">
-              <h4 class="modal-title">Delete Admin</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Are You Sure to Delete this Admin?</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">No, Cancel please</button>
-              <button type="button" class="btn btn-outline-light delete" id="delete_admin">Yes, Delete Admin</button>
-            </div>
+  <div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+     
+        <h6 class="mb-0 text-uppercase ">Companies List</h6>
+        <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
+          <input class="form-control px-5" disabled type="search" placeholder="Search">
+          <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i class='bx bx-search'></i></span>
           </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
-    <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Companies List</h3>
-              
-              
-              <div class="card-tools row">
-                <a class="mr-2 btn btn-info" href="{{ route('admin.companies.companies_create') }}">Add Company</a>
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+      
+     
 
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                  </div>
-                </div>
-            </div>
+
+      
+        <div class="d-flex ustify-content-between align-items-center" width='200'>
+          <a class=" btn btn-primary float-right" href="{{ route('admin.companies.companies_create') }}">Add Company</a>
         </div>
-            <!-- /.card-header -->
-            {{-- 
-               --}}
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover">
-                <thead>
-                  <tr>
-                    <th>Name</th>
-                    {{-- <th>Owner</th> --}}
-                    <th>Email</th>
-                    {{-- <th>Description</th> --}}
-                    <th>Departments</th>
-                    <th>Employees</th>
-                    <th>Subscription Start</th>
-                    <th>Employees</th>
-                    {{-- <th>isActive</th> --}}
-                    <th>Actions</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    @foreach ($data as $item)
-                        <tr>
-                            <td>{{ $item->name }}</td>
-                            {{-- <td>{{ $item->owner->name }}</td> --}}
-                            <td>{{ $item->email }}</td>
-                            {{-- <td>{{ $item->description }}</td> --}}
-                            <td>{{ $item->noOfDept }}</td>
-                            <td>{{ $item->noOfEmployee }}</td>
-                            <td>{{ $item->subscriptionStart }}</td>
-                            <td>{{ $item->subscriptionEnd }}</td>
-                            {{-- <td><span class="badge {{ $item->status?'bg-teal':'bg-red' }} ">{{ $item->status?'Active':'Not Active' }}</span></td> --}}
-                            <td class="row">
-                                <a class="mr-2 btn btn-info" href="{{ route('admin.admins.admins_edit',$item->id ) }}">Edit</a>
-                                <meta name="csrf-token" content="{{ csrf_token() }}">
-                                <form method="post" class="delete-form" data-route="{{route('admin.companies.companies_destroy', $item->id) }}">
-                                  @method('delete')
-                                  <button type="submit" class="btn btn-danger  ">Delete</button>
-                                </form>
-                            </td>
-                        </tr> 
-                    @endforeach
-                </tbody>
-              </table>
-            </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
+    </div>
+    <div class="card-body">
+      <div class="table-responsive">
+        <table id="example2" class="table table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Name</th>
+              {{-- <th>Owner</th> --}}
+              <th>Email</th>
+              {{-- <th>Description</th> --}}
+              <th>Departments</th>
+              <th>Employees</th>
+              <th>Subscription Start</th>
+              <th>Employees</th>
+              {{-- <th>isActive</th> --}}
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            @foreach ($data as $item)
+                <tr>
+                  <td>{{ $item->name }}</td>
+                  {{-- <td>{{ $item->owner->name }}</td> --}}
+                  <td>{{ $item->email }}</td>
+                  {{-- <td>{{ $item->description }}</td> --}}
+                  <td>{{ $item->noOfDept }}</td>
+                  <td>{{ $item->noOfEmployee }}</td>
+                  <td>{{ $item->subscriptionStart }}</td>
+                  <td>{{ $item->subscriptionEnd }}</td>
+                    {{-- <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td> --}}
+                    <td class="row row-cols-auto ">
+                      <div class="col-4 ">
+                        <a class="btn btn-primary px-4" href="{{ route('admin.admins.admins_edit',$item->id ) }}">Edit</a>
+                      </div>
+                        <div class="col-4">
+                          <meta name="csrf-token" content="{{ csrf_token() }}">
+                          <form method="post" class="delete-form" data-route="{{route('admin.admins.admins_destroy', $item->id) }}">
+                            @method('delete')
+                            <button type="submit" class="btn btn-danger px-4 ">Delete</button>
+                          </form>
+                        </div>
+                        
+                    </td>
+                </tr> 
+            @endforeach
+        </tbody>
+          
+        </table>
       </div>
+    </div>
+  </div> 
+      
 </div>
 
 <script

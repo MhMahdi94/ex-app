@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Owners;
 
 use App\Http\Controllers\Controller;
+use App\Models\Business;
 use App\Models\Company;
 use App\Models\Employees;
 use Illuminate\Http\Request;
@@ -63,6 +64,7 @@ class OwnerController extends Controller
     public function edit(string $id)
     {
         //
+        
     }
 
     /**

@@ -7,17 +7,33 @@
 
   <title>tHRS | @yield('title')</title>
 
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="{{ asset('assets/admin/plugins/fontawesome-free/css/all.min.css') }}">
-  <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="{{ asset('assets/admin/plugins/overlayScrollbars/css/OverlayScrollbars.min.css') }}">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="{{ asset('assets/admin/dist/css/adminlte.min.css') }}">
-  <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+ 	<!-- Required meta tags -->
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!--favicon-->
+   <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png"/>
+   <!--plugins-->
+   <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
+   <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
+   <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
+   <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet"/>
+   <!-- loader-->
+   <link href="{{ asset('assets/css/pace.min.css') }}" rel="stylesheet"/>
+   <script src="{{ asset('assets/js/pace.min.js') }}"></script>
+   <!-- Bootstrap CSS -->
+   <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+   <link href="{{ asset('assets/css/bootstrap-extended.css') }}" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+   <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
+   <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet">
+   <!-- Theme Style CSS -->
+   <link rel="stylesheet" href="{{ asset('assets/css/dark-theme.css') }}"/>
+   <link rel="stylesheet" href="{{ asset('assets/css/semi-dark.css') }}"/>
+   <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}"/>
+   <title>tHRS Admin | Home</title>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper">
+<div class="page-wrapper">
   <!-- Navbar -->
   @include('admin.inc.navbar')
   <!-- /.navbar -->
@@ -30,43 +46,42 @@
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
+  {{-- <aside class="control-sidebar control-sidebar-dark"> --}}
     <!-- Control sidebar content goes here -->
-  </aside>
+  {{-- </aside> --}}
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
-  @include('admin.inc.footer')
+  {{-- @include('admin.inc.footer') --}}
 </div>
 <!-- ./wrapper -->
 
 <!-- REQUIRED SCRIPTS -->
 
-<!-- jQuery -->
-<script src="{{ asset('assets/admin/plugins/jquery/jquery.min.js') }}"></script>
-<!-- Bootstrap -->
-<script src="{{ asset('assets/admin/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-<!-- overlayScrollbars -->
-<script src="{{ asset('assets/admin/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js') }}"></script>
-<!-- AdminLTE App -->
-<script src="{{ asset('assets/admin/dist/js/adminlte.js') }}"></script>
-
-<!-- OPTIONAL SCRIPTS -->
-<script src="{{ asset('assets/admin/dist/js/demo.js') }}"></script>
-<script
-  src="https://code.jquery.com/jquery-3.7.1.js"
-  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-  crossorigin="anonymous"></script>
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="{{ asset('assets/admin/plugins/jquery-mousewheel/jquery.mousewheel.js') }}"></script>
-<script src="{{ asset('assets/admin/plugins/raphael/raphael.min.js') }}"></script>
-<script src="{{ asset('assets/admin/plugins/jquery-mapael/jquery.mapael.min.js') }}"></script>
-<script src="{{ asset('assets/admin/plugins/jquery-mapael/maps/world_countries.min.js') }}"></script>
-<!-- ChartJS -->
-<script src="{{ asset('assets/admin/plugins/chart.js/Chart.min.js') }}"></script>
-
-<!-- PAGE SCRIPTS -->
-<script src="{{ asset('assets/admin/dist/js/pages/dashboard2.js') }}"></script>
+<!-- Bootstrap JS -->
+<script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+<!--plugins-->
+<script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/simplebar/js/simplebar.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/metismenu/js/metisMenu.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js') }}"></script>
+<script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.min.js') }}"></script>
+  <script src="{{ asset('assets/plugins/vectormap/jquery-jvectormap-world-mill-en.js') }}"></script>
+<script src="{{ asset('assets/plugins/chartjs/js/chart.js') }}"></script>
+<script src="{{ asset('assets/plugins/sparkline-charts/jquery.sparkline.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery.easy-pie-chart/jquery.easypiechart.min.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-knob/excanvas.js') }}"></script>
+<script src="{{ asset('assets/plugins/jquery-knob/jquery.knob.js') }}"></script>
+<script>
+    $(function() {
+      $(".knob").knob();
+    });
+</script>
+<script src="{{ asset('assets/js/index.js') }}"></script>
+<!--app JS-->
+<script src="{{ asset('assets/js/app.js') }}"></script>
+<script>
+  new PerfectScrollbar(".app-container")
+</script>
 </body>
 </html>

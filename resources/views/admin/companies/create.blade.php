@@ -13,8 +13,8 @@ Company Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
-    <div class="row">
+<div class="page-content">
+    <div class="row g-3">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
@@ -26,19 +26,11 @@ Company Page
             <div class="card-body table-responsive p-0">
                 <form method="POST" action="{{ route('admin.companies.companies_store') }}" class='needs-validation' novalidate>
                     @csrf
-                    <div class="card-body">
+                    <div class="card-body row g-3">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
-                        {{-- <div class="form-group">
-                          <label>Owner</label>
-                          <select class="form-control select2" style="width: 100%;" required name="owner_id">
-                           @foreach ($owners as $owner )
-                              <option value="{{ $owner->id }}">{{ $owner->name }}</option>
-                            @endforeach
-                          </select>
-                        </div> --}}
                         <div class="form-group">
                             <label for="email">Email address</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
@@ -47,7 +39,7 @@ Company Page
                             <label for="mobile_no">Mobile No</label>
                             <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
                         </div>
-                        <div class="row">
+                        <div class="row g-1">
                           <div class="form-group col-6">
                               <label for="noOfEmployee">No of Employees</label>
                               <input type="number" name="noOfEmployee" class="form-control" id="noOfEmployee"  required>
@@ -57,7 +49,7 @@ Company Page
                               <input type="number" name="noOfDept" class="form-control" id="noOfDept"  required>
                           </div>
                         </div>
-                        <div class="row">
+                        <div class="row g-1">
                           <div class="form-group col-6">
                               <label for="subscriptionStart">Subscription Start</label>
                               <input type="date" name="subscriptionStart" class="form-control" id="subscriptionStart"  required>
