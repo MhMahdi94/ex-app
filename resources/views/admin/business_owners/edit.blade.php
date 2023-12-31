@@ -33,7 +33,7 @@ Admins Page
                             <label for="name">Name</label>
                             <input type="text" name="name" value="{{ $owner->name }}" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
-                       
+                       {{--  --}}
                         <div class="form-group mb-2">
                             <label for="email">Email address</label>
                             <input type="email" name="email" value="{{ $owner->email }}" class="form-control" id="email" placeholder="Enter email" required>
