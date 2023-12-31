@@ -39,6 +39,7 @@ class BusinessController extends Controller
             'mobile_no'=>$request->mobile_no,
             'subscriptionStart'=>$request->subscriptionStart,
             'subscriptionEnd'=>$request->subscriptionEnd,
+            'is_owner'=>1,
             'desc'=>$request->description ,
         ]);
         return redirect()->back();
