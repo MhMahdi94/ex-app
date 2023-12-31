@@ -43,7 +43,7 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('admin.companies.companies_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+            <a href="{{ route('business.products.products_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
                 <p>
                     Products Managment
