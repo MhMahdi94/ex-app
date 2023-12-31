@@ -62,7 +62,7 @@ class BusinessOwnerController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        // //
         $owner=Business::find($id);
         return view('admin.business_owners.edit',compact('owner'));
     }
