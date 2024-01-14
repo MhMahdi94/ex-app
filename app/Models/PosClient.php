@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class PosClient extends Model
 {
     use HasFactory;
+
+    protected $fillable=[
+        'name',
+        'mobile_no',
+        'email',
+        'address'
+    ];
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Business\BusinessController;
 use App\Http\Controllers\Business\Auth\LoginController;
 use App\Http\Controllers\Business\Category\CategoryController;
+use App\Http\Controllers\Business\Client\ClientController;
 use App\Http\Controllers\Business\Home\HomeController;
 use App\Http\Controllers\Business\Product\ProductController;
 use App\Http\Controllers\Business\User\UserController;
@@ -62,6 +63,18 @@ Route::group([
           Route::put('/update/{id}',[ProductController::class, 'update'])->name('products_update');
           Route::delete('/delete/{id}',[ProductController::class, 'destroy'])->name('products_destroy');
           Route::get('/details/{id}',[ProductController::class, 'details'])->name('products_details');
+        });
+
+        //products
+        Route::group(['prefix' => '/clients',
+        'as' => 'clients.',],function ()  {
+          Route::get('/',[ClientController::class, 'index'])->name('clients_index');
+          Route::get('/create',[ClientController::class, 'create'])->name('clients_create');
+          Route::post('/store',[ClientController::class, 'store'])->name('clients_store');
+          Route::get('/edit/{id}',[ClientController::class, 'edit'])->name('clients_edit');
+          Route::put('/update/{id}',[ClientController::class, 'update'])->name('clients_update');
+          Route::delete('/delete/{id}',[ClientController::class, 'destroy'])->name('clients_destroy');
+          Route::get('/details/{id}',[ClientController::class, 'details'])->name('clients_details');
         });
       
   });
