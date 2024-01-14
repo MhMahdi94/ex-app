@@ -5,6 +5,7 @@ use App\Http\Controllers\Business\Auth\LoginController;
 use App\Http\Controllers\Business\Category\CategoryController;
 use App\Http\Controllers\Business\Client\ClientController;
 use App\Http\Controllers\Business\Home\HomeController;
+use App\Http\Controllers\Business\Orders\OrdersController;
 use App\Http\Controllers\Business\Product\ProductController;
 use App\Http\Controllers\Business\User\UserController;
 use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
@@ -65,7 +66,7 @@ Route::group([
           Route::get('/details/{id}',[ProductController::class, 'details'])->name('products_details');
         });
 
-        //products
+        //clients
         Route::group(['prefix' => '/clients',
         'as' => 'clients.',],function ()  {
           Route::get('/',[ClientController::class, 'index'])->name('clients_index');
@@ -75,6 +76,19 @@ Route::group([
           Route::put('/update/{id}',[ClientController::class, 'update'])->name('clients_update');
           Route::delete('/delete/{id}',[ClientController::class, 'destroy'])->name('clients_destroy');
           Route::get('/details/{id}',[ClientController::class, 'details'])->name('clients_details');
+        });
+
+        //orders
+        Route::group(['prefix' => '/orders',
+        'as' => 'orders.',],function ()  {
+          Route::get('/',[OrdersController::class, 'index'])->name('orders_index');
+          Route::get('/create',[OrdersController::class, 'create'])->name('orders_create');
+          Route::post('/store',[OrdersController::class, 'store'])->name('orders_store');
+          Route::get('/show/{id}',[OrdersController::class, 'show'])->name('orders_show');
+          Route::get('/edit/{id}',[OrdersController::class, 'edit'])->name('orders_edit');
+          Route::put('/update/{id}',[OrdersController::class, 'update'])->name('orders_update');
+          Route::delete('/delete/{id}',[OrdersController::class, 'destroy'])->name('orders_destroy');
+          Route::get('/details/{id}',[OrdersController::class, 'details'])->name('orders_details');
         });
       
   });

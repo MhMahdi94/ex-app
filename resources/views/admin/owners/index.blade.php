@@ -13,45 +13,26 @@ Owners Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
-    <div class="modal fade" id="modal-danger">
-        <div class="modal-dialog">
-          <div class="modal-content bg-danger">
-            <div class="modal-header">
-              <h4 class="modal-title">Delete Admin</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Are You Sure to Delete this Admin?</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">No, Cancel please</button>
-              <button type="button" class="btn btn-outline-light delete" id="delete_admin">Yes, Delete Admin</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
+<div class="page-content">
     <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Owners List</h3>
-              
-              
-              <div class="card-tools row">
-                <a class="mr-2 btn btn-info" href="{{ route('admin.owners.owners_create') }}">Add Owner</a>
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                  </div>
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h3 class="mb-0 text-uppercase ">Owners List</h3>
+              <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
+                <input class="form-control px-5" disabled type="search" placeholder="Search">
+                <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i class='bx bx-search'></i></span>
                 </div>
-            </div>
+            
+           
+    
+    
+            
+              <div class="d-flex ustify-content-between align-items-center" width='200'>
+                <a class=" btn btn-primary float-right" href="{{ route('admin.owners.owners_create') }}">Add Owner</a>
+              </div>
+              
+              
         </div>
             <!-- /.card-header -->
             {{-- 
@@ -75,14 +56,19 @@ Owners Page
                             <td>{{ $item->company->name }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->mobile_no }}</td>
-                            <td><span class="badge {{ $item->status?'bg-teal':'bg-red' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>
-                            <td class="row">
+                            <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>
+                            <td class="row row-cols-auto ">
+                              <div class="col-3">
                                 <a class="mr-2 btn btn-info" href="{{ route('admin.owners.owners_edit',$item->id ) }}">Edit</a>
+                              </div>
+                              <div class="col-3">
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 <form method="post" class="delete-form" data-route="{{route('admin.owners.owners_destroy', $item->id) }}">
                                   @method('delete')
                                   <button type="submit" class="btn btn-danger  ">Delete</button>
                                 </form>
+                              </div>
+                                
                             </td>
                         </tr> 
                     @endforeach

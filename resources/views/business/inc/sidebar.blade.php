@@ -61,10 +61,10 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('admin.requests.requests_index') }}" class="nav-link">
+            <a href="{{ route('business.orders.orders_index') }}" class="nav-link">
 
                 <p>
-                    Requests Managment
+                    Orders Managment
 
                 </p>
             </a>

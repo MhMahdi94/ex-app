@@ -13,45 +13,26 @@ Services Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
-    <div class="modal fade" id="modal-danger">
-        <div class="modal-dialog">
-          <div class="modal-content bg-danger">
-            <div class="modal-header">
-              <h4 class="modal-title">Delete service</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>Are You Sure to Delete this service?</p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-outline-light" data-dismiss="modal">No, Cancel please</button>
-              <button type="button" class="btn btn-outline-light delete" id="delete_package">Yes, Delete service</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
+<div class="page-content">
     <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Services List</h3>
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h6 class="mb-0 text-uppercase">Services List</h6>
               
-              
-              <div class="card-tools row">
-                <a class="mr-2 btn btn-info" href="{{ route('admin.packages.packages_create') }}">Add Service</a>
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                  </div>
+              <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
+                <input class="form-control px-5" disabled type="search" placeholder="Search">
+                <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i class='bx bx-search'></i></span>
                 </div>
-            </div>
+            
+           
+    
+    
+            
+              <div class="d-flex ustify-content-between align-items-center" width='200'>
+                <a class=" btn btn-primary float-right" href="{{ route('admin.packages.packages_create') }}">Add Service</a>
+              </div>
+              
         </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
