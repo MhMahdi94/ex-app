@@ -52,6 +52,15 @@
             </a>
         </li>
         <li class="nav-item">
+            <a href="{{ route('business.services.services_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+
+                <p>
+                    Services Managment
+
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
             <a href="{{ route('business.clients.clients_index') }}" class="nav-link {{ request()->is('thrs/admin/packages') ? 'active' : '' }}">
 
                 <p>

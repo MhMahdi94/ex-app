@@ -13,29 +13,32 @@ Departments Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
+<div class="page-content">
     
     <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Departments List</h3>
-              
-              
-              <div class="card-tools row">
-                <a class="mr-2 btn btn-info" href="{{ route('company.department.department_create') }}">Add Department</a>
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h6 class="mb-0 text-uppercase ">Departments List</h6>
+              <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
+                  data-bs-target="#SearchModal">
+                  <input class="form-control px-5" disabled type="search" placeholder="Search">
+                  <span
+                      class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i
+                          class='bx bx-search'></i></span>
+              </div>
 
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                  </div>
-                </div>
+              <div class="d-flex ustify-content-between align-items-center" width='200'>
+                  <a class=" btn btn-success float-right"
+                      href="{{ route('company.department.department_create') }}">Add
+                      Department</a>
+              </div>
             </div>
-        </div>
+           
+       
             <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover">
+            <div class="card-body table-responsive ">
+              <table id="example2" class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th>Name</th>
@@ -48,8 +51,8 @@ Departments Page
                         <tr>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->employee->name }}</td>
-                            <td class="row">
-                                <a class="mr-2 btn btn-info" href="{{ route('company.department.department_edit',$item->id ) }}">Edit</a>
+                            <td class="d-flex   ">
+                                <a class="mr-2 btn btn-info mx-1" href="{{ route('company.department.department_edit',$item->id ) }}">Edit</a>
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 {{-- <input type="hidden" id="employee_id" value="{{ $item->id }}"> --}}
                                 {{-- <a class="mr-2 btn btn-danger" data-toggle="modal" data-target="#modal-danger" id='{{ $item->id }}'

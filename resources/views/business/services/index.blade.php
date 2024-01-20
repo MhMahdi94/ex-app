@@ -7,7 +7,7 @@
         <div class=" card">
 
             <div class="card-header d-flex justify-content-between align-items-center">
-                <h6 class="mb-0 text-uppercase ">Products List</h6>
+                <h6 class="mb-0 text-uppercase ">Services List</h6>
                 <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                     data-bs-target="#SearchModal">
                     <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -16,8 +16,8 @@
                 </div>
 
                 <div class="d-flex ustify-content-between align-items-center" width='200'>
-                    <a class=" btn btn-primary float-right" href="{{ route('business.products.products_create') }}">Add
-                        Product</a>
+                    <a class=" btn btn-primary float-right" href="{{ route('business.services.services_create') }}">Add
+                        Service</a>
                 </div>
             </div>
 
@@ -28,12 +28,8 @@
                             <tr>
                             <tr>
                                 <th>Name</th>
-                                <th>Category</th>
+                                <th>Company</th>
                                 <th>Description</th>
-                                {{-- <th>Image</th> --}}
-                                <th>Purchase Price</th>
-                                <th>Sale Price</th>
-                                <th>Quantity</th>
                                 <th>Actions</th>
                             </tr>
                             </tr>
@@ -42,20 +38,18 @@
                             @foreach ($data as $item)
                                 <tr>
                                     <td>{{ $item->name }}</td>
-                                    <td>{{ $item->category->name }}</td>
-                                    <td>{{ $item->desc }}</td>
-                                    <td>{{ $item->purchase_price }}</td>
-                                    <td>{{ $item->sale_price }}</td>
-                                    <td>{{ $item->quantity }}</td>
+                                    <td>{{ $item->business->name }}</td>
+                                    <td>{{ $item->description }}</td>
+                                    
                                     <td class="row row-cols-auto ">
                                         <div class="col-4">
                                             <a class="btn btn-primary px-4"
-                                                href="{{ route('business.products.products_edit', $item->id) }}">Edit</a>
+                                                href="{{ route('business.services.services_edit', $item->id) }}">Edit</a>
                                         </div>
                                         <div class="col-4">
                                             <meta name="csrf-token" content="{{ csrf_token() }}">
                                             <form method="post" class="delete-form"
-                                                data-route="{{ route('business.products.products_destroy', $item->id) }}">
+                                                data-route="{{ route('business.services.services_destroy', $item->id) }}">
                                                 @method('delete')
                                                 <button type="submit" class="btn btn-danger px-4 ">Delete</button>
                                             </form>

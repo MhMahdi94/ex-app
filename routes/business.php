@@ -7,6 +7,7 @@ use App\Http\Controllers\Business\Client\ClientController;
 use App\Http\Controllers\Business\Home\HomeController;
 use App\Http\Controllers\Business\Orders\OrdersController;
 use App\Http\Controllers\Business\Product\ProductController;
+use App\Http\Controllers\Business\Services\ServicesController;
 use App\Http\Controllers\Business\User\UserController;
 use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
 use Illuminate\Support\Facades\Route;
@@ -90,6 +91,19 @@ Route::group([
           Route::delete('/delete/{id}',[OrdersController::class, 'destroy'])->name('orders_destroy');
           Route::get('/details/{id}',[OrdersController::class, 'details'])->name('orders_details');
         });
+
+         //services
+         Route::group(['prefix' => '/services',
+         'as' => 'services.',],function ()  {
+           Route::get('/',[ServicesController::class, 'index'])->name('services_index');
+           Route::get('/create',[ServicesController::class, 'create'])->name('services_create');
+           Route::post('/store',[ServicesController::class, 'store'])->name('services_store');
+           Route::get('/show/{id}',[ServicesController::class, 'show'])->name('services_show');
+           Route::get('/edit/{id}',[ServicesController::class, 'edit'])->name('services_edit');
+           Route::put('/update/{id}',[ServicesController::class, 'update'])->name('services_update');
+           Route::delete('/delete/{id}',[ServicesController::class, 'destroy'])->name('services_destroy');
+           Route::get('/details/{id}',[ServicesController::class, 'details'])->name('services_details');
+         });
       
   });
 

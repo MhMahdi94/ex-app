@@ -13,7 +13,7 @@ Chart of Account Page
 @endsection
 @section('content')
 
-    <div class="container">
+    <div class="page-content">
        
         <div class="row">
             <div class="col-12">
@@ -41,7 +41,7 @@ Chart of Account Page
                 </div> 
             </div>
                 <!-- /.card-header -->
-                <div class="card-body table-responsive p-0">
+                <div class="card-body table-responsive">
                   <table class="table table-hover">
                     <thead>
                       <tr>

@@ -1,24 +1,13 @@
 @extends('layout.company')
-@section('title')
-Company
-@endsection
-@section('page_name')
-Company Page
-@endsection
-@section('active_link')
-<a href="#">Company</a>
-@endsection
-@section('active_content')
-Company Page
-@endsection
+
 @section('content')
  <!-- /.row -->
-<div class="container">
+<div class="page-content">
     <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Employee Details</h3>
+              <h6 class="text-uppercase ">Employee Details</h6>
 
               
             </div>
@@ -29,8 +18,8 @@ Company Page
                     @csrf
                     <input type="hidden" name="employee_id" value="{{ $id }}">
                     <input type="hidden" name="company_id" value="{{ $employee->company->id??'' }}">
-                    <div class="card-body row">
-                        <div class="form-group col-6">
+                    <div class="card-body row g-3">
+                        <div class="form-group col-6 ">
                             <label for="jobTitle">Job Title</label>
                             <input type="text" name="jobTitle" class="form-control" id="jobTitle" placeholder="Enter Job Title" value="{{ $details->jobTitle??'' }}" required>
                         </div>
@@ -59,46 +48,22 @@ Company Page
                           <label for="salary">Salary</label>
                           <input type="text" value="{{ $details->salary??'' }}" name="salary" class="form-control" id="salary" placeholder="Enter salary" required>
                         </div>
-                        {{-- <div class="form-group col-5">
-                          <label for="allowence_name">Allowence Name</label>
-                          <input type="text" name="allowence_name" class="form-control" id="allowence_name" placeholder="EnterAllowence Name" required>
-                      </div>
-                      <div class="form-group col-5">
-                        <label for="allowence_value">Allowence Value</label>
-                        <input type="text" name="allowence_value" class="form-control" id="allowence_value" placeholder="Enter Allowence Value" required>
-                      </div>
-                      <div class="form-group col-12 ">
-                        
-                        <button type="" class="btn btn-primary  mt-4 add_allow">Add More</button>
-                      </div> --}}
-                      <table class="table table-bordered" id="dynamicAddRemove">  
-                        <tr>
-                            <th>Allowence Name</th>
-                            <th>Allowence Value</th>
-                            <th>Action</th>
-                        </tr>
-                        <tr>  
-                            <td><input type="text" name="allowenceFields[0][all_name]" placeholder="Allowence Name" class="form-control" /></td>  
-                            <td><input type="text" name="allowenceFields[0][all_val]" placeholder="Allowence Value" class="form-control" /></td>  
-                            <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
-                        </tr>  
-                    </table> 
-                       {{--  <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+                        <div class="table-responsive mt-3">
+                          <table class="table table-bordered" id="dynamicAddRemove">  
+                            <tr>
+                                <th>Allowence Name</th>
+                                <th>Allowence Value</th>
+                                <th>Action</th>
+                            </tr>
+                            <tr>  
+                                <td><input type="text" name="allowenceFields[0][all_name]" placeholder="Allowence Name" class="form-control" /></td>  
+                                <td><input type="text" name="allowenceFields[0][all_val]" placeholder="Allowence Value" class="form-control" /></td>  
+                                <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
+                            </tr>  
+                          </table> 
                         </div>
-                        <div class="form-group">
-                            <label for="mobile_no">Mobile No</label>
-                            <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirm_password">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" name='confirm_password' placeholder="Confirm Password" required>
-                        </div>--}}
+                   
+                      
                       
                     </div> 
                     <!-- /.card-body -->

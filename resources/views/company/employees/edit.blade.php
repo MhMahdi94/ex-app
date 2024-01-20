@@ -13,12 +13,12 @@ Company Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
+<div class="page-content">
     <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Employee</h3>
+              <h6 class="text-uppercase ">Create Employee</h6>
 
               
             </div>
@@ -28,7 +28,7 @@ Company Page
                     @csrf
                     @method('PUT')
                     <input type="hidden" name="company_id" value="{{ $employee->company->id }}">
-                    <div class="card-body">
+                    <div class="card-body row g-3">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" value="{{ $employee->name }}" name="name" class="form-control" id="name" placeholder="Enter Name" required>

@@ -1,16 +1,16 @@
-@extends('layout.company')
-@section('title')
-Department
+@extends('layout.business')
+{{-- @section('title')
+Admins
 @endsection
 @section('page_name')
-Department Page
+Admins Page
 @endsection
 @section('active_link')
-<a href="#">Department</a>
+<a href="#">Admins</a>
 @endsection
 @section('active_content')
-Department Page
-@endsection
+Admins Page
+@endsection --}}
 @section('content')
  <!-- /.row -->
 <div class="page-content">
@@ -18,32 +18,28 @@ Department Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Department</h3>
+              <h3 class="card-title">Edit Service</h3>
 
               
             </div>
             <!-- /.card-header -->
+          
             <div class="card-body table-responsive p-0">
-             
-                <form method="POST" action="{{ route('company.department.department_store') }}" class='needs-validation' novalidate>
+                <form method="POST" action="../update/{{ $service->id }}" class='needs-validation' novalidate>
                     @csrf
-                    {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
-                    <div class="card-body row g-2">
-                        <div class="form-group">
+                    @method('PUT')
+                    <div class="card-body row g-3">
+                     
+                        <div class="form-group mb-2 col-md-12">
                             <label for="name">Name</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" value="{{ $service->name }}" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
-                       
-                        <div class="form-group ">
-                          <label for="employee_id">Head</label>
-                          <select name="employee_id" id="" class="form-control select2">
-                            @foreach ($employees as $employee)
-                              <option value="{{ $employee->id }}">{{ $employee->name }}</option>
-                              
-                            @endforeach
-                          </select>
-                        </div>
+                        
                       
+                  <div class="form-group col-md-12">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" placeholder="Description" name='description' required>{{ $service->description }}</textarea>
+                  </div>
                     </div>
                     <!-- /.card-body -->
     
