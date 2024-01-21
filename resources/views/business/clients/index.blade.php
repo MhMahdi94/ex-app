@@ -48,11 +48,11 @@
                   <td>{{ $item->email }}</td>
                   <td>{{ $item->mobile_no }}</td>
                   <td>{{ $item->address }}</td>
-                  <td class="row row-cols-auto ">
-                      <div class="col-2">
+                  <td class="row g-4 ">
+                      <div class="col-3">
                         <a class="btn btn-primary px-4" href="{{ route('business.clients.clients_edit',$item->id ) }}">Edit</a>
                       </div>
-                        <div class="col-2">
+                        <div class="col-3">
                           <meta name="csrf-token" content="{{ csrf_token() }}">
                           <form method="post" class="delete-form" data-route="{{route('business.clients.clients_destroy', $item->id) }}">
                             @method('delete')

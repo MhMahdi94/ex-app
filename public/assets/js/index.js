@@ -8,16 +8,16 @@ $(function() {
 			  data: {
 				  labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct"],
 				  datasets: [{
-					  label: 'New Visitor',
-					  data: [3, 3, 8, 5, 7, 4, 6, 4, 6, 3],
+					  label: 'Sales',
+					  data: [3, 3, 8, 5, 7, 40, 6, 4, 6, 3],
 					  backgroundColor: [
 						  '#5e72e4'
 					  ],
-					 fill: {
-						  target: 'origin',
-						  above: 'rgb(94 114 228)',   // Area will be red above the origin
-						  below: 'rgb(94 114 228)'   // And blue below the origin
-						}, 
+					//  fill: {
+					// 	  target: 'origin',
+					// 	  above: 'rgb(94 114 228)',   // Area will be red above the origin
+					// 	  below: 'rgb(94 114 228)'   // And blue below the origin
+					// 	}, 
 					  tension: 0.4,
 					  borderColor: [
 						  '#5e72e4'
@@ -25,24 +25,25 @@ $(function() {
 					  pointRadius :"0",
 					  borderWidth: 3
 				  },
-				  {
-					  label: 'Old Visitor',
-					  data: [7, 5, 14, 7, 12, 6, 10, 6, 11, 5],
-					  backgroundColor: [
-						  '#2dce89'
-					  ],
-					  fill: {
-						  target: 'origin',
-						  above: 'rgb(45 206 137)',   // Area will be red above the origin
-						  below: 'rgb(45 206 137)'    // And blue below the origin
-						},
-					  tension: 0.4,
-					  borderColor: [
-						  '#2dce89'
-					  ],
-					  pointRadius :"0",
-					  borderWidth: 1
-				  }]
+				//   {
+				// 	  label: 'Old Visitor',
+				// 	  data: [7, 5, 14, 7, 12, 6, 10, 6, 11, 5],
+				// 	  backgroundColor: [
+				// 		  '#2dce89'
+				// 	  ],
+				// 	  fill: {
+				// 		  target: 'origin',
+				// 		  above: 'rgb(45 206 137)',   // Area will be red above the origin
+				// 		  below: 'rgb(45 206 137)'    // And blue below the origin
+				// 		},
+				// 	  tension: 0.4,
+				// 	  borderColor: [
+				// 		  '#2dce89'
+				// 	  ],
+				// 	  pointRadius :"0",
+				// 	  borderWidth: 1
+				//   }
+				]
 			  },
 			  options: {
 				  maintainAspectRatio: false,
@@ -79,7 +80,7 @@ var gradientStroke3 = ctx.createLinearGradient(0, 0, 0, 300);
 var myChart = new Chart(ctx, {
   type: 'pie',
   data: {
-      labels: ['Direct', 'Google', 'Affiliate'],
+      labels: ['Product 1', 'Product 2', 'Product 3'],
       datasets: [{
           data: [155, 120, 110],
           backgroundColor: [
@@ -87,7 +88,7 @@ var myChart = new Chart(ctx, {
               gradientStroke2,
               gradientStroke3,
           ],
-          borderWidth: 1
+          borderWidth: 2
       }]
   },
   options: {

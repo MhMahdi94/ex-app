@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Business\Orders;
 
 use App\Http\Controllers\Controller;
+use App\Models\PosCategory;
 use App\Models\PosClient;
 use App\Models\PosProduct;
 use App\Models\PosRequest;
@@ -28,9 +29,11 @@ class OrdersController extends Controller
     public function create()
     {
         //
+       // return Auth::guard('business')->user();
         $clients=PosClient::get();
+        $categories=PosCategory::where('company_id',Auth::guard('business')->user()->business_id)->with('products')->get();
         $products=PosProduct::where('company_id',Auth::guard('business')->user()->business_id)->get();
-        return view('business.orders.create', compact('clients','products'));
+        return view('business.orders.create', compact('clients','products','categories'));
     }
 
     /**
@@ -39,19 +42,26 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         //
-       // return $request->all();
+        //return $request->all();
         $pos_request=PosRequest::create([
             'client_id'=>$request->client_id
         ]);
-        foreach ($request->details as $item) {
+        // foreach ($request->product_id as $item) {
+        //     # code...
+        //     PosRequestContent::create([
+        //         'request_id'=>$pos_request->id,
+        //         'product_id'=> $item['product_id'],
+        //         'quantity'=> $item['quantity'],
+        //     ]);
+        // }
+        for ($i=0; $i < count($request->product_id); $i++) { 
             # code...
             PosRequestContent::create([
                 'request_id'=>$pos_request->id,
-                'product_id'=> $item['product_id'],
-                'quantity'=> $item['quantity'],
+                'product_id'=> $request->product_id[$i],
+                'quantity'=> $request->quantities[$i],
             ]);
         }
-
         return redirect()->back();
     }
 

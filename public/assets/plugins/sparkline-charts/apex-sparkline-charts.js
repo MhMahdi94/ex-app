@@ -247,7 +247,7 @@ window.Apex = {
       colors: ["#fff"],
       series: [{
 		name: 'Sales',
-        data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 9, 54]
+        data: [25, 66, 41, 89, 63, 25, 44, 12, 36, 911, 54]
       }],
       tooltip: {
 			theme: 'dark',
