@@ -14,113 +14,45 @@ Owners Page
 @section('content')
     <!-- /.row -->
     <div class="page-content">
-        <div class="row">
+        {{-- <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h3 class="card-title">Create Order</h3>
-
-
-                    </div>
-
-                    {{-- <div class="card-body table-responsive p-0"> --}}
-                      
-                    <form method="POST" action="{{ route('business.orders.orders_store') }}" class='needs-validation'
-                        novalidate>
-                        @csrf
-                        <div class="row g-4">
-                            <div class="col-md-6">
-                                <div class="card-body">
-                                    @foreach ($categories as $category)
-                                        <div class="accordion mb-2" id="accordionExample">
-                                            <div class="accordion-item">
-                                                <h2 class="accordion-header" id="heading{{ $category->id }}">
-                                                    <button class="accordion-button" type="button"
-                                                        data-bs-toggle="collapse" data-bs-target="#collapse{{ $category->id }}"
-                                                        aria-expanded="false" aria-controls="collapse{{ $category->id }}">
-                                                        {{ $category->name }}
-                                                    </button>
-                                                </h2>
-                                               
-                                                <div id="collapse{{ $category->id }}" class="accordion-collapse collapse"
-                                                    aria-labelledby="heading{{ $category->id }}" data-bs-parent="#accordionExample">
-                                                    <div class="accordion-body"> 
-                                                      <table class="table table-bordered" id="dynamicAddRemove">
-                                                        <tr>
-                                                            <th>Name</th>
-                                                            <th>Price</th>
-                                                            <th>Quantity</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                        <tr>
-                                                          @foreach ($category->products as $product )
-                                                          <div class="d-flex" id="product{{ $product->id }}">
-                                                           <tr>
-                                                            <td>{{ $product->name }}</td>
-                                                            <td>{{ $product->sale_price }}</td>
-                                                            <td>{{ $product->quantity }}</td>
-                                                            <td> <a class="btn btn-sm btn-success px-1 add_product_btn" 
-                                                              id="product-{{$product->id }}" 
-                                                              data-name="{{ $product->name }}"
-                                                              data-price="{{ $product->sale_price }}"
-                                                              data-id="{{ $product->id }}"
-                                                              href="#">Add</a></td>
-                                                           </tr>
-                                                          </div>
-                                                        @endforeach
-                                                        </tr>
-                        
-                                                    </table>
-                                                      
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-
-
-
-                                </div>
+                    <div class="card-body">
+                        <ul class="nav nav-tabs nav-primary" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link active" data-bs-toggle="tab" href="#primaryhome" role="tab" aria-selected="true">
+                                    <div class="d-flex align-items-center">
+                                       
+                                        <div class="tab-title">Products</div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link" data-bs-toggle="tab" href="#primaryprofile" role="tab" aria-selected="false">
+                                    <div class="d-flex align-items-center">
+                                        
+                                        <div class="tab-title">Services</div>
+                                    </div>
+                                </a>
+                            </li>
+                            
+                        </ul>
+                        <div class="tab-content py-3">
+                            <div class="tab-pane fade show active" id="primaryhome" role="tabpanel">
+                                @include('business.orders.inc.products')
                             </div>
-                          {{-- </div> --}}
-                        <div class="col-md-6 card-body row g-3">
-                            <div class="form-group  col-md-12">
-                                <label for="client_id">Client</label>
-                                <select name="client_id" id="" class="form-control select2">
-                                    @foreach ($clients as $client)
-                                        <option value="{{ $client->id }}">{{ $client->name }}</option>
-                                    @endforeach
-                                </select>
+                            <div class="tab-pane fade" id="primaryprofile" role="tabpanel">
+                                @include('business.orders.inc.services')
                             </div>
-                            <table class="table table-bordered order-list" id="dynamicAddRemove">
-                                <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Price</th>
-                                    <th>Actions</th>
-                                </tr>
-
-                            </table>
-                            <div class="">
-                              Total: <span class="total-orders"> {{ '0' }}</span>
-                            </div>
+                           
                         </div>
-                      </div></div>
-
-
-                <div class="card-footer">
-                    <button type="submit" class="btn btn-primary disabled" id="add-order-btn">Submit</button>
+                    </div>
                 </div>
-                </form>
-
-
-
-                {{-- </div> --}}
-            </div>
-        </div>
+               
     </div>
-    </div>
-
+    </div> --}}
+    @include('business.orders.inc.products')
+</div>
     <script>
         (function() {
             'use strict'

@@ -22,6 +22,7 @@
                     <div class="d-flex ustify-content-between align-items-center" width='200'>
                         <a class=" btn btn-primary float-right" href="{{ route('business.orders.orders_create') }}">Add
                             Order</a>
+                        
                     </div>
                 </div>
             

@@ -8,6 +8,7 @@ use App\Models\PosClient;
 use App\Models\PosProduct;
 use App\Models\PosRequest;
 use App\Models\PosRequestContent;
+use App\Models\PosService;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,7 +34,8 @@ class OrdersController extends Controller
         $clients=PosClient::get();
         $categories=PosCategory::where('company_id',Auth::guard('business')->user()->business_id)->with('products')->get();
         $products=PosProduct::where('company_id',Auth::guard('business')->user()->business_id)->get();
-        return view('business.orders.create', compact('clients','products','categories'));
+        $services=PosService::where('business_id',Auth::guard('business')->user()->business_id)->get();
+        return view('business.orders.create', compact('clients','products','categories','services'));
     }
 
     /**
