@@ -29,7 +29,8 @@ Chart of Account Page
                     <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_expenses') }}" >Expenses</a></li>
                     <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_revenue') }}" >Revenue</a></li>
                   </ul>
-                   <div class="card-tools row">
+                   <div class="card-tools d-flex gap-2">
+                    <a class="mr-2 btn btn-dark" href="{{ route('company.coa.coa_pdf') }}">Export</a>
                     <a class="mr-2 btn btn-info" href="{{ route('company.coa.coa_create') }}">Add Account</a>
                    {{-- <div class="input-group input-group-sm" style="width: 150px;">
                       <input type="text" name="table_search" class="form-control float-right" placeholder="Search">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Accounts;
 use App\Models\AccountType;
 use App\Models\ReportType;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,6 +51,20 @@ class AccountController extends Controller
         //
         $data=Accounts::where('account_parent_id',5)->get();
         return view('company.coa.expenses',compact('data'));
+    }
+    public function generatePDF()
+    {
+        $users = Accounts::get();
+  
+        $data = [
+            'title' => 'Chart of Accounts',
+            'date' => date('m/d/Y'),
+            'data' => $users
+        ]; 
+            
+        $pdf = Pdf::loadView('company.coa.pdf', $data);
+     
+        return $pdf->download('accounts.pdf');
     }
     /**
      * Show the form for creating a new resource.

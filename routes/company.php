@@ -110,6 +110,7 @@ Route::group([
       Route::group(['prefix' => '/accounts',
       'as' => 'coa.',],function ()  {
         Route::get('/',[AccountController::class, 'index'])->name('coa_index');
+        Route::get('/pdf',[AccountController::class, 'generatePDF'])->name('coa_pdf');
         Route::get('/assets',[AccountController::class, 'assets'])->name('coa_assets');
         Route::get('/liabilities',[AccountController::class, 'liabilities'])->name('coa_liabilities');
         Route::get('/equity',[AccountController::class, 'equity'])->name('coa_equity');

@@ -1,4 +1,4 @@
-<div class="sidebar-wrapper" data-simplebar="true">
+<div class="{{ app()->getLocale() == 'en'?'sidebar-wrapper':'sidebar-wrapper-rtl' }}" data-simplebar="true" >
     <div class="sidebar-header">
         {{-- <div>
             <img src="assets/images/logo-icon.png" class="logo-icon" alt="logo icon">

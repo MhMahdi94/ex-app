@@ -39,10 +39,9 @@ Account Page
                         </div>
                         <div class="form-group col-6">
                           <label for="parent_id">Parent Account</label>
-                          <select name="parent_id" id="parent_id" class="form-control mt-1 select2" >
+                          <select name="parent_id" id="parent_id" class="form-control mt-1 select2" data-show-subtext="true" data-live-search="true">
                             @foreach ($collections as $item)
                               <option value="{{ $item->id }}">{{ $item->account_name }}</option>
-                              
                             @endforeach
                           </select>
                         </div>
@@ -50,6 +49,20 @@ Account Page
                           <label for="level">Level</label>
                           <input type="text" name="level"  class="form-control mt-1" id="level" placeholder="Enter Level" required>
                         </div>
+                       
+                        <div class="form-group col-4">
+                          <label for="debit">Debit</label>
+                          <input type="text" value="0" name="debit" class="form-control mt-1" id="debit" placeholder="Enter Debit" required>
+                        </div>
+                        <div class="form-group col-4">
+                          <label for="credit">Credit</label>
+                          <input type="text" value="0" name="credit" class="form-control mt-1" id="credit" placeholder="Enter Credit" required>
+                        </div>
+                        <div class="form-group col-4">
+                          <label for="balance">Balance</label>
+                          <input type="text" value="0" name="balance" class="form-control mt-1" id="balance" placeholder="Enter Balance" required>
+                        </div>
+                        <hr/>
                         <div class="form-group col-6">
                           <label for="report_type">Report Type</label>
                           <select name="report_type" id="" class="form-control mt-1 select2">
@@ -69,18 +82,6 @@ Account Page
                               
                             @endforeach
                           </select>
-                        </div>
-                        <div class="form-group col-4">
-                          <label for="debit">Debit</label>
-                          <input type="text" value="0" name="debit" class="form-control mt-1" id="debit" placeholder="Enter Debit" required>
-                        </div>
-                        <div class="form-group col-4">
-                          <label for="credit">Credit</label>
-                          <input type="text" value="0" name="credit" class="form-control mt-1" id="credit" placeholder="Enter Credit" required>
-                        </div>
-                        <div class="form-group col-4">
-                          <label for="balance">Balance</label>
-                          <input type="text" value="0" name="balance" class="form-control mt-1" id="balance" placeholder="Enter Balance" required>
                         </div>
                     </div>
                     <!-- /.card-body -->

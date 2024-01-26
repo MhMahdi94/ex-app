@@ -76,15 +76,9 @@
 
        </ul>
    </li>
-
+   <li class="menu-label">Accounting Managment</li>
    <li class="nav-item has-treeview">
-       <a href="#" class="nav-link">
-         <i class="nav-icon fas fa-tachometer-alt"></i>
-         <p>
-           Accountant Managment
-           <i class="right fas fa-angle-left"></i>
-         </p>
-       </a>
+      
        <ul class=" nav-treeview">
          <li class="nav-item">
            <a href="{{ route('company.coa.coa_index') }}" class="nav-link">
@@ -120,7 +114,7 @@
        </ul>
      </li>
    
-
+     <li class="menu-label">Payroll Managment</li>
    <li class="nav-item">
        <a href="{{ route('admin.requests.requests_index') }}" class="nav-link">
 

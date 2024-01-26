@@ -11,11 +11,13 @@ use App\Http\Controllers\Admin\Packages\PackagesController;
 use App\Http\Controllers\Admin\Requests\RequestsController;
 use App\Http\Controllers\Admin\Roles\RolesController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 Route::group([
     "namespace"=>"Admin",
-    'prefix' => '/admin',
+    'prefix' => '/'.LaravelLocalization::setLocale().'/admin',
     'as' => 'admin.',
-    'middleware'=> 'admin'
+    'middleware'=> ['admin','localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
   ], function () {
     // Route::get('/', function () {
     //       return view('welcome');
