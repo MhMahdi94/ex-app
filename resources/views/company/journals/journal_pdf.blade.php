@@ -1,4 +1,4 @@
-@extends('layout.company')
+{{-- @extends('layout.company') --}}
 {{-- @section('title')
 Chart of Account
 @endsection
