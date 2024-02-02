@@ -22,8 +22,8 @@
  <link rel="stylesheet" href="{{ asset('assets/css/semi-dark.css') }}"/>
  <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}"/>
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="page-wrapper">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" dir= {{ app()->getLocale() =='en'?'ltr':'rtl' }}>
+<div class="{{app()->getLocale() =='en'? 'page-wrapper':'page-wrapper-rtl' }}">
   <!-- Navbar -->
   @include('company.inc.navbar')
   <!-- /.navbar -->

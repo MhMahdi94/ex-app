@@ -15,11 +15,13 @@ use App\Http\Controllers\Company\Leave\LeaveRequestController;
 use App\Http\Controllers\Company\Leave\LeaveSettingController;
 use App\Http\Controllers\Company\Stock\ProductController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 Route::group([
     "namespace"=>"Company",
-    'prefix' => '/company',
+    'prefix' => '/'.LaravelLocalization::setLocale().'/company',
     'as' => 'company.',
-    'middleware'=> 'company'
+    'middleware'=> ['company','localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
   ], function () {
     Route::get('/', function () {
           return 'hello';
@@ -142,6 +144,7 @@ Route::group([
       Route::group(['prefix' => '/journals',
       'as' => 'journals.',],function ()  {
         Route::get('/',[JournalsController::class, 'index'])->name('journals_index');
+        Route::get('/pdf/{id}',[JournalsController::class, 'generatePDF'])->name('journals_pdf');
         Route::get('/create',[JournalsController::class, 'create'])->name('journals_create');
         Route::post('/store',[JournalsController::class, 'store'])->name('journals_store');
         Route::get('/edit/{id}',[JournalsController::class, 'edit'])->name('journals_edit');

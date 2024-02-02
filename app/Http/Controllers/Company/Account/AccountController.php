@@ -61,9 +61,9 @@ class AccountController extends Controller
             'date' => date('m/d/Y'),
             'data' => $users
         ]; 
-            
+        
         $pdf = Pdf::loadView('company.coa.pdf', $data);
-     
+        set_time_limit(300);
         return $pdf->download('accounts.pdf');
     }
     /**

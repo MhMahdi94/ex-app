@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Accounts;
 use App\Models\JournalDetail;
 use App\Models\JournalHeader;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -45,12 +46,12 @@ class JournalsController extends Controller
         $user=Auth::guard('employee')->user();
         $j=JournalHeader::create([
             'journal_date'=>$request->journal_date,
-            'journal_description'=>$request->description,
+            'journal_description'=>'',//$request->description,
             'journal_type'=>1,//$request->journal_date,
             'journal_report'=>0,//$request->journal_date, 
-            'total_debit'=>0,//$request->debit, 
-            'total_credit'=>0,//$request->credit, 
-            'balance'=>0,//$request->journal_date, 
+            'total_debit'=>$request->total_debit,//$request->debit, 
+            'total_credit'=>$request->total_credit,//$request->credit, 
+            'balance'=>$request->balance,//$request->journal_date, 
             'company_id'=>$user->company_id,
             'added_by'=>$user->id
         ]);
@@ -73,6 +74,23 @@ class JournalsController extends Controller
     /**
      * Display the specified resource.
      */
+    public function generatePDF($id)
+    {
+      //  return $id;
+        $header=JournalHeader::find($id);
+        $details=JournalDetail::where('journal_no',$id)->get();
+  
+        $data = [
+            'title' => 'Chart of Accounts',
+            'date' => date('m/d/Y'),
+            'header' => $header,
+            'details'=>$details
+        ]; 
+        set_time_limit(300);
+        $pdf = Pdf::loadView('company.journals.journal_pdf', $data);
+        
+        return $pdf->download('journal.pdf');
+    }
     public function show(string $id)
     {
         //

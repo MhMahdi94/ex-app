@@ -24,7 +24,7 @@
 </head>
 <!-- /.login-box -->
 
-<body class="">
+<body class="" dir= {{ app()->getLocale() =='en'?'ltr':'rtl' }}>
     <!--wrapper-->
     <div class="wrapper">
         <div class="section-authentication-cover">

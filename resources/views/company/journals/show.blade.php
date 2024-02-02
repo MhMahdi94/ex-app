@@ -13,14 +13,14 @@ Journal Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
+<div class="page-content">
     <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Show Journal</h3>
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h6 class="mb-0 text-uppercase">Show Journal</h3>
 
-              
+                <a class="mr-2 btn btn-dark" href="{{ route('company.journals.journals_pdf',$header ->id) }}">Print</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
@@ -37,36 +37,39 @@ Journal Page
                           <label for="journal_number">Journal No</label>
                           <input type="text" disabled  name="journal_number" class="form-control" id="journal_number" placeholder="Enter journal_number" value="{{ $header ->id }}" required>
                         </div>
-                        <div class="form-group col-md-12">
+                        {{-- <div class="form-group col-md-12">
                           <label for="description">Description</label>
                           <input type="text" disabled value={{ $header ->journal_description }}  name="description" class="form-control" id="description" placeholder="Enter description" required>
-                      </div>
+                      </div> --}}
                       <hr>
                       <div class="card-header">
-                        <h3 class="card-title">Journal Details</h3>
+                        <h6 class="mb-0 text-uppercase">Journal Details</h6>
           
                         
                       </div>
-                      <table class="table table-bordered" id="dynamicAddRemove">  
-                        <tr>
-                            <th>Account Name</th>
-                            <th>Debit</th>
-                            <th>Credit</th>
-                            <th>Description</th>
-                            {{-- <th>Action</th> --}}
-                        </tr>
-                        @foreach ($details as $item )
-                        <tr>
-                         
-                            <td width="15%">{{ $item->journal_account_no }}</td>  
-                            <td width="15%">{{ $item->journal_debit }}</td> 
-                            <td width="15%">{{ $item->journal_credit }}</td> 
-                            <td width="35%">{{ $item->journal_description }}</td>  
-                            {{-- <td width="15%"></td>   --}}
-                          
-                          
-                        </tr>  @endforeach  
-                    </table> 
+                      <div class="card-body">
+                        <table class="table table-bordered" id="dynamicAddRemove">  
+                          <tr>
+                              <th>Account Name</th>
+                              <th>Debit</th>
+                              <th>Credit</th>
+                              <th>Description</th>
+                              {{-- <th>Action</th> --}}
+                          </tr>
+                          @foreach ($details as $item )
+                          <tr>
+                           
+                              <td width="15%">{{ $item->journal_account_no }}</td>  
+                              <td width="15%">{{ $item->journal_debit }}</td> 
+                              <td width="15%">{{ $item->journal_credit }}</td> 
+                              <td width="35%">{{ $item->journal_description }}</td>  
+                              {{-- <td width="15%"></td>   --}}
+                            
+                            
+                          </tr>  @endforeach  
+                      </table> 
+                      </div>
+                      
                        
                       
                     </div>

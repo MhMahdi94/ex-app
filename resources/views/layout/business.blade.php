@@ -32,8 +32,8 @@
      <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}"/>
      <title>tHRS Admin | Home</title>
   </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="page-wrapper">
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed" dir= {{ app()->getLocale() =='en'?'ltr':'rtl' }}>
+<div class="page-wrapper" class="{{app()->getLocale() =='en'? 'page-wrapper':'page-wrapper-rtl' }}">
   <!-- Navbar -->
   @include('business.inc.navbar')
   <!-- /.navbar -->

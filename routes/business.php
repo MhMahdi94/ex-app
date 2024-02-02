@@ -11,11 +11,13 @@ use App\Http\Controllers\Business\Services\ServicesController;
 use App\Http\Controllers\Business\User\UserController;
 use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
 use Illuminate\Support\Facades\Route;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+
 Route::group([
     "namespace"=>"Business",
-    'prefix' => '/business',
+    'prefix' => '/'.LaravelLocalization::setLocale().'/business',
     'as' => 'business.',
-    'middleware'=> 'business'
+    'middleware'=> ['business','localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
   ], function () {
     Route::get('/', function () {
           return 'hello';
