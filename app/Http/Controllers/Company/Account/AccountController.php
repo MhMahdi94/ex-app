@@ -62,7 +62,7 @@ class AccountController extends Controller
             'data' => $users
         ]; 
         
-        $pdf = Pdf::loadView('company.coa.pdf', $data);
+        $pdf = Pdf::loadView('company.coa.pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
         set_time_limit(300);
         return $pdf->download('accounts.pdf');
     }
