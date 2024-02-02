@@ -1,5 +1,5 @@
 @extends('layout.company')
-@section('title')
+{{-- @section('title')
 Chart of Account
 @endsection
 @section('page_name')
@@ -11,7 +11,7 @@ Chart of Account Page
 @section('active_content')
 Chart of Account Page
 @endsection
-@section('content')
+@section('content') --}}
 <div class="page-content">
 <h1>Journal</h1>
 <div class="row">
