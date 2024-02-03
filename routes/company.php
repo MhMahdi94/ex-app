@@ -13,6 +13,7 @@ use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
 use App\Http\Controllers\Company\Journals\JournalsController;
 use App\Http\Controllers\Company\Leave\LeaveRequestController;
 use App\Http\Controllers\Company\Leave\LeaveSettingController;
+use App\Http\Controllers\Company\Roles\RolesController;
 use App\Http\Controllers\Company\Stock\ProductController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -170,6 +171,17 @@ Route::group([
          Route::put('/update/{id}',[DocumentController::class, 'update'])->name('document_update');
          Route::delete('/delete/{id}',[DocumentController::class, 'destroy'])->name('document_destroy');
          Route::get('/details/{id}',[DocumentController::class, 'details'])->name('document_details');
+       });
+
+       //roles
+       Route::group(['prefix' => '/roles',
+       'as' => 'roles.',],function ()  {
+         Route::get('/',[RolesController::class, 'index'])->name('roles_index');
+         Route::get('/create',[RolesController::class, 'create'])->name('roles_create');
+         Route::post('/store',[RolesController::class, 'store'])->name('roles_store');
+         Route::get('/edit/{id}',[RolesController::class, 'edit'])->name('roles_edit');
+         Route::put('/update/{id}',[RolesController::class, 'update'])->name('roles_update');
+         Route::delete('/delete/{id}',[RolesController::class, 'destroy'])->name('roles_destroy');
        });
   });
 

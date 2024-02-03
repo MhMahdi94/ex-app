@@ -26,6 +26,16 @@
            </p>
        </a>
    </li>
+   <li class="menu-label">Users Managment</li>
+   <li class="nav-item">
+        <a href="{{ route('company.roles.roles_index') }}" class="nav-link">
+
+            <p>
+                Roles Managment
+
+            </p>
+        </a>
+    </li>
    <li class="nav-item">
        <a href="{{ route('company.employees.employees_index') }}"
            class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
@@ -99,12 +109,11 @@
              <p>Financial Calendar</p>
            </a>
          </li> --}}
-         <li class="nav-item">
+         {{-- <li class="nav-item">
            <a href="{{ route('company.coa.coa_expenses') }}" class="nav-link">
-             {{-- <i class="far fa-circle nav-icon"></i> --}}
              <p>Expenses</p>
            </a>
-         </li>
+         </li> --}}
          
        </ul>
      </li>
@@ -119,15 +128,7 @@
            </p>
        </a>
    </li>
-   <li class="nav-item">
-       <a href="{{ route('admin.roles.roles_index') }}" class="nav-link">
-
-           <p>
-               Roles Managment
-
-           </p>
-       </a>
-   </li>
+   
 </ul>
     <!--end navigation-->
 </div>
