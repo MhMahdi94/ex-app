@@ -31,6 +31,7 @@
                         <div class="d-flex ustify-content-between align-items-center" width='200'>
                             <a class=" btn btn-success float-right" href="{{ route('company.stock.stock_create') }}">Add
                                 Product</a>
+                            <a class=" btn btn-dark float-right mx-2" href="{{ route('company.stock.report_pdf') }}">Report</a>
                         </div>
 
                     </div>
@@ -50,10 +51,12 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->quantity }}</td>
                                         <td class="d-flex  ">
-
-                                            <a class="btn btn-info" data-toggle="modal"
+                                            <a class="btn btn-warning px-4"
+                                                href="{{ route('company.stock.stock_import_export', $item->id) }}">Import/Export</a>
+                                   
+                                            {{-- <a class="btn btn-info" data-toggle="modal"
                                                 data-bs-target="#modal-lg{{ $item->id }}">Import/Export</a>
-                                            <meta name="csrf-token" content="{{ csrf_token() }}">
+                                            <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
 
                                         </td>
                                     </tr>
@@ -137,9 +140,7 @@
         </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <script>
         $(document).ready(function() {
 

@@ -26,7 +26,7 @@ class DepartmentController extends Controller
     public function create()
     {
         //
-        $employees=Employees::where('company_id',Auth::guard('employee')->id())->get();
+        $employees=Employees::where('company_id',Auth::guard('employee')->user()->company_id)->get();
         return view('company.department.create',compact('employees'));
     }
 
@@ -39,7 +39,7 @@ class DepartmentController extends Controller
         Department::create([
             'employee_id'=>$request->employee_id,
             'name'=>$request->name,
-            'company_id'=>Auth::guard('employee')->id()
+            'company_id'=>Auth::guard('employee')->user()->company_id
         ]);
         return redirect()->back();
     }
@@ -59,7 +59,7 @@ class DepartmentController extends Controller
     {
         //
         $department=Department::find($id);
-        $employees=Employees::where('company_id',Auth::guard('employee')->id())->get();
+        $employees=Employees::where('company_id',Auth::guard('employee')->user()->company_id)->get();
         return view('company.department.edit',compact('department','employees'));
     }
 

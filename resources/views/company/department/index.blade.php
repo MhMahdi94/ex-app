@@ -116,7 +116,7 @@ Swal.fire({
         });
         setTimeout(function() {
           //your code to be executed after 1 second
-          location.reload;
+          location.reload();
         }, 3000);
         
       }

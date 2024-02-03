@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Company\Employee;
 
 use App\Http\Controllers\Controller;
 use App\Models\Allowence;
+use App\Models\Department;
 use App\Models\EmployeeDetails;
 use App\Models\Employees;
 use Illuminate\Http\Request;
@@ -30,17 +31,21 @@ class EmployeeController extends Controller
     {
         //
         $employee=Employees::where('company_id',1)->first();
-        return view('company.employees.create', compact('employee'));
+        $allowences=[];
+        
+        return view('company.employees.create', compact('employee','allowences'));
     }
 
     public function details($id)
     {
         //
        // $employee=Employees::where('company_id',1)->first();
-      // return $id; 
+       //return Auth::guard('employee')->user()->company_id; 
       $details=EmployeeDetails::where('employee_id',$id)->first();
       $allowences=Allowence::where('employee_id',$id)->get();
-       return view('company.employees.details',compact('id','details','allowences'));
+      $departments=Department::where('company_id',Auth::guard('employee')->user()->company_id)->get();
+      //return $departments;
+       return view('company.employees.details',compact('id','details','allowences','departments'));
     }
     /**
      * Store a newly created resource in storage.

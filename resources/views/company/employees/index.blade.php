@@ -112,7 +112,7 @@
                                 });
                                 setTimeout(function() {
                                     //your code to be executed after 1 second
-                                    windows.location.reload;
+                                   location.reload();
                                 }, 3000);
 
                             }

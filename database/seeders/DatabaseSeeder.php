@@ -77,6 +77,7 @@ class DatabaseSeeder extends Seeder
         PermissionSeeder::class,
         RoleSeeder::class,
         SuperAdminSeeder::class,
+        StockOperationSeeder::class
         // COALEVELONESeeder::class,
         // COALEVELTWOSeeder::class
        ]);

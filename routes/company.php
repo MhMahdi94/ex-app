@@ -100,7 +100,11 @@ Route::group([
       Route::group(['prefix' => '/stock',
       'as' => 'stock.',],function ()  {
         Route::get('/',[ProductController::class, 'index'])->name('stock_index');
+        Route::get('/pdf',[ProductController::class, 'generatePDF'])->name('report_pdf');
+        
         Route::get('/create',[ProductController::class, 'create'])->name('stock_create');
+        Route::get('/import-export/{id}',[ProductController::class, 'importExport'])->name('stock_import_export');
+        Route::post('/import-export/update',[ProductController::class, 'importExportUpdate'])->name('stock_import_export_update');
         Route::post('/store',[ProductController::class, 'store'])->name('stock_store');
         Route::get('/edit/{id}',[ProductController::class, 'edit'])->name('stock_edit');
         Route::put('/update/{id}',[ProductController::class, 'update'])->name('stock_update');

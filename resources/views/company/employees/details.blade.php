@@ -11,9 +11,10 @@
 
               
             </div>
+            {{-- {{ $departments }} --}}
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
-            
+           
                 <form method="POST" action="{{ route('company.employee-details.employee_details_store') }}" class='needs-validation' novalidate>
                     @csrf
                     <input type="hidden" name="employee_id" value="{{ $id }}">
@@ -24,13 +25,11 @@
                             <input type="text" name="jobTitle" class="form-control" id="jobTitle" placeholder="Enter Job Title" value="{{ $details->jobTitle??'' }}" required>
                         </div>
                         <div class="form-group col-6">
-                          <label for="dept_id">Company</label>
+                          <label for="dept_id">Department</label>
                           <select name="dept_id" id="" class="form-control select2">
-                            {{-- @foreach ($companies as $company) --}}
-                              <option value="1">Department 1</option>
-                              <option value="2">Department 2</option>
-                              <option value="3">Department 3</option>
-                            {{-- @endforeach --}}
+                            @foreach ($departments as $department)
+                              <option value="{{ $department->id }}">{{ $department->name }}</option>
+                            @endforeach
                           </select>
                         </div>
                         <div class="form-group col-6">
@@ -58,21 +57,29 @@
                             </tr>
                             
                             <tr> 
-                               <input type="hidden" name="allowenceFields[0][id]" value="{{ $allowences[0]['id'] }}"/>
-                              <td><input type="text" name="allowenceFields[0][all_name]" value="{{ $allowences[0]['allName'] }}" placeholder="Allowence Name" class="form-control" /></td>  
-                                <td><input type="text" name="allowenceFields[0][all_val]" value="{{ $allowences[0]['allVal'] }}" placeholder="Allowence Value" class="form-control" /></td>  
-                                <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
-                              
-                                
-                            </tr>  
-                            @for ($i=1; $i< count($allowences) ; $i++)
+                              @if (count($allowences)>0)
+                                <tr>
+                                  <input type="hidden" name="allowenceFields[0][id]" value="{{ $allowences[0]['id']??'' }}"/> --}}
+                                  <td><input type="text" name="allowenceFields[0][all_name]" value="{{ $allowences[0]['allName'] }}" placeholder="Allowence Name" class="form-control" /></td>  
+                                  <td><input type="text" name="allowenceFields[0][all_val]" value="{{ $allowences[0]['allVal'] }}" placeholder="Allowence Value" class="form-control" /></td>  
+                                  <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
+                                </tr>  
+                                @for ($i=1; $i< count($allowences) ; $i++)
+                                  <tr>
+                                    <input type="hidden" name="allowenceFields[{{ $i }}][id]" value="{{ $allowences[$i]['id'] }}">
+                                    <td><input type="text" name="allowenceFields[{{ $i }}][all_name]" value="{{ $allowences[$i]['allName'] }}" placeholder="Allowence Name" class="form-control" /></td>  
+                                    <td><input type="text" name="allowenceFields[{{ $i }}][all_val]" value="{{ $allowences[$i]['allVal'] }}" placeholder="Allowence Value" class="form-control" /></td>  
+                                    <td><button type="button" class="btn btn-danger remove-tr">Remove</button></td> 
+                                  </tr>
+                                @endfor
+                              @else
                               <tr>
-                                <input type="hidden" name="allowenceFields[{{ $i }}][id]" value="{{ $allowences[$i]['id'] }}">
-                                <td><input type="text" name="allowenceFields[{{ $i }}][all_name]" value="{{ $allowences[$i]['allName'] }}" placeholder="Allowence Name" class="form-control" /></td>  
-                                <td><input type="text" name="allowenceFields[{{ $i }}][all_val]" value="{{ $allowences[$i]['allVal'] }}" placeholder="Allowence Value" class="form-control" /></td>  
-                                <td><button type="button" class="btn btn-danger remove-tr">Remove</button></td> 
-                              </tr>
-                            @endfor
+                                <td><input type="text" name="allowenceFields[0][all_name]" placeholder="Allowence Name" class="form-control" /></td>  
+                                <td><input type="text" name="allowenceFields[0][all_val]"  placeholder="Allowence Value" class="form-control" /></td>  
+                                <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
+                              </tr>  
+                              @endif
+                              
                           </table> 
                         </div>
                    
