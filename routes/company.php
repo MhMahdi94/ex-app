@@ -162,6 +162,7 @@ Route::group([
        Route::group(['prefix' => '/documents',
        'as' => 'documents.',],function ()  {
          Route::get('/',[DocumentController::class, 'index'])->name('document_index');
+         Route::get('/pdf/{id}',[DocumentController::class, 'generatePDF'])->name('report_pdf');
          Route::get('/create',[DocumentController::class, 'create'])->name('document_create');
          Route::post('/store',[DocumentController::class, 'store'])->name('document_store');
          Route::get('/edit/{id}',[DocumentController::class, 'edit'])->name('document_edit');

@@ -7,6 +7,7 @@ use App\Models\Accounts;
 use App\Models\DocumentDetail;
 use App\Models\DocumentHeader;
 use App\Models\DocumentType;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -22,7 +23,24 @@ class DocumentController extends Controller
         $data=DocumentHeader::get();
         return view('company.documents.index',compact('data'));
     }
-
+    public function generatePDF(string $id)
+    {
+        //$users = Accounts::where('company_id',Auth::guard('employee')->user()->company_id)-> get();
+        $header=DocumentHeader::find($id);
+        $details=DocumentDetail::where('document_id',$id)->get();
+        //return view('company.documents.show', compact('header','details'));
+        $data = [
+            'title' => 'Document',
+            'date' => date('m/d/Y'),
+            'header'=>$header,
+            'details'=>$details
+  //          'data' => $users
+        ]; 
+        
+        $pdf = Pdf::loadView('company.documents.pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
+        set_time_limit(300);
+        return $pdf->download('document.pdf');
+    }
     /**
      * Show the form for creating a new resource.
      */
@@ -31,7 +49,7 @@ class DocumentController extends Controller
         //
         $date=Carbon::now()->toDateString();
         $count=DocumentHeader::count();
-        $accounts=Accounts::where('account_level','!=','1')->get();
+        $accounts=Accounts::where('company_id',Auth::guard('employee')->user()->id)->get();
         $document_types=DocumentType::get();
         return view('company.documents.create', compact('date','count','accounts','document_types'));
     }
@@ -64,16 +82,16 @@ class DocumentController extends Controller
                 'description'=>'',
                 'document_id'=>$d->id
             ]);
-            if($d->document_type == 1){
-                $account=Accounts::find($item['account_no']);
-                $account->account_balance=$account->account_balance+$item['amount'];
-                $account ->save();
-            }
-            if($d->document_type == 2){
-                $account=Accounts::find($item['account_no']);
-                $account->account_balance=$account->account_balance-$item['amount'];
-                $account ->save();
-            }
+            // if($d->document_type == 1){
+            //     $account=Accounts::find($item['account_no']);
+            //     $account->account_balance=$account->account_balance+$item['amount'];
+            //     $account ->save();
+            // }
+            // if($d->document_type == 2){
+            //     $account=Accounts::find($item['account_no']);
+            //     $account->account_balance=$account->account_balance-$item['amount'];
+            //     $account ->save();
+            // }
              
         }
         

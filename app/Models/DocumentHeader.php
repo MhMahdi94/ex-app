@@ -22,4 +22,8 @@ class DocumentHeader extends Model
     public function documentType(){
         return $this->belongsTo(DocumentType::class,'document_type');
     }
+
+    public function user(){
+        return $this->belongsTo(Employees::class,'added_by');
+    }
 }
