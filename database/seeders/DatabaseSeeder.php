@@ -72,6 +72,7 @@ class DatabaseSeeder extends Seeder
         LeaveTypeSeeder::class,
         LeaveRequestSeeder::class,
         ReportTypeSeeder::class,
+        AccountSeeder::class,
         AccountTypeSeeder::class,
         DocumentTypeSeeder::class,
         PermissionSeeder::class,

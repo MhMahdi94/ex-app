@@ -42,11 +42,11 @@
                                         id="journal_number" placeholder="Enter journal_number" value="{{ $count + 1 }}"
                                         required>
                                 </div>
-                                {{-- <div class="form-group col-md-12">
+                                <div class="form-group col-md-12">
                                     <label for="description">Description</label>
                                     <input type="text" name="description" class="form-control" id="description"
                                         placeholder="Enter description" required>
-                                </div> --}}
+                                </div>
                                 <hr class="mt-4">
                                 <div class="card-header">
                                     <h6 class="mb-2 text-uppercase">Journal Details</h6>
@@ -57,7 +57,7 @@
                                                <select name="account_no" id="account_no"
                                                     class="form-control select2 account_no">
                                                     @foreach ($accounts as $account)
-                                                        <option value="{{ $account->id }}">{{ $account->account_name }}
+                                                        <option value="{{ $account->account_no}}">{{ $account->account_name }}
                                                         </option>
                                                     @endforeach
                                                 </select>

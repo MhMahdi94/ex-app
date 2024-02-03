@@ -13,8 +13,8 @@ Leave Slots Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
-    <div class="row">
+<div class="page-content">
+    <div class="row ">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
@@ -28,7 +28,7 @@ Leave Slots Page
                 <form method="POST" action="{{ route('company.leave-settings.leave_settings_store') }}" class='needs-validation' novalidate>
                     @csrf
                     {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
-                    <div class="card-body row">
+                    <div class="card-body row g-2">
                         <div class="form-group col-6">
                             <label for="from">From: </label>
                             <input type="date" name="from" class="form-control" id="from"  required>

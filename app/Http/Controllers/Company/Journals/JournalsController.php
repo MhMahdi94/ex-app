@@ -32,7 +32,7 @@ class JournalsController extends Controller
         $data=[];
         $date=Carbon::now()->toDateString();
         $count=JournalHeader::count();
-        $accounts=Accounts::where('account_level','!=','1')->get();
+        $accounts=Accounts::where('company_id',Auth::guard('employee')->user()->id)->get();
         return view('company.journals.create', compact('data','date','count','accounts'));
     }
 
@@ -46,7 +46,7 @@ class JournalsController extends Controller
         $user=Auth::guard('employee')->user();
         $j=JournalHeader::create([
             'journal_date'=>$request->journal_date,
-            'journal_description'=>'',//$request->description,
+            'journal_description'=>$request->description,
             'journal_type'=>1,//$request->journal_date,
             'journal_report'=>0,//$request->journal_date, 
             'total_debit'=>$request->total_debit,//$request->debit, 
@@ -59,6 +59,7 @@ class JournalsController extends Controller
        // return $j;
         foreach ($request->journalDetails as $item) {
             # code...
+            $balance=$item['debit']-$item['credit'];
             JournalDetail::create([
                 'journal_account_no'=>$item['account_no'],
                 'journal_debit'=>$item['debit'],
@@ -67,6 +68,13 @@ class JournalsController extends Controller
                 'currency'=>1,
                 'journal_no'=>$j->id,
             ]);
+
+            $account=Accounts::where('account_no',$item['account_no'] )->first();
+           //return [$item, $account];
+            $account->account_debit=$account->account_debit+$item['debit'];
+            $account->account_credit=$account->account_credit+$item['credit'];
+            $account->account_balance=$account->account_balance+$balance;
+            $account->save();
         }
         return redirect()->back();
     }

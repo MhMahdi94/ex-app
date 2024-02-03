@@ -52,15 +52,10 @@
            </p>
        </a>
    </li>
+   <li class="menu-label">Leave Managment</li>
    <li class="nav-item has-treeview">
-       <a href="#" class="nav-link">
-           {{-- <i class="nav-icon fas fa-tachometer-alt"></i> --}}
-           <p>
-               Leave Managment
-               <i class="right fas fa-angle-left"></i>
-           </p>
-       </a>
-       <ul class="nav nav-treeview">
+       
+       <ul class="nav-treeview">
            <li class="nav-item">
                <a href="{{ route('company.leave-settings.leave_settings_create') }}" class="nav-link">
                    {{-- <i class="far fa-circle nav-icon"></i> --}}

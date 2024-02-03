@@ -47,8 +47,9 @@ Chart of Account Page
                       <tr>
                         <th>Name</th>
                         <th>Account No</th>
-                        <th>Balance</th>
-                        {{-- <th>Actions</th> --}}
+                        <th>Total Debit</th>
+                        <th>Total Credit</th>
+                        <th>Balance</th>                        {{-- <th>Actions</th> --}}
                       </tr>
                     </thead>
                     <tbody>
@@ -56,6 +57,8 @@ Chart of Account Page
                             <tr>
                                 <td>{{ $item->account_name }}</td>
                                 <td>{{ $item->account_no}}</td>
+                                <td>{{ $item->account_debit}}</td>
+                                <td>{{ $item->account_credit}}</td>
                                 <td>{{ $item->account_balance}}</td>
                                 <td class="row">
                                     {{-- <a class="mr-2 btn btn-info" href="{{ route('company.department.department_edit',$item->id ) }}">Edit</a>

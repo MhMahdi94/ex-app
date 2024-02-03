@@ -54,7 +54,7 @@ class AccountController extends Controller
     }
     public function generatePDF()
     {
-        $users = Accounts::get();
+        $users = Accounts::where('company_id',Auth::guard('employee')->user()->company_id)-> get();
   
         $data = [
             'title' => 'Chart of Accounts',
@@ -89,7 +89,7 @@ class AccountController extends Controller
         Accounts::create([
             
             'account_no'=>$request->account_number,
-            'account_parent_id'=>$request->parent_id,
+            'account_parent_id'=>$request->parent_id??0,
             'account_name'=>$request->name,
             'account_report'=>$request->report_type,
             'account_type'=>$request->account_type,

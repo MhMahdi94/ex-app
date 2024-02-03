@@ -13,28 +13,33 @@ Leave Requests Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
+<div class="page-content">
     <div class="row">
         <div class="col-12">
           <div class="card">
-            <div class="card-header">
-              <h3 class="card-title">Leave Requests List</h3>
-              
-              
-              <div class="card-tools row">
-                {{-- <a class="mr-2 btn btn-info" href="{{ route('company.employees.employees_create') }}">Add Employee</a> --}}
-                <div class="input-group input-group-sm" style="width: 150px;">
-                  <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+            <div class="card-header d-flex justify-content-between align-items-center">
+              <h6 class="mb-0 text-uppercase ">Leave Requests List</h6>
+              <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
+                  data-bs-target="#SearchModal">
+                  <input class="form-control px-5" disabled type="search" placeholder="Search">
+                  <span
+                      class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i
+                          class='bx bx-search'></i></span>
+              </div>
 
-                  <div class="input-group-append">
-                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                  </div>
-                </div>
-            </div>
-        </div>
+
+
+
+
+              <div class="d-flex ustify-content-between align-items-center" width='200'>
+                  {{-- <a class=" btn btn-primary float-right"
+                      href="{{ route('company.journals.journals_create') }}">Add
+                      Journal</a> --}}
+              </div>
+          </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover">
+            <div class="card-body table-responsive ">
+              <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
                     <th>Employee</th>
@@ -54,15 +59,15 @@ Leave Requests Page
                             <td>{{ $item->getLeaveType->name }}</td>
                             <td>
                               @if ($item->status==0)
-                                <span class="badge bg-yellow ">Pending</span>
+                                <span class="badge bg-warning ">Pending</span>
                               @elseif ($item->status==1)  
-                                <span class="badge bg-green ">Accepted</span>
+                                <span class="badge bg-success ">Accepted</span>
                               @else
-                                <span class="badge bg-red ">Rejected</span>
+                                <span class="badge bg-danger ">Rejected</span>
                               @endif
                               {{-- <span class="badge {{ $item->status?'bg-green':'bg-yellow' }} ">{{ $item->status?'Accepted':'Pending' }}</span> --}}
                             </td>
-                            <td class="row">
+                            <td class="d-flex">
                                 {{-- <a class="mr-2 btn btn-info" href="{{ route('company.employees.employees_edit',$item->id ) }}">Accept</a> --}}
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 {{-- <input type="hidden" id="employee_id" value="{{ $item->id }}"> --}}
@@ -73,7 +78,7 @@ Leave Requests Page
                                   @method('put')
                                   <button type="submit" class="btn btn-success mr-2 ">Accept</button>
                                 </form>
-                                <form method="post" class="delete-form" data-route="{{route('company.leave-requests.leave_requests_update', $item->id) }}">
+                                <form method="post" class="delete-form mx-2" data-route="{{route('company.leave-requests.leave_requests_update', $item->id) }}">
                                   @method('put')
                                   <button type="submit" class="btn btn-danger  ">Reject</button>
                                 </form>

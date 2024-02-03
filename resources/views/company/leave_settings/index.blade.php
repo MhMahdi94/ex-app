@@ -13,7 +13,7 @@ Leave Settings
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
+<div class="page-content">
    <div class="row">
         <div class="col-12">
           <div class="card">

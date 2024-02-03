@@ -21,7 +21,7 @@ class AccountSeeder extends Seeder
             'account_report'=>1, 
             'account_level'=>1,
             'account_debit'=>0,
-            'account_credit'=>1,
+            'account_credit'=>0,
             'account_balance' => 0, 
             'company_id'=>1, 
         ]);
@@ -32,7 +32,7 @@ class AccountSeeder extends Seeder
             'account_report'=>1, 
             'account_level'=>1,
             'account_debit'=>0,
-            'account_credit'=>1,
+            'account_credit'=>0,
             'account_balance' => 0, 
             'company_id'=>1, 
         ]);
@@ -43,7 +43,7 @@ class AccountSeeder extends Seeder
             'account_report'=>1, 
             'account_level'=>1,
             'account_debit'=>0,
-            'account_credit'=>1,
+            'account_credit'=>0,
             'account_balance' => 0, 
             'company_id'=>1, 
         ]);
@@ -54,7 +54,7 @@ class AccountSeeder extends Seeder
             'account_report'=>2, 
             'account_level'=>1,
             'account_debit'=>0,
-            'account_credit'=>1,
+            'account_credit'=>0,
             'account_balance' => 0, 
             'company_id'=>1, 
         ]);
@@ -65,7 +65,7 @@ class AccountSeeder extends Seeder
             'account_report'=>2, 
             'account_level'=>1,
             'account_debit'=>0,
-            'account_credit'=>1,
+            'account_credit'=>0,
             'account_balance' => 0, 
             'company_id'=>1, 
         ]);
