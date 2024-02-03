@@ -4,16 +4,28 @@ namespace App\Http\Controllers\Admin\Roles;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
 
 class RolesController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    //     $this->middleware('permission:create-role|edit-role|delete-role', ['only' => ['index','show']]);
+    //     $this->middleware('permission:create-role', ['only' => ['create','store']]);
+    //     $this->middleware('permission:edit-role', ['only' => ['edit','update']]);
+    //     $this->middleware('permission:delete-role', ['only' => ['destroy']]);
+    // }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
-        return view('admin.roles.index');
+        $roles=Role::orderby('id',)->get();
+        return view('admin.roles.index', compact('roles'));
     }
 
     /**
@@ -22,6 +34,8 @@ class RolesController extends Controller
     public function create()
     {
         //
+        $permissions=Permission::where('guard_name','admin')->get();
+        return view('admin.roles.create',compact('permissions'));
     }
 
     /**
@@ -30,6 +44,15 @@ class RolesController extends Controller
     public function store(Request $request)
     {
         //
+       // return $request->all();
+        $role = Role::create(['name' => $request->name, 'guard_name'=>'admin']);
+
+        $permissions = Permission::whereIn('id', $request->permissions)->get(['name'])->toArray();
+        
+        $role->syncPermissions($permissions);
+
+        return redirect()->route('admin.roles.roles_index')
+                ->withSuccess('New role is added successfully.');
     }
 
     /**
@@ -46,6 +69,21 @@ class RolesController extends Controller
     public function edit(string $id)
     {
         //
+        $role=Role::find($id);
+        if($role->name=='Super Admin'){
+            abort(403, 'SUPER ADMIN ROLE CAN NOT BE EDITED');
+        }
+
+        $rolePermissions = DB::table("role_has_permissions")->where("role_id",$role->id)
+            ->pluck('permission_id')
+            ->all();
+        //return  $rolePermissions ;
+        return view('admin.roles.edit', [
+            'role' => $role,
+            'permissions' => Permission::get(),
+            'rolePermissions' => $rolePermissions
+        ]);
+
     }
 
     /**
@@ -54,6 +92,16 @@ class RolesController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $input = $request->only('name');
+        $role=Role::find($id);
+        $role->update($input);
+
+         $permissions = Permission::whereIn('id', $request->permissions)->get(['name'])->toArray();
+
+         $role->syncPermissions($permissions);    
+        
+        return redirect()->back()
+                ->withSuccess('Role is updated successfully.');
     }
 
     /**
@@ -62,5 +110,15 @@ class RolesController extends Controller
     public function destroy(string $id)
     {
         //
+        $role= Role::find($id);
+        if($role->name=='Super Admin'){
+            abort(403, 'SUPER ADMIN ROLE CAN NOT BE DELETED');
+        }
+        if(auth()->guard('admin')->user()->hasRole($role->name)){
+            abort(403, 'CAN NOT DELETE SELF ASSIGNED ROLE');
+        }
+        $role->delete();
+        // return redirect()->route('roles.index')
+        //         ->withSuccess('Role is deleted successfully.');
     }
 }

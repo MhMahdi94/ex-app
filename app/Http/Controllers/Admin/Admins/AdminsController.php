@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Admins;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class AdminsController extends Controller
 {
@@ -25,7 +26,11 @@ class AdminsController extends Controller
     public function create()
     {
         //
-        return view('admin.admins.create');
+       // $roles=Role::where('guard_name','admin')->get();
+        return view('admin.admins.create',
+        [
+            'roles' => Role::pluck('name')->all()
+        ]);
     }
 
     /**
@@ -34,15 +39,17 @@ class AdminsController extends Controller
     public function store(Request $request)
     {
         //
+        //return $request->all();
         try {
             //code...
-            Admin::create([
+            $admin=Admin::create([
                 'name'=>$request->name,
                 'email'=>$request->email,
                 'mobile_no'=>$request->mobile_no,
                 'password'=>$request->password
             ]);
-            toastr()->success('Data has been saved successfully!', 'Congrats');
+            $admin->assignRole($request->roles);
+            toastr()->success('Data has been saved successfully!');
             return redirect()->back();
         } catch (\Throwable $th) {
             //throw $th;
@@ -84,6 +91,7 @@ class AdminsController extends Controller
             $admin->email=$request->email;
             $admin->mobile_no=$request->mobile_no;
             $admin->save();
+            toastr()->success('Data has been saved successfully!');
             return redirect()->back();
         } catch (\Throwable $th) {
             return $th;

@@ -49,17 +49,30 @@
                           <input type="text" value="{{ $details->salary??'' }}" name="salary" class="form-control" id="salary" placeholder="Enter salary" required>
                         </div>
                         <div class="table-responsive mt-3">
+                       
                           <table class="table table-bordered" id="dynamicAddRemove">  
                             <tr>
                                 <th>Allowence Name</th>
                                 <th>Allowence Value</th>
                                 <th>Action</th>
                             </tr>
-                            <tr>  
-                                <td><input type="text" name="allowenceFields[0][all_name]" placeholder="Allowence Name" class="form-control" /></td>  
-                                <td><input type="text" name="allowenceFields[0][all_val]" placeholder="Allowence Value" class="form-control" /></td>  
+                            
+                            <tr> 
+                               <input type="hidden" name="allowenceFields[0][id]" value="{{ $allowences[0]['id'] }}"/>
+                              <td><input type="text" name="allowenceFields[0][all_name]" value="{{ $allowences[0]['allName'] }}" placeholder="Allowence Name" class="form-control" /></td>  
+                                <td><input type="text" name="allowenceFields[0][all_val]" value="{{ $allowences[0]['allVal'] }}" placeholder="Allowence Value" class="form-control" /></td>  
                                 <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
+                              
+                                
                             </tr>  
+                            @for ($i=1; $i< count($allowences) ; $i++)
+                              <tr>
+                                <input type="hidden" name="allowenceFields[{{ $i }}][id]" value="{{ $allowences[$i]['id'] }}">
+                                <td><input type="text" name="allowenceFields[{{ $i }}][all_name]" value="{{ $allowences[$i]['allName'] }}" placeholder="Allowence Name" class="form-control" /></td>  
+                                <td><input type="text" name="allowenceFields[{{ $i }}][all_val]" value="{{ $allowences[$i]['allVal'] }}" placeholder="Allowence Value" class="form-control" /></td>  
+                                <td><button type="button" class="btn btn-danger remove-tr">Remove</button></td> 
+                              </tr>
+                            @endfor
                           </table> 
                         </div>
                    

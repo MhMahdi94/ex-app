@@ -40,6 +40,7 @@ Admins Page
                             <label for="mobile_no">Mobile No</label>
                             <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
                         </div>
+                        
                         <div class="form-group col-md-6">
                             <label for="password">Password</label>
                             <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
@@ -48,6 +49,19 @@ Admins Page
                             <label for="confirm_password">Confirm Password</label>
                             <input type="password" class="form-control" id="confirm_password" name='confirm_password' placeholder="Confirm Password" required>
                         </div>
+
+                        <div class="form-group col-md-12">
+                          <label for="multiple-select-field" class="form-label">Role</label>
+                          <select class="form-select" id="multiple-select-field"
+                              data-placeholder="Select Role" id="roles" name="roles[]" multiple required>
+
+                              @foreach ($roles as $role)
+                              <option value="{{ $role }}" {{ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
+                                {{ $role }}
+                                </option>
+                              @endforeach
+                          </select>
+                      </div>
                       
                     </div>
                     <!-- /.card-body -->

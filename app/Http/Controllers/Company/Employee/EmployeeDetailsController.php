@@ -31,8 +31,8 @@ class EmployeeDetailsController extends Controller
     public function store(Request $request)
     {
         //
-     //  return $request->all();
-        EmployeeDetails::create([
+      //return $request->all();
+        EmployeeDetails::updateOrCreate(['employee_id'=> $request->employee_id],[
             'employee_id'=>$request->employee_id,
             'dept_id'=>$request->dept_id,
             'salary'=>$request->salary,
@@ -42,19 +42,20 @@ class EmployeeDetailsController extends Controller
         foreach ($request->allowenceFields as $field) {
             # code...
            // return $field['all_val'];
-           $all=new Allowence();
-           $all->employee_id=$request->employee_id;
-           $all->allName=$field['all_name'];
-           $all->allVal=$field['all_val'];
-           $all->save();
-            // Allowence::create(
-            //     [
+        //    $all=new Allowence();
+        //    $all->employee_id=$request->employee_id;
+        //    $all->allName=$field['all_name'];
+        //    $all->allVal=$field['all_val'];
+        //    $all->save();
+            Allowence::updateOrCreate(
+                ['employee_id'=>$request->employee_id, 'id'=>$field['id']],
+                [
                     
-            //         'employee_id'=>$request->employee_id,
-            //         'allName'=>$field['all_name'],
-            //         'allVal'=>$field['all_val']
-            //     ]
-            // );
+                    'employee_id'=>$request->employee_id,
+                    'allName'=>$field['all_name'],
+                    'allVal'=>$field['all_val']
+                ]
+            );
         }
         return redirect()->back();
     }

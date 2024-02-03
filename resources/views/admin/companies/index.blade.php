@@ -67,7 +67,7 @@ Companies Page
                       </div>
                         <div class="col-4">
                           <meta name="csrf-token" content="{{ csrf_token() }}">
-                          <form method="post" class="delete-form" data-route="{{route('admin.admins.admins_destroy', $item->id) }}">
+                          <form method="post" class="delete-form" data-route="{{route('admin.companies.companies_destroy', $item->id) }}">
                             @method('delete')
                             <button type="submit" class="btn btn-danger px-4 ">Delete</button>
                           </form>
@@ -126,7 +126,7 @@ $('.delete-form').on('submit', function(e) {
           });
           setTimeout(function() {
             //your code to be executed after 1 second
-            location.reload;
+            location.reload();
           }, 3000);
           
         }

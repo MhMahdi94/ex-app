@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Home\HomeController;
 use App\Http\Controllers\Admin\Owners\OwnerController;
 use App\Http\Controllers\Admin\Packages\PackagesController;
 use App\Http\Controllers\Admin\Requests\RequestsController;
+use App\Http\Controllers\Admin\Roles\RoleController;
 use App\Http\Controllers\Admin\Roles\RolesController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -104,6 +105,11 @@ Route::group([
        Route::group(['prefix' => '/roles',
        'as' => 'roles.',],function ()  {
          Route::get('/',[RolesController::class, 'index'])->name('roles_index');
+         Route::get('/create',[RolesController::class, 'create'])->name('roles_create');
+         Route::post('/store',[RolesController::class, 'store'])->name('roles_store');
+         Route::get('/edit/{id}',[RolesController::class, 'edit'])->name('roles_edit');
+         Route::put('/update/{id}',[RolesController::class, 'update'])->name('roles_update');
+         Route::delete('/delete/{id}',[RolesController::class, 'destroy'])->name('roles_destroy');
        });
   });
 

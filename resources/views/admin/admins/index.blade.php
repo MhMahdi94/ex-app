@@ -76,6 +76,7 @@ Admins Page
     
             
               <div class="d-flex ustify-content-between align-items-center" width='200'>
+                
                 <a class=" btn btn-primary float-right" href="{{ route('admin.admins.admins_create') }}">Add Admin</a>
               </div>
           </div>
