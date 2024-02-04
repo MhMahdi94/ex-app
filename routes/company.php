@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\Admins\AdminsController;
+use App\Http\Controllers\Admin\Attendence\AttendenceController;
 use App\Http\Controllers\Company\Account\AccountController;
 use App\Http\Controllers\Company\Account\COALEVELONEController;
 use App\Http\Controllers\Company\Auth\LoginController;
@@ -182,6 +183,20 @@ Route::group([
          Route::get('/edit/{id}',[RolesController::class, 'edit'])->name('roles_edit');
          Route::put('/update/{id}',[RolesController::class, 'update'])->name('roles_update');
          Route::delete('/delete/{id}',[RolesController::class, 'destroy'])->name('roles_destroy');
+       });
+
+       //attendences
+       Route::group(['prefix' => '/attendence',
+       'as' => 'attendence.',],function ()  {
+         Route::get('/',[AttendenceController::class, 'index'])->name('attendence_index');
+         Route::post('/pdf',[AttendenceController::class, 'attendencePdf'])->name('attendence_pdf');
+         
+         Route::post('/list',[AttendenceController::class, 'attendenceList'])->name('attendence_list');
+         Route::get('/create',[AttendenceController::class, 'create'])->name('attendence_create');
+         Route::post('/store',[AttendenceController::class, 'store'])->name('attendence_store');
+         Route::get('/edit/{id}',[AttendenceController::class, 'edit'])->name('attendence_edit');
+         Route::put('/update/{id}',[AttendenceController::class, 'update'])->name('attendence_update');
+         Route::delete('/delete/{id}',[AttendenceController::class, 'destroy'])->name('attendence_destroy');
        });
   });
 

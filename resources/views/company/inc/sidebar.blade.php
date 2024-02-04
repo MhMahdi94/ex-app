@@ -47,6 +47,16 @@
        </a>
    </li>
    <li class="nav-item">
+    <a href="{{ route('company.attendence.attendence_index') }}"
+        class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+
+        <p>
+            Attendence Managment
+
+        </p>
+    </a>
+</li>
+   <li class="nav-item">
        <a href="{{ route('company.department.department_index') }}"
            class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
            <p>
