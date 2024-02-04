@@ -14,6 +14,7 @@ use App\Http\Controllers\Company\Home\HomeController as HomeHomeController;
 use App\Http\Controllers\Company\Journals\JournalsController;
 use App\Http\Controllers\Company\Leave\LeaveRequestController;
 use App\Http\Controllers\Company\Leave\LeaveSettingController;
+use App\Http\Controllers\Company\Payroll\PayrollController;
 use App\Http\Controllers\Company\Roles\RolesController;
 use App\Http\Controllers\Company\Stock\ProductController;
 use Illuminate\Support\Facades\Route;
@@ -190,13 +191,25 @@ Route::group([
        'as' => 'attendence.',],function ()  {
          Route::get('/',[AttendenceController::class, 'index'])->name('attendence_index');
          Route::post('/pdf',[AttendenceController::class, 'attendencePdf'])->name('attendence_pdf');
-         
          Route::post('/list',[AttendenceController::class, 'attendenceList'])->name('attendence_list');
          Route::get('/create',[AttendenceController::class, 'create'])->name('attendence_create');
          Route::post('/store',[AttendenceController::class, 'store'])->name('attendence_store');
          Route::get('/edit/{id}',[AttendenceController::class, 'edit'])->name('attendence_edit');
          Route::put('/update/{id}',[AttendenceController::class, 'update'])->name('attendence_update');
          Route::delete('/delete/{id}',[AttendenceController::class, 'destroy'])->name('attendence_destroy');
+       });
+
+       //payroll
+       Route::group(['prefix' => '/payroll',
+       'as' => 'payroll.',],function ()  {
+         Route::get('/',[PayrollController::class, 'index'])->name('payroll_index');
+         Route::post('/pdf',[PayrollController::class, 'payrollPdf'])->name('payroll_pdf');
+         Route::post('/list',[PayrollController::class, 'payrollList'])->name('payroll_list');
+         Route::get('/create',[PayrollController::class, 'create'])->name('payroll_create');
+         Route::post('/store',[PayrollController::class, 'store'])->name('payroll_store');
+         Route::get('/edit/{id}',[PayrollController::class, 'edit'])->name('payroll_edit');
+         Route::put('/update/{id}',[PayrollController::class, 'update'])->name('payroll_update');
+         Route::delete('/delete/{id}',[PayrollController::class, 'destroy'])->name('payroll_destroy');
        });
   });
 

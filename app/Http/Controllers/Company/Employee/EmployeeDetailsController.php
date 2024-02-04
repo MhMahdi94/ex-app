@@ -34,7 +34,7 @@ class EmployeeDetailsController extends Controller
       //return $request->all();
         EmployeeDetails::updateOrCreate(['employee_id'=> $request->employee_id],[
             'employee_id'=>$request->employee_id,
-            'dept_id'=>$request->dept_id,
+            'dept_id'=>$request->dept_id??0,
             'salary'=>$request->salary,
             'jobTitle'=>$request->jobTitle,
             'jobType'=>$request->job_type,

@@ -130,7 +130,7 @@
    
      <li class="menu-label">Payroll Managment</li>
    <li class="nav-item">
-       <a href="{{ route('admin.requests.requests_index') }}" class="nav-link">
+       <a href="{{ route('company.payroll.payroll_index') }}" class="nav-link">
 
            <p>
                Payroll Managment
