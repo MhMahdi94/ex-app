@@ -1,7 +1,7 @@
 <!--start header -->
 <header>
-    <div class=" {{ app()->getLocale() == 'en' ? 'topbar' : 'topbar-rtl' }} d-flex align-items-center">
-        <nav class="navbar navbar-expand gap-3">
+    <div class=" {{ app()->getLocale() == 'en' ? 'topbar' : 'topbar-rtl' }} d-flex align-items-start ">
+        <nav class="navbar navbar-expand g-1">
             <div class="mobile-toggle-menu"><i class='bx bx-menu'></i>
             </div>
 
@@ -17,13 +17,13 @@
                 <ul class="navbar-nav align-items-center gap-1">
                     <li class="nav-item mobile-search-icon d-flex d-lg-none" data-bs-toggle="modal"
                         data-bs-target="#SearchModal">
-                        <a class="nav-link" href="avascript:;"><i class='bx bx-search'></i>
+                        <a class="nav-link" href="javascript;"><i class='bx bx-search'></i>
                         </a>
                     </li>
                     <div class="dropdown mx-4">
                         <a class="nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret "
                             href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <span style="font-size: 14px"> Change Language </span>
+                            <span style="font-size: 14px"> {{ __('routes.Change Language') }} </span>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end">
                             @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)

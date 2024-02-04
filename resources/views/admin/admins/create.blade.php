@@ -18,7 +18,7 @@ Admins Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title ">Create Admin</h3>
+              <h3 class="card-title ">{{ __('routes.Create Admin') }}</h3>
 
               
             </div>
@@ -28,30 +28,30 @@ Admins Page
                     @csrf
                     <div class="card-body row g-3">
                         <div class="form-group col-md-6">
-                            <label for="name">Name</label>
+                            <label for="name">{{ __('routes.Name') }}</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                        
                         <div class="form-group col-md-6">
-                            <label for="email">Email address</label>
+                            <label for="email">{{ __('routes.Email') }}</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="mobile_no">Mobile No</label>
+                            <label for="mobile_no">{{ __('routes.Mobile No') }}</label>
                             <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
                         </div>
                         
                         <div class="form-group col-md-6">
-                            <label for="password">Password</label>
+                            <label for="password">{{ __('routes.Password') }}</label>
                             <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="confirm_password">Confirm Password</label>
+                            <label for="confirm_password">{{ __('routes.Confirm Password') }}</label>
                             <input type="password" class="form-control" id="confirm_password" name='confirm_password' placeholder="Confirm Password" required>
                         </div>
 
                         <div class="form-group col-md-12">
-                          <label for="multiple-select-field" class="form-label">Role</label>
+                          <label for="multiple-select-field" class="form-label">{{ __('routes.Role') }}</label>
                           <select class="form-select" id="multiple-select-field"
                               data-placeholder="Select Role" id="roles" name="roles[]" multiple required>
 
@@ -67,7 +67,7 @@ Admins Page
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{ __('routes.Submit') }}</button>
                     </div>
                   </form>
             </div>

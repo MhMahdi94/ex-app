@@ -57,8 +57,8 @@
                                         <img src="{{ asset('assets/images/thrs.jpg') }}" width="150" alt="">
                                     </div>
                                     <div class="text-center mb-4">
-                                        <h5 class="">{{ __('Hello') }} tHONTHRON HR System</h5>
-                                        <p class="mb-0">Please log in to your account</p>
+                                        <h5 class=""> tHONTHRON HR System</h5>
+                                        <p class="mb-0">{{ __('routes.Please log in to your account') }}</p>
                                     </div>
                                     <div class="form-body">
                                       <form class='needs-validation row g-3' novalidate action="{{ route('admin.admin.login') }}" method="post">
@@ -82,7 +82,7 @@
                                         <div class="row">
                                           
                                           <div class="col-12">
-                                            <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                                            <button type="submit" class="btn btn-primary btn-block btn-flat">{{ __('routes.Sign In') }}</button>
                                           </div>
                                         </div>
                                       </form>

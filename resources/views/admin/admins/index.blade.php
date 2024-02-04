@@ -65,7 +65,7 @@ Admins Page
 				<div class="card">
           <div class="card-header d-flex justify-content-between align-items-center">
            
-              <h6 class="mb-0 text-uppercase ">Admins List</h6>
+              <h6 class="mb-0 text-uppercase ">{{ __('routes.Admins List') }}</h6>
               <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
                 <input class="form-control px-5" disabled type="search" placeholder="Search">
                 <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i class='bx bx-search'></i></span>
@@ -77,7 +77,7 @@ Admins Page
             
               <div class="d-flex ustify-content-between align-items-center" width='200'>
                 
-                <a class=" btn btn-primary float-right" href="{{ route('admin.admins.admins_create') }}">Add Admin</a>
+                <a class=" btn btn-primary float-right" href="{{ route('admin.admins.admins_create') }}">{{ __('routes.Add Admin') }}</a>
               </div>
           </div>
 					<div class="card-body">
@@ -85,11 +85,11 @@ Admins Page
 							<table id="example2" class="table table-striped table-bordered">
 								<thead>
 									<tr>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Mobile No</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th>{{ __('routes.Name') }}</th>
+                    <th>{{ __('routes.Email') }}</th>
+                    <th>{{ __('routes.Mobile No') }}</th>
+                    <th>{{ __('routes.Status') }}</th>
+                    <th>{{ __('routes.Actions') }}</th>
                   </tr>
 								</thead>
                 <tbody>
@@ -99,15 +99,15 @@ Admins Page
                           <td>{{ $item->email }}</td>
                           <td>{{ $item->mobile_no }}</td>
                           <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>
-                          <td class="row row-cols-auto ">
-                            <div class="col-3 ">
-                              <a class="btn btn-primary px-4" href="{{ route('admin.admins.admins_edit',$item->id ) }}">Edit</a>
+                          <td class="d-flex  ">
+                            <div class=" ">
+                              <a class="btn btn-primary px-4" href="{{ route('admin.admins.admins_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
                             </div>
-                              <div class="col-3">
+                              <div class="mx-2">
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 <form method="post" class="delete-form" data-route="{{route('admin.admins.admins_destroy', $item->id) }}">
                                   @method('delete')
-                                  <button type="submit" class="btn btn-danger px-4 ">Delete</button>
+                                  <button type="submit" class="btn btn-danger px-4 ">{{ __('routes.Delete') }}</button>
                                 </form>
                               </div>
                               
@@ -217,7 +217,7 @@ Admins Page
           success: function (response, textStatus, xhr) {
             Swal.fire({
               title: "Deleted!",
-              text: "Your admin has been deleted.",
+              text: "Has been Successfully deleted.",
               icon: "success"
             });
             setTimeout(function() {

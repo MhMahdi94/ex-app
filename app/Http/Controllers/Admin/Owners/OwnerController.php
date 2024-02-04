@@ -64,6 +64,9 @@ class OwnerController extends Controller
     public function edit(string $id)
     {
         //
+        $employee = Employees::find($id);
+        $companies=Company::get();
+        return view('admin.owners.edit', compact('employee','companies'));
         
     }
 

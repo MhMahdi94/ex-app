@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Company\Leave;
 
 use App\Http\Controllers\Controller;
+use App\Models\Employees;
 use App\Models\LeaveRequset;
+// use App\Models\API\LeaveRequset;
 use Illuminate\Http\Request;
 
 class LeaveRequestController extends Controller
@@ -14,7 +16,13 @@ class LeaveRequestController extends Controller
     public function index()
     {
         //
-        $data=LeaveRequset::where('status',0)->get();
+        $data=LeaveRequset::where('status',0)->with('employee')->get();
+        // foreach ($data as $item) {
+        //     # code...
+        //     $employee=Employees::where('id', $item['employee_id'])->first();
+            
+        // }
+      //  return $data;
         return view('company.leave.index',compact('data'));
     }
 

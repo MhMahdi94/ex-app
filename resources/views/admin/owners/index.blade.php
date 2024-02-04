@@ -18,7 +18,7 @@ Owners Page
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <h3 class="mb-0 text-uppercase ">Owners List</h3>
+              <h3 class="mb-0 text-uppercase ">{{ __('routes.Owners List') }}</h3>
               <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
                 <input class="form-control px-5" disabled type="search" placeholder="Search">
                 <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i class='bx bx-search'></i></span>
@@ -29,7 +29,7 @@ Owners Page
     
             
               <div class="d-flex ustify-content-between align-items-center" width='200'>
-                <a class=" btn btn-primary float-right" href="{{ route('admin.owners.owners_create') }}">Add Owner</a>
+                <a class=" btn btn-primary float-right" href="{{ route('admin.owners.owners_create') }}">{{ __('routes.Add Owner') }}</a>
               </div>
               
               
@@ -37,16 +37,16 @@ Owners Page
             <!-- /.card-header -->
             {{-- 
                --}}
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover">
+            <div class="card-body table-responsive">
+              <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Company</th>
-                    <th>Email</th>
-                    <th>Mobile No</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th>{{ __('routes.Name') }}</th>
+                    <th>{{ __('routes.Company') }}</th>
+                    <th>{{ __('routes.Email') }}</th>
+                    <th>{{ __('routes.Mobile No') }}</th>
+                    <th>{{ __('routes.Status') }}</th>
+                    <th>{{ __('routes.Actions') }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -57,15 +57,15 @@ Owners Page
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->mobile_no }}</td>
                             <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>
-                            <td class="row row-cols-auto ">
-                              <div class="col-3">
-                                <a class="mr-2 btn btn-info" href="{{ route('admin.owners.owners_edit',$item->id ) }}">Edit</a>
+                            <td class="d-flex  ">
+                              <div class="">
+                                <a class="mr-2 btn btn-info" href="{{ route('admin.owners.owners_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
                               </div>
-                              <div class="col-3">
+                              <div class="mx-2">
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 <form method="post" class="delete-form" data-route="{{route('admin.owners.owners_destroy', $item->id) }}">
                                   @method('delete')
-                                  <button type="submit" class="btn btn-danger  ">Delete</button>
+                                  <button type="submit" class="btn btn-danger  ">{{ __('routes.Delete') }}</button>
                                 </form>
                               </div>
                                 

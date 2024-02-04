@@ -13,34 +13,42 @@ Admins Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
+<div class="page-content">
     <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit Admin</h3>
+              <h3 class="card-title">{{ __('routes.Edit Owner') }}</h3>
 
               
             </div>
             <!-- /.card-header -->
           
-            <div class="card-body table-responsive p-0">
-                <form method="POST" action="../update/{{ $admin->id }}" class='needs-validation' novalidate>
+            <div class="card-body table-responsive ">
+                <form method="POST" action="../update/{{ $employee->id }}" class='needs-validation' novalidate>
                     @csrf
                     @method('PUT')
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" name="name" value="{{ $admin->name }}" class="form-control" id="name" placeholder="Enter Name" required>
+                    <div class="card-body row g-2">
+                      <div class="form-group row g-1">
+                        <label for="name">{{ __('routes.Company') }}</label>
+                        <select name="company_id" id="" class="form-control select2">
+                          @foreach ($companies as $company)
+                            <option value="{{ $company->id }}" {{ $company->id == $employee->company_id? 'selected':'' }}>{{ $company->name }}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                        <div class="form-group row g-1">
+                            <label for="name">{{ __('routes.Name') }}</label>
+                            <input type="text" name="name" value="{{ $employee->name }}" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                        
-                        <div class="form-group">
-                            <label for="email">Email address</label>
-                            <input type="email" name="email" value="{{ $admin->email }}" class="form-control" id="email" placeholder="Enter email" required>
+                        <div class="form-group row g-1">
+                            <label for="email">{{ __('routes.Email') }}</label>
+                            <input type="email" name="email" value="{{ $employee->email }}" class="form-control" id="email" placeholder="Enter email" required>
                         </div>
-                        <div class="form-group">
-                            <label for="mobile_no">Mobile No</label>
-                            <input type="text" name="mobile_no" value="{{ $admin->mobile_no }}" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
+                        <div class="form-group row g-1">
+                            <label for="mobile_no">{{ __('routes.Mobile No') }}</label>
+                            <input type="text" name="mobile_no" value="{{ $employee->mobile_no }}" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
                         </div>
                         {{-- <div class="form-group">
                             <label for="password">Password</label>
@@ -55,7 +63,7 @@ Admins Page
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{ __('routes.Submit') }}</button>
                     </div>
                   </form>
             </div>
