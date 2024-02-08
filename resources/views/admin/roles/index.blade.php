@@ -57,16 +57,20 @@
                                             <td>{{ $role->name }}</td>
                                             <td class="d-flex ">
                                                 <div class="mx-2">
-                                                    <a class="btn btn-primary px-4"
-                                                        href="{{ route('admin.roles.roles_edit', $role->id) }}">Edit</a>
+                                                    @if(Auth::guard('admin')->user()->can('edit-role'))
+                                                        <a class="btn btn-primary px-4"
+                                                            href="{{ route('admin.roles.roles_edit', $role->id) }}">{{ __('routes.Edit') }}</a>
+                                                    @endif
                                                 </div>
                                                 <div class="">
-                                                    <meta name="csrf-token" content="{{ csrf_token() }}">
-                                                    <form method="post" class="delete-form"
-                                                        data-route="{{ route('admin.roles.roles_destroy', $role->id) }}">
-                                                        @method('delete')
-                                                        <button type="submit" class="btn btn-danger px-4 ">Delete</button>
-                                                    </form>
+                                                    @if(Auth::guard('admin')->user()->can('delete-role'))
+                                                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                                                        <form method="post" class="delete-form"
+                                                            data-route="{{ route('admin.roles.roles_destroy', $role->id) }}">
+                                                            @method('delete')
+                                                            <button type="submit" class="btn btn-danger px-4 ">{{ __('routes.Delete') }}</button>
+                                                        </form>
+                                                    @endif
                                                 </div>
 
                                             </td>

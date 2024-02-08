@@ -104,5 +104,6 @@ return [
     'Add Business Owner'=>'اضافة مالك شركة',
 
     //roles & permissions
+    'Permissions'=>'الصلاحيات',
     "create-admin"=>"انشاء مدير"
 ];

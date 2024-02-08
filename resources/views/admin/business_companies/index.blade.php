@@ -29,8 +29,11 @@ Companies Page
 
       
         <div class="d-flex ustify-content-between align-items-center" width='200'>
-          <a class=" btn btn-primary float-right" href="{{ route('admin.business.business_create') }}">{{ __('routes.Add Business') }}</a>
+          @if (Auth::guard('admin')->user()->can('create-business'))
+            <a class=" btn btn-primary float-right" href="{{ route('admin.business.business_create') }}">{{ __('routes.Add Business') }}</a>
+          @endif
         </div>
+          
     </div>
     <div class="card-body">
       <div class="table-responsive">
@@ -61,14 +64,21 @@ Companies Page
                     {{-- <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td> --}}
                     <td class="row row-cols-auto ">
                       <div class="col-4 ">
-                        <a class="btn btn-primary px-4" href="{{ route('admin.business.business_edit',$item->id ) }}">Edit</a>
+                        @if (Auth::guard('admin')->user()->can('edit-business'))
+                          <a class="btn btn-primary px-4" href="{{ route('admin.business.business_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
+                        @endif
+          
                       </div>
+                        
+                      
                         <div class="col-4">
-                          <meta name="csrf-token" content="{{ csrf_token() }}">
-                          <form method="post" class="delete-form" data-route="{{route('admin.business.business_destroy', $item->id) }}">
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger px-4 ">Delete</button>
-                          </form>
+                          @if (Auth::guard('admin')->user()->can('delete-business'))
+                            <meta name="csrf-token" content="{{ csrf_token() }}">
+                            <form method="post" class="delete-form" data-route="{{route('admin.business.business_destroy', $item->id) }}">
+                              @method('delete')
+                              <button type="submit" class="btn btn-danger px-4 ">{{ __('routes.Delete') }}</button>
+                            </form>
+                          @endif
                         </div>
                         
                     </td>

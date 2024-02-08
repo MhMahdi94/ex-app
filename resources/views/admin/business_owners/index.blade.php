@@ -59,7 +59,10 @@
                         </div>
                     
                     <div class="d-flex ustify-content-between align-items-center" width='200'>
+                      @if (Auth::guard('admin')->user()->can('create-business-owner'))
                         <a class=" btn btn-primary float-right" href="{{ route('admin.business_owner.business_owner_create') }}">{{ __('routes.Add Business Owner') }}</a>
+              
+                      @endif 
                     </div>
                 </div>
             
@@ -90,14 +93,18 @@
                     <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>
                     <td class="row row-cols-auto ">
                       <div class="col-4 ">
-                        <a class="btn btn-primary px-4" href="{{ route('admin.business_owner.business_owner_edit',$item->id ) }}">Edit</a>
+                        @if (Auth::guard('admin')->user()->can('edit-business-owner'))
+                          <a class="btn btn-primary px-4" href="{{ route('admin.business_owner.business_owner_edit',$item->id ) }}">Edit</a>
+                        @endif
                       </div>
                         <div class="col-4">
-                          <meta name="csrf-token" content="{{ csrf_token() }}">
-                          <form method="post" class="delete-form" data-route="{{route('admin.business_owner.business_owner_destroy', $item->id) }}">
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger px-4 ">Delete</button>
-                          </form>
+                          @if (Auth::guard('admin')->user()->can('delete-business-owner'))
+                            <meta name="csrf-token" content="{{ csrf_token() }}">
+                            <form method="post" class="delete-form" data-route="{{route('admin.business_owner.business_owner_destroy', $item->id) }}">
+                              @method('delete')
+                              <button type="submit" class="btn btn-danger px-4 ">Delete</button>
+                            </form>
+                          @endif
                         </div>
                         
                     </td>

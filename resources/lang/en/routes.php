@@ -106,5 +106,6 @@ return [
     'Add Business Owner'=>'Add Business Owner',
     
     //roles & permissions
+    'Permissions'=>'Permissions',  
     "create-admin"=>"Create Admin"
 ];

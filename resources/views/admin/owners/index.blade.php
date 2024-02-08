@@ -29,7 +29,10 @@ Owners Page
     
             
               <div class="d-flex ustify-content-between align-items-center" width='200'>
-                <a class=" btn btn-primary float-right" href="{{ route('admin.owners.owners_create') }}">{{ __('routes.Add Owner') }}</a>
+                @if (Auth::guard('admin')->user()->can('create-company-owner'))
+                  <a class=" btn btn-primary float-right" href="{{ route('admin.owners.owners_create') }}">{{ __('routes.Add Owner') }}</a>
+                @endif
+          
               </div>
               
               
@@ -59,14 +62,20 @@ Owners Page
                             <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>
                             <td class="d-flex  ">
                               <div class="">
-                                <a class="mr-2 btn btn-info" href="{{ route('admin.owners.owners_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
+                                @if (Auth::guard('admin')->user()->can('create-company-owner'))
+                                  <a class="mr-2 btn btn-info" href="{{ route('admin.owners.owners_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
+                                @endif
+          
                               </div>
                               <div class="mx-2">
-                                <meta name="csrf-token" content="{{ csrf_token() }}">
-                                <form method="post" class="delete-form" data-route="{{route('admin.owners.owners_destroy', $item->id) }}">
-                                  @method('delete')
-                                  <button type="submit" class="btn btn-danger  ">{{ __('routes.Delete') }}</button>
-                                </form>
+                                @if (Auth::guard('admin')->user()->can('create-company-owner'))
+                                  <meta name="csrf-token" content="{{ csrf_token() }}">
+                                  <form method="post" class="delete-form" data-route="{{route('admin.owners.owners_destroy', $item->id) }}">
+                                    @method('delete')
+                                    <button type="submit" class="btn btn-danger  ">{{ __('routes.Delete') }}</button>
+                                  </form>
+                                @endif
+          
                               </div>
                                 
                             </td>

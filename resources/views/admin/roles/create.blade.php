@@ -28,15 +28,16 @@ Packages Page
                         <form method="POST" action="{{ route('admin.roles.roles_store') }}" class='needs-validation'
                             novalidate>
                             @csrf
-                            <div class="card-body ">
-                                <div class="form-group">
-                                    <label for="name">Name</label>
+                            <div class="card-body row g-2">
+                                <div class="form-group ">
+                                    <label for="name">{{ __('routes.Name') }}</label>
                                     <input type="text" name="name" class="form-control" id="name"
                                         placeholder="Enter Name" required>
                                 </div>
+                                
                                 <div class="form-group  mb-4 mt-2">
                                    
-                                    <label for="multiple-select-field" class="form-label">Permissions</label>
+                                    <label for="multiple-select-field" class="form-label">{{ __('routes.Permissions') }}</label>
                                     <select class="form-select" id="multiple-select-field"
                                         data-placeholder="Select Permissions" id="permissions" name="permissions[]" multiple required>
 
