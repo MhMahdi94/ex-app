@@ -10,6 +10,7 @@ return [
     //sidebar
     'Dashboard'=>'Dashboard',
     'Admin Managment'=>'Admin Managment',
+    'Company Section'=>'Company Section',
     'Owner Managment'=>'Owner Managment',
     'Company Managment'=>'Company Managment',
     'Service Managment'=>'Service Managment',
@@ -27,6 +28,8 @@ return [
     'Admins List'=>'Admins List',
     'Add Admin'=>'Add Admin',
     'Name'=>'Name',
+    'Name(Arabic)'=>'Name (Arabic)',
+    'Name(English)'=>'Name (English)',
     'Email'=>'Email',
     'Mobile No'=>'Mobile No',
     'Status'=>'Status',
@@ -62,5 +65,46 @@ return [
     'Edit Owner'=>'Edit Owner',
     
 
+    //companies
+    'Companies List'=>'Companies List',
+    'Add Company'=>'Add Company',
+    'Departments'=>'Departments',
+    'Employees'=>'Employees',
+    'Subscription Start'=>'Subscription Start',
+    'Subscription End'=>'Subscription End',
 
+    //create
+    'Create Company'=>'Create Company',
+    'Description'=>'Description',
+    'Description(English)'=>'Description (English)',
+    'Description(Arabic)'=>'Description (Arabic)',
+    //edit
+    'Edit Company'=>'Edit Company',
+
+    //services or packages
+    'Services List'=>'Services List',
+    'Add Service'=>'Add Service',
+    'Create Service'=>'Create Service',
+    'Edit Service'=>'Edit Service',
+
+    //requests
+    'Requests List'=>'Requests List',
+    'Owner'=>'Owner',
+    'Address'=>'Address',
+    'Create Package'=>'Create Package',
+    'Complete'=>'Complete',
+
+    //roles
+    'Roles List'=>'Roles List',
+    'Add Role'=>'Add Role',
+
+    //business
+    'Business List'=>'Business List',
+    'Add Business'=>'Add Business',
+    'Create Business Company'=>'Create Business Company',
+    'Edit Business Company'=>'Edit Business Company',
+    'Add Business Owner'=>'Add Business Owner',
+    
+    //roles & permissions
+    "create-admin"=>"Create Admin"
 ];

@@ -9,6 +9,7 @@ return [
     //sidebar
     'Dashboard'=>'لوحة التحكم',
     'Admin Managment'=>'ادارة المدير',
+    'Company Section'=>'قسم الشركات',
     'Owner Managment'=>'ادارة ملاك الشركات',
     'Company Managment'=>'ادارة الشركات',
     'Service Managment'=>'ادارة الباقات',
@@ -25,6 +26,9 @@ return [
     'Admins List'=>'قائمة مدير النظام',
     'Add Admin'=>'اضافة مدير',
     'Name'=>'الاسم',
+    
+    'Name(Arabic)'=>'الاسم (عربي)',
+    'Name(English)'=>'الاسم (انجليزي)',
     'Email'=>'البريد الالكتروني',
     'Mobile No'=>'رقم الموبايل',
     'Status'=>'الحالة',
@@ -58,4 +62,47 @@ return [
     //create
     'Create Owner'=>'انشاء مالك',
     'Edit Owner'=>'تعديل مالك',
+
+    //companies
+    'Companies List'=>'قائمة الشركات',
+    'Add Company'=>'اضافة شركة',
+    'Departments'=>'الاقسام',
+    'Employees'=>'الموظفين',
+    'Subscription Start'=>'بداية الاشتراك',
+    'Subscription End'=>'نهاية الاشتراك',
+
+    //create
+    'Create Company'=>'انشاء شركة',
+    'Description'=>'الوصف',
+    'Description(English)'=>'الوصف (انجليزي)',
+    'Description(Arabic)'=>'الوصف (عربي)',
+    //edit
+    'Edit Company'=>'تعديل شركة',
+
+    //services or packages
+    'Services List'=>'قائمة الخدمات',
+    'Add Service'=>'اضافة خدمة',
+    'Create Service'=>'انشاء خدمة',
+    'Edit Service'=>'تعديل خدمة',
+
+    //requests
+    'Requests List'=>'قائمة الطلبات',
+    'Owner'=>'المالك',
+    'Address'=>'العنوان',
+    'Create Package'=>'انشاء باقة',
+    'Complete'=>'اكمال',
+
+    //roles
+    'Roles List'=>'قائمة الصلاحيات',
+    'Add Role'=>'اضافة صلاحية',
+
+    //business
+    'Business List'=>'قائمة الاعمال',
+    'Add Business'=>'اضافة اعمال',
+    'Create Business Company'=>'انشاء شركة',
+    'Edit Business Company'=>'تعديل شركة',
+    'Add Business Owner'=>'اضافة مالك شركة',
+
+    //roles & permissions
+    "create-admin"=>"انشاء مدير"
 ];

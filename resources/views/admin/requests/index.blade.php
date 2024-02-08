@@ -18,7 +18,7 @@ Requests Page
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <h6 class="mb-0 text-uppercase">Requests List</h6>
+              <h6 class="mb-0 text-uppercase">{{ __('routes.Requests List') }}</h6>
               <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
                 <input class="form-control px-5" disabled type="search" placeholder="Search">
                 <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i class='bx bx-search'></i></span>
@@ -31,15 +31,15 @@ Requests Page
               <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Owner</th>
-                    <th>Address</th>
-                    <th>Mobile No</th>
-                    <th>Email</th>
-                    <th>Employees</th>
-                    <th>Departments</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th>{{ __('routes.Name') }}</th>
+                    <th>{{ __('routes.Owner') }}</th>
+                    <th>{{ __('routes.Address') }}</th>
+                    <th>{{ __('routes.Mobile No') }}</th>
+                    <th>{{ __('routes.Email') }}</th>
+                    <th>{{ __('routes.Employees') }}</th>
+                    <th>{{ __('routes.Departments') }}</th>
+                    <th>{{ __('routes.Status') }}</th>
+                    <th>{{ __('routes.Actions') }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -54,7 +54,7 @@ Requests Page
                             <td>{{ $item->noOfDepts }}</td>
                             <td><span class="badge {{ $item->status?'bg-success':'bg-warning' }} ">{{ $item->status?'Done':'pending' }}</span></td>
                             <td>
-                                <a class="mr-2 btn btn-info" href="{{ route('admin.requests.requests_update',$item->id ) }}" id="update_request">Complete</a>
+                                <a class="mr-2 btn btn-info" href="{{ route('admin.requests.requests_update',$item->id ) }}" id="update_request">{{ __('routes.Complete') }}</a>
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 
                             </td>

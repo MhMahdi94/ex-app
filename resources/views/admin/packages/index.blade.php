@@ -18,7 +18,7 @@ Services Page
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <h6 class="mb-0 text-uppercase">Services List</h6>
+              <h6 class="mb-0 text-uppercase">{{ __('routes.Services List') }}</h6>
               
               <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
                 <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -28,20 +28,23 @@ Services Page
            
     
     
-            
+            {{-- {{ dd(Auth::guard('admin')->user()->can('create-package')) }} --}}
               <div class="d-flex ustify-content-between align-items-center" width='200'>
-                <a class=" btn btn-primary float-right" href="{{ route('admin.packages.packages_create') }}">Add Service</a>
-              </div>
+                @if (Auth::guard('admin')->user()->can('create-package'))
+                  <a class=" btn btn-primary float-right" href="{{ route('admin.packages.packages_create') }}">{{ __('routes.Add Service') }}</a>
+                             
+                @endif
+               </div>
               
         </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive p-0">
-              <table class="table table-hover">
+            <div class="card-body table-responsive">
+              <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Desc</th>
-                    <th>Actions</th>
+                    <th>{{ __('routes.Name') }}</th>
+                    <th>{{ __('routes.Description') }}</th>
+                    <th>{{ __('routes.Actions') }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -49,13 +52,17 @@ Services Page
                         <tr>
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->desc }}</td>
-                            <td class="row">
-                                <a class="mr-2 btn btn-info" href="{{ route('admin.packages.packages_edit',$item->id ) }}">Edit</a>
+                            <td class="d-flex">
+                              @if (Auth::guard('admin')->user()->can('edit-package'))
+                                <a class="mx-2 btn btn-warning" href="{{ route('admin.packages.packages_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
+                              @endif
+                              @if (Auth::guard('admin')->user()->can('delete-package'))
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 <form method="post" class="delete-form" data-route="{{route('admin.packages.packages_destroy', $item->id) }}">
                                   @method('delete')
-                                  <button type="submit" class="btn btn-danger  ">Delete</button>
+                                  <button type="submit" class="btn btn-danger  ">{{ __('routes.Delete') }}</button>
                                 </form>
+                              @endif
                             </td>
                         </tr> 
                     @endforeach
@@ -110,7 +117,7 @@ $('.delete-form').on('submit', function(e) {
           }).then((res)=>{
             // setTimeout(function() {
             //your code to be executed after 1 second
-            window.location.reload;
+            location.reload();
           // }, 3000);
           })
           ;

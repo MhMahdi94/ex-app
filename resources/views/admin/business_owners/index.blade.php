@@ -52,15 +52,14 @@
         <div class=" card">
             
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="mb-0 text-uppercase ">Business List</h6>
+                    <h6 class="mb-0 text-uppercase ">{{ __('routes.Business List') }}</h6>
                     <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
                         <input class="form-control px-5" disabled type="search" placeholder="Search">
                         <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i class='bx bx-search'></i></span>
                         </div>
                     
                     <div class="d-flex ustify-content-between align-items-center" width='200'>
-                        <a class=" btn btn-primary float-right" href="{{ route('admin.business_owner.business_owner_create') }}">Add
-                            Business Owner</a>
+                        <a class=" btn btn-primary float-right" href="{{ route('admin.business_owner.business_owner_create') }}">{{ __('routes.Add Business Owner') }}</a>
                     </div>
                 </div>
             
@@ -72,12 +71,12 @@
           <thead>
             <tr>
               <tr>
-                <th>Name</th>
-                <th>Company</th>
-                <th>Email</th>
-                <th>Mobile No</th>
-                <th>Status</th>
-                <th>Actions</th>
+                <th>{{ __('routes.Name') }}</th>
+                <th>{{ __('routes.Company') }}</th>
+                <th>{{ __('routes.Email') }}</th>
+                <th>{{ __('routes.Mobile No') }}</th>
+                <th>{{ __('routes.Status') }}</th>
+                <th>{{ __('routes.Actions') }}</th>
             </tr>
             </tr>
           </thead>

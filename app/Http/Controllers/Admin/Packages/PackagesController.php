@@ -33,10 +33,11 @@ class PackagesController extends Controller
     public function store(Request $request)
     {
         //
+//        return $request->all();
         Package::create(
             [
-                'name'=>$request->name,
-                'desc'=>$request->desc,
+                'name'=>['en'=>$request->english_name, 'ar'=>$request->arabic_name] ,
+                'desc'=>['en'=>$request->english_desc, 'ar'=>$request->arabic_desc],
             ]
         );
         return redirect()->back();

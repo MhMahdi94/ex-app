@@ -69,6 +69,7 @@ class DatabaseSeeder extends Seeder
     //    ]);
 
        $this->call([
+
         LeaveTypeSeeder::class,
         LeaveRequestSeeder::class,
         ReportTypeSeeder::class,
@@ -77,7 +78,8 @@ class DatabaseSeeder extends Seeder
         DocumentTypeSeeder::class,
         PermissionSeeder::class,
         RoleSeeder::class,
-        SuperAdminSeeder::class,
+       // SuperAdminSeeder::class,
+        AdminUserSeeder::class,
         StockOperationSeeder::class
         // COALEVELONESeeder::class,
         // COALEVELTWOSeeder::class

@@ -20,7 +20,7 @@
 
                     <div class="card-header d-flex justify-content-between align-items-center">
 
-                        <h6 class="mb-0 text-uppercase ">Roles List</h6>
+                        <h6 class="mb-0 text-uppercase ">{{ __('routes.Roles List') }}</h6>
                         <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                             data-bs-target="#SearchModal">
                             <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -34,8 +34,7 @@
 
 
                         <div class="d-flex ustify-content-between align-items-center" width='200'>
-                            <a class=" btn btn-primary float-right" href="{{ route('admin.roles.roles_create') }}">Add
-                                Role</a>
+                            <a class=" btn btn-primary float-right" href="{{ route('admin.roles.roles_create') }}">{{ __('routes.Add Role') }}</a>
                         </div>
 
                     </div>
@@ -46,9 +45,9 @@
                             <table id="example2" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Name</th>
+                                        <th>{{ __('routes.Name') }}</th>
 
-                                        <th>Actions</th>
+                                        <th>{{ __('routes.Actions') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

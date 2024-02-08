@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Admins;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 
 class AdminsController extends Controller
@@ -13,11 +14,14 @@ class AdminsController extends Controller
     /**
      * Display a listing of the resource.
      */
+    
     public function index()
     {
         //
         $data=Admin::get();
-        return view('admin.admins.index',compact('data'));
+        $user = Admin::find(Auth::guard('admin')->user()->id);
+       // dd($user->hasPermissionTo('create-admin'));
+        return view('admin.admins.index',compact('data','user'));
     }
 
     /**

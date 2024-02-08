@@ -16,15 +16,15 @@ class SuperAdminSeeder extends Seeder
     {
         //
         // Creating Super Admin User
-        $superAdmin = Admin::create([
-            'name' => 'Super Admin',
-            'email' => 'super-admin@example.com',
-            'is_super'=>1,
-            'status'=>1,
-            'mobile_no'=>'971542287649',
-            'password'=>Hash::make('password'),
-        ]);
-        $superAdmin->assignRole('Super Admin');
+        // $superAdmin = Admin::create([
+        //     'name' => 'Super Admin',
+        //     'email' => 'super-admin@example.com',
+        //     'is_super'=>1,
+        //     'status'=>1,
+        //     'mobile_no'=>'971542287649',
+        //     'password'=>Hash::make('password'),
+        // ]);
+        // $superAdmin->assignRole('Super Admin');
 
         // // Creating Admin User
         // $admin = User::create([

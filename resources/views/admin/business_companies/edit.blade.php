@@ -18,7 +18,7 @@ Admins Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit Business Company</h3>
+              <h3 class="card-title">{{ __('routes.Edit Business Company') }}</h3>
 
               
             </div>
@@ -30,31 +30,31 @@ Admins Page
                     @method('PUT')
                     <div class="card-body row g-3">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">{{ __('routes.Name') }}</label>
                             <input type="text" name="name" value="{{ $business_company->name }}" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                        
                         <div class="form-group">
-                            <label for="email">Email address</label>
+                            <label for="email">{{ __('routes.Email') }}</label>
                             <input type="email" name="email" value="{{ $business_company->email }}" class="form-control" id="email" placeholder="Enter email" required>
                         </div>
                         <div class="form-group">
-                            <label for="mobile_no">Mobile No</label>
+                            <label for="mobile_no">{{ __('routes.Mobile No') }}</label>
                             <input type="text" name="mobile_no" value="{{ $business_company->mobile_no }}" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
                         </div>
                         {{--  --}}
                         <div class="row g-1">
                           <div class="form-group col-6">
-                              <label for="subscriptionStart">Subscription Start</label>
+                              <label for="subscriptionStart">{{ __('routes.Subscription Start') }}</label>
                               <input type="date" name="subscriptionStart" class="form-control" id="subscriptionStart" value={{ $business_company->subscriptionStart }}   required>
                           </div>
                           <div class="form-group col-6">
-                              <label for="subscriptionEnd">Subscription End</label>
+                              <label for="subscriptionEnd">{{ __('routes.Subscription End') }}</label>
                               <input type="date" name="subscriptionEnd" class="form-control" id="subscriptionEnd" value={{ $business_company->subscriptionEnd }}  required>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="description">Description</label>
+                          <label for="description">{{ __('routes.Description') }}</label>
                           <textarea class="form-control" id="description" placeholder="Description" name='description'   required>{{ $business_company->desc }}</textarea>
                         </div>
                       
@@ -62,7 +62,7 @@ Admins Page
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{ __('routes.Submit') }}</button>
                     </div>
                   </form>
             </div>

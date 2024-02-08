@@ -18,7 +18,7 @@ Services Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit Service</h3>
+              <h3 class="card-title">{{ __('routes.Edit Service') }}</h3>
 
               
             </div>
@@ -29,18 +29,18 @@ Services Page
                     @method('PUT')
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">{{ __('routes.Name') }}</label>
                             <input type="text" name="name" value="{{ $package->name }}" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                         <div class="form-group">
-                          <label for="desc">Description</label>
+                          <label for="desc">{{ __('routes.Description') }}</label>
                           <textarea type="text" name="desc"  value="" class="form-control" id="desc" placeholder="Enter Description" required> {{ $package->desc }}</textarea>
                         </div>
                     </div>
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{ __('routes.Submit') }}</button>
                     </div>
                   </form>
             </div>

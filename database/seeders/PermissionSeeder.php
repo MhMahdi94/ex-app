@@ -15,12 +15,16 @@ class PermissionSeeder extends Seeder
     {
         //
         $permissions = [
-            'create-role',
-            'edit-role',
-            'delete-role',
+            
             'create-admin',
             'edit-admin',
             'delete-admin',
+            'create-package',
+            'edit-package',
+            'delete-package',
+            'create-role',
+            'edit-role',
+            'delete-role',
             // 'create-product',
             // 'edit-product',
             // 'delete-product'

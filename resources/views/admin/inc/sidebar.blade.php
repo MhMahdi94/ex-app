@@ -33,24 +33,8 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="{{ route('admin.owners.owners_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
-
-                <p>
-                    {{ __('routes.Owner Managment') }}
-
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('admin.companies.companies_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
-
-                <p>
-                    {{ __('routes.Company Managment') }}
-
-                </p>
-            </a>
-        </li>
+       
+        
         <li class="nav-item">
             <a href="{{ route('admin.packages.packages_index') }}" class="nav-link {{ request()->is('thrs/admin/packages') ? 'active' : '' }}">
 
@@ -78,7 +62,25 @@
                 </p>
             </a>
         </li>
+        <li class="menu-label">{{ __('routes.Company Section') }}</li>
+        <li class="nav-item">
+            <a href="{{ route('admin.companies.companies_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
+                <p>
+                    {{ __('routes.Company Managment') }}
+
+                </p>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('admin.owners.owners_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+
+                <p>
+                    {{ __('routes.Owner Managment') }}
+
+                </p>
+            </a>
+        </li>
         <li class="menu-label">{{ __('routes.Bussiness Section') }}</li>
         <li class="nav-item">
             <a href="{{ route('admin.business.business_index') }}" class="nav-link">

@@ -18,7 +18,7 @@ Companies Page
   <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
      
-        <h6 class="mb-0 text-uppercase ">Companies List</h6>
+        <h6 class="mb-0 text-uppercase ">{{ __('routes.Companies List') }}</h6>
         <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
           <input class="form-control px-5" disabled type="search" placeholder="Search">
           <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i class='bx bx-search'></i></span>
@@ -29,7 +29,7 @@ Companies Page
 
       
         <div class="d-flex ustify-content-between align-items-center" width='200'>
-          <a class=" btn btn-primary float-right" href="{{ route('admin.companies.companies_create') }}">Add Company</a>
+          <a class=" btn btn-primary float-right" href="{{ route('admin.companies.companies_create') }}">{{ __('routes.Add Company') }}</a>
         </div>
     </div>
     <div class="card-body">
@@ -37,16 +37,16 @@ Companies Page
         <table id="example2" class="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Name</th>
+              <th>{{ __('routes.Name') }}</th>
               {{-- <th>Owner</th> --}}
-              <th>Email</th>
+              <th>{{ __('routes.Email') }}</th>
               {{-- <th>Description</th> --}}
-              <th>Departments</th>
-              <th>Employees</th>
-              <th>Subscription Start</th>
-              <th>Employees</th>
+              <th>{{ __('routes.Departments') }}</th>
+              <th>{{ __('routes.Employees') }}</th>
+              <th>{{ __('routes.Subscription Start') }}</th>
+              <th>{{ __('routes.Subscription End') }}</th>
               {{-- <th>isActive</th> --}}
-              <th>Actions</th>
+              <th>{{ __('routes.Actions') }}</th>
             </tr>
           </thead>
           <tbody>
