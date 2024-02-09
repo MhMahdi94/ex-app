@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0 text-uppercase ">Product List</h6>
+                        <h6 class="mb-0 text-uppercase ">{{ __('routes.Product List') }}</h6>
 
                         <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                             data-bs-target="#SearchModal">
@@ -29,20 +29,25 @@
                                     class='bx bx-search'></i></span>
                         </div>
                         <div class="d-flex ustify-content-between align-items-center" width='200'>
-                            <a class=" btn btn-success float-right" href="{{ route('company.stock.stock_create') }}">Add
-                                Product</a>
-                            <a class=" btn btn-dark float-right mx-2" href="{{ route('company.stock.report_pdf') }}">Report</a>
+                            @if (Auth::guard('employee')->user()->can('add-product'))
+                                <a class=" btn btn-success float-right"
+                                    href="{{ route('company.stock.stock_create') }}">{{ __('routes.Add Product') }}</a>
+                            @endif
+                            @if (Auth::guard('employee')->user()->can('stock-report'))
+                                <a class=" btn btn-dark float-right mx-2"
+                                    href="{{ route('company.stock.report_pdf') }}">{{ __('routes.Report') }}</a>
+                            @endif
                         </div>
 
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive ">
-                        <table class="table table-hover">
+                        <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Quantity</th>
-                                    <th>Actions</th>
+                                    <th>{{ __('routes.Name') }}</th>
+                                    <th>{{ __('routes.Quantity') }}</th>
+                                    <th>{{ __('routes.Actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,96 +56,30 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->quantity }}</td>
                                         <td class="d-flex  ">
+                                            
                                             <a class="btn btn-warning px-4"
-                                                href="{{ route('company.stock.stock_import_export', $item->id) }}">Import/Export</a>
-                                   
-                                            {{-- <a class="btn btn-info" data-toggle="modal"
-                                                data-bs-target="#modal-lg{{ $item->id }}">Import/Export</a>
-                                            <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+                                                href="{{ route('company.stock.stock_import_export', $item->id) }}">{{ __('routes.Import/Export') }}</a>
+
 
                                         </td>
                                     </tr>
-                                    <div class="modal fade" id="modal-lg{{ $item->id }}" tabindex="-1" aria-hidden="true">
-                                        <div class="modal-dialog modal-lg">
-                                            <div class="modal-content">
-                                                <div class="modal-header">
-                                                    <h4 class="modal-title">Import/Export</h4>
-                                                    <button type="button" class="close" data-dismiss="modal"
-                                                        aria-label="Close">
-                                                        <span aria-hidden="true">&times;</span>
-                                                    </button>
-                                                </div>
-                                                <div class="modal-body">
-                                                    <form method="POST"
-                                                        action="{{ route('company.stock.stock_update', $item->id) }}"
-                                                        class='needs-validation' novalidate>
-                                                        @csrf
-                                                        @method('put')
-                                                        <input type="hidden" name="product_id" value="{{ $item->id }}">
-                                                        <div class="card-body row">
-                                                            <div class="form-group col-12">
-                                                                <label for="name">Name</label>
-                                                                <input type="text" readonly name="name"
-                                                                    value="{{ $item->name }}" class="form-control"
-                                                                    id="name" placeholder="Enter Name" required>
-                                                            </div>
-                                                            <div class="form-group col-12">
-                                                                <label for="operation_id">Operation</label>
-                                                                <select name="operation_id" id=""
-                                                                    class="form-control select2">
 
-                                                                    <option value="0">Import</option>
-                                                                    <option value="1">Export</option>
-
-                                                                </select>
-                                                            </div>
-                                                            <div class="form-group col-6">
-                                                                <label for="current_quantity">Current Quantity</label>
-                                                                <input type="text" readonly name="current_quantity"
-                                                                    value="{{ $item->quantity }}" class="form-control"
-                                                                    id="current_quantity" placeholder="Enter Name" required>
-                                                            </div>
-
-                                                            <div class="form-group col-6">
-                                                                <label for="quantity">Total Import/Export</label>
-                                                                <input type="number" name="quantity" class="form-control"
-                                                                    id="quantity" placeholder="Total Import/Export"
-                                                                    required>
-                                                            </div>
-                                                            <div class="form-group col-12">
-                                                                <label for="quantity">Notes</label>
-                                                                <textarea class="form-control" rows="3" placeholder="Enter ..." name="notes"></textarea>
-                                                            </div>
-
-                                                        </div>
-                                                        <!-- /.card-body -->
-
-                                                        <div class="modal-footer justify-content-between">
-                                                            <button type="submit" class="btn btn-primary">Submit</button>
-                                                        </div>
-                                                    </form>
-                                                </div>
-                                                {{-- <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save changes</button>
-                              </div> --}}
-                                            </div>
-                                            <!-- /.modal-content -->
-                                        </div>
-                                        <!-- /.modal-dialog -->
-                                    </div>
-                                @endforeach
-                            </tbody>
-                        </table>
                     </div>
-                    <!-- /.card-body -->
+
                 </div>
-                <!-- /.card -->
             </div>
+            @endforeach
+            </tbody>
+            </table>
         </div>
+        <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+    </div>
+    </div>
     </div>
 
-    
+
     <script>
         $(document).ready(function() {
 

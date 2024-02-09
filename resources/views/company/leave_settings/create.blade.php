@@ -18,7 +18,7 @@ Leave Slots Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Leave Slots</h3>
+              <h3 class="card-title">{{ __('routes.Create Leave Slots') }}</h3>
 
               
             </div>
@@ -30,22 +30,22 @@ Leave Slots Page
                     {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                     <div class="card-body row g-2">
                         <div class="form-group col-6">
-                            <label for="from">From: </label>
+                            <label for="from">{{ __('routes.From') }} </label>
                             <input type="date" name="from" class="form-control" id="from"  required>
                         </div>
                        
                         <div class="form-group col-6">
-                            <label for="to">To:</label>
+                            <label for="to">{{ __('routes.To') }}</label>
                             <input type="date" name="to" class="form-control" id="to" required>
                         </div>
                         
                         <div class="form-group col-12">
-                          <label for="status">Status</label>
+                          <label for="status">{{__('routes.Status')}}</label>
                           <select name="status" id="" class="form-control select2" required>
                             <option value="">--Select--</option>
-                              <option value="0">Allowed</option>
-                              <option value="1">Maybe</option>
-                              <option value="2">Blocked</option>
+                              <option value="0">{{ __('routes.Allowed') }}</option>
+                              <option value="1">{{ __('routes.Maybe') }}</option>
+                              <option value="2">{{ __('routes.Blocked') }}</option>
                           </select>
                         </div>
                       
@@ -53,7 +53,7 @@ Leave Slots Page
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                     </div>
                   </form>
             </div>

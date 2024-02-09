@@ -22,16 +22,22 @@ Chart of Account Page
                   {{-- <h3 class="card-title">Chart of account</h3> --}}
                   
                   <ul class="nav nav-pills">
-                    <li class="nav-item"><a class="nav-link active" href="{{ route('company.coa.coa_index') }}" >All</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_assets') }}" >Assets</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_liabilities') }}" >Liabilities</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_equity') }}" >Equity</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_expenses') }}" >Expenses</a></li>
-                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_revenue') }}" >Revenue</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="{{ route('company.coa.coa_index') }}" >{{__('routes.All')}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_assets') }}" >{{__('routes.Assets')}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_liabilities') }}" >{{__('routes.Liabilities')}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_equity') }}" >{{__('routes.Equity')}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_expenses') }}" >{{__('routes.Expenses')}}</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{{ route('company.coa.coa_revenue') }}" >{{__('routes.Revenue')}}</a></li>
                   </ul>
                    <div class="card-tools d-flex gap-2">
-                    <a class="mr-2 btn btn-dark" href="{{ route('company.coa.coa_pdf') }}">Export</a>
-                    <a class="mr-2 btn btn-info" href="{{ route('company.coa.coa_create') }}">Add Account</a>
+                    @if (Auth::guard('employee')->user()->can('add-account'))
+                      <a class="mr-2 btn btn-info" href="{{ route('company.coa.coa_create') }}">{{ __('routes.Add Account') }}</a>
+                    @endif
+                    @if (Auth::guard('employee')->user()->can('export-accounts'))
+                      <a class="mr-2 btn btn-dark" href="{{ route('company.coa.coa_pdf') }}">{{ __('routes.Export') }}</a>  
+                    @endif
+                    
+                    
                    {{-- <div class="input-group input-group-sm" style="width: 150px;">
                       <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
     
@@ -46,11 +52,11 @@ Chart of Account Page
                   <table class="table table-hover">
                     <thead>
                       <tr>
-                        <th>Name</th>
-                        <th>Account No</th>
-                        <th>Total Debit</th>
-                        <th>Total Credit</th>
-                        <th>Balance</th>
+                        <th>{{ __('routes.Name') }}</th>
+                        <th>{{ __('routes.Account No') }}</th>
+                        <th>{{ __('routes.Total Debit') }}</th>
+                        <th>{{ __('routes.Total Credit') }}</th>
+                        <th>{{ __('routes.Balance') }}</th>
                         {{-- <th>Actions</th> --}}
                       </tr>
                     </thead>

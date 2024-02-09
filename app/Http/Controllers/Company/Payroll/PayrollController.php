@@ -10,6 +10,7 @@ use Barryvdh\DomPDF\Facade\Pdf;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 
 class PayrollController extends Controller
@@ -21,8 +22,10 @@ class PayrollController extends Controller
     {
         //
 //        return request();
+        $from=Carbon::parse(Date::today())->format('Y-M-d');
+        $to=Carbon::parse(Date::today())->format('Y-M-d');
         $employees=[];
-        return view('company.payroll.index', compact('employees'));
+        return view('company.payroll.index', compact('employees','from','to'));
     }
     public function payrollList(Request $request)
     {
@@ -41,7 +44,7 @@ class PayrollController extends Controller
             # code...
             $employee['check_in']=Attendence::where('check_in','!=',NULL)->count();
             $employee['details']=EmployeeDetails::where('employee_id',$employee->id)->first();
-            $employee['current_salary']=($employee->details->salary / $diff) * $employee['check_in'];
+            $employee['current_salary']=($employee->details->salary??0 / $diff) * $employee['check_in'];
             
         }
        // return [$employees, $diff];

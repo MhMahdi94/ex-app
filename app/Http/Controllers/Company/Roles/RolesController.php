@@ -24,7 +24,7 @@ class RolesController extends Controller
     public function index()
     {
         //
-        $roles=Role::orderby('id',)->get();
+        $roles=Role::where('guard_name','employee')->orderby('id',)->get();
         return view('company.roles.index', compact('roles'));
     }
 
@@ -70,8 +70,8 @@ class RolesController extends Controller
     {
         //
         $role=Role::find($id);
-        if($role->name=='Super Admin'){
-            abort(403, 'SUPER ADMIN ROLE CAN NOT BE EDITED');
+        if($role->name=='Company Owner'){
+            abort(403, 'Company Owner ROLE CAN NOT BE EDITED');
         }
 
         $rolePermissions = DB::table("role_has_permissions")->where("role_id",$role->id)
@@ -111,12 +111,12 @@ class RolesController extends Controller
     {
         //
         $role= Role::find($id);
-        if($role->name=='Super Admin'){
-            abort(403, 'SUPER ADMIN ROLE CAN NOT BE DELETED');
+        if($role->name=='Company Owner'){
+            abort(403, 'Company Owner ROLE CAN NOT BE DELETED');
         }
-        // if(auth()->guard('employee')->user()->hasRole($role->name)){
-        //     abort(403, 'CAN NOT DELETE SELF ASSIGNED ROLE');
-        // }
+        if(auth()->guard('employee')->user()->hasRole($role->name)){
+            abort(403, 'CAN NOT DELETE SELF ASSIGNED ROLE');
+        }
         $role->delete();
         // return redirect()->route('roles.index')
         //         ->withSuccess('Role is deleted successfully.');

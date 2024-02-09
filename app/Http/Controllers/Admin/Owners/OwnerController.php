@@ -38,15 +38,16 @@ class OwnerController extends Controller
     {
         //
         //return $request->all();
-        Employees::create([
+        $employee=Employees::create([
             'company_id'=>$request->company_id,
-            'name'=>$request->name,
+            'name'=>['en'=>$request->english_name,'ar'=>$request->arabic_name,],
             'email'=>$request->email,
             'mobile_no'=>$request->mobile_no,
             'password'=>Hash::make( $request->password),
             
             'is_owner'=>1
         ]);
+        $employee->assignRole(3);
         return redirect()->back();
     }
 

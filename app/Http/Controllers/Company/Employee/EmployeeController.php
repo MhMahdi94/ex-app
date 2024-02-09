@@ -10,6 +10,7 @@ use App\Models\Employees;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Spatie\Permission\Models\Role;
 
 class EmployeeController extends Controller
 {
@@ -31,9 +32,10 @@ class EmployeeController extends Controller
     {
         //
         $employee=Employees::where('company_id',1)->first();
+        $roles = Role::where('guard_name','employee')->pluck('name')->all();
         $allowences=[];
         
-        return view('company.employees.create', compact('employee','allowences'));
+        return view('company.employees.create', compact('employee','allowences','roles'));
     }
 
     public function details($id)
@@ -53,11 +55,11 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         //
-      //  return $request->all();
+      // return $request->all();
       //return Auth::guard('employee')->user()->company_id;
-        Employees::create([
+        $employee=Employees::create([
             'company_id'=>Auth::guard('employee')->user()->company_id,
-            'name'=>$request->name,
+            'name'=>['en'=>$request->english_name,'ar'=>$request->arabic_name,],
             'email'=>$request->email,
             'mobile_no'=>$request->mobile_no,
             
@@ -65,6 +67,7 @@ class EmployeeController extends Controller
             
             'is_owner'=>0
         ]);
+        $employee->assignRole($request->roles);
         return redirect()->back();
     }
 
@@ -83,8 +86,8 @@ class EmployeeController extends Controller
     {
         //
         $employee=Employees::find($id);
-       
-        return view('company.employees.edit', compact('employee'));
+        $roles = Role::where('guard_name','employee')->pluck('name')->all();
+        return view('company.employees.edit', compact('employee','roles'));
     }
 
     /**
@@ -94,7 +97,7 @@ class EmployeeController extends Controller
     {
         //
         $employee=Employees::find($id);
-        $employee->name=$request->name;
+        $employee->name=['en'=>$request->english_name,'ar'=>$request->arabic_name,];//$request->name;
         $employee->email=$request->email;
         $employee->mobile_no=$request->mobile_no;
         $employee->status=$request->status;

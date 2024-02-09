@@ -20,24 +20,8 @@
 
                     <div class="card-header d-flex justify-content-between align-items-center">
 
-                        <h6 class="mb-0 text-uppercase ">Payroll</h6>
-                        {{-- <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
-                            data-bs-target="#SearchModal">
-                            <input class="form-control px-5" disabled type="search" placeholder="Search">
-                            <span
-                                class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i
-                                    class='bx bx-search'></i></span>
-                        </div>
-
-
-
-
-
-                        <div class="d-flex ustify-content-between align-items-center" width='200'>
-                            <a class=" btn btn-primary float-right" href="{{ route('company.roles.roles_create') }}">Add
-                                Role</a>
-                        </div> --}}
-
+                        <h6 class="mb-0 text-uppercase ">{{ __('routes.Payroll') }}</h6>
+                       
                     </div>
 
                     <!-- /.card-header -->
@@ -50,41 +34,38 @@
 
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="from">From</label>
+                                        <label for="from">{{ __('routes.From') }}</label>
                                         <input type="date" name="from" class="form-control" id="from" value="{{ $from??'' }}"
                                             placeholder="From" />
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="to">To</label>
+                                        <label for="to">{{ __('routes.To') }}</label>
                                         <input type="date" name="to" class="form-control" id="to" value="{{ $to??'' }}"
                                             placeholder="From" />
                                     </div>
                                 </div>
                                 <div class="col-4">
-                                    {{-- <div class="form-group"> --}}
-                                   
-
-                                    {{-- </div> --}}
+                                  
                                 </div>
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-secondary">Search</button>
+                                    <button type="submit" class="btn btn-secondary">{{ __('routes.Search') }}</button>
                                 </div>
                         </form>
                     </div>
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h6 class="mb-0 text-uppercase ">Payroll Sheet( {{ $from }} -> {{ $to }})</h6>
+                            <h6 class="mb-0 text-uppercase ">{{ __('routes.Payroll Sheet') }}( {{ $from }} -> {{ $to }})</h6>
                             
                             <form method="POST" action="{{ route('company.payroll.payroll_pdf') }}">
                                 @csrf
                                 <input type="hidden" name="employee_id" value="{{ $employee->id ?? '' }}"/>
                                 <input type="hidden" name="from" value="{{ $from ?? '' }}"/>
                                 <input type="hidden" name="to" value="{{ $to ?? '' }}"/>
-                                <button type="submit" class=" btn btn-dark float-right" >Print</button>
+                                <button type="submit" class=" btn btn-dark float-right" >{{ __('routes.Print') }}</button>
                             </form>
                             {{-- <a class=" btn btn-primary float-right" href="{{ route('company.payroll.payroll_pdf') }}">Print</a> --}}
                         </div>
@@ -93,12 +74,12 @@
                                 <table id="example2" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Total Days</th>
-                                            <th>Working</th>
-                                            <th>Absent</th>
-                                            <th>Salary</th>
-                                            <th>Current Salary</th>
+                                            <th>{{ __('routes.Name') }}</th>
+                                            <th>{{ __('routes.Total Days') }}</th>
+                                            <th>{{ __('routes.Working') }}</th>
+                                            <th>{{ __('routes.Absent') }}</th>
+                                            <th>{{ __('routes.Salary') }}</th>
+                                            <th>{{ __('routes.Current Salary') }}</th>
                                             {{-- <th>Actions</th> --}}
                                         </tr>
                                     </thead>
@@ -110,7 +91,7 @@
                                                 <td>{{ $diff }}</td>
                                                 <td>{{ $employee->check_in }}</td>
                                                 <td>{{ $diff-$employee->check_in }}</td>
-                                                <td>{{$employee->details->salary }}</td>
+                                                <td>{{$employee->details->salary??0 }}</td>
                                                 <td>{{$employee->current_salary }}</td>
                                                 {{-- <td class="d-flex ">
                                                     <div class="mx-2">

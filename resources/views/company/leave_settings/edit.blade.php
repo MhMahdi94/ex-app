@@ -35,15 +35,15 @@ Company Page
                         </div>
                        
                         <div class="form-group">
-                            <label for="email">Email address</label>
+                            <label for="email">{{__('routes.Email')}}</label>
                             <input type="email" value="{{ $employee->email }}" name="email" class="form-control" id="email" placeholder="Enter email" required>
                         </div>
                         <div class="form-group">
-                            <label for="mobile_no">Mobile No</label>
+                            <label for="mobile_no">{{__('routes.Mobile No')}}</label>
                             <input type="text" value="{{ $employee->mobile_no }}" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
                         </div>
                         <div class="form-group">
-                          <label for="status">Status</label>
+                          <label for="status">{{__('routes.Status')}}</label>
                           <select name="status" id="" class="form-control select2">
                             {{-- @foreach ($companies as $company) --}}
                               <option value="0" {{ $employee->status==0?'selected':'' }}>No</option>
@@ -64,7 +64,7 @@ Company Page
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                     </div>
                   </form>
             </div>

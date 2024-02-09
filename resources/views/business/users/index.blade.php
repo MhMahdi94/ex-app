@@ -36,8 +36,8 @@
                 <th>Name</th>
                 <th>Company</th>
                 <th>Email</th>
-                <th>Mobile No</th>
-                <th>Status</th>
+                <th>{{__('routes.Mobile No')}}</th>
+                <th>{{__('routes.Status')}}</th>
                 <th>Actions</th>
             </tr>
             </tr>

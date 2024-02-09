@@ -71,7 +71,7 @@
 
 
 <div class="card-footer">
-    <button type="submit" class="btn btn-primary disabled" id="add-order-btn">Submit</button>
+    <button type="submit" class="btn btn-primary disabled" id="add-order-btn">{{__('routes.Submit')}}</button>
 </div>
 </form>
 

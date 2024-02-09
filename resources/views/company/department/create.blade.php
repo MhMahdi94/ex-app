@@ -18,7 +18,7 @@ Department Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Department</h3>
+              <h3 class="card-title">{{ __('routes.Add Department') }}</h3>
 
               
             </div>
@@ -30,12 +30,12 @@ Department Page
                     {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                     <div class="card-body row g-2">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">{{ __('routes.Name') }}</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                        
                         <div class="form-group ">
-                          <label for="employee_id">Head</label>
+                          <label for="employee_id">{{ __('routes.Head') }}</label>
                           <select name="employee_id" id="" class="form-control select2">
                             @foreach ($employees as $employee)
                               <option value="{{ $employee->id }}">{{ $employee->name }}</option>
@@ -48,7 +48,7 @@ Department Page
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                     </div>
                   </form>
             </div>

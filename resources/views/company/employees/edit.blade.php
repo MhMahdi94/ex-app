@@ -18,7 +18,7 @@ Company Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h6 class="text-uppercase ">Create Employee</h6>
+              <h6 class="text-uppercase ">{{ __('routes.Edit Employee') }}</h6>
 
               
             </div>
@@ -29,21 +29,27 @@ Company Page
                     @method('PUT')
                     <input type="hidden" name="company_id" value="{{ $employee->company->id }}">
                     <div class="card-body row g-3">
-                        <div class="form-group">
-                            <label for="name">Name</label>
-                            <input type="text" value="{{ $employee->name }}" name="name" class="form-control" id="name" placeholder="Enter Name" required>
-                        </div>
+                      <div class="form-group col-md-6">
+                        <label for="english_name">{{ __('routes.Name(English)') }}</label>
+                        <input type="text" name="english_name" class="form-control" id="english_name" value="{{ $employee->getTranslation('name', 'en')}}"
+                            placeholder="Enter Name" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="arabic_name">{{ __('routes.Name(Arabic)') }}</label>
+                        <input type="text" name="arabic_name" class="form-control" id="arabic_name" value="{{ $employee->getTranslation('name', 'ar')}}"
+                            placeholder="Enter Name" required>
+                    </div>
                        
                         <div class="form-group">
-                            <label for="email">Email address</label>
+                            <label for="email">{{__('routes.Email')}}</label>
                             <input type="email" value="{{ $employee->email }}" name="email" class="form-control" id="email" placeholder="Enter email" required>
                         </div>
                         <div class="form-group">
-                            <label for="mobile_no">Mobile No</label>
+                            <label for="mobile_no">{{__('routes.Mobile No')}}</label>
                             <input type="text" value="{{ $employee->mobile_no }}" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
                         </div>
                         <div class="form-group">
-                          <label for="status">Status</label>
+                          <label for="status">{{__('routes.Status')}}</label>
                           <select name="status" id="" class="form-control select2">
                             {{-- @foreach ($companies as $company) --}}
                               <option value="0" {{ $employee->status==0?'selected':'' }}>No</option>
@@ -51,20 +57,25 @@ Company Page
                             {{-- @endforeach --}}
                           </select>
                         </div>
-                        {{-- <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="confirm_password">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" name='confirm_password' placeholder="Confirm Password" required>
-                        </div> --}}
+                        <div class="form-group col-md-12">
+                          <label for="multiple-select-field" class="form-label">{{ __('routes.Role') }}</label>
+                          <select class="form-select" id="multiple-select-field" data-placeholder="Select Role"
+                              id="roles" name="roles[]" multiple required>
+
+                              @foreach ($roles as $role)
+                                  <option value="{{ $role }}"
+                                      {{ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>
+                                      {{ $role }}
+                                  </option>
+                              @endforeach
+                          </select>
+                      </div>
                       
                     </div>
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                     </div>
                   </form>
             </div>

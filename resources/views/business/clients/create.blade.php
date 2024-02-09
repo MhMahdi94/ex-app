@@ -40,7 +40,7 @@ Owners Page
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                         <div class="form-group col-md-4">
-                          <label for="mobile_no ">Mobile No</label>
+                          <label for="mobile_no ">{{__('routes.Mobile No')}}</label>
                           <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter mobile_no" required>
                       </div>
                       <div class="form-group col-md-4">
@@ -56,7 +56,7 @@ Owners Page
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                     </div>
                   </form>
             </div>

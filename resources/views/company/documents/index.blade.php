@@ -20,7 +20,7 @@ Documents Page
           <div class="card">
            
         <div class="card-header d-flex justify-content-between align-items-center">
-          <h6 class="mb-0 text-uppercase ">Documents List</h6>
+          <h6 class="mb-0 text-uppercase ">{{ __('routes.Documents List') }}</h6>
           <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
               data-bs-target="#SearchModal">
               <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -34,9 +34,11 @@ Documents Page
 
 
           <div class="d-flex justify-content-between align-items-center" width='200'>
+            @if (Auth::guard('employee')->user()->can('add-document'))
               <a class=" btn btn-primary float-right"
-                  href="{{ route('company.documents.document_create') }}">Add
-                  Document</a>
+                  href="{{ route('company.documents.document_create') }}">{{ __('routes.Add Document') }}</a>
+            
+            @endif
           </div>
       </div>
             <!-- /.card-header -->
@@ -44,10 +46,10 @@ Documents Page
               <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>Date</th>
-                    <th>Description</th>
-                    <th>Type</th>
-                    <th>Actions</th>
+                    <th>{{ __('routes.Date') }}</th>
+                    <th>{{ __('routes.Description') }}</th>
+                    <th>{{ __('routes.Type') }}</th>
+                    <th>{{ __('routes.Actions') }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -59,12 +61,11 @@ Documents Page
                            
                             {{-- <td>{{ $item->employee->name }}</td> --}}
                             <td class="row">
+                              @if (Auth::guard('employee')->user()->can('show-document'))
                                 <a class="mr-2 btn btn-info" href="{{ route('company.documents.document_show',$item->id ) }}">show</a>
-                                {{-- <meta name="csrf-token" content="{{ csrf_token() }}">
-                                 <form method="post" class="delete-form" data-route="{{route('company.department.department_destroy', $item->id) }}">
-                                  @method('delete')
-                                  <button type="submit" class="btn btn-danger  ">Delete</button>
-                                </form> --}}
+                              
+                              @endif
+                                
                             </td>
                         </tr> 
                     @endforeach

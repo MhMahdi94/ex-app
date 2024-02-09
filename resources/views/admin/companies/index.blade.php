@@ -66,7 +66,7 @@ Companies Page
                     <td class="row row-cols-auto ">
                       <div class="col-4 ">
                         @if (Auth::guard('admin')->user()->can('edit-company'))
-                          <a class="btn btn-primary px-4" href="{{ route('admin.admins.admins_edit',$item->id ) }}">Edit</a>
+                          <a class="btn btn-warning px-4" href="{{ route('admin.admins.admins_edit',$item->id ) }}">Edit</a>
                         @endif
           
                       </div>

@@ -18,7 +18,7 @@ Leave Requests Page
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <h6 class="mb-0 text-uppercase ">Leave Requests List</h6>
+              <h6 class="mb-0 text-uppercase ">{{ __('routes.Leave Requests List') }}</h6>
               <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                   data-bs-target="#SearchModal">
                   <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -42,12 +42,12 @@ Leave Requests Page
               <table class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>Employee</th>
-                    <th>Start Leave</th>
-                    <th>End Leave</th>
-                    <th>Leave Type</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th>{{ __('routes.Employee') }}</th>
+                    <th>{{ __('routes.From') }}</th>
+                    <th>{{ __('routes.To') }}</th>
+                    <th>{{ __('routes.Leave Type') }}</th>
+                    <th>{{ __('routes.Status')}}</th>
+                    <th>{{ __('routes.Actions') }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -59,30 +59,31 @@ Leave Requests Page
                             <td>{{ $item->getLeaveType->name }}</td>
                             <td>
                               @if ($item->status==0)
-                                <span class="badge bg-warning ">Pending</span>
+                                <span class="badge bg-warning ">{{ __('routes.Pending') }}</span>
                               @elseif ($item->status==1)  
-                                <span class="badge bg-success ">Accepted</span>
+                                <span class="badge bg-success ">{{ __('routes.Accepted') }}</span>
                               @else
-                                <span class="badge bg-danger ">Rejected</span>
+                                <span class="badge bg-danger ">{{ __('routes.Rejected') }}</span>
                               @endif
                               {{-- <span class="badge {{ $item->status?'bg-green':'bg-yellow' }} ">{{ $item->status?'Accepted':'Pending' }}</span> --}}
                             </td>
                             <td class="d-flex">
-                                {{-- <a class="mr-2 btn btn-info" href="{{ route('company.employees.employees_edit',$item->id ) }}">Accept</a> --}}
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
-                                {{-- <input type="hidden" id="employee_id" value="{{ $item->id }}"> --}}
-                                {{-- <a class="mr-2 btn btn-danger" data-toggle="modal" data-target="#modal-danger" id='{{ $item->id }}'
-                                data-route="{{ route('company.employees.employees_destroy', $item->id) }}"
-                                data-url="{{ route('company.employees.employees_destroy', $item->id) }}" >Delete</a> --}}
-                                <form method="post" class="accept-form" data-route="{{route('company.leave-requests.leave_requests_update', $item->id) }}">
-                                  @method('put')
-                                  <button type="submit" class="btn btn-success mr-2 ">Accept</button>
-                                </form>
-                                <form method="post" class="delete-form mx-2" data-route="{{route('company.leave-requests.leave_requests_update', $item->id) }}">
-                                  @method('put')
-                                  <button type="submit" class="btn btn-danger  ">Reject</button>
-                                </form>
-                              
+                                @if (Auth::guard('employee')->user()->can('accept-leave'))
+                                  <form method="post" class="accept-form" data-route="{{route('company.leave-requests.leave_requests_update', $item->id) }}">
+                                    @method('put')
+                                    <button type="submit" class="btn btn-success mr-2 ">{{ __('routes.Accept') }}</button>
+                                  </form>
+                                  
+                                @endif
+                                @if (Auth::guard('employee')->user()->can('accept-leave'))
+                                  
+                                  <form method="post" class="delete-form mx-2" data-route="{{route('company.leave-requests.leave_requests_update', $item->id) }}">
+                                    @method('put')
+                                    <button type="submit" class="btn btn-danger  ">{{ __('routes.Reject') }}</button>
+                                  </form>
+                                
+                                @endif  
                                 {{-- <a class="ml-2 btn btn-warning " href="{{ route('company.employees.employees_details',$item->id ) }}">Details</a> --}}
                             </td>
                         </tr> 

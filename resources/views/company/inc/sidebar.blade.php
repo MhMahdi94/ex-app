@@ -121,7 +121,7 @@
          </li> --}}
          {{-- <li class="nav-item">
            <a href="{{ route('company.coa.coa_expenses') }}" class="nav-link">
-             <p>Expenses</p>
+             <p>{{__('routes.Expenses')}}</p>
            </a>
          </li> --}}
          

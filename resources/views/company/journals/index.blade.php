@@ -19,7 +19,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0 text-uppercase ">Journals List</h6>
+                        <h6 class="mb-0 text-uppercase ">{{ __('routes.Journals List') }}</h6>
                         <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                             data-bs-target="#SearchModal">
                             <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -33,20 +33,21 @@
 
 
                         <div class="d-flex ustify-content-between align-items-center" width='200'>
-                            <a class=" btn btn-primary float-right"
-                                href="{{ route('company.journals.journals_create') }}">Add
-                                Journal</a>
+                            @if (Auth::guard('employee')->user()->can('add-journal'))
+                                <a class=" btn btn-primary float-right"
+                                    href="{{ route('company.journals.journals_create') }}">{{ __('routes.Add Journal') }}</a>
+                            @endif
                         </div>
                     </div>
                     <div class="card-body table-responsive ">
                         <table class="table table-striped table-bordered">
                             <thead>
                                 <tr>
-                                    <th>Date</th>
-                                    <th>Description</th>
-                                    <th>Total Debit</th>
-                                    <th>Total Credit</th>
-                                    <th>Actions</th>
+                                    <th>{{ __('routes.Date') }}</th>
+                                    <th>{{ __('routes.Description') }}</th>
+                                    <th>{{ __('routes.Total Debit') }}</th>
+                                    <th>{{ __('routes.Total Credit') }}</th>
+                                    <th>{{ __('routes.Actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -58,8 +59,9 @@
                                         <td>{{ $item->total_credit }}</td>
                                         {{-- <td>{{ $item->employee->name }}</td> --}}
                                         <td class="row">
-                                            <a class="mr-2 btn btn-info"
-                                                href="{{ route('company.journals.journals_show', $item->id) }}">show</a>
+                                            @if (Auth::guard('employee')->user()->can('show-journal'))
+                                                <a class="mr-2 btn btn-info" href="{{ route('company.journals.journals_show', $item->id) }}">{{ __('routes.Show') }}</a>
+                                            @endif
                                             {{-- <meta name="csrf-token" content="{{ csrf_token() }}">
                                <form method="post" class="delete-form" data-route="{{route('company.department.department_destroy', $item->id) }}">
                                 @method('delete')

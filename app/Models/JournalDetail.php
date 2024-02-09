@@ -17,4 +17,8 @@ class JournalDetail extends Model
         'currency',
         'journal_no',
     ];
+
+    public function account(){
+        return $this->belongsTo(Accounts::class,'journal_account_no');
+    }
 }

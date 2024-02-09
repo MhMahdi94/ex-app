@@ -18,7 +18,7 @@ Account Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Account</h3>
+              <h3 class="card-title">{{ __('routes.Add Account') }}</h3>
 
               
             </div>
@@ -30,15 +30,15 @@ Account Page
                     {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                     <div class="card-body row g-3">
                         <div class="form-group col-6 ">
-                            <label for="name">Name</label>
+                            <label for="name">{{ __('routes.Name') }}</label>
                             <input type="text" name="name" class="form-control mt-1" id="name" placeholder="Enter Name" required>
                         </div>
                         <div class="form-group col-6">
-                          <label for="account_number">Account Number</label>
+                          <label for="account_number">{{ __('routes.Account No') }}</label>
                           <input type="text" name="account_number" class="form-control mt-1" id="account_number" placeholder="Enter Account Number" required>
                         </div>
                         <div class="form-group col-6">
-                          <label for="parent_id">Parent Account</label>
+                          <label for="parent_id">{{ __('routes.Parent Account') }}</label>
                           <select name="parent_id" id="parent_id" class="form-control mt-1 select2" data-show-subtext="true" data-live-search="true">
                             @foreach ($collections as $item)
                               <option value="{{ $item->id }}">{{ $item->account_name }}</option>
@@ -46,25 +46,25 @@ Account Page
                           </select>
                         </div>
                         <div class="form-group col-6">
-                          <label for="level">Level</label>
+                          <label for="level">{{ __('routes.Level') }}</label>
                           <input type="text" name="level"  class="form-control mt-1" id="level" placeholder="Enter Level" required>
                         </div>
                        
                         <div class="form-group col-4">
-                          <label for="debit">Debit</label>
+                          <label for="debit">{{ __('routes.Debit') }}</label>
                           <input type="text" value="0" name="debit" class="form-control mt-1" id="debit" placeholder="Enter Debit" required>
                         </div>
                         <div class="form-group col-4">
-                          <label for="credit">Credit</label>
+                          <label for="credit">{{ __('routes.Credit') }}</label>
                           <input type="text" value="0" name="credit" class="form-control mt-1" id="credit" placeholder="Enter Credit" required>
                         </div>
                         <div class="form-group col-4">
-                          <label for="balance">Balance</label>
+                          <label for="balance">{{ __('routes.Balance') }}</label>
                           <input type="text" value="0" name="balance" class="form-control mt-1" id="balance" placeholder="Enter Balance" required>
                         </div>
                         <hr/>
                         <div class="form-group col-6">
-                          <label for="report_type">Report Type</label>
+                          <label for="report_type">{{ __('routes.Report Type') }}</label>
                           <select name="report_type" id="" class="form-control mt-1 select2">
                             
                             @foreach ($report_types as $item)
@@ -74,7 +74,7 @@ Account Page
                           </select>
                         </div>
                         <div class="form-group col-6">
-                          <label for="account_type">Account Type</label>
+                          <label for="account_type">{{ __('routes.Account Type') }}</label>
                           <select name="account_type" id="" class="form-control mt-1 select2">
                             
                             @foreach ($account_types as $item)
@@ -87,7 +87,7 @@ Account Page
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                     </div>
                   </form>
             </div>

@@ -18,7 +18,7 @@ Document Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Document</h3>
+              <h3 class="card-title">{{ __('routes.Add Document') }}</h3>
 
               
             </div>
@@ -30,15 +30,15 @@ Document Page
                     {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                     <div class="card-body row g-2">
                         <div class="form-group col-md-4">
-                            <label for="document_date">Date</label>
+                            <label for="document_date">{{ __('routes.Date') }}</label>
                             <input type="text" readonly name="document_date" class="form-control" id="document_date" placeholder="Enter document Date" value="{{ $date }}" required>
                         </div>
                         <div class="form-group col-md-4">
-                          <label for="document_number">Document number</label>
+                          <label for="document_number">{{ __('routes.Document number') }}</label>
                           <input type="text" readonly  name="document_number" class="form-control" id="document_number" placeholder="Enter document_number" value="{{ $count +1 }}" required>
                         </div>
                         <div class="form-group col-md-4">
-                          <label for="document_type">Document Type</label>
+                          <label for="document_type">{{ __('routes.Document Type') }}</label>
                           <select name="document_type" id="" class="form-control select2">
                             @foreach ($document_types as $type)
                               <option value="{{ $type->id }}">{{ $type->name }}</option>
@@ -47,22 +47,22 @@ Document Page
                           </select>
                         </div>
                         <div class="form-group col-md-12">
-                          <label for="description">Description</label>
+                          <label for="description">{{ __('routes.Description') }}</label>
                           <input type="text"  name="description" class="form-control" id="description" placeholder="Enter description" required>
                       </div>
                       <hr>
                       <div class="card-header">
-                        <h3 class="card-title">Documents Details</h3>
+                        <h3 class="card-title">{{ __('routes.Documents Details') }}</h3>
           
                         
                       </div>
                       <table class="table table-bordered" id="dynamicAddRemove">  
                         <tr>
-                            <th>Account Name</th>
-                            <th>Amount</th>
+                            <th>{{ __('routes.Account Name') }}</th>
+                            <th>{{ __('routes.Amount') }}</th>
                             {{-- <th>Credit</th>
                             <th>Description</th> --}}
-                            <th>Action</th>
+                            <th>{{ __('routes.Actions') }}</th>
                         </tr>
                         <tr>  
                             <td width="15%">
@@ -80,7 +80,7 @@ Document Page
                             <td width="15%"><input type="text" name="documentDetails[0][amount]" placeholder="Enter Amount" class="form-control" /></td> 
                             {{-- <td width="15%"><input type="text" name="documentDetails[0][credit]" placeholder="Enter credit" class="form-control" /></td>  --}}
                             {{-- <td width="35%"><input type="text" name="documentDetails[0][descriprtion]" placeholder="Enter Description" class="form-control" /></td>   --}}
-                            <td width="15%"><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
+                            <td width="15%"><button type="button" name="add" id="add-btn" class="btn btn-success">{{ __('routes.Add More') }}</button></td>  
                         </tr>  
                     </table> 
                         {{-- <div class="form-group ">
@@ -97,7 +97,7 @@ Document Page
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                     </div>
                   </form>
             </div>

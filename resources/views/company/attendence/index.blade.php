@@ -20,7 +20,7 @@
 
                     <div class="card-header d-flex justify-content-between align-items-center">
 
-                        <h6 class="mb-0 text-uppercase ">Attendence Sheet</h6>
+                        <h6 class="mb-0 text-uppercase ">{{ __('routes.Attendence Sheet') }}</h6>
                         {{-- <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                             data-bs-target="#SearchModal">
                             <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -45,16 +45,16 @@
                             <div class="card-body row g-2">
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="employee_id">Employee</label>
+                                        <label for="employee_id">{{ __('routes.Employee') }}</label>
                                         <select class="form-select" {{-- id="multiple-select-field" --}}
                                             data-placeholder="Select Permissions" id="employee_id" name="employee_id"
                                             required>
                                             
-                                            {{-- @if ($employee != null) --}}
+                                           
                                                 @foreach ($employees as $emp)
                                                     <option value="{{ $emp->id }}" >{{ $emp->name }}</option>
                                                 @endforeach
-                                            {{-- @endif --}}
+                                            
                                            
                                         </select>
                                     </div>
@@ -62,14 +62,14 @@
 
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="from">From</label>
+                                        <label for="from">{{ __('routes.From') }}</label>
                                         <input type="date" name="from" class="form-control" id="from" value="{{ $from??'' }}"
                                             placeholder="From" />
                                     </div>
                                 </div>
                                 <div class="col-4">
                                     <div class="form-group">
-                                        <label for="to">To</label>
+                                        <label for="to">{{ __('routes.To') }}</label>
                                         <input type="date" name="to" class="form-control" id="to" value="{{ $to??'' }}"
                                             placeholder="From" />
                                     </div>
@@ -83,7 +83,10 @@
                                 <!-- /.card-body -->
 
                                 <div class="card-footer">
-                                    <button type="submit" class="btn btn-secondary">Search</button>
+                                    @if (Auth::guard('employee')->user()->can('search-attendence'))
+                                        <button type="submit" class="btn btn-secondary">{{ __('routes.Search') }}</button>
+                                    @endif
+                                    
                                 </div>
                         </form>
                     </div>
@@ -98,7 +101,10 @@
                             <input type="hidden" name="employee_id" value="{{ $employee->id ?? '' }}"/>
                             <input type="hidden" name="from" value="{{ $from ?? '' }}"/>
                             <input type="hidden" name="to" value="{{ $to ?? '' }}"/>
-                            <button type="submit" class=" btn btn-dark float-right" >Print</button>
+                            @if (Auth::guard('employee')->user()->can('print-attendence'))
+                                <button type="submit" class=" btn btn-dark float-right" >{{ __('routes.Print') }}</button>
+                                        
+                            @endif
                         </form>
                         {{-- <a class=" btn btn-dark float-right" href="{{ route('company.attendence.attendence_pdf') }}">Print</a> --}}
                     </div>
@@ -108,10 +114,10 @@
                             <table id="example2" class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Date</th>
+                                        <th>{{ __('routes.Date') }}</th>
 
-                                        <th>Check in</th>
-                                        <th>Check out</th>
+                                        <th>{{ __('routes.Check in') }}</th>
+                                        <th>{{ __('routes.Check out') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>

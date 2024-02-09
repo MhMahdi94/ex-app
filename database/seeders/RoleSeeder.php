@@ -13,8 +13,9 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        //Admin panel
         Role::create(['name' => 'Super Admin', 'guard_name'=>'admin']);
+       
         $admin = Role::create(['name' => 'Admin','guard_name'=>'admin']);
         
 
@@ -23,5 +24,8 @@ class RoleSeeder extends Seeder
             'edit-admin',
             'delete-admin',
         ]);
+
+        //company panel
+        Role::create(['name' => 'Company Owner', 'guard_name'=>'employee']);
     }
 }

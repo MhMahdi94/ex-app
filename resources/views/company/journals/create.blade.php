@@ -18,7 +18,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h6 class="mb-0 text-uppercase">Create Journal</h6>
+                        <h6 class="mb-0 text-uppercase">{{ __('routes.Add Journal') }}</h6>
 
 
                     </div>
@@ -31,25 +31,25 @@
                             {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                             <div class="card-body row g-2">
                                 <div class="form-group col-md-6">
-                                    <label for="journal_date">Date</label>
+                                    <label for="journal_date">{{ __('routes.Date') }}</label>
                                     <input type="date"  name="journal_date" class="form-control"
                                         id="journal_date" placeholder="Enter Journal Date" value="{{ $date }}"
                                         required>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="journal_number">Journal number</label>
+                                    <label for="journal_number">{{ __('routes.Journal Number') }}</label>
                                     <input type="text" readonly name="journal_number" class="form-control"
                                         id="journal_number" placeholder="Enter journal_number" value="{{ $count + 1 }}"
                                         required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="description">Description</label>
+                                    <label for="description">{{ __('routes.Description') }}</label>
                                     <input type="text" name="description" class="form-control" id="description"
                                         placeholder="Enter description" required>
                                 </div>
                                 <hr class="mt-4">
                                 <div class="card-header">
-                                    <h6 class="mb-2 text-uppercase">Journal Details</h6>
+                                    <h6 class="mb-2 text-uppercase">{{ __('routes.Journal Details') }}</h6>
 
                                     <div class="row">
                                           
@@ -78,7 +78,7 @@
                                         
                                        <div class="col-md-2">
                                           <button type="button" name="add" id="add-btn"
-                                                class="btn btn-success w-100">Add </button>
+                                                class="btn btn-success w-100">{{ __('routes.Add') }} </button>
                                        </div>
                                        
                                     
@@ -87,50 +87,30 @@
                                 </div>
                                 <table class="table table-bordered journal-list" id="dynamicAddRemove">
                                     <tr>
-                                        <th>Account Name</th>
-                                        <th>Debit</th>
-                                        <th>Credit</th>
-                                        <th>Description</th>
-                                        <th>Action</th>
+                                        <th>{{ __('routes.Account Name') }}</th>
+                                        <th>{{ __('routes.Debit') }}</th>
+                                        <th>{{ __('routes.Credit') }}</th>
+                                        <th>{{ __('routes.Description') }}</th>
+                                        <th>{{ __('routes.Actions') }}</th>
                                     </tr>
-                                    {{-- <tr>
-                                        <td width="15%">
-                                           <div class="form-group ">
-                                               <select name="journalDetails[0][account_no]" id=""
-                                                    class="form-control select2">
-                                                    @foreach ($accounts as $account)
-                                                        <option value="{{ $account->id }}">{{ $account->account_name }}
-                                                        </option>
-                                                    @endforeach
-                                                </select>
-                                            </div>
-                                        </td>
-                                        <td width="15%" ><input type="text" name="journalDetails[0][debit]"
-                                                placeholder="Enter Debit" class="form-control total-debit" /></td>
-                                        <td width="15%"><input type="text" name="journalDetails[0][credit]"
-                                                placeholder="Enter credit" class="form-control" /></td>
-                                        <td width="35%"><input type="text" name="journalDetails[0][descriprtion]"
-                                                placeholder="Enter Description" class="form-control" /></td>
-                                        <td width="15%"><button type="button" name="add" id="add-btn"
-                                                class="btn btn-success">Add More</button></td>
-                                    </tr> --}}
+                                   
                                 </table>
                                  {{-- <hr class="mt-2"/> --}}
                                  <div class="row">
                                   <div class="form-group col-md-4">
-                                    <label for="total_debit">Total Debit</label>
+                                    <label for="total_debit">{{ __('routes.Total Debit') }}</label>
                                     <input type="text" readonly name="total_debit" class="form-control sum_debit"
                                         id="total_debit" placeholder="Enter total_debit" value="{{ 0}}"
                                         required>
                                   </div>
                                   <div class="form-group col-md-4">
-                                    <label for="total_credit">Total Credit</label>
+                                    <label for="total_credit">{{ __('routes.Total Credit') }}</label>
                                     <input type="text" readonly name="total_credit" class="form-control sum_credit"
                                         id="total_credit" placeholder="Enter total_credit" value="{{ 0}}"
                                         required>
                                   </div>
                                   <div class="form-group col-md-4">
-                                    <label for="balance"> Balance</label>
+                                    <label for="balance">{{ __('routes.Balance') }} </label>
                                     <input type="text" readonly name="balance" class="form-control balance"
                                         id="balance" placeholder="Enter balance" value="{{ 0}}"
                                         required>
@@ -141,7 +121,7 @@
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                             </div>
                         </form>
                     </div>

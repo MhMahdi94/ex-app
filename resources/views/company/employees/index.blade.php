@@ -7,7 +7,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h6 class="mb-0 text-uppercase ">Employees List</h6>
+                        <h6 class="mb-0 text-uppercase ">{{ __('routes.EMPLOYEES LIST') }}</h6>
                         <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                             data-bs-target="#SearchModal">
                             <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -17,58 +17,72 @@
                         </div>
 
                         <div class="d-flex ustify-content-between align-items-center" width='200'>
-                            <a class=" btn btn-success float-right"
-                                href="{{ route('company.employees.employees_create') }}">Add
-                                Employee</a>
+                            @if (Auth::guard('employee')->user()->can('create-employee'))
+                                <a class=" btn btn-success float-right"
+                                    href="{{ route('company.employees.employees_create') }}">{{ __('routes.Add Employee') }}</a>
+                            @endif
                         </div>
                     </div>
                     <div class="card-body">
-                      <div class="table-responsive">
-                          <table id="example2" class="table table-striped table-bordered">
-                              <thead>
-                                  <tr>
-                                      <th>Name</th>
-                                      <th>Email</th>
-                                      <th>Mobile No</th>
-                                      <th>Status</th>
-                                      <th>Actions</th>
-                                  </tr>
-                              </thead>
-                              <tbody>
-                                  @foreach ($data as $item)
-                                      <tr>
-                                          <td>{{ $item->name }}</td>
-                                          <td>{{ $item->email }}</td>
-                                          <td>{{ $item->mobile_no }}</td>
-                                          <td>
-                                              <span
-                                                  class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }} ">{{ $item->status ? 'Active' : 'Not Active' }}</span>
-                                          </td>
-                                          <td class="d-flex   ">
-                                              <div class=" mx-1">
-                                                  <a class="btn btn-warning px-4"
-                                                      href="{{ route('company.employees.employees_details', $item->id) }}">Details</a>
-                                              </div>
-                                              <div class="mx-1">
-                                                  <a class="btn btn-primary px-4"
-                                                      href="{{ route('company.employees.employees_edit', $item->id) }}">Edit</a>
-                                              </div>
-                                              <div class="mx-1">
-                                                  <meta name="csrf-token" content="{{ csrf_token() }}">
-                                                  <form method="post" class="delete-form"
-                                                      data-route="{{ route('company.employees.employees_destroy', $item->id) }}">
-                                                      @method('delete')
-                                                      <button type="submit" class="btn btn-danger px-4 ">Delete</button>
-                                                  </form>
-                                              </div>
-                                          </td>
-                                      </tr>
-                                  @endforeach
-                              </tbody>
-                          </table>
-                      </div>
-  
-                  </div>
+                        <div class="table-responsive">
+                            <table id="example2" class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>{{ __('routes.Name') }}</th>
+                                        <th>{{ __('routes.Email') }}</th>
+                                        <th>{{ __('routes.Mobile No') }}</th>
+                                        <th>{{ __('routes.Status') }}</th>
+                                        <th>{{ __('routes.Actions') }}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($data as $item)
+                                        <tr>
+                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->email }}</td>
+                                            <td>{{ $item->mobile_no }}</td>
+                                            <td>
+                                                <span
+                                                    class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }} ">{{ $item->status ? __('routes.Active')  :  __('routes.Not Active') }}</span>
+                                            </td>
+                                            <td class="d-flex   ">
+                                                <div class=" mx-1">
+                                                    @if (Auth::guard('employee')->user()->can('details-employee'))
+                                                        <a class="btn btn-warning px-4"
+                                                            href="{{ route('company.employees.employees_details', $item->id) }}">{{ __('routes.Details') }}</a>
+                                                    @endif
+
+
+                                                </div>
+                                                <div class="mx-1">
+                                                    @if (Auth::guard('employee')->user()->can('edit-employee'))
+                                                        <a class="btn btn-primary px-4"
+                                                            href="{{ route('company.employees.employees_edit', $item->id) }}">{{ __('routes.Edit') }}</a>
+                                                    @endif
+
+
+                                                </div>
+                                                <div class="mx-1">
+                                                    @if (Auth::guard('employee')->user()->can('delete-employee'))
+                                                        <meta name="csrf-token" content="{{ csrf_token() }}">
+                                                        <form method="post" class="delete-form"
+                                                            data-route="{{ route('company.employees.employees_destroy', $item->id) }}">
+                                                            @method('delete')
+                                                            <button type="submit"
+                                                                class="btn btn-danger px-4 ">{{ __('routes.Delete') }}</button>
+                                                        </form>
+                                                </div>
+                                    @endif
+
+
+                                    </td>
+                                    </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -112,7 +126,7 @@
                                 });
                                 setTimeout(function() {
                                     //your code to be executed after 1 second
-                                   location.reload();
+                                    location.reload();
                                 }, 3000);
 
                             }

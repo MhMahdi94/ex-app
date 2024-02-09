@@ -7,7 +7,7 @@
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h6 class="text-uppercase ">Employee Details</h6>
+              <h6 class="text-uppercase ">{{ __('routes.Employee Details') }}</h6>
 
               
             </div>
@@ -21,11 +21,11 @@
                     <input type="hidden" name="company_id" value="{{ $employee->company->id??'' }}">
                     <div class="card-body row g-3">
                         <div class="form-group col-6 ">
-                            <label for="jobTitle">Job Title</label>
+                            <label for="jobTitle">{{ __('routes.Job Title') }}</label>
                             <input type="text" name="jobTitle" class="form-control" id="jobTitle" placeholder="Enter Job Title" value="{{ $details->jobTitle??'' }}" required>
                         </div>
                         <div class="form-group col-6">
-                          <label for="dept_id">Department</label>
+                          <label for="dept_id">{{ __('routes.Department') }}</label>
                           <select name="dept_id" id="" class="form-control select2">
                             @foreach ($departments as $department)
                               <option value="{{ $department->id }}">{{ $department->name }}</option>
@@ -33,7 +33,7 @@
                           </select>
                         </div>
                         <div class="form-group col-6">
-                          <label for="job_type">Job Type</label>
+                          <label for="job_type">{{ __('routes.Job Type') }}</label>
                           <select name="job_type" id="" class="form-control select2">
                             {{-- @foreach ($companies as $company) --}}
                               <option value="1">Full Time</option>
@@ -44,16 +44,16 @@
                           </select>
                         </div>
                         <div class="form-group col-6">
-                          <label for="salary">Salary</label>
+                          <label for="salary">{{ __('routes.Salary') }}</label>
                           <input type="text" value="{{ $details->salary??'' }}" name="salary" class="form-control" id="salary" placeholder="Enter salary" required>
                         </div>
                         <div class="table-responsive mt-3">
                        
                           <table class="table table-bordered" id="dynamicAddRemove">  
                             <tr>
-                                <th>Allowence Name</th>
-                                <th>Allowence Value</th>
-                                <th>Action</th>
+                                <th>{{ __('routes.Allowence Name') }}</th>
+                                <th>{{ __('routes.Allowence Value') }}</th>
+                                <th>{{ __('routes.Actions') }}</th>
                             </tr>
                             
                             <tr> 
@@ -62,7 +62,7 @@
                                   <input type="hidden" name="allowenceFields[0][id]" value="{{ $allowences[0]['id']??'' }}"/> --}}
                                   <td><input type="text" name="allowenceFields[0][all_name]" value="{{ $allowences[0]['allName'] }}" placeholder="Allowence Name" class="form-control" /></td>  
                                   <td><input type="text" name="allowenceFields[0][all_val]" value="{{ $allowences[0]['allVal'] }}" placeholder="Allowence Value" class="form-control" /></td>  
-                                  <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
+                                  <td><button type="button" name="add" id="add-btn" class="btn btn-success">{{ __('routes.Add More') }}</button></td>  
                                 </tr>  
                                 @for ($i=1; $i< count($allowences) ; $i++)
                                   <tr>
@@ -76,7 +76,7 @@
                               <tr>
                                 <td><input type="text" name="allowenceFields[0][all_name]" placeholder="Allowence Name" class="form-control" /></td>  
                                 <td><input type="text" name="allowenceFields[0][all_val]"  placeholder="Allowence Value" class="form-control" /></td>  
-                                <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
+                                <td><button type="button" name="add" id="add-btn" class="btn btn-success">{{ __('routes.Add More') }}</button></td>  
                               </tr>  
                               @endif
                               
@@ -89,7 +89,7 @@
                     <!-- /.card-body -->
     
                     <div class="card-footer">
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn btn-primary">{{ __('routes.Submit') }}</button>
                     </div>
                   </form>
             </div>

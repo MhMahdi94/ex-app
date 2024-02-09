@@ -18,9 +18,9 @@ Journal Page
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <h6 class="mb-0 text-uppercase">Show Journal</h3>
+              <h6 class="mb-0 text-uppercase">{{ __('routes.Show Journal') }}</h3>
 
-                <a class="mr-2 btn btn-dark" href="{{ route('company.journals.journals_pdf',$header ->id) }}">Print</a>
+                <a class="mr-2 btn btn-dark" href="{{ route('company.journals.journals_pdf',$header ->id) }}">{{ __('routes.Print') }}</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
@@ -30,11 +30,11 @@ Journal Page
                     {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                     <div class="card-body row">
                         <div class="form-group col-md-6">
-                            <label for="journal_date">Date</label>
+                            <label for="journal_date">{{ __('routes.Date') }}</label>
                             <input type="text" disabled name="journal_date" class="form-control" id="journal_date" placeholder="Enter Journal Date" value=" {{ $header ->journal_date }} " required>
                         </div>
                         <div class="form-group col-md-6">
-                          <label for="journal_number">Journal No</label>
+                          <label for="journal_number">{{ __('routes.Journal Number') }}</label>
                           <input type="text" disabled  name="journal_number" class="form-control" id="journal_number" placeholder="Enter journal_number" value="{{ $header ->id }}" required>
                         </div>
                         {{-- <div class="form-group col-md-12">
@@ -43,23 +43,23 @@ Journal Page
                       </div> --}}
                       <hr>
                       <div class="card-header">
-                        <h6 class="mb-0 text-uppercase">Journal Details</h6>
+                        <h6 class="mb-0 text-uppercase">{{ __('routes.Journal Details') }}</h6>
           
                         
                       </div>
                       <div class="card-body">
                         <table class="table table-bordered" id="dynamicAddRemove">  
                           <tr>
-                              <th>Account Name</th>
-                              <th>Debit</th>
-                              <th>Credit</th>
-                              <th>Description</th>
+                              <th>{{ __('routes.Account Name') }}</th>
+                              <th>{{ __('routes.Debit') }}</th>
+                              <th>{{ __('routes.Credit') }}</th>
+                              <th>{{ __('routes.Description') }}</th>
                               {{-- <th>Action</th> --}}
                           </tr>
                           @foreach ($details as $item )
                           <tr>
                            
-                              <td width="15%">{{ $item->journal_account_no }}</td>  
+                              <td width="15%">{{ $item->account->account_name }}</td>  
                               <td width="15%">{{ $item->journal_debit }}</td> 
                               <td width="15%">{{ $item->journal_credit }}</td> 
                               <td width="35%">{{ $item->journal_description }}</td>  
@@ -76,7 +76,7 @@ Journal Page
                     <!-- /.card-body -->
     
                       {{-- <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                       </div> --}}
                   </form>
             </div>

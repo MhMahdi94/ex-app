@@ -15,7 +15,7 @@ class LeaveRequestSeeder extends Seeder
     {
         //
         LeaveRequset::create([
-            'employee_id'=>2,
+            'employee_id'=>1,
             'company_id'=>1,
             'leaveType'=>1,
             'startLeave'=>'2023-12-03',
@@ -23,7 +23,7 @@ class LeaveRequestSeeder extends Seeder
             'status'=>false,
         ]);
         LeaveRequset::create([
-            'employee_id'=>2,
+            'employee_id'=>1,
             'company_id'=>1,
             'leaveType'=>2,
             'startLeave'=>'2023-12-09',

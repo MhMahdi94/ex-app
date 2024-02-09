@@ -27,10 +27,14 @@ Company Page
                 <form method="POST" action="{{ route('admin.companies.companies_store') }}" class='needs-validation' novalidate>
                     @csrf
                     <div class="card-body row g-3">
-                        <div class="form-group">
-                            <label for="name">{{ __('routes.Name') }}</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
+                        <div class="form-group col-md-6">
+                            <label for="english_name">{{ __('routes.Name(English)') }}</label>
+                            <input type="text" name="english_name" class="form-control" id="english_name" placeholder="Enter Name" required>
                         </div>
+                        <div class="form-group col-md-6">
+                          <label for="arabic_name">{{ __('routes.Name(Arabic)') }}</label>
+                          <input type="text" name="arabic_name" class="form-control" id="arabic_name" placeholder="Enter Name" required>
+                      </div>
                         <div class="form-group">
                             <label for="email">{{ __('routes.Email') }}</label>
                             <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>

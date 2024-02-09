@@ -58,7 +58,7 @@
                                             <td class="d-flex ">
                                                 <div class="mx-2">
                                                     @if(Auth::guard('admin')->user()->can('edit-role'))
-                                                        <a class="btn btn-primary px-4"
+                                                        <a class="btn btn-warning px-4"
                                                             href="{{ route('admin.roles.roles_edit', $role->id) }}">{{ __('routes.Edit') }}</a>
                                                     @endif
                                                 </div>

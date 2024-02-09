@@ -63,7 +63,7 @@ Owners Page
                             <td class="d-flex  ">
                               <div class="">
                                 @if (Auth::guard('admin')->user()->can('create-company-owner'))
-                                  <a class="mr-2 btn btn-info" href="{{ route('admin.owners.owners_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
+                                  <a class="mr-2 btn btn-warning" href="{{ route('admin.owners.owners_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
                                 @endif
           
                               </div>

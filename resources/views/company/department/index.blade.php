@@ -19,7 +19,7 @@ Departments Page
         <div class="col-12">
           <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
-              <h6 class="mb-0 text-uppercase ">Departments List</h6>
+              <h6 class="mb-0 text-uppercase ">{{ __('routes.Departments List') }}</h6>
               <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                   data-bs-target="#SearchModal">
                   <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -29,9 +29,11 @@ Departments Page
               </div>
 
               <div class="d-flex ustify-content-between align-items-center" width='200'>
-                  <a class=" btn btn-success float-right"
-                      href="{{ route('company.department.department_create') }}">Add
-                      Department</a>
+                @if (Auth::guard('employee')->user()->can('create-department'))
+                                        
+                <a class=" btn btn-success float-right"
+                    href="{{ route('company.department.department_create') }}">{{ __('routes.Add Department') }}</a>
+                @endif
               </div>
             </div>
            
@@ -41,9 +43,9 @@ Departments Page
               <table id="example2" class="table table-striped table-bordered">
                 <thead>
                   <tr>
-                    <th>Name</th>
-                    <th>Head</th>
-                    <th>Actions</th>
+                    <th>{{ __('routes.Name') }}</th>
+                    <th>{{ __('routes.Head') }}</th>
+                    <th>{{ __('routes.Actions') }}</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -52,7 +54,12 @@ Departments Page
                             <td>{{ $item->name }}</td>
                             <td>{{ $item->employee->name }}</td>
                             <td class="d-flex   ">
-                                <a class="mr-2 btn btn-info mx-1" href="{{ route('company.department.department_edit',$item->id ) }}">Edit</a>
+                              @if (Auth::guard('employee')->user()->can('create-department'))
+                                <a class="mr-2 btn btn-info mx-1" href="{{ route('company.department.department_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
+                                        
+                              @endif
+                              
+                              @if (Auth::guard('employee')->user()->can('create-department'))
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
                                 {{-- <input type="hidden" id="employee_id" value="{{ $item->id }}"> --}}
                                 {{-- <a class="mr-2 btn btn-danger" data-toggle="modal" data-target="#modal-danger" id='{{ $item->id }}'
@@ -60,8 +67,9 @@ Departments Page
                                 data-url="{{ route('company.employees.employees_destroy', $item->id) }}" >Delete</a> --}}
                                 <form method="post" class="delete-form" data-route="{{route('company.department.department_destroy', $item->id) }}">
                                   @method('delete')
-                                  <button type="submit" class="btn btn-danger  ">Delete</button>
-                                </form>
+                                  <button type="submit" class="btn btn-danger  ">{{ __('routes.Delete') }}</button>
+                                </form> 
+                              @endif
                             </td>
                         </tr> 
                     @endforeach
