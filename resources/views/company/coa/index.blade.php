@@ -34,7 +34,7 @@ Chart of Account Page
                       <a class="mr-2 btn btn-info" href="{{ route('company.coa.coa_create') }}">{{ __('routes.Add Account') }}</a>
                     @endif
                     @if (Auth::guard('employee')->user()->can('export-accounts'))
-                      <a class="mr-2 btn btn-dark" href="{{ route('company.coa.coa_pdf') }}">{{ __('routes.Export') }}</a>  
+                      <a class="mr-2 btn btn-dark" href="{{ route('company.coa.coa_pdf') }}" target="_blank">{{ __('routes.Export') }}</a>  
                     @endif
                     
                     

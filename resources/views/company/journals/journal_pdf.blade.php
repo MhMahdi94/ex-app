@@ -1,105 +1,229 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
+    <title></title>
 
- 	<!-- Required meta tags -->
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <!--favicon-->
-   <link rel="icon" href="{{ asset('assets/images/thrs.jpg') }}" type="image/png"/>
-   <!--plugins-->
-   <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet"/>
-   <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-   <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet"/>
-   <!-- loader-->
-   <link href="{{ asset('assets/css/pace.min.css') }}" rel="stylesheet"/>
-   <script src="{{ asset('assets/js/pace.min.js') }}"></script>
-   <!-- Bootstrap CSS -->
-   <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-   <link href="{{ asset('assets/css/bootstrap-extended.css') }}" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-   <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
-   <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet">
-   <!-- Theme Style CSS -->
-   <link rel="stylesheet" href="{{ asset('assets/css/dark-theme.css') }}"/>
-   <link rel="stylesheet" href="{{ asset('assets/css/semi-dark.css') }}"/>
-   <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}"/>
-   <title>journal</title>
+    <!-- Favicon -->
+    <link rel="icon" href="./images/favicon.png" type="image/x-icon" />
+
+    <!-- Invoice styling -->
+    <style>
+        body {
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            text-align: center;
+            color: #777;
+        }
+
+        body h1 {
+            font-weight: 300;
+            margin-bottom: 0px;
+            padding-bottom: 0px;
+            color: #000;
+        }
+
+        body h3 {
+            font-weight: 300;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-style: italic;
+            color: #555;
+        }
+
+        body a {
+            color: #06f;
+        }
+
+        .invoice-box {
+            /* max-width: 800px; */
+            width: 500px;
+            margin: auto;
+            padding: 30px;
+            border: 1px solid #eee;
+            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
+            font-size: 16px;
+            line-height: 24px;
+            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+            color: #555;
+        }
+
+        .invoice-box table {
+            width: 100%;
+            line-height: inherit;
+            text-align: left;
+            border-collapse: collapse;
+        }
+
+        .invoice-box table td {
+            padding: 5px;
+            vertical-align: top;
+        }
+
+        .invoice-box table tr td:nth-child(2) {
+            text-align: center;
+        }
+
+        .invoice-box table tr.top table td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.top table td.title {
+            font-size: 45px;
+            line-height: 45px;
+            color: #333;
+        }
+
+        .invoice-box table tr.information table td {
+            padding-bottom: 40px;
+        }
+
+        .invoice-box table tr.heading td {
+            background: #eee;
+            border-bottom: 1px solid #ddd;
+            font-weight: bold;
+        }
+
+        .invoice-box table tr.details td {
+            padding-bottom: 20px;
+        }
+
+        .invoice-box table tr.item td {
+            border-bottom: 1px solid #eee;
+        }
+
+        .invoice-box table tr.item.last td {
+            border-bottom: none;
+        }
+
+        .invoice-box table tr.total td:nth-child(2) {
+            border-top: 2px solid #eee;
+            font-weight: bold;
+        }
+
+        .table-bordered th,
+        .table-bordered td {
+            border: 1px solid;
+        }
+
+        @media only screen and (max-width: 600px) {
+            .invoice-box table tr.top table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+
+            .invoice-box table tr.information table td {
+                width: 100%;
+                display: block;
+                text-align: center;
+            }
+        }
+
+        /** RTL **/
+        .rtl {
+            direction: rtl;
+            font-family: 'almarai', sans-serif;
+        }
+
+        .rtl table {
+            text-align: right;
+        }
+
+        .rtl table tr td {
+            text-align: right;
+        }
+    </style>
 </head>
+
 <body>
-  <div class="page-content">
-    <h1>Journal</h1>
-    <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-header">
-              <h6 class="mb-0 text-uppercase">Show Journal</h3>
-    
-              
-            </div>
-            <!-- /.card-header -->
+
+    <div class="invoice-box {{ app()->getLocale() == 'en' ? '' : 'rtl' }}">
+        <table>
+            <tr class="top">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td class="title">
+                                <img src="{{ asset('assets/images/thrs.jpg') }}" alt="Company logo"
+                                    style="width: 100px; max-width: 100px" />
+                            </td>
+
+
+
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr class="information">
+                <td colspan="2">
+                    <table>
+                        <tr>
+                            <td>
+                                {{ Auth::guard('employee')->user()->company->name }}<br />
+                                {{ Auth::guard('employee')->user()->company->email }}<br />
+                                {{ Auth::guard('employee')->user()->mobile_no }}
+                            </td>
+
+                            <td>
+                                {{ __('routes.Journal') }}<br />
+                                {{ __('routes.Date') }}: {{ date('d-m-Y', strtotime($header->journal_date)) }}<br />
+                                {{ __('routes.Journal Number') }}:{{ $header->id }}
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+
+
             <div class="card-body table-responsive p-0">
-             
-                <form method="POST" action="{{ route('company.journals.journals_store') }}" class='needs-validation' novalidate>
+
+                <form method="POST" action="{{ route('company.journals.journals_store') }}" class='needs-validation'
+                    novalidate>
                     @csrf
                     {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                     <div class="card-body row">
-                        <div class="form-group col-md-6">
-                            <label for="journal_date">Date</label>
-                            <input type="text" disabled name="journal_date" class="form-control" id="journal_date" placeholder="Enter Journal Date" value=" {{ $header ->journal_date }} " required>
+
+
+                        <div class="card-body">
+                            <table class="table table-bordered" id="dynamicAddRemove">
+                                <tr>
+                                    <th>{{ __('routes.Account Name') }}</th>
+                                    <th>{{ __('routes.Debit') }}</th>
+                                    <th>{{ __('routes.Credit') }}</th>
+                                    <th>{{ __('routes.Description') }}</th>
+                                    {{-- <th>Action</th> --}}
+                                </tr>
+                                @foreach ($details as $item)
+                                    <tr>
+
+                                        <td width="15%">{{ $item->account->account_name }}</td>
+                                        <td width="15%">{{ $item->journal_debit }}</td>
+                                        <td width="15%">{{ $item->journal_credit }}</td>
+                                        <td width="35%">{{ $item->journal_description }}</td>
+                                        {{-- <td width="15%"></td>   --}}
+
+
+                                    </tr>
+                                @endforeach
+                            </table>
                         </div>
-                        <div class="form-group col-md-6">
-                          <label for="journal_number">Journal No</label>
-                          <input type="text" disabled  name="journal_number" class="form-control" id="journal_number" placeholder="Enter journal_number" value="{{ $header ->id }}" required>
-                        </div>
-                       
-                      <hr>
-                      <div class="card-header">
-                        <h6 class="mb-0 text-uppercase">Journal Details</h6>
-          
-                        
-                      </div>
-                      <div class="card-body">
-                        <table class="table table-bordered" id="dynamicAddRemove">  
-                          <tr>
-                              <th>Account Name</th>
-                              <th>Debit</th>
-                              <th>Credit</th>
-                              <th>Description</th>
-                              {{-- <th>Action</th> --}}
-                          </tr>
-                          @foreach ($details as $item )
-                          <tr>
-                           
-                              <td width="15%">{{ $item->journal_account_no }}</td>  
-                              <td width="15%">{{ $item->journal_debit }}</td> 
-                              <td width="15%">{{ $item->journal_credit }}</td> 
-                              <td width="35%">{{ $item->journal_description }}</td>  
-                              {{-- <td width="15%"></td>   --}}
-                            
-                            
-                          </tr>  @endforeach  
-                      </table> 
-                      </div>
-                      
-                       
-                      
+
+
+
                     </div>
                     <!-- /.card-body -->
-    
-                      {{-- <div class="card-footer">
-                        <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
-                      </div> --}}
-                  </form>
+
+                    {{-- <div class="card-footer">
+                  <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
+                </div> --}}
+                </form>
             </div>
-            <!-- /.card-body -->
-          </div>
-          <!-- /.card -->
-        </div>
-      </div>
-    
+        </table>
+
     </div>
 </body>
+
 </html>

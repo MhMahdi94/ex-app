@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Models\Accounts;
 use App\Models\AccountType;
 use App\Models\ReportType;
-use Barryvdh\DomPDF\Facade\Pdf;
+// use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+// use PDF;
 class AccountController extends Controller
 {
     /**
@@ -54,6 +54,7 @@ class AccountController extends Controller
     }
     public function generatePDF()
     {
+        
         $users = Accounts::where('company_id',Auth::guard('employee')->user()->company_id)-> get();
   
         $data = [
@@ -61,10 +62,17 @@ class AccountController extends Controller
             'date' => date('m/d/Y'),
             'data' => $users
         ]; 
-        
-        $pdf = Pdf::loadView('company.coa.pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
-        set_time_limit(300);
-        return $pdf->download('accounts.pdf');
+        return view('company.coa.pdf', $data);
+        // $data = [
+        //     'foo' => 'bar'
+        // ];
+
+        // $pdf = PDF::loadView('pdf.document', $data);
+
+        // return $pdf->stream('document.pdf');
+        // $pdf = Pdf::loadView('company.coa.pdf', $data)->setOptions(['defaultFont' => 'Cairo']);;
+        // set_time_limit(300);
+        // return $pdf->download('accounts.pdf');
     }
     /**
      * Show the form for creating a new resource.

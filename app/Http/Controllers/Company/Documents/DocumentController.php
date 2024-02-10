@@ -37,9 +37,7 @@ class DocumentController extends Controller
   //          'data' => $users
         ]; 
         
-        $pdf = Pdf::loadView('company.documents.pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
-        set_time_limit(300);
-        return $pdf->download('document.pdf');
+        return view('company.documents.pdf', $data);
     }
     /**
      * Show the form for creating a new resource.

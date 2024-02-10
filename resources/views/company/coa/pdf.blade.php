@@ -1,88 +1,166 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<head>
+		<title></title>
 
+		<!-- Favicon -->
+		<link rel="icon" href="./images/favicon.png" type="image/x-icon" />
 
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--favicon-->
-    <link rel="icon" href="{{ asset('assets/images/thrs.jpg') }}" type="image/png" />
-    <!--plugins-->
-    <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-    <!-- loader-->
-    <link href="{{ asset('assets/css/pace.min.css') }}" rel="stylesheet" />
-    <script src="{{ asset('assets/js/pace.min.js') }}"></script>
-    <!-- Bootstrap CSS -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/bootstrap-extended.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet">
-    <!-- Theme Style CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/dark-theme.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/semi-dark.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}" />
-    <title>Stock Report</title>
+		<!-- Invoice styling -->
+		<style>
+			body {
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				text-align: center;
+				color: #777;
+			}
 
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
+			body h1 {
+				font-weight: 300;
+				margin-bottom: 0px;
+				padding-bottom: 0px;
+				color: #000;
+			}
 
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
+			body h3 {
+				font-weight: 300;
+				margin-top: 10px;
+				margin-bottom: 20px;
+				font-style: italic;
+				color: #555;
+			}
 
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-</head>
+			body a {
+				color: #06f;
+			}
 
-<body>
-    <div class="page-content">
-        <h1>Accounts</h1>
-        <h5>Date :{{ $date }}</h5>
-        <div class="row">
-            <table>
-                <thead>
+			.invoice-box {
+				max-width: 800px;
+				margin: auto;
+				padding: 30px;
+				border: 1px solid #eee;
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+				font-size: 16px;
+				line-height: 24px;
+				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+				color: #555;
+			}
+
+			.invoice-box table {
+				width: 100%;
+				line-height: inherit;
+				text-align: left;
+				border-collapse: collapse;
+			}
+
+			.invoice-box table td {
+				padding: 5px;
+				vertical-align: top;
+			}
+
+			.invoice-box table tr td:nth-child(2) {
+				text-align: left;
+			}
+
+			.invoice-box table tr.top table td {
+				padding-bottom: 20px;
+			}
+
+			.invoice-box table tr.top table td.title {
+				font-size: 45px;
+				line-height: 45px;
+				color: #333;
+			}
+
+			.invoice-box table tr.information table td {
+				padding-bottom: 40px;
+			}
+
+			.invoice-box table tr.heading td {
+				background: #eee;
+				border-bottom: 1px solid #ddd;
+				font-weight: bold;
+			}
+
+			.invoice-box table tr.details td {
+				padding-bottom: 20px;
+			}
+
+			.invoice-box table tr.item td {
+				border-bottom: 1px solid #eee;
+			}
+
+			.invoice-box table tr.item.last td {
+				border-bottom: none;
+			}
+
+			.invoice-box table tr.total td:nth-child(2) {
+				border-top: 2px solid #eee;
+				font-weight: bold;
+			}
+
+			@media only screen and (max-width: 600px) {
+				.invoice-box table tr.top table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+
+				.invoice-box table tr.information table td {
+					width: 100%;
+					display: block;
+					text-align: center;
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<div class="invoice-box">
+			<table>
+				<tr class="top">
+					<td colspan="2">
+						<table>
+							<tr >
+								<td class="title">
+									<img src="{{ asset('assets/images/thrs.jpg') }}" alt="Company logo" style="width: 100px; max-width: 100px" />
+								</td>
+
+								<td>
+									{{ __('routes.Chart of Accounts') }}
+								</td>
+							</tr>
+						</table>
+					</td>
+				</tr>
+                
+			
+
+				{{-- <thead> --}}
                     <tr>
-                        <th>Name</th>
-                        <th>Account No</th>
-                        <th>Total Debit</th>
-                        <th>Total Credit</th>
-                        <th>Balance</th>
-                        {{-- <th>Quantity</th>
-                        <th>Date</th>
-                        <th>By</th> --}}
+                        <th>{{ __('routes.Account No') }}</th>
+                        <th>{{ __('routes.Name') }}</th>
+                        <th>{{ __('routes.Report') }}</th>
+                        <th>{{ __('routes.Level') }}</th>
                     </tr>
-                </thead>
+                {{-- </thead> --}}
                 <tbody>
                     @foreach ($data as $item)
-                        <tr>
-                            <td>{{ $item->account_name }}</td>
+                        <tr class="item">
                             <td>{{ $item->account_no }}</td>
-                            <td>{{ $item->account_debit }}</td>
-                            <td>{{ $item->account_credit }}</td>
-                            <td>{{ $item->account_balance }}</td>
+                            <td>{{ $item->account_name }}</td>
+                            <td>{{ $item->reportType->name }}</td>
+                            <td>{{ $item->account_level }}</td>
 
                         </tr>
                     @endforeach
                 </tbody>
-            </table>
-        </div>
-
-    </div>
-</body>
-
+			</table>
+            
+		</div>
+	</body>
 </html>

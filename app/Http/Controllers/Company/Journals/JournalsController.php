@@ -95,9 +95,10 @@ class JournalsController extends Controller
             'details'=>$details
         ]; 
         set_time_limit(300);
-        $pdf = Pdf::loadView('company.journals.journal_pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
+        return view('company.journals.journal_pdf', $data);
+        //$pdf = Pdf::loadView('company.journals.journal_pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
         
-        return $pdf->download('journal.pdf');
+        //return $pdf->download('journal.pdf');
     }
     public function show(string $id)
     {

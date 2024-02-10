@@ -174,6 +174,7 @@ return [
     'Account Type'=>'نوع الحساب',
     'Journals List'=>'القيود اليومية',
     'Add Journal'=>'اضافة قيد',
+    'Journal'=>'القيد',
     'Journal Number'=>'رقم القيد',
     'Journal Details'=>'تفاصيل القيد',
     'Add'=>'اضافة',

@@ -178,6 +178,7 @@ return [
     'Account Type'=>'Account Type',
     'Journals List'=>'Journals List',
     'Add Journal'=>'Add Journal',
+    'Journal'=>'Journal',
     'Journal Number'=>'Journal number',
     'Journal Details'=>'Journal Details',
     'Add'=>'Add',

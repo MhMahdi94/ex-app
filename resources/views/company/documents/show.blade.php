@@ -20,7 +20,7 @@
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h3 class="card-title">Show Document</h3>
 
-                        <a class=" btn btn-dark float-right" href="{{ route('company.documents.report_pdf',$header->id) }}">Print</a>
+                        <a class=" btn btn-dark float-right" href="{{ route('company.documents.report_pdf',$header->id) }}" target="_blank">Print</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive">

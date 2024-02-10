@@ -20,7 +20,7 @@ Journal Page
             <div class="card-header d-flex justify-content-between align-items-center">
               <h6 class="mb-0 text-uppercase">{{ __('routes.Show Journal') }}</h3>
 
-                <a class="mr-2 btn btn-dark" href="{{ route('company.journals.journals_pdf',$header ->id) }}">{{ __('routes.Print') }}</a>
+                <a class="mr-2 btn btn-dark" href="{{ route('company.journals.journals_pdf',$header ->id) }}" target="_blank">{{ __('routes.Print') }}</a>
             </div>
             <!-- /.card-header -->
             <div class="card-body table-responsive p-0">

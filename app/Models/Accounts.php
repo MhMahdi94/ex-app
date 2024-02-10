@@ -20,4 +20,8 @@ class Accounts extends Model
         'account_balance',
         'company_id'
     ];
+
+    public function reportType(){
+        return $this->belongsTo(ReportType::class,'account_report');
+    }
 }

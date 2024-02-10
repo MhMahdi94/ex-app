@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Facade;
 use Illuminate\Support\ServiceProvider;
+use Meneses\LaravelMpdf\Facades\LaravelMpdf;
+use Meneses\LaravelMpdf\LaravelMpdfServiceProvider;
 
 return [
 
@@ -168,6 +170,8 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        // Barryvdh\DomPDF\ServiceProvider::class,
+        LaravelMpdfServiceProvider::class
     ])->toArray(),
 
     /*
@@ -182,7 +186,9 @@ return [
     */
 
     'aliases' => Facade::defaultAliases()->merge([
+        'PDF' => LaravelMpdf::class,
         // 'Example' => App\Facades\Example::class,
+        
     ])->toArray(),
 
 ];
