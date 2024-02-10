@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,15 +15,13 @@ use Illuminate\Support\Facades\Session;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::group([
+    'prefix' => '/'.LaravelLocalization::setLocale().'/',
+    
+    'middleware'=> ['web','localeSessionRedirect', 'localizationRedirect', 'localeViewPath']
+  ], function () {
 
-Route::get('/', function () {
-    return view('welcome');
-});
-// Route::get('/', function (Request $request) {
-//     return view('locale');
-// });
-Route::get('/locale/{locale}', function (Request $request, $locale) {
-   // return $locale;
-    Session::put('locale', $locale);
-    return redirect()->back();
-})->name('locale');
+      Route::get('/', function () {
+          return view('welcome');
+      });
+  });

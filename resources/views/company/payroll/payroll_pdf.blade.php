@@ -84,7 +84,7 @@
                                                 <td>{{ $diff }}</td>
                                                 <td>{{ $employee->check_in }}</td>
                                                 <td>{{ $diff-$employee->check_in }}</td>
-                                                <td>{{$employee->details->salary }}</td>
+                                                <td>{{$employee->details->salary??0  }}</td>
                                                 <td>{{$employee->current_salary }}</td>
                                                 {{-- <td class="d-flex ">
                                                     <div class="mx-2">

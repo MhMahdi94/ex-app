@@ -71,9 +71,9 @@ class ProductController extends Controller
             'data' => $log
         ]; 
         
-        $pdf = Pdf::loadView('company.products.pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
+        return view('company.products.pdf', $data);
        // set_time_limit(300);
-        return $pdf->download('report.pdf');
+        //return $pdf->download('report.pdf');
     }
     /**
      * Store a newly created resource in storage.

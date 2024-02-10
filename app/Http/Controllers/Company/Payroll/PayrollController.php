@@ -66,7 +66,7 @@ class PayrollController extends Controller
             # code...
             $employee['check_in']=Attendence::where('check_in','!=',NULL)->count();
             $employee['details']=EmployeeDetails::where('employee_id',$employee->id)->first();
-            $employee['current_salary']=($employee->details->salary / $diff) * $employee['check_in'];
+            $employee['current_salary']=($employee->details->salary??0 / $diff) * $employee['check_in'];
             
         }
         $data = [
@@ -81,9 +81,8 @@ class PayrollController extends Controller
   //          'data' => $users
         ]; 
         
-        $pdf = Pdf::loadView('company.payroll.payroll_pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
-        set_time_limit(300);
-        return $pdf->download('payroll.pdf');
+        return view('company.payroll.payroll_pdf', $data);//->setOptions(['defaultFont' => 'sans-serif']);;
+        
     }
     /**
      * Show the form for creating a new resource.
