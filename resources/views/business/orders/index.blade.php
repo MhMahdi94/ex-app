@@ -7,7 +7,7 @@
         <div class=" card">
             
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="mb-0 text-uppercase ">Orders List</h6>
+                    <h6 class="mb-0 text-uppercase ">{{ __('routes.Orders List') }}</h6>
                     <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                         data-bs-target="#SearchModal">
                         <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -20,8 +20,7 @@
 
 
                     <div class="d-flex ustify-content-between align-items-center" width='200'>
-                        <a class=" btn btn-primary float-right" href="{{ route('business.orders.orders_create') }}">Add
-                            Order</a>
+                        <a class=" btn btn-primary float-right" href="{{ route('business.orders.orders_create') }}">{{ __('routes.Add Order') }}</a>
                         
                     </div>
                 </div>
@@ -35,11 +34,9 @@
           <thead>
             <tr>
               <tr>
-                <th>Client</th>
-                {{-- <th>Email</th>
-                <th>Mobile</th>
-                <th>Address</th> --}}
-                <th>Actions</th>
+                <th>{{ __('routes.Client') }}</th>
+                
+                <th>{{ __('routes.Actions') }}</th>
             </tr>
             </tr>
           </thead>
@@ -52,7 +49,7 @@
                   <td>{{ $item->address }}</td> --}}
                   <td class="row row-cols-auto ">
                     <div class="col-2">
-                        <a class="btn btn-warning px-4" href="{{ route('business.orders.orders_show',$item->id ) }}">Details</a>
+                        <a class="btn btn-warning px-4" href="{{ route('business.orders.orders_show',$item->id ) }}">{{ __('routes.Details') }}</a>
                       </div>
                      {{-- <div class="col-2">
                         <a class="btn btn-primary px-4" href="{{ route('business.clients.clients_edit',$item->id ) }}">Edit</a>

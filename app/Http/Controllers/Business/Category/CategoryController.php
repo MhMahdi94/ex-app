@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Business\Category;
 use App\Http\Controllers\Controller;
 use App\Models\PosCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -14,7 +15,7 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        $data= PosCategory::get();
+        $data= PosCategory::where('company_id',Auth::guard('business')->user()->business_id)->get();
         return view('business.categories.index',compact('data'));
     }
 
@@ -34,7 +35,8 @@ class CategoryController extends Controller
     {
         //
         PosCategory::create([
-            'name'=>$request->name
+            'name'=>$request->name,
+            'company_id'=>Auth::guard('business')->user()->business_id
         ]);
         return redirect()->back();
     }

@@ -18,7 +18,7 @@ Owners Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create User</h3>
+              <h3 class="card-title">{{ __('routes.Add User') }}</h3>
 
               
             </div>
@@ -36,7 +36,7 @@ Owners Page
                           </select>
                         </div> --}}
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name">{{ __('routes.Name') }}</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                        
@@ -50,13 +50,13 @@ Owners Page
                         </div>
                         
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label for="password">{{ __('routes.Password') }}</label>
                             <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <label for="confirm_password">Confirm Password</label>
                             <input type="password" class="form-control" id="confirm_password" name='confirm_password' placeholder="Confirm Password" required>
-                        </div>
+                        </div> --}}
                       
                     </div>
                     <!-- /.card-body -->

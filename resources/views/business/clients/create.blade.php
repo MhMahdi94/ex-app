@@ -18,7 +18,7 @@ Owners Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Client</h3>
+              <h3 class="card-title">{{ __('routes.Add Client') }}</h3>
 
               
             </div>
@@ -36,7 +36,7 @@ Owners Page
                           </select>
                         </div> --}}
                         <div class="form-group col-md-4">
-                            <label for="name">Name</label>
+                            <label for="name">{{ __('routes.Name') }}</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                         <div class="form-group col-md-4">
@@ -44,11 +44,11 @@ Owners Page
                           <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter mobile_no" required>
                       </div>
                       <div class="form-group col-md-4">
-                        <label for="email">Email</label>
+                        <label for="email">{{ __('routes.Email') }}</label>
                         <input type="text" name="email" class="form-control" id="email" placeholder="Enter email" required>
                     </div>
                     <div class="form-group col-md-12">
-                      <label for="address">Address</label>
+                      <label for="address">{{ __('routes.Address') }}</label>
                       <input type="text" name="address" class="form-control" id="address" placeholder="Enter address" required>
                   </div>
                        

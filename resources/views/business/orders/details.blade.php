@@ -3,70 +3,58 @@
 @section('content')
     <!-- /.row -->
     <div class="page-content">
-        
+
         <div class=" card">
-            
-                <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="mb-0 text-uppercase ">Orders Details - (#{{ $request->id }})</h6>
-                    
+
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h6 class="mb-0 text-uppercase ">{{ __('routes.Orders Details') }} - (#{{ $request->id }})</h6>
+                <div class="d-flex ustify-content-between align-items-center" width='200'>
+                    {{ $request->client->name }}
+                </div>
+            </div>
+
+            <div class="card-body">
+
+                <div class="table-responsive">
+                    <table id="example2" class="table table-striped table-bordered">
+                        <thead>
+                            <tr>
+                            <tr>
+                                <th>{{ __('routes.Product') }}</th>
+                                <th>{{ __('routes.Price') }}</th>
+                                <th>{{ __('routes.Quantity') }}</th>
+                            </tr>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($contents as $item)
+                                <tr>
+                                    <td>{{ $item->product->name }}</td>
+                                    <td>{{ $item->product->sale_price }}</td>
+                                    <td>{{ $item->quantity }}</td>
 
 
+                                </tr>
+                            @endforeach
+                        </tbody>
 
-
-
-                    <div class="d-flex ustify-content-between align-items-center" width='200'>
-                        {{ $request->client->name }}
+                    </table>
+                </div>
+                <div class="card-footer d-flex justify-content-between align-items-center">
+                    <div class="">
+                        {{ __('routes.Total') }} : {{ $request->total_order }}
+                    </div>
+                    <div class="">
+                        <a class="mr-2 btn btn-dark"
+                            href="{{ route('business.orders.orders_pdf', $request->id) }}">{{ __('routes.Print') }}</a>
                     </div>
                 </div>
-            
-            <!-- /.card-header -->
-            {{-- 
-               --}} <div class="card-body">
-       
-      <div class="table-responsive">
-        <table id="example2" class="table table-striped table-bordered">
-          <thead>
-            <tr>
-              <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                {{-- <th>Mobile</th>
-                <th>Address</th> 
-                <th>Actions</th>--}}
-            </tr>
-            </tr>
-          </thead>
-          <tbody>
-            @foreach ($contents as $item)
-                <tr>
-                  <td>{{ $item->product->name }}</td>
-                   <td>{{ $item->quantity }}</td>
-                  {{--<td>{{ $item->mobile_no }}</td>
-                  <td>{{ $item->address }}</td> --}}
-                  <td class="row row-cols-auto ">
-                   
-                     {{-- <div class="col-2">
-                        <a class="btn btn-primary px-4" href="{{ route('business.clients.clients_edit',$item->id ) }}">Edit</a>
-                      </div> --}}
-                       {{-- < <div class="col-2">
-                          <meta name="csrf-token" content="{{ csrf_token() }}">
-                          <form method="post" class="delete-form" data-route="{{route('business.clients.clients_destroy', $item->id) }}">
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger px-4 ">Delete</button>
-                          </form>
-                        </div> --}}
-                        
-                    </td>
-                </tr> 
-            @endforeach
-        </tbody>
-          
-        </table>
-      </div>
-    </div>
-          
+            </div>
+
             <!-- /.card-body -->
+
         </div>
+
         <!-- /.card -->
     </div>
     </div>

@@ -51,8 +51,8 @@ Owners Page
                
     </div>
     </div> --}}
-    @include('business.orders.inc.products')
-</div>
+        @include('business.orders.inc.products')
+    </div>
     <script>
         (function() {
             'use strict'
@@ -101,70 +101,71 @@ Owners Page
         });
     </script>
     <script>
-      $(document).ready(
-        function () {
-          $('.add_product_btn').on('click', function(e){
-            e.preventDefault();
-            var id= $(this).data('id');
-            var name= $(this).data('name');
-            var price= $(this).data('price');
-            
-            //disable button after add
-            $(this).removeClass('btn-success').addClass('btn-secondary disabled');
+        $(document).ready(
+            function() {
+                $('.add_product_btn').on('click', function(e) {
+                    e.preventDefault();
+                    var id = $(this).data('id');
+                    var name = $(this).data('name');
+                    var price = $(this).data('price');
 
-            var html=`<tr>
+                    //disable button after add
+                    $(this).removeClass('btn-success').addClass('btn-secondary disabled');
+
+                    var html = `<tr>
                         <input type="hidden" value="${id}" name="product_id[]"/>
                         <td>${name}</td>
                         <td><input type="number"  name="quantities[]" data-price=${price} class="form-control product-quantity" value="1" min="1" required/></td>
                         <td class="product-price">${price}</td>
                         <td><a class="btn btn-sm btn-danger px-1 remove-product-btn" 
-                                id="remove_btn{{$product->id }}" 
+                                id="remove_btn{{ $product->id }}" 
                                 data-id=${id} 
-                                >Delete</a></td>
+                                >{{ __('routes.Delete') }}</a></td>
                       </tr>`;
-            $('.order-list').append(html);
-            calculateTotal();
-          });
+                    $('.order-list').append(html);
+                    calculateTotal();
+                });
 
-          $('body').on('click','.disabled', function(e){
-            e.preventDefault();
-          });
+                $('body').on('click', '.disabled', function(e) {
+                    e.preventDefault();
+                });
 
-          $('body').on('click','.remove-product-btn', function(e){
-            e.preventDefault();
-            var id=$(this).data('id');
-            //console.log(id);
-            $(this).closest('tr').remove();
-            $('#product-' + id).removeClass('btn-secondary disabled').addClass('btn-success');
-            calculateTotal();
-          });
+                $('body').on('click', '.remove-product-btn', function(e) {
+                    e.preventDefault();
+                    var id = $(this).data('id');
+                    //console.log(id);
+                    $(this).closest('tr').remove();
+                    $('#product-' + id).removeClass('btn-secondary disabled').addClass('btn-success');
+                    calculateTotal();
+                });
 
-          $('body').on('keyup change','.product-quantity', function(e){
-            e.preventDefault();
-            var quantity=parseInt($(this).val());
-            var price=$(this).data('price');//parseFloat($(this).closest('tr').find('.product-price').html());
-            $(this).closest('tr').find('.product-price').html(quantity*price);
-            // var total_price=productPrice*quantity;
-            // $('.total-orders').html(total_price);
-            calculateTotal();
-          });
+                $('body').on('keyup change', '.product-quantity', function(e) {
+                    e.preventDefault();
+                    var quantity = parseInt($(this).val());
+                    var price = $(this).data(
+                    'price'); //parseFloat($(this).closest('tr').find('.product-price').html());
+                    $(this).closest('tr').find('.product-price').html(quantity * price);
+                    // var total_price=productPrice*quantity;
+                    // $('.total-orders').html(total_price);
+                    calculateTotal();
+                });
+            }
+        );
+
+        function calculateTotal() {
+            var price = 0;
+
+            $('.order-list .product-price').each(function(index) {
+                price += parseFloat($(this).html());
+            });
+            $('.total-orders').html(price);
+            $('.total_order').val(price);
+            if (price > 0) {
+                $('#add-order-btn').removeClass('disabled')
+            } else {
+                $('#add-order-btn').addClass('disabled')
+            }
         }
-      );
-
-      function calculateTotal(){
-        var price=0;
-
-        $('.order-list .product-price').each(function(index){
-          price+= parseFloat($(this).html());
-        });
-        $('.total-orders').html(price);
-
-        if(price>0){
-          $('#add-order-btn').removeClass('disabled')
-        }else{
-          $('#add-order-btn').addClass('disabled')
-        }
-      }
     </script>
     <script>
         $("#details_select")

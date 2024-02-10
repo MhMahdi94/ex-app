@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class PosCategory extends Model
 {
     use HasFactory;
-    protected $fillable=['name'];
+    protected $fillable=['name','company_id'];
 
     public function products(): HasMany
     {

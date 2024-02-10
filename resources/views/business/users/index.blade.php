@@ -7,7 +7,7 @@
         <div class=" card">
             
                 <div class="card-header d-flex justify-content-between align-items-center">
-                    <h6 class="mb-0 text-uppercase ">User List</h6>
+                    <h6 class="mb-0 text-uppercase ">{{ __('routes.User List') }}</h6>
                     <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
                         data-bs-target="#SearchModal">
                         <input class="form-control px-5" disabled type="search" placeholder="Search">
@@ -20,8 +20,10 @@
 
 
                     <div class="d-flex ustify-content-between align-items-center" width='200'>
-                        <a class=" btn btn-primary float-right" href="{{ route('business.user.user_create') }}">Add
-                            User</a>
+                        @if (Auth::guard('business')->user()->can('create-user'))
+                            
+                            <a class=" btn btn-primary float-right" href="{{ route('business.user.user_create') }}">{{ __('routes.Add User') }}</a>
+                        @endif
                     </div>
                 </div>
             
@@ -33,12 +35,12 @@
           <thead>
             <tr>
               <tr>
-                <th>Name</th>
-                <th>Company</th>
-                <th>Email</th>
+                <th>{{ __('routes.Name') }}</th>
+                <th>{{ __('routes.Company') }}</th>
+                <th>{{ __('routes.Email') }}</th>
                 <th>{{__('routes.Mobile No')}}</th>
                 <th>{{__('routes.Status')}}</th>
-                <th>Actions</th>
+                <th>{{ __('routes.Actions') }}</th>
             </tr>
             </tr>
           </thead>
@@ -52,14 +54,20 @@
                     <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>
                     <td class="row row-cols-auto ">
                       <div class="col-4 ">
-                        <a class="btn btn-primary px-4" href="{{ route('business.user.user_edit',$item->id ) }}">Edit</a>
+                        @if (Auth::guard('business')->user()->can('edit-user'))
+                            
+                            <a class="btn btn-primary px-4" href="{{ route('business.user.user_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
+                        @endif
                       </div>
                         <div class="col-4">
-                          <meta name="csrf-token" content="{{ csrf_token() }}">
-                          <form method="post" class="delete-form" data-route="{{route('business.user.user_destroy', $item->id) }}">
-                            @method('delete')
-                            <button type="submit" class="btn btn-danger px-4 ">Delete</button>
-                          </form>
+                            @if (Auth::guard('business')->user()->can('delete-user'))
+                            
+                                <meta name="csrf-token" content="{{ csrf_token() }}">
+                                <form method="post" class="delete-form" data-route="{{route('business.user.user_destroy', $item->id) }}">
+                                @method('delete')
+                                <button type="submit" class="btn btn-danger px-4 ">{{ __('routes.Delete') }}</button>
+                                </form>
+                            @endif
                         </div>
                         
                     </td>

@@ -58,7 +58,7 @@
                     </div>
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
-                            <h6 class="mb-0 text-uppercase ">{{ __('routes.Payroll Sheet') }}( {{ $from }} -> {{ $to }})</h6>
+                            <h6 class="mb-0 text-uppercase ">{{ __('routes.Payroll Sheet') }}</h6>
                             
                             <form method="POST" action="{{ route('company.payroll.payroll_pdf') }}">
                                 @csrf

@@ -9,6 +9,7 @@ use App\Models\PosProduct;
 use App\Models\PosRequest;
 use App\Models\PosRequestContent;
 use App\Models\PosService;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -47,6 +48,8 @@ class OrdersController extends Controller
         //return $request->all();
         $pos_request=PosRequest::create([
             'client_id'=>$request->client_id
+            ,
+            'total_order'=>$request->total_order
         ]);
         // foreach ($request->product_id as $item) {
         //     # code...
@@ -66,7 +69,22 @@ class OrdersController extends Controller
         }
         return redirect()->back();
     }
-
+    public function generatePDF($id)
+    {
+        $request= PosRequest::find($id);
+        $contents= PosRequestContent::where('request_id',$id)->get();
+  
+        $data = [
+            'title' => 'Chart of Accounts',
+            'date' => date('m/d/Y'),
+            'request' => $request,
+            'contents'=>$contents
+        ]; 
+        
+        $pdf = Pdf::loadView('business.orders.pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
+        set_time_limit(300);
+        return $pdf->download('order.pdf');
+    }
     /**
      * Display the specified resource.
      */

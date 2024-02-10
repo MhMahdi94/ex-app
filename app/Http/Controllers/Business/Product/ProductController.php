@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\PosCategory;
 use App\Models\PosProduct;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -15,7 +16,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $data= PosProduct::get() ;
+        $data= PosProduct::where('company_id',Auth::guard('business')->user()->business_id)->get() ;
         return view('business.products.index',compact('data'));
     }
 
@@ -25,7 +26,7 @@ class ProductController extends Controller
     public function create()
     {
         //
-        $categories= PosCategory::get();
+        $categories= PosCategory::where('company_id',Auth::guard('business')->user()->business_id)->get();
         return view('business.products.create', compact('categories'));
     }
 
@@ -43,6 +44,7 @@ class ProductController extends Controller
             'desc'=>$request->description,
             'quantity'=>$request->quantity,
             'image'=>'img',
+            'company_id'=>Auth::guard('business')->user()->business_id
         ]);
         return redirect()->back() ;
     }

@@ -31,5 +31,9 @@ class AuthServiceProvider extends ServiceProvider
         Gate::before(function ($user, $ability) {
             return $user->hasRole('Company Owner','employee') ? true : null;
         });
+
+        Gate::before(function ($user, $ability) {
+            return $user->hasRole('Business Owner','business') ? true : null;
+        });
     }
 }

@@ -18,7 +18,7 @@
             <a href="{{ route('business.home.home') }}" class="nav-link">
 
                 <p>
-                    Dashboard
+                    {{ __('routes.Dashboard') }}
 
                 </p>
             </a>
@@ -28,7 +28,7 @@
             <a href="{{ route('business.user.user_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
                 <p>
-                    User Managment
+                    {{ __('routes.Users Managment') }}
 
                 </p>
             </a>
@@ -37,7 +37,7 @@
             <a href="{{ route('business.categories.category_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
                 <p>
-                    Categories Managment
+                    {{ __('routes.Categories Managment') }}
 
                 </p>
             </a>
@@ -46,7 +46,7 @@
             <a href="{{ route('business.products.products_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
                 <p>
-                    Products Managment
+                    {{ __('routes.Products Managment') }}
 
                 </p>
             </a>
@@ -55,7 +55,7 @@
             <a href="{{ route('business.services.services_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
                 <p>
-                    Services Managment
+                    {{ __('routes.Services Managment') }}
 
                 </p>
             </a>
@@ -64,7 +64,7 @@
             <a href="{{ route('business.clients.clients_index') }}" class="nav-link {{ request()->is('thrs/admin/packages') ? 'active' : '' }}">
 
                 <p>
-                    Clients Managment
+                    {{ __('routes.Clients Managment') }}
 
                 </p>
             </a>
@@ -73,7 +73,7 @@
             <a href="{{ route('business.orders.orders_index') }}" class="nav-link">
 
                 <p>
-                    Orders Managment
+                    {{ __('routes.Orders Managment') }}
 
                 </p>
             </a>

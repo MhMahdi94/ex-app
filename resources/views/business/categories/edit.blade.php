@@ -18,7 +18,7 @@ Admins Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit Category</h3>
+              <h3 class="card-title">{{ __('routes.Edit Category') }}</h3>
 
               
             </div>
@@ -30,7 +30,7 @@ Admins Page
                     @method('PUT')
                     <div class="card-body">
                         <div class="form-group mb-2">
-                            <label for="name">Name</label>
+                            <label for="name">{{ __('routes.Name') }}</label>
                             <input type="text" name="name" value="{{ $category->name }}" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                        

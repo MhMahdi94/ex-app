@@ -85,6 +85,7 @@ Route::group([
         Route::group(['prefix' => '/orders',
         'as' => 'orders.',],function ()  {
           Route::get('/',[OrdersController::class, 'index'])->name('orders_index');
+          Route::get('/pdf/{id}',[OrdersController::class, 'generatePDF'])->name('orders_pdf');
           Route::get('/create',[OrdersController::class, 'create'])->name('orders_create');
           Route::post('/store',[OrdersController::class, 'store'])->name('orders_store');
           Route::get('/show/{id}',[OrdersController::class, 'show'])->name('orders_show');

@@ -21,17 +21,17 @@
        <a href="#" class="nav-link">
 
            <p>
-               Dashboard
+              {{__('routes.Dashboard')}}
 
            </p>
        </a>
    </li>
-   <li class="menu-label">Users Managment</li>
+   <li class="menu-label">{{ __('routes.Users Managment') }}</li>
    <li class="nav-item">
         <a href="{{ route('company.roles.roles_index') }}" class="nav-link">
 
             <p>
-                Roles Managment
+                {{ __('routes.Roles Managment') }}
 
             </p>
         </a>
@@ -41,7 +41,7 @@
            class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
            <p>
-               Employees Managment
+               {{ __('routes.Employees Managment') }}
 
            </p>
        </a>
@@ -51,7 +51,7 @@
         class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
         <p>
-            Attendence Managment
+            {{ __('routes.Attendence Managment') }}
 
         </p>
     </a>
@@ -60,7 +60,7 @@
        <a href="{{ route('company.department.department_index') }}"
            class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
            <p>
-               Department Managment
+               {{ __('routes.Department Managment') }}
            </p>
        </a>
    </li>
@@ -68,49 +68,49 @@
        <a href="{{ route('company.stock.stock_index') }}"
            class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
            <p>
-               Stock Managment
+               {{ __('routes.Stock Managment') }}
            </p>
        </a>
    </li>
-   <li class="menu-label">Leave Managment</li>
+   <li class="menu-label">{{ __('routes.Leave Managment') }}</li>
    <li class="nav-item has-treeview">
        
        <ul class="nav-treeview">
            <li class="nav-item">
                <a href="{{ route('company.leave-settings.leave_settings_create') }}" class="nav-link">
                    {{-- <i class="far fa-circle nav-icon"></i> --}}
-                   <p>Leave Settings</p>
+                   <p>{{ __('routes.Leave Settings') }}</p>
                </a>
            </li>
            <li class="nav-item">
                <a href="{{ route('company.leave-requests.leave_requests_index') }}" class="nav-link">
                    {{-- <i class="far fa-circle nav-icon"></i> --}}
-                   <p>Leave Request</p>
+                   <p>{{ __('routes.Leave Request') }}</p>
                </a>
            </li>
 
        </ul>
    </li>
-   <li class="menu-label">Accounting Managment</li>
+   <li class="menu-label">{{ __('routes.Accounting Managment') }}</li>
    <li class="nav-item has-treeview">
       
        <ul class=" nav-treeview">
          <li class="nav-item">
            <a href="{{ route('company.coa.coa_index') }}" class="nav-link">
              {{-- <i class="far fa-circle nav-icon"></i> --}}
-             <p>Chart of Accounts</p>
+             <p>{{ __('routes.Chart of Accounts') }}</p>
            </a>
          </li>
          <li class="nav-item">
            <a href="{{ route('company.journals.journals_index') }}" class="nav-link">
              {{-- <i class="far fa-circle nav-icon"></i> --}}
-             <p>Journals</p>
+             <p>{{ __('routes.Journals') }}</p>
            </a>
          </li>
          <li class="nav-item">
            <a href="{{ route('company.documents.document_index') }}" class="nav-link">
              {{-- <i class="far fa-circle nav-icon"></i> --}}
-             <p>Documents</p>
+             <p>{{ __('routes.Documents') }}</p>
            </a>
          </li>
          {{-- <li class="nav-item">
@@ -128,12 +128,12 @@
        </ul>
      </li>
    
-     <li class="menu-label">Payroll Managment</li>
+     <li class="menu-label">{{ __('routes.Payroll Managment') }}</li>
    <li class="nav-item">
        <a href="{{ route('company.payroll.payroll_index') }}" class="nav-link">
 
            <p>
-               Payroll Managment
+               {{ __('routes.Payroll Managment') }}
 
            </p>
        </a>

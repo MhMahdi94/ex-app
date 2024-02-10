@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Create Order</h3>
+        <h3 class="card-title">{{ __('routes.Add Order') }}</h3>
 
 
     </div>
@@ -29,10 +29,10 @@
                                     <div class="accordion-body"> 
                                       <table class="table table-bordered" id="dynamicAddRemove">
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Price</th>
-                                            <th>Quantity</th>
-                                            <th>Action</th>
+                                            <th>{{ __('routes.Name') }}</th>
+                                            <th>{{ __('routes.Price') }}</th>
+                                            <th>{{ __('routes.Quantity') }}</th>
+                                            <th>{{ __('routes.Actions') }}</th>
                                         </tr>
                                         <tr>
                                           @foreach ($category->products as $product )
@@ -46,7 +46,7 @@
                                               data-name="{{ $product->name }}"
                                               data-price="{{ $product->sale_price }}"
                                               data-id="{{ $product->id }}"
-                                              href="#">Add</a></td>
+                                              href="#">{{ __('routes.Add') }}</a></td>
                                            </tr>
                                           </div>
                                         @endforeach
@@ -67,7 +67,7 @@
           {{-- </div> --}}
         <div class="col-md-6 card-body row g-3">
             <div class="form-group  col-md-12">
-                <label for="client_id">Client</label>
+                <label for="client_id">{{ __('routes.Client') }}</label>
                 <select name="client_id" id="" class="form-control select2">
                     @foreach ($clients as $client)
                         <option value="{{ $client->id }}">{{ $client->name }}</option>
@@ -76,15 +76,18 @@
             </div>
             <table class="table table-bordered order-list" id="dynamicAddRemove">
                 <tr>
-                    <th>Product</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Actions</th>
+                    <th>{{ __('routes.Product') }}</th>
+                    <th>{{ __('routes.Quantity') }}</th>
+                    <th>{{ __('routes.Price') }}</th>
+                    <th>{{ __('routes.Actions') }}</th>
                 </tr>
 
             </table>
+
+            <input type="hidden" name="total_order" class="total_order"/>
             <div class="">
-              Total: <span class="total-orders"> {{ '0' }}</span>
+
+              {{ __('routes.Total') }}: <span class="total-orders"> {{ '0' }}</span>
             </div>
         </div>
       </div></div>

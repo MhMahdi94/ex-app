@@ -66,6 +66,24 @@ class PermissionSeeder extends Seeder
             ['name' =>    'print-payroll', 'guard_name' => 'employee'],
             
             //business
+            ['name' =>    'create-user', 'guard_name' => 'business',],
+            ['name' =>    'edit-user', 'guard_name' => 'business',],
+            ['name' =>    'delete-user', 'guard_name' => 'business',],
+            ['name' =>    'create-category', 'guard_name' => 'business',],
+            ['name' =>    'edit-category', 'guard_name' => 'business',],
+            ['name' =>    'delete-category', 'guard_name' => 'business',],
+            ['name' =>    'create-product', 'guard_name' => 'business',],
+            ['name' =>    'edit-product', 'guard_name' => 'business',],
+            ['name' =>    'delete-product', 'guard_name' => 'business',],
+            ['name' =>    'create-service', 'guard_name' => 'business',],
+            ['name' =>    'edit-service', 'guard_name' => 'business',],
+            ['name' =>    'delete-service', 'guard_name' => 'business',],
+            ['name' =>    'create-client', 'guard_name' => 'business',],
+            ['name' =>    'edit-client', 'guard_name' => 'business',],
+            ['name' =>    'delete-client', 'guard_name' => 'business',],
+            ['name' =>    'create-order', 'guard_name' => 'business',],
+            ['name' =>    'edit-order', 'guard_name' => 'business',],
+            ['name' =>    'delete-order', 'guard_name' => 'business',],
         ];
 
         // Looping and Inserting Array's Permissions into Permission Table

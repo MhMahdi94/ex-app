@@ -27,5 +27,6 @@ class RoleSeeder extends Seeder
 
         //company panel
         Role::create(['name' => 'Company Owner', 'guard_name'=>'employee']);
+        Role::create(['name' => 'Business Owner', 'guard_name'=>'business']);
     }
 }

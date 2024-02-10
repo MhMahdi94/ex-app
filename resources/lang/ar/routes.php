@@ -192,5 +192,52 @@ return [
     'Total Days'=>'اجمالي الايام',
     'Working'=>'حضور',
     'Absent'=>'غياب',
-    'Current Salary'=>'الاجر المستحق'
+    'Current Salary'=>'الاجر المستحق',
+    'Users Managment'=>'ادارة المستخدمين',
+    'Employees Managment'=>'ادارة الموظفين',
+    'Attendence Managment'=>' ادارة الحضور',
+    'Department Managment'=>' ادارة الاقسام',
+    'Stock Managment'=>' ادارة المخزن',
+    'Leave Managment'=>' ادارة الاجازات',
+    'Leave Settings'=>'ضبط الاجازات',
+    'Leave Request'=>'طلبات الاجازات',
+    'Accounting Managment'=>' ادارة المحاسبة',
+    'Chart of Accounts'=>'دليل الحسابات',
+    'Journals'=>'القيود اليومية',
+    'Documents'=>'السندات',
+    'Payroll Managment'=>'ادارة المرتبات',
+
+    //// business 
+    'Categories Managment'=>'ادارة الاقسام',
+    'Products Managment'=>'ادارة المنتجات',
+    'Services Managment'=>'ادارة الخدمات',
+    'Clients Managment'=>'ادارة العملاء',
+    'Orders Managment'=>'ادارة الطلبات',
+
+    'User List'=>'قائمة المستخدمين',
+    'Add User'=>'اضافة مستخدم',
+    'Edit User'=>'تعديل مستخدم',
+
+    'Categories List'=>'قائمة الاقسام',
+    'Add Category'=>'اضافة قسم',
+    'Edit Category'=>'تعديل قسم',
+
+    'Products List'=>'قائمة المنتجات',
+    'Category'=>'القسم',
+    'Sale Price'=>'سعر البيع',
+    'Purchase Price'=>'سعر الشراء',
+
+    'Clients List'=>'قائمة العملاء',
+    'Add Client'=>'اضافة عميل',
+    'Edit Client'=>'تعديل عميل',
+
+
+    'Orders List'=>'قائمة الطلبات',
+    'Add Order'=>'اضافة طلب',
+    'Client'=>'العميل',
+
+    'Price'=>'السعر',
+    'Product'=>'المنتج',
+    'Total'=>'المجموع',
+    'Orders Details'=>'تفاصيل الطلب'
 ];

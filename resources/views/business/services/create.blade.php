@@ -18,7 +18,7 @@ Owners Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Create Service</h3>
+              <h3 class="card-title">{{ __('routes.Add Service') }}</h3>
 
               
             </div>
@@ -36,13 +36,13 @@ Owners Page
                           </select>
                         </div> --}}
                         <div class="form-group col-md-12" >
-                            <label for="name" class="mb-2">Name</label>
+                            <label for="name" class="mb-2">{{ __('routes.Name') }}</label>
                             <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
                         </div>
                         
                     
                     <div class="form-group col-md-12">
-                      <label for="description" class="mb-2">Description</label>
+                      <label for="description" class="mb-2">{{ __('routes.Description') }}</label>
                       <textarea class="form-control" id="description" placeholder="Description" name='description' required></textarea>
                     </div>
                     </div>

@@ -196,8 +196,51 @@ return [
     'Total Days'=>'Total Days',
     'Working'=>'Working',
     'Absent'=>'Absent',
-    'Current Salary'=>'Current Salary'
+    'Current Salary'=>'Current Salary',
+    'Users Managment'=>'Users Managment',
+    'Employees Managment'=>'Employees Managment',
+    'Attendence Managment'=>'Attendence Managment',
+    'Department Managment'=>'Department Managment',
+    'Stock Managment'=>'Stock Managment',
+    'Leave Managment'=>'Leave Managment',
+    'Leave Settings'=>'Leave Settings',
+    'Leave Request'=>'Leave Request',
+    'Accounting Managment'=>'Accounting Managment',
+    'Chart of Accounts'=>'Chart of Accounts',
+    'Journals'=>'Journals',
+    'Documents'=>'Documents',
+    'Payroll Managment'=>'Payroll Managment',
+    
+    //// business 
+    'Categories Managment'=>'Categories Managment',
+    'Products Managment'=>'Products Managment',
+    'Services Managment'=>'Services Managment',
+    'Clients Managment'=>'Clients Managment',
+    'Orders Managment'=>'Orders Managment',
 
+    'User List'=>'User List',
+    'Add User'=>'Add User',
+    'Edit User'=>'Edit User',
+    'Categories List'=>'Categories List',
+    'Add Category'=>'Add Category',
+    'Edit Category'=>'Edit Category',
 
+    'Products List'=>'Products List',
+    'Category'=>'Category',
+    'Sale Price'=>'Sale Price',
+    'Purchase Price'=>'Purchase Price',
+
+    'Clients List'=>'Clients List',
+    'Add Client'=>'Add Client',
+    'Edit Client'=>'Edit Client',
+
+    'Orders List'=>'Orders List',
+    'Add Order'=>'Add Order',
+    'Client'=>'Client',
+
+    'Price'=>'Price',
+    'Product'=>'Product',
+    'Total'=>'Total',
+    'Orders Details'=>'Orders Details'
 
 ];
