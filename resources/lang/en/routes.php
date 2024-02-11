@@ -276,5 +276,8 @@ return [
     
     'Account Statement'=>'Account Statement',
     'Balance Sheet'=>'Balance Sheet',
+    'Profit and Loss'=>'Profit and Loss',
+    
+    'Edit Revenue'=>'Edit Revenue',
     // 'Home'=>'Home',
 ];

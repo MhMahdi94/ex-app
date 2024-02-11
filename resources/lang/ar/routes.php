@@ -272,4 +272,7 @@ return [
     'Home'=>'الرئيسية',
     'Account Statement'=>'كشف حساب',
     'Balance Sheet'=>'ميزان المراجعة',
+    'Profit and Loss'=>'الربح و الخسارة',
+
+    'Edit Revenue'=>'تعديل الايراد',
 ];
