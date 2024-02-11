@@ -32,9 +32,11 @@ class NewRequestController extends Controller
     public function store(StoreNewRequestRequest $request)
     {
         //
+        //return response($request->all());
+        
         $data=$request->validated();
         $newRequest=NewRequest::create($data);
-        return response(new NewRequestResource($newRequest),201);
+        return response(new NewRequestResource($newRequest),200);
     }
 
     /**

@@ -102,6 +102,28 @@
             </a>
            
         </li>
+
+        <li class="menu-label">{{ __('routes.Landing Page') }}</li>
+        <li class="nav-item">
+            <a href="{{ route('admin.landing.landing_banner') }}" class="nav-link">
+
+                <p>
+                    {{ __('routes.Banner Section') }}
+
+                </p>
+            </a>
+           
+        </li>
+        <li class="nav-item">
+            <a href="{{ route('admin.landing.landing_features') }}" class="nav-link">
+
+                <p>
+                    {{ __('routes.Features Section') }}
+
+                </p>
+            </a>
+           
+        </li>
     </ul>
     <!--end navigation-->
 </div>

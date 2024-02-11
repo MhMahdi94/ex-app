@@ -242,6 +242,37 @@ return [
     'Price'=>'Price',
     'Product'=>'Product',
     'Total'=>'Total',
-    'Orders Details'=>'Orders Details'
+    'Orders Details'=>'Orders Details',
 
+    'Landing Page'=>'Landing Page',
+    'Banner Section'=>'Banner Section',
+    'Banner Title'=>'Banner Title',
+    'Banner Title(English)'=>'Banner Title(English)',
+    'Banner Title(Arabic)'=>'Banner Title(Arabic)',
+    'Banner Description'=>'Banner Description',
+    'Banner Description(English)'=>'Banner Description(English)',
+    'Banner Description(Arabic)'=>'Banner Description(Arabic)',
+    'Banner Background'=>'Banner Background',
+
+    'Services'=> 'Services',
+    'Check our Services'=>'Check our Services',
+    'Features'=> 'Features',
+    'Check our Features'=>'Check our Features',
+    'Features Section'=>'Features Section',
+    'Title(English)'=>'Title(English)',
+    'Title(Arabic)'=>'Title(Arabic)',
+    'Add Feature'=>'Add Feature',
+    'Send Request'=>'Send Request',
+    'Loading'=>'Loading',
+    'Your request has been sent. Thank you!'=>'Your request has been sent. Thank you!',
+
+    'Contact'=>'Contact',
+    'Contact Us'=>'Contact Us',
+
+    'Admin'=>'Admin',
+    'Business'=>'Business',
+    'Home'=>'Home',
+    // 'Features'=>'Features',
+    // 'Services'=>'Services',
+    // 'Home'=>'Home',
 ];

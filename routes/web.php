@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Api\NewRequestController;
+use App\Models\Banner;
+use App\Models\Feature;
+use App\Models\Package;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Session;
@@ -22,6 +26,11 @@ Route::group([
   ], function () {
 
       Route::get('/', function () {
-          return view('welcome');
+        $banner=Banner::first();
+        $services=Package::get();
+        $features=Feature::get();
+          return view('welcome',compact('banner','services','features') );
       });
+
+      Route::post('/new-request',[NewRequestController::class,'store'])->name('new_request');
   });

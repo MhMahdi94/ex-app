@@ -240,5 +240,34 @@ return [
     'Price'=>'السعر',
     'Product'=>'المنتج',
     'Total'=>'المجموع',
-    'Orders Details'=>'تفاصيل الطلب'
+    'Orders Details'=>'تفاصيل الطلب',
+    
+    
+    'Landing Page'=>'الصفحة الرئيسية',
+    'Banner Section'=>'قسم البنر',
+    'Banner Title'=>'عنوان البنر',
+    'Banner Title(English)'=>'عنوان البنر (انجليزي)',
+    'Banner Title(Arabic)'=>'عنوان البنر (عربي)',
+    'Banner Description'=>'وصف البنر',
+    'Banner Description(English)'=>'وصف البنر(انجليزي)',
+    'Banner Description(Arabic)'=>'وصف البنر(عربي)',
+    'Banner Background'=>'خلفية البنر',
+
+    'Services'=> 'الخدمات',
+    'Check our Services'=>'اكتشف خدماتنا',
+    'Features'=> 'خصائص النظام',
+    'Check our Features'=>'تعرف على خصائص النظام',
+    'Features Section'=>'قسم الخصائص',
+    'Title(English)'=>'العنوان(انجليزي)',
+    'Title(Arabic)'=>'العنوان(عربي)',
+    'Add Feature'=>'اضافة خاصية',
+    'Send Request'=>'اضافة طلب',
+    'Loading'=>'الرجاء الانتظار',
+    'Your request has been sent. Thank you!'=>'تم ارسال طلبك, شكرا لك',
+    'Contact'=>'التواصل',
+    'Contact Us'=>'تواصل معنا',
+
+    'Admin'=>'المدير',
+    'Business'=>'الاعمال',
+    'Home'=>'الرئيسية',
 ];

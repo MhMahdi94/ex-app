@@ -6,11 +6,13 @@ use App\Http\Controllers\Admin\Business\BusinessController;
 use App\Http\Controllers\Admin\BusinessOwner\BusinessOwnerController;
 use App\Http\Controllers\Admin\Companies\CompanyController;
 use App\Http\Controllers\Admin\Home\HomeController;
+use App\Http\Controllers\Admin\Landing\LandingController;
 use App\Http\Controllers\Admin\Owners\OwnerController;
 use App\Http\Controllers\Admin\Packages\PackagesController;
 use App\Http\Controllers\Admin\Requests\RequestsController;
 use App\Http\Controllers\Admin\Roles\RoleController;
 use App\Http\Controllers\Admin\Roles\RolesController;
+use App\Http\Controllers\Api\NewRequestController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -110,6 +112,20 @@ Route::group([
          Route::get('/edit/{id}',[RolesController::class, 'edit'])->name('roles_edit');
          Route::put('/update/{id}',[RolesController::class, 'update'])->name('roles_update');
          Route::delete('/delete/{id}',[RolesController::class, 'destroy'])->name('roles_destroy');
+       });
+
+       //banner
+       Route::group(['prefix' => '/landing',
+       'as' => 'landing.',],function ()  {
+         Route::get('/banner',[LandingController::class, 'banner'])->name('landing_banner');
+         Route::post('/banner/save',[LandingController::class, 'save_banner'])->name('landing_banner_save');
+         Route::get('/features',[LandingController::class, 'features'])->name('landing_features');
+         Route::post('/features/save',[LandingController::class, 'save_features'])->name('landing_features_save');
+         Route::get('/features/create',[LandingController::class, 'create_features'])->name('landing_features_create');
+        //  Route::post('/store',[RolesController::class, 'store'])->name('roles_store');
+         Route::get('/features/edit/{id}',[LandingController::class, 'edit_feature'])->name('landing_features_edit');
+        //  Route::put('/update/{id}',[RolesController::class, 'update'])->name('roles_update');
+        //  Route::delete('/delete/{id}',[RolesController::class, 'destroy'])->name('roles_destroy');
        });
   });
 
