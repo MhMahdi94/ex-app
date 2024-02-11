@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Company\Journals;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountLog;
 use App\Models\Accounts;
 use App\Models\JournalDetail;
 use App\Models\JournalHeader;
@@ -75,7 +76,20 @@ class JournalsController extends Controller
             $account->account_credit=$account->account_credit+$item['credit'];
             $account->account_balance=$account->account_balance+$balance;
             $account->save();
+
+            AccountLog::create([
+                'date'=>Carbon::today()->format('y-m-d'),
+                'account_id'=>$item['account_no'],
+                'debit'=>$item['debit'],
+                'credit'=>$item['credit'],
+                'desc'=>$item['descriprtion'],
+                'operation'=>'1',
+                'company_id'=>$user->company_id
+
+            ]);
         }
+
+        
         return redirect()->back();
     }
 

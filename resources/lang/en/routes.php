@@ -272,7 +272,9 @@ return [
     'Admin'=>'Admin',
     'Business'=>'Business',
     'Home'=>'Home',
-    // 'Features'=>'Features',
+    
+    
+    'Account Statement'=>'Account Statement',
     // 'Services'=>'Services',
     // 'Home'=>'Home',
 ];

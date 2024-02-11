@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Company\Documents;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountLog;
 use App\Models\Accounts;
 use App\Models\DocumentDetail;
 use App\Models\DocumentHeader;
@@ -80,16 +81,16 @@ class DocumentController extends Controller
                 'description'=>'',
                 'document_id'=>$d->id
             ]);
-            // if($d->document_type == 1){
-            //     $account=Accounts::find($item['account_no']);
-            //     $account->account_balance=$account->account_balance+$item['amount'];
-            //     $account ->save();
-            // }
-            // if($d->document_type == 2){
-            //     $account=Accounts::find($item['account_no']);
-            //     $account->account_balance=$account->account_balance-$item['amount'];
-            //     $account ->save();
-            // }
+            AccountLog::create([
+                'date'=>Carbon::today()->format('y-m-d'),
+                'account_id'=>$item['account_no'],
+                'debit'=>$request->document_type=='1'?$item['amount']:0,
+                'credit'=>$request->document_type=='1'?0:$item['amount'],
+                'desc'=>$request->description,
+                'operation'=>$request->document_type=='1'?'2':'3',
+                'company_id'=>$user->company_id
+
+            ]);
              
         }
         

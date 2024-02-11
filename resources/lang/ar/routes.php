@@ -270,4 +270,5 @@ return [
     'Admin'=>'المدير',
     'Business'=>'الاعمال',
     'Home'=>'الرئيسية',
+    'Account Statement'=>'كشف حساب',
 ];

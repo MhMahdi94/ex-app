@@ -113,6 +113,12 @@
              <p>{{ __('routes.Documents') }}</p>
            </a>
          </li>
+         <li class="nav-item">
+            <a href="{{ route('company.documents.document_index') }}" class="nav-link">
+              {{-- <i class="far fa-circle nav-icon"></i> --}}
+              <p>{{ __('routes.Account Statement') }}</p>
+            </a>
+          </li>
          {{-- <li class="nav-item">
            <a href="{{ route('company.financial_calendar.financial_year_index') }}" class="nav-link">
              

@@ -82,7 +82,8 @@ class DatabaseSeeder extends Seeder
         AdminUserSeeder::class,
         CompanySeeder::class,
         EmployeeUserSeeder::class,
-        StockOperationSeeder::class
+        StockOperationSeeder::class,
+        AccountOperationSeeder::class,
         // COALEVELONESeeder::class,
         // COALEVELTWOSeeder::class
        ]);
