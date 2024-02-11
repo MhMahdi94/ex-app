@@ -21,38 +21,44 @@
                                     <tr>
                                         <th>{{ __('routes.Account No') }}</th>
                                         <th>{{ __('routes.Account Name') }}</th>
-
                                         <th>{{ __('routes.Revenue') }}</th>
                                         <th>{{ __('routes.Expenses') }}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-
-                                    {{-- @foreach ($accounts as $item)
-                                            <tr>
-                                                <td>{{ $item->account->account_no }}</td>
-                                                <td>{{ $item->account->account_name }}</td>
-                                                <td>{{ $item->total_debit}}</td>
-                                                <td>{{$item->total_credit }}</td>
-                                            </tr>
-                                        @endforeach --}}
+                                    @foreach ($revenues as $item)
+                                    <tr>
+                                        <td>{{ $item->account->account_no }}</td>
+                                        <td>{{ $item->account->account_name }}</td>
+                                        <td>{{ $item->total_revenue }}</td>
+                                        <td>0</td>
+                                    </tr>
+                                @endforeach
+                                    @foreach ($expenses as $item)
+                                        <tr>
+                                            <td>{{ $item->account->account_no }}</td>
+                                            <td>{{ $item->account->account_name }}</td>
+                                            <td>0</td>
+                                            <td>{{ $item->total_expenses }}</td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
 
                             </table>
                         </div>
                     </div>
 
-                    {{-- <div class="card-footer row">
+                    <div class="card-footer row">
                         <div class="col">
-                            {{ __('routes.Total Debit') }}: {{ $total_debit }}
+                            {{ __('routes.Revenue') }}: {{ $total_revenues }}
                         </div>
                         <div class="col">
-                            {{ __('routes.Total Credit') }}: {{ $total_credit }}
+                            {{ __('routes.Expenses') }}: {{ $total_expenses }}
                         </div>
                         <div class="col">
-                            {{ __('routes.Balance') }}: {{ $diff }}
+                            {{ __('routes.Balance') }}: {{ $total_revenues - $total_expenses}}
                         </div>
-                    </div> --}}
+                    </div>
                 </div>
 
             </div>

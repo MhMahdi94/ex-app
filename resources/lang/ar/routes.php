@@ -275,4 +275,5 @@ return [
     'Profit and Loss'=>'الربح و الخسارة',
 
     'Edit Revenue'=>'تعديل الايراد',
+    'Edit Expense'=>'تعديل المصروف',
 ];

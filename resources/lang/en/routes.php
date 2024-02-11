@@ -279,5 +279,7 @@ return [
     'Profit and Loss'=>'Profit and Loss',
     
     'Edit Revenue'=>'Edit Revenue',
+    'Create Expense'=>'Create Expense',
+    'Edit Expense'=>'Edit Expense',
     // 'Home'=>'Home',
 ];

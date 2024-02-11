@@ -18,7 +18,7 @@ Admins Page
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Edit Role</h3>
+              <h3 class="card-title">{{ __('routes.Edit Expense') }}</h3>
 
               
             </div>
