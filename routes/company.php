@@ -4,7 +4,9 @@ use App\Http\Controllers\Admin\Admins\AdminsController;
 use App\Http\Controllers\Admin\Attendence\AttendenceController;
 use App\Http\Controllers\Company\Account\AccountController;
 use App\Http\Controllers\Company\Account\COALEVELONEController;
+use App\Http\Controllers\Company\AccountStatement\AccountStatementController;
 use App\Http\Controllers\Company\Auth\LoginController;
+use App\Http\Controllers\Company\BalanceSheet\BalanceSheetController;
 use App\Http\Controllers\Company\Department\DepartmentController;
 use App\Http\Controllers\Company\Documents\DocumentController;
 use App\Http\Controllers\Company\Employee\EmployeeController;
@@ -174,7 +176,21 @@ Route::group([
          Route::delete('/delete/{id}',[DocumentController::class, 'destroy'])->name('document_destroy');
          Route::get('/details/{id}',[DocumentController::class, 'details'])->name('document_details');
        });
+      //account statement
+      Route::group(['prefix' => '/account-statement',
+      'as' => 'account-statement.',],function ()  {
+        Route::get('/',[AccountStatementController::class, 'index'])->name('account_statement_index');
+        Route::post('/list',[AccountStatementController::class, 'list'])->name('account_statement_list');
+        Route::get('/pdf/{id}',[AccountStatementController::class, 'generatePDF'])->name('report_pdf');
+      });
 
+      //balance sheet
+      Route::group(['prefix' => '/balance-sheet',
+      'as' => 'balance-sheet.',],function ()  {
+        Route::get('/',[BalanceSheetController::class, 'index'])->name('balance_sheet_index');
+        Route::post('/list',[BalanceSheetController::class, 'list'])->name('balance_sheet_list');
+        Route::get('/pdf',[BalanceSheetController::class, 'generatePDF'])->name('report_pdf');
+      });
        //roles
        Route::group(['prefix' => '/roles',
        'as' => 'roles.',],function ()  {

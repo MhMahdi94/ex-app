@@ -17,4 +17,12 @@ class AccountLog extends Model
         'operation',
         'company_id'
     ];
+
+    public function account(){
+        return $this->belongsTo(Accounts::class,'account_id');
+    }
+
+    public function operationName(){
+        return $this->belongsTo(AccountOperation::class,'operation');
+    }
 }

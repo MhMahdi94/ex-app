@@ -114,9 +114,15 @@
            </a>
          </li>
          <li class="nav-item">
-            <a href="{{ route('company.documents.document_index') }}" class="nav-link">
+            <a href="{{ route('company.account-statement.account_statement_index') }}" class="nav-link">
               {{-- <i class="far fa-circle nav-icon"></i> --}}
               <p>{{ __('routes.Account Statement') }}</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="{{ route('company.balance-sheet.balance_sheet_index') }}" class="nav-link">
+              {{-- <i class="far fa-circle nav-icon"></i> --}}
+              <p>{{ __('routes.Balance Sheet') }}</p>
             </a>
           </li>
          {{-- <li class="nav-item">

@@ -275,6 +275,6 @@ return [
     
     
     'Account Statement'=>'Account Statement',
-    // 'Services'=>'Services',
+    'Balance Sheet'=>'Balance Sheet',
     // 'Home'=>'Home',
 ];

@@ -271,4 +271,5 @@ return [
     'Business'=>'الاعمال',
     'Home'=>'الرئيسية',
     'Account Statement'=>'كشف حساب',
+    'Balance Sheet'=>'ميزان المراجعة',
 ];
