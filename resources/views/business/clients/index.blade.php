@@ -49,14 +49,14 @@
                   <td>{{ $item->email }}</td>
                   <td>{{ $item->mobile_no }}</td>
                   <td>{{ $item->address }}</td>
-                  <td class="row g-4 ">
-                      <div class="col-3">
+                  <td class="d-flex">
+                      <div class="mx-1">
                         @if (Auth::guard('business')->user()->can('edit-client'))
                             
                             <a class="btn btn-primary px-4" href="{{ route('business.clients.clients_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
                         @endif
                       </div>
-                        <div class="col-3">
+                        <div class="mx-1">
                             @if (Auth::guard('business')->user()->can('delete-client'))
                             
                                 <meta name="csrf-token" content="{{ csrf_token() }}">

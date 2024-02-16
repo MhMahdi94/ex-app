@@ -290,6 +290,7 @@ return [
     'Edit Department'=>'تعديل القسم',
     'Show Document'=>'عرض السند',
     'Document No'=>'رقم السند',
-    'Document Details'=>'تفاصيل السند'
+    'Document Details'=>'تفاصيل السند',
+    'Edit Product'=>'تعديل منتج'
     
 ];

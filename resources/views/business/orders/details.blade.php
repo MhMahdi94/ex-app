@@ -46,7 +46,7 @@
                     </div>
                     <div class="">
                         <a class="mr-2 btn btn-dark"
-                            href="{{ route('business.orders.orders_pdf', $request->id) }}">{{ __('routes.Print') }}</a>
+                            href="{{ route('business.orders.orders_pdf', $request->id) }}" target="_Blank">{{ __('routes.Print') }}</a>
                     </div>
                 </div>
             </div>

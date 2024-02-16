@@ -43,15 +43,15 @@
                                     <td>{{ $item->business->name }}</td>
                                     <td>{{ $item->description }}</td>
                                     
-                                    <td class="row row-cols-auto ">
-                                        <div class="col-4">
+                                    <td class="d-flex">
+                                        <div class="mx-1">
                                             @if (Auth::guard('business')->user()->can('edit-service'))
                             
                                             <a class="btn btn-primary px-4"
                                                 href="{{ route('business.services.services_edit', $item->id) }}">{{ __('routes.Edit') }}</a>
                                             @endif
                                         </div>
-                                        <div class="col-4">
+                                        <div class="mx-1">
                                             @if (Auth::guard('business')->user()->can('delete-service'))
                             
                                             <meta name="csrf-token" content="{{ csrf_token() }}">

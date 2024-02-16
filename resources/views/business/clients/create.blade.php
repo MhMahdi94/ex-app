@@ -41,7 +41,7 @@ Owners Page
                         </div>
                         <div class="form-group col-md-4">
                           <label for="mobile_no ">{{__('routes.Mobile No')}}</label>
-                          <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter mobile_no" required>
+                          <input type="text" name="mobile_no" class="form-control" id="mobile_no"  required>
                       </div>
                       <div class="form-group col-md-4">
                         <label for="email">{{ __('routes.Email') }}</label>
@@ -49,7 +49,7 @@ Owners Page
                     </div>
                     <div class="form-group col-md-12">
                       <label for="address">{{ __('routes.Address') }}</label>
-                      <input type="text" name="address" class="form-control" id="address" placeholder="Enter address" required>
+                      <input type="text" name="address" class="form-control" id="address"  required>
                   </div>
                        
                     </div>

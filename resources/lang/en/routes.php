@@ -293,5 +293,7 @@ return [
     'Edit Department'=>'Edit Department',
     'Show Document'=>'Show Document',
     'Document No'=>'Document No',
-    'Document Details'=>'Document Details'
+    'Document Details'=>'Document Details',
+
+    'Edit Product'=>'Edit Product'
 ];

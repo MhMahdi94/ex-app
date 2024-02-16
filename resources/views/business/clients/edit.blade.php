@@ -36,7 +36,7 @@ Admins Page
                        
                       <div class="form-group col-md-4">
                         <label for="mobile_no ">{{__('routes.Mobile No')}}</label>
-                        <input type="text" name="mobile_no" class="form-control" id="mobile_no" value="{{ $client->mobile_no }}" placeholder="Enter mobile_no" required>
+                        <input type="text" name="mobile_no" class="form-control" id="mobile_no" value="{{ $client->mobile_no }}"  required>
                     </div>
                     <div class="form-group col-md-4">
                       <label for="email">Email</label>
@@ -44,7 +44,7 @@ Admins Page
                   </div>
                   <div class="form-group col-md-12">
                     <label for="address">Address</label>
-                    <input type="text" name="address" class="form-control" id="address" value="{{ $client->address }}" placeholder="Enter address" required>
+                    <input type="text" name="address" class="form-control" id="address" value="{{ $client->address }}"  required>
                 </div>
                        
                     </div>

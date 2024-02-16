@@ -81,9 +81,9 @@ class OrdersController extends Controller
             'contents'=>$contents
         ]; 
         
-        $pdf = Pdf::loadView('business.orders.pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
-        set_time_limit(300);
-        return $pdf->download('order.pdf');
+        return view('business.orders.pdf', $data);//->setOptions(['defaultFont' => 'sans-serif']);;
+        // set_time_limit(300);
+        // return $pdf->download('order.pdf');
     }
     /**
      * Display the specified resource.

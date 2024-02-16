@@ -51,15 +51,15 @@
                   <td>{{ $item->company->name }}</td>
                   <td>{{ $item->email }}</td>
                   <td>{{ $item->mobile_no }}</td>
-                    <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>
-                    <td class="row row-cols-auto ">
-                      <div class="col-4 ">
+                    <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status? __('routes.Active') :  __('routes.Not Active') }}</span></td>
+                    <td class="d-flex ">
+                      <div class=" mx-1 ">
                         @if (Auth::guard('business')->user()->can('edit-user'))
                             
-                            <a class="btn btn-primary px-4" href="{{ route('business.user.user_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
+                            <a class="btn btn-warning px-4" href="{{ route('business.user.user_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
                         @endif
                       </div>
-                        <div class="col-4">
+                        <div class=" mx-1">
                             @if (Auth::guard('business')->user()->can('delete-user'))
                             
                                 <meta name="csrf-token" content="{{ csrf_token() }}">
