@@ -90,13 +90,14 @@ $('.delete-form').on('submit', function(e) {
   e.preventDefault();
   console.log($(this).data('route'));
   Swal.fire({
-    title: "Are you sure?",
-  // text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
+    title: "{{ __('routes.Are you sure?') }}",
+                    // text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    cancelButtonText:"{{ __('routes.Cancel') }}",
+                    confirmButtonText: "{{ __('routes.Yes, delete it!') }}"
   }).then((result) => {
   
     if (result.isConfirmed) {
@@ -111,8 +112,8 @@ $('.delete-form').on('submit', function(e) {
         },
         success: function (response, textStatus, xhr) {
           Swal.fire({
-            title: "Deleted!",
-            text: "Your service has been deleted.",
+            title: "{{ __('routes.Deleted!') }}",
+            text: "{{ __('routes.Has been Successfully deleted.') }}",
             icon: "success"
           }).then((res)=>{
             // setTimeout(function() {

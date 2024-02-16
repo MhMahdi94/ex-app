@@ -31,7 +31,7 @@ Department Page
                     <div class="card-body row g-2">
                         <div class="form-group">
                             <label for="name">{{ __('routes.Name') }}</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" class="form-control" id="name"  required>
                         </div>
                        
                         <div class="form-group ">

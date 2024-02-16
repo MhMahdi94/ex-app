@@ -66,7 +66,7 @@
                                           </div>
                                         </div>
                                         <div class="input-group mb-3 col-12">
-                                          <input type="password" name="password" class="form-control" placeholder="Password" required>
+                                          <input type="password" name="password" class="form-control"  required>
                                           <div class="input-group-append">
                                             <div class="input-group-text">
                                               <span class="fas fa-lock"></span>
@@ -158,7 +158,7 @@
     </div>
   </div>
   <div class="input-group mb-3">
-    <input type="password" name="password" class="form-control" placeholder="Password" required>
+    <input type="password" name="password" class="form-control"  required>
     <div class="input-group-append">
       <div class="input-group-text">
         <span class="fas fa-lock"></span>

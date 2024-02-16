@@ -32,22 +32,22 @@ Packages Page
                                 <div class="form-group col-md-6 ">
                                     <label for="banner_title_english">{{ __('routes.Banner Title(English)') }}</label>
                                     <input type="text" name="banner_title_english" class="form-control" id="banner_title_english"
-                                        placeholder="Enter Name" value="{{ $banner->getTranslation('banner_title','en')??'' }}" required>
+                                         value="{{ $banner->getTranslation('banner_title','en')??'' }}" required>
                                 </div>
                                 <div class="form-group col-md-6 ">
                                     <label for="banner_title_arabic">{{ __('routes.Banner Title(Arabic)') }}</label>
                                     <input type="text" name="banner_title_arabic" class="form-control" id="banner_title_arabic"
-                                        placeholder="Enter Name" value="{{ $banner->getTranslation('banner_title','ar')??'' }}" required>
+                                         value="{{ $banner->getTranslation('banner_title','ar')??'' }}" required>
                                 </div>
                                 <div class="form-group ">
                                     <label for="banner_desc_english">{{ __('routes.Banner Description(English)') }}</label>
                                     <input type="text" name="banner_desc_english" class="form-control" id="banner_desc_english"
-                                        placeholder="Enter desc" value="{{ $banner->getTranslation('banner_desc','ar')??'' }} "required>
+                                         value="{{ $banner->getTranslation('banner_desc','ar')??'' }} "required>
                                 </div>
                                 <div class="form-group ">
                                     <label for="banner_desc_arabic">{{ __('routes.Banner Description(Arabic)') }}</label>
                                     <input type="text" name="banner_desc_arabic" class="form-control" id="banner_desc_arabic"
-                                        placeholder="Enter desc" value="{{ $banner->getTranslation('banner_desc','ar')??'' }}" required>
+                                         value="{{ $banner->getTranslation('banner_desc','ar')??'' }}" required>
                                 </div>
                                 <div class="form-group ">
                                     <label for="banner_bg">{{ __('routes.Banner Background') }}</label>
@@ -59,7 +59,7 @@ Packages Page
                                    
                                     <label for="multiple-select-field" class="form-label">{{ __('routes.Permissions') }}</label>
                                     <select class="form-select" id="multiple-select-field"
-                                        data-placeholder="Select Permissions" id="permissions" name="permissions[]" multiple required>
+                                         id="permissions" name="permissions[]" multiple required>
 
                                         @foreach ($permissions as $permission)
                                             <option value="{{ $permission->id }}"

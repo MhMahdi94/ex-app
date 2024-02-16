@@ -31,7 +31,7 @@ Account Page
                     <div class="card-body row g-3">
                         <div class="form-group col-6 ">
                             <label for="name">{{ __('routes.Name') }}</label>
-                            <input type="text" name="name" class="form-control mt-1" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" class="form-control mt-1" id="name"  required>
                         </div>
                         <div class="form-group col-6">
                           <label for="account_number">{{ __('routes.Account No') }}</label>

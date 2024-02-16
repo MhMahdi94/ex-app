@@ -32,13 +32,13 @@ Admins Page
                      
                         <div class="form-group mb-2 col-md-12">
                             <label for="name">Name</label>
-                            <input type="text" name="name" value="{{ $service->name }}" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" value="{{ $service->name }}" class="form-control" id="name"  required>
                         </div>
                         
                       
                   <div class="form-group col-md-12">
                     <label for="description">Description</label>
-                    <textarea class="form-control" id="description" placeholder="Description" name='description' required>{{ $service->description }}</textarea>
+                    <textarea class="form-control" id="description"  name='description' required>{{ $service->description }}</textarea>
                   </div>
                     </div>
                     <!-- /.card-body -->

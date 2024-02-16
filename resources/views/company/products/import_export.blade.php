@@ -33,7 +33,7 @@ Import/Export Page
                         <div class="form-group ">
                             <label for="name">{{ __('routes.Name') }}</label>
                             <input type="hidden" name="product_id"  value="{{ $product->id }}"/>
-                            <input type="text" readonly name="name" class="form-control" value="{{ $product->name }}" id="name" placeholder="Enter Name" required>
+                            <input type="text" readonly name="name" class="form-control" value="{{ $product->name }}" id="name"  required>
                         </div>
                        
                         <div class="form-group ">
@@ -47,7 +47,7 @@ Import/Export Page
                         </div>
                         <div class="form-group ">
                           <label for="current_quantity"> {{ __('routes.Current Quantity') }}</label>
-                          <input type="number" readonly name="current_quantity" class="form-control" value="{{ $product->quantity }}" id="current_quantity" placeholder="Enter Name" required>
+                          <input type="number" readonly name="current_quantity" class="form-control" value="{{ $product->quantity }}" id="current_quantity"  required>
                       </div>
 
                       <div class="form-group ">

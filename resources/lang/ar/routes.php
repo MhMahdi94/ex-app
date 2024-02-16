@@ -276,4 +276,9 @@ return [
 
     'Edit Revenue'=>'تعديل الايراد',
     'Edit Expense'=>'تعديل المصروف',
+
+    'Cancel'=>'الغاء',
+    'Done'=>'مكتمل',
+    'Create Role'=>'انشاء الصلاحية',
+    'Edit Role'=>'تعديل الصلاحية'
 ];

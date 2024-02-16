@@ -52,7 +52,7 @@
                                     <label for="description">Description</label>
                                     <input type="text" disabled value={{ $header->document_description }}
                                         name="description" class="form-control" id="description"
-                                        placeholder="Enter description" required>
+                                         required>
                                 </div>
                                 <hr>
                                 <div class="card-header">
@@ -127,7 +127,7 @@
                 '<td><input type="text" name="journalDetails[' + i +
                 '][credit]" placeholder="Enter Credit" class="form-control" /></td>' +
                 '<td><input type="text" name="journalDetails[' + i +
-                '][descriprtion]" placeholder="Enter Description" class="form-control" /></td>' +
+                '][descriprtion]"  class="form-control" /></td>' +
                 '<td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
         });
 

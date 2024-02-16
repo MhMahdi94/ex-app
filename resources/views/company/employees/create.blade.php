@@ -33,31 +33,31 @@
                                 <div class="form-group col-md-6">
                                     <label for="english_name">{{ __('routes.Name(English)') }}</label>
                                     <input type="text" name="english_name" class="form-control" id="english_name"
-                                        placeholder="Enter Name" required>
+                                         required>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="arabic_name">{{ __('routes.Name(Arabic)') }}</label>
                                     <input type="text" name="arabic_name" class="form-control" id="arabic_name"
-                                        placeholder="Enter Name" required>
+                                         required>
                                 </div>
                                 <div class="form-group">
                                     <label for="email">{{ __('routes.Email') }}</label>
                                     <input type="email" name="email" class="form-control" id="email"
-                                        placeholder="Enter email" required>
+                                         required>
                                 </div>
                                 <div class="form-group">
                                     <label for="mobile_no">{{ __('routes.Mobile No') }}</label>
                                     <input type="text" name="mobile_no" class="form-control" id="mobile_no"
-                                        placeholder="Enter Mobile Number" required>
+                                         required>
                                 </div>
                                 <div class="form-group">
                                     <label for="password">{{ __('routes.Password') }}</label>
                                     <input type="password" class="form-control" name="password" id="password"
-                                        placeholder="Password" required>
+                                         required>
                                 </div>
                                 <div class="form-group col-md-12">
                                     <label for="multiple-select-field" class="form-label">{{ __('routes.Role') }}</label>
-                                    <select class="form-select" id="multiple-select-field" data-placeholder="Select Role"
+                                    <select class="form-select" id="multiple-select-field" 
                                         id="roles" name="roles[]" multiple required>
 
                                         @foreach ($roles as $role)

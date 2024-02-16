@@ -29,31 +29,31 @@ Admins Page
                     <div class="card-body row g-3">
                         <div class="form-group col-md-6">
                             <label for="name">{{ __('routes.Name') }}</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" class="form-control" id="name"  required>
                         </div>
                        
                         <div class="form-group col-md-6">
                             <label for="email">{{ __('routes.Email') }}</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Enter email" required>
+                            <input type="email" name="email" class="form-control" id="email"  required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="mobile_no">{{ __('routes.Mobile No') }}</label>
-                            <input type="text" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
+                            <input type="text" name="mobile_no" class="form-control" id="mobile_no"  required>
                         </div>
                         
                         <div class="form-group col-md-6">
                             <label for="password">{{ __('routes.Password') }}</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" id="password"  required>
                         </div>
                         <div class="form-group col-md-6">
                             <label for="confirm_password">{{ __('routes.Confirm Password') }}</label>
-                            <input type="password" class="form-control" id="confirm_password" name='confirm_password' placeholder="Confirm Password" required>
+                            <input type="password" class="form-control" id="confirm_password" name='confirm_password'  required>
                         </div>
 
                         <div class="form-group col-md-12">
                           <label for="multiple-select-field" class="form-label">{{ __('routes.Role') }}</label>
                           <select class="form-select" id="multiple-select-field"
-                              data-placeholder="Select Role" id="roles" name="roles[]" multiple required>
+                               id="roles" name="roles[]" multiple required>
 
                               @foreach ($roles as $role)
                               <option value="{{ $role }}" {{ in_array($role, old('roles') ?? []) ? 'selected' : '' }}>

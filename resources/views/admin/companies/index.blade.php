@@ -63,10 +63,10 @@ Companies Page
                   <td>{{ $item->subscriptionStart }}</td>
                   <td>{{ $item->subscriptionEnd }}</td>
                     {{-- <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td> --}}
-                    <td class="row row-cols-auto ">
-                      <div class="col-4 ">
+                    <td class="d-flex  ">
+                      <div class="col-4 mx-4">
                         @if (Auth::guard('admin')->user()->can('edit-company'))
-                          <a class="btn btn-warning px-4" href="{{ route('admin.admins.admins_edit',$item->id ) }}">Edit</a>
+                          <a class="btn btn-warning px-4" href="{{ route('admin.admins.admins_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
                         @endif
           
                       </div>
@@ -75,7 +75,7 @@ Companies Page
                             <meta name="csrf-token" content="{{ csrf_token() }}">
                             <form method="post" class="delete-form" data-route="{{route('admin.companies.companies_destroy', $item->id) }}">
                               @method('delete')
-                              <button type="submit" class="btn btn-danger px-4 ">Delete</button>
+                              <button type="submit" class="btn btn-danger px-4 ">{{ __('routes.Delete') }}</button>
                             </form>
                           @endif
           
@@ -107,13 +107,14 @@ $('.delete-form').on('submit', function(e) {
   e.preventDefault();
   console.log($(this).data('route'));
   Swal.fire({
-    title: "Are you sure?",
-  // text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
+    title: "{{ __('routes.Are you sure?') }}",
+                    // text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    cancelButtonText:"{{ __('routes.Cancel') }}",
+                    confirmButtonText: "{{ __('routes.Yes, delete it!') }}"
   }).then((result) => {
   
     if (result.isConfirmed) {
@@ -128,8 +129,8 @@ $('.delete-form').on('submit', function(e) {
         },
         success: function (response, textStatus, xhr) {
           Swal.fire({
-            title: "Deleted!",
-            text: "Your admin has been deleted.",
+            title: "{{ __('routes.Deleted!') }}",
+            text: "{{ __('routes.Has been Successfully deleted.') }}",
             icon: "success"
           });
           setTimeout(function() {

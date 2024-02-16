@@ -56,10 +56,10 @@ Owners Page
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->company->name }}</td>
+                            <td>{{ $item->company->name ?? '' }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->mobile_no }}</td>
-                            <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status?'Active':'Not Active' }}</span></td>
+                            <td><span class="badge {{ $item->status?'bg-success':'bg-danger' }} ">{{ $item->status? __('routes.Active'):__('routes.Not Active') }}</span></td>
                             <td class="d-flex  ">
                               <div class="">
                                 @if (Auth::guard('admin')->user()->can('create-company-owner'))
@@ -104,13 +104,14 @@ $('.delete-form').on('submit', function(e) {
   e.preventDefault();
   console.log($(this).data('route'));
   Swal.fire({
-    title: "Are you sure?",
-  // text: "You won't be able to revert this!",
-    icon: "warning",
-    showCancelButton: true,
-    confirmButtonColor: "#3085d6",
-    cancelButtonColor: "#d33",
-    confirmButtonText: "Yes, delete it!"
+    title: "{{ __('routes.Are you sure?') }}",
+                    // text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    cancelButtonText:"{{ __('routes.Cancel') }}",
+                    confirmButtonText: "{{ __('routes.Yes, delete it!') }}"
   }).then((result) => {
   
     if (result.isConfirmed) {
@@ -125,8 +126,8 @@ $('.delete-form').on('submit', function(e) {
         },
         success: function (response, textStatus, xhr) {
           Swal.fire({
-            title: "Deleted!",
-            text: "Your admin has been deleted.",
+             title: "{{ __('routes.Deleted!') }}",
+            text: "{{ __('routes.Has been Successfully deleted.') }}",
             icon: "success"
           });
           setTimeout(function() {

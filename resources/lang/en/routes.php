@@ -281,5 +281,9 @@ return [
     'Edit Revenue'=>'Edit Revenue',
     'Create Expense'=>'Create Expense',
     'Edit Expense'=>'Edit Expense',
+    'Cancel'=>'Cancel',
+    'Done'=>'Done',
+    'Create Role'=>'Create Role',
+    'Edit Role'=>'Edit Role'
     // 'Home'=>'Home',
 ];

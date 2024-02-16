@@ -30,11 +30,11 @@ Services Page
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">{{ __('routes.Name') }}</label>
-                            <input type="text" name="name" value="{{ $package->name }}" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" value="{{ $package->name }}" class="form-control" id="name"  required>
                         </div>
                         <div class="form-group">
                           <label for="desc">{{ __('routes.Description') }}</label>
-                          <textarea type="text" name="desc"  value="" class="form-control" id="desc" placeholder="Enter Description" required> {{ $package->desc }}</textarea>
+                          <textarea type="text" name="desc"  value="" class="form-control" id="desc"  required> {{ $package->desc }}</textarea>
                         </div>
                     </div>
                     <!-- /.card-body -->

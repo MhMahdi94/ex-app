@@ -29,19 +29,19 @@ Services Page
                     <div class="card-body row g-2">
                         <div class="form-group col-md-6">
                             <label for="english_name">{{ __('routes.Name(English)') }}</label>
-                            <input type="text" name="english_name" class="form-control" id="english_name" placeholder="Enter Name" required>
+                            <input type="text" name="english_name" class="form-control" id="english_name"  required>
                         </div>
                         <div class="form-group col-md-6">
                           <label for="arabic_name">{{ __('routes.Name(Arabic)') }}</label>
-                          <input type="text" name="arabic_name" class="form-control" id="arabic_name" placeholder="Enter Name" required>
+                          <input type="text" name="arabic_name" class="form-control" id="arabic_name"  required>
                       </div>
                         <div class="form-group col-md-12">
                           <label for="english_desc">{{ __('routes.Description(English)') }}</label>
-                          <textarea type="text" name="english_desc" class="form-control" id="english_desc" placeholder="Enter Description" required></textarea>
+                          <textarea type="text" name="english_desc" class="form-control" id="english_desc"  required></textarea>
                         </div>
                         <div class="form-group col-md-12">
                           <label for="arabic_desc">{{ __('routes.Description(Arabic)') }}</label>
-                          <textarea type="text" name="arabic_desc" class="form-control" id="arabic_desc" placeholder="Enter Description" required></textarea>
+                          <textarea type="text" name="arabic_desc" class="form-control" id="arabic_desc"  required></textarea>
                         </div>
                     </div>
                     <!-- /.card-body -->

@@ -31,7 +31,7 @@ Admins Page
                     <div class="card-body row g-3">
                         <div class="form-group mb-2 col-md-4">
                             <label for="name">Name</label>
-                            <input type="text" name="name" value="{{ $client->name }}" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" value="{{ $client->name }}" class="form-control" id="name"  required>
                         </div>
                        
                       <div class="form-group col-md-4">
@@ -40,7 +40,7 @@ Admins Page
                     </div>
                     <div class="form-group col-md-4">
                       <label for="email">Email</label>
-                      <input type="text" name="email" class="form-control" id="email" value="{{ $client->email }}" placeholder="Enter email" required>
+                      <input type="text" name="email" class="form-control" id="email" value="{{ $client->email }}"  required>
                   </div>
                   <div class="form-group col-md-12">
                     <label for="address">Address</label>

@@ -37,27 +37,27 @@ Owners Page
                         </div>
                         <div class="form-group col-md-6" >
                             <label for="name">{{ __('routes.Name') }}</label>
-                            <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" class="form-control" id="name"  required>
                         </div>
                         <div class="form-group col-md-4" >
                           <label for="purchase_price">{{ __('routes.Purchase Price') }}</label>
-                          <input type="text" name="purchase_price" class="form-control" id="purchase_price" placeholder="Enter Name" required>
+                          <input type="text" name="purchase_price" class="form-control" id="purchase_price"  required>
                       </div>
                       <div class="form-group col-md-4" >
                         <label for="price_sale">{{ __('routes.Sale Price') }}</label>
-                        <input type="text" name="price_sale" class="form-control" id="price_sale" placeholder="Enter Name" required>
+                        <input type="text" name="price_sale" class="form-control" id="price_sale"  required>
                       </div>
                       <div class="form-group col-md-4" >
                         <label for="quantity">{{ __('routes.Quantity') }}</label>
-                        <input type="text" name="quantity" class="form-control" id="quantity" placeholder="Enter Name" required>
+                        <input type="text" name="quantity" class="form-control" id="quantity"  required>
                     </div>
                     {{-- <div class="form-group col-md-6" >
                       <label for="name">Image</label>
-                      <input type="text" name="name" class="form-control" id="name" placeholder="Enter Name" required>
+                      <input type="text" name="name" class="form-control" id="name"  required>
                   </div> --}}
                     <div class="form-group col-md-12">
                       <label for="description">{{ __('routes.Description') }}</label>
-                      <textarea class="form-control" id="description" placeholder="Description" name='description' required></textarea>
+                      <textarea class="form-control" id="description"  name='description' required></textarea>
                     </div>
                     </div>
                     <!-- /.card-body -->

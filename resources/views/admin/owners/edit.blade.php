@@ -39,24 +39,24 @@ Admins Page
                       </div>
                         <div class="form-group row g-1">
                             <label for="name">{{ __('routes.Name') }}</label>
-                            <input type="text" name="name" value="{{ $employee->name }}" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" value="{{ $employee->name }}" class="form-control" id="name"  required>
                         </div>
                        
                         <div class="form-group row g-1">
                             <label for="email">{{ __('routes.Email') }}</label>
-                            <input type="email" name="email" value="{{ $employee->email }}" class="form-control" id="email" placeholder="Enter email" required>
+                            <input type="email" name="email" value="{{ $employee->email }}" class="form-control" id="email"  required>
                         </div>
                         <div class="form-group row g-1">
                             <label for="mobile_no">{{ __('routes.Mobile No') }}</label>
-                            <input type="text" name="mobile_no" value="{{ $employee->mobile_no }}" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
+                            <input type="text" name="mobile_no" value="{{ $employee->mobile_no }}" class="form-control" id="mobile_no"  required>
                         </div>
                         {{-- <div class="form-group">
                             <label for="password">Password</label>
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                            <input type="password" class="form-control" name="password" id="password"  required>
                         </div>
                         <div class="form-group">
                             <label for="confirm_password">Confirm Password</label>
-                            <input type="password" class="form-control" id="confirm_password" name='confirm_password' placeholder="Confirm Password" required>
+                            <input type="password" class="form-control" id="confirm_password" name='confirm_password'  required>
                         </div> --}}
                       
                     </div>

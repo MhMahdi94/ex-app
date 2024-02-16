@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Admin\Admins;
 
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
+use Flasher\Toastr\Laravel\Facade\Toastr as FacadeToastr;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
+use Yoeunes\Toastr\Facades\Toastr;
 
 class AdminsController extends Controller
 {
@@ -31,9 +33,10 @@ class AdminsController extends Controller
     {
         //
        // $roles=Role::where('guard_name','admin')->get();
+       Toastr::success('Data has been saved successfully!');
         return view('admin.admins.create',
         [
-            'roles' => Role::pluck('name')->all()
+            'roles' => Role::where('guard_name','admin')->pluck('name')->all()
         ]);
     }
 
@@ -53,8 +56,9 @@ class AdminsController extends Controller
                 'password'=>$request->password
             ]);
             $admin->assignRole($request->roles);
+            //flash()->addSuccess('Your account has been re-verified.');
             toastr()->success('Data has been saved successfully!');
-            return redirect()->back();
+            return redirect(route('admin.admins.admins_index'));
         } catch (\Throwable $th) {
             //throw $th;
             return $th;

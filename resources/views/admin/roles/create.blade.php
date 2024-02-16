@@ -18,7 +18,7 @@ Packages Page
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Create Role</h3>
+                        <h3 class="card-title">{{ __('routes.Add Role') }}</h3>
 
 
                     </div>
@@ -32,14 +32,14 @@ Packages Page
                                 <div class="form-group ">
                                     <label for="name">{{ __('routes.Name') }}</label>
                                     <input type="text" name="name" class="form-control" id="name"
-                                        placeholder="Enter Name" required>
+                                         required>
                                 </div>
                                 
                                 <div class="form-group  mb-4 mt-2">
                                    
                                     <label for="multiple-select-field" class="form-label">{{ __('routes.Permissions') }}</label>
                                     <select class="form-select" id="multiple-select-field"
-                                        data-placeholder="Select Permissions" id="permissions" name="permissions[]" multiple required>
+                                         id="permissions" name="permissions[]" multiple required>
 
                                         @foreach ($permissions as $permission)
                                             <option value="{{ $permission->id }}"

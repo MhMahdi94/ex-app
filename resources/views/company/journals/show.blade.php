@@ -39,7 +39,7 @@ Journal Page
                         </div>
                         {{-- <div class="form-group col-md-12">
                           <label for="description">Description</label>
-                          <input type="text" disabled value={{ $header ->journal_description }}  name="description" class="form-control" id="description" placeholder="Enter description" required>
+                          <input type="text" disabled value={{ $header ->journal_description }}  name="description" class="form-control" id="description"  required>
                       </div> --}}
                       <hr>
                       <div class="card-header">
@@ -123,7 +123,7 @@ Journal Page
                           '</td>'+
             '<td><input type="text" name="journalDetails['+i+'][debit]" placeholder="Enter Debit" class="form-control" /></td>'+
             '<td><input type="text" name="journalDetails['+i+'][credit]" placeholder="Enter Credit" class="form-control" /></td>'+
-            '<td><input type="text" name="journalDetails['+i+'][descriprtion]" placeholder="Enter Description" class="form-control" /></td>'+
+            '<td><input type="text" name="journalDetails['+i+'][descriprtion]"  class="form-control" /></td>'+
             '<td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
        });
       

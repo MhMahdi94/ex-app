@@ -52,7 +52,7 @@ Requests Page
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->noOfEmployee }}</td>
                             <td>{{ $item->noOfDepts }}</td>
-                            <td><span class="badge {{ $item->status?'bg-success':'bg-warning' }} ">{{ $item->status?'Done':'pending' }}</span></td>
+                            <td><span class="badge {{ $item->status?'bg-success':'bg-warning' }} ">{{ $item->status?__('routes.Done') : __('routes.pending')  }}</span></td>
                             <td>
                               <div class="mx-2">
                                 @if ($item->status =='0')

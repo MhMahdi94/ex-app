@@ -35,7 +35,7 @@ Financial Year Page
                         </div>
                         <div class="form-group col-md-12">
                           <label for="desc">Description</label>
-                          <textarea type="text" name="desc" class="form-control" id="desc" placeholder="Enter description" required></textarea>
+                          <textarea type="text" name="desc" class="form-control" id="desc"  required></textarea>
                         </div>
                         <div class="form-group col-md-6">
                           <label for="start_date">Start Date</label>

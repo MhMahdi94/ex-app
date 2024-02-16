@@ -173,10 +173,10 @@
             <tbody>
                 @foreach ($accounts as $item)
                     <tr class="item">
-                        <td>{{ $item->account->account_no }}</td>
-                        <td>{{ $item->account->account_name }}</td>
-                        <td>{{ $item->total_debit }}</td>
-                        <td>{{ $item->total_credit }}</td>
+                        <td>{{ $item->account->account_no??'' }}</td>
+                        <td>{{ $item->account->account_name??'' }}</td>
+                        <td>{{ $item->total_debit??'' }}</td>
+                        <td>{{ $item->total_credit??'' }}</td>
 
                     </tr>
                 @endforeach

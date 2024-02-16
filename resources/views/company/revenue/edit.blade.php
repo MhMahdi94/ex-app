@@ -35,7 +35,7 @@
                                     <label for="multiple-select-field"
                                         class="form-label">{{ __('routes.Account No') }}</label>
                                     <select class="form-select" id="multiple-select-field"
-                                        data-placeholder="Select Permissions" id="account_id" name="account_id" required>
+                                         id="account_id" name="account_id" required>
 
                                         @foreach ($accounts as $account)
                                             <option value="{{ $account->id }}" {{ $account->id ==$revenue->account_id? 'selected':'' }}>
@@ -47,12 +47,12 @@
                                 <div class="form-group">
                                     <label for="amount">{{ __('routes.Amount') }}</label>
                                     <input type="text" name="amount" class="form-control" id="amount" value="{{ $revenue->amount }}"
-                                        placeholder="Enter Name" required>
+                                         required>
                                 </div>
                                 <div class="form-group">
                                     <label for="desc">{{ __('routes.Description') }}</label>
                                     <input type="text" name="desc" class="form-control" id="desc" value="{{ $revenue->desc }}"
-                                        placeholder="Enter Name" required>
+                                         required>
                                 </div>
                                 <!-- /.card-body -->
 

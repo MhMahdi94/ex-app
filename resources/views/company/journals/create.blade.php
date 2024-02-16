@@ -45,7 +45,7 @@
                                 <div class="form-group col-md-12">
                                     <label for="description">{{ __('routes.Description') }}</label>
                                     <input type="text" name="description" class="form-control" id="description"
-                                        placeholder="Enter description" required>
+                                         required>
                                 </div>
                                 <hr class="mt-4">
                                 <div class="card-header">
@@ -72,7 +72,7 @@
                                        </div>
                                        <div class="col-md-3">
                                         <input type="text" name="descriprtion" id="descriprtion"
-                                        placeholder="Enter Description" class="form-control " />
+                                         class="form-control " />
                                        </div>
                                        
                                         
@@ -168,7 +168,7 @@
               <input type="text" name="" placeholder="Enter Debit" class="form-control " readonly value='${$('#account_no').find(":selected").text()}' ></td>
                 <td ><input type="text" name="journalDetails[${i}][debit]" placeholder="Enter Debit" class="form-control total-debit" readonly value=${$('#debit').val()} ></td>
                 <td><input type="text" name="journalDetails[${i}][credit]" placeholder="Enter Credit" class="form-control total-credit" readonly value=${$('#credit').val()}></td>
-                <td><input type="text" name="journalDetails[${i}][descriprtion]" placeholder="Enter Description" class="form-control " readonly value=${$('#descriprtion').val()}></td>
+                <td><input type="text" name="journalDetails[${i}][descriprtion]"  class="form-control " readonly value=${$('#descriprtion').val()}></td>
                 <td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>`);
                 calculateTotalDebit();
                 calculateTotalCredit();

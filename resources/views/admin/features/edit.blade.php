@@ -32,28 +32,28 @@ Packages Page
                                 <div class="form-group col-md-6 ">
                                     <label for="title_english">{{ __('routes.Title(English)') }}</label>
                                     <input type="text" name="title_english" class="form-control" id="title_english"
-                                        placeholder="Enter Name" 
+                                         
                                         value="{{ $feature->getTranslation('title','en')??'' }}" 
                                         required>
                                 </div>
                                 <div class="form-group col-md-6 ">
                                     <label for="title_arabic">{{ __('routes.Title(Arabic)') }}</label>
                                     <input type="text" name="title_arabic" class="form-control" id="title_arabic"
-                                        placeholder="Enter Name" 
+                                         
                                         value="{{ $feature->getTranslation('title','ar')??'' }}" 
                                         required>
                                 </div>
                                 <div class="form-group ">
                                     <label for="desc_english">{{ __('routes.Description(English)') }}</label>
                                     <input type="text" name="desc_english" class="form-control" id="desc_english"
-                                        placeholder="Enter desc" 
+                                         
                                         value="{{ $feature->getTranslation('desc','ar')??'' }} "
                                         required>
                                 </div>
                                 <div class="form-group ">
                                     <label for="desc_arabic">{{ __('routes.Description(Arabic)') }}</label>
                                     <input type="text" name="desc_arabic" class="form-control" id="desc_arabic"
-                                        placeholder="Enter desc" 
+                                         
                                         value="{{ $feature->getTranslation('desc','ar')??'' }}" 
                                         required>
                                 </div>

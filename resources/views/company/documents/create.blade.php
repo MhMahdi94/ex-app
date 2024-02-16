@@ -48,7 +48,7 @@ Document Page
                         </div>
                         <div class="form-group col-md-12">
                           <label for="description">{{ __('routes.Description') }}</label>
-                          <input type="text"  name="description" class="form-control" id="description" placeholder="Enter description" required>
+                          <input type="text"  name="description" class="form-control" id="description"  required>
                       </div>
                       <hr>
                       <div class="card-header">
@@ -79,7 +79,7 @@ Document Page
                             </td>  
                             <td width="15%"><input type="text" name="documentDetails[0][amount]" placeholder="Enter Amount" class="form-control" /></td> 
                             {{-- <td width="15%"><input type="text" name="documentDetails[0][credit]" placeholder="Enter credit" class="form-control" /></td>  --}}
-                            {{-- <td width="35%"><input type="text" name="documentDetails[0][descriprtion]" placeholder="Enter Description" class="form-control" /></td>   --}}
+                            {{-- <td width="35%"><input type="text" name="documentDetails[0][descriprtion]"  class="form-control" /></td>   --}}
                             <td width="15%"><button type="button" name="add" id="add-btn" class="btn btn-success">{{ __('routes.Add More') }}</button></td>  
                         </tr>  
                     </table> 

@@ -31,7 +31,7 @@ Admins Page
                     <div class="card-body">
                         <div class="form-group mb-2">
                             <label for="name">{{ __('routes.Name') }}</label>
-                            <input type="text" name="name" value="{{ $category->name }}" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" value="{{ $category->name }}" class="form-control" id="name"  required>
                         </div>
                        
                        

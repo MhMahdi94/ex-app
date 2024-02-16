@@ -207,7 +207,7 @@
                         <div class="form-group col-md-12">
                             <label for="description">By</label>
                             <input type="text" disabled value="{{ $header->user->name }}" name="description"
-                                class="form-control" id="description" placeholder="Enter description" required>
+                                class="form-control" id="description"  required>
                         </div>
 
                     </div>

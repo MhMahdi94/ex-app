@@ -31,7 +31,7 @@ Admins Page
                     <div class="card-body">
                         <div class="form-group">
                             <label for="name">Name</label>
-                            <input type="text" name="name" value="{{ $package->name }}" class="form-control" id="name" placeholder="Enter Name" required>
+                            <input type="text" name="name" value="{{ $package->name }}" class="form-control" id="name"  required>
                         </div>
                     </div>
                     <!-- /.card-body -->

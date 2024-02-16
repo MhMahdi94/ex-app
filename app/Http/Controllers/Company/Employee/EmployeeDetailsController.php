@@ -41,21 +41,22 @@ class EmployeeDetailsController extends Controller
         ]);
         foreach ($request->allowenceFields as $field) {
             # code...
+           // dd($field);
            // return $field['all_val'];
-        //    $all=new Allowence();
-        //    $all->employee_id=$request->employee_id;
-        //    $all->allName=$field['all_name'];
-        //    $all->allVal=$field['all_val'];
-        //    $all->save();
-            Allowence::updateOrCreate(
-                ['employee_id'=>$request->employee_id, 'id'=>$field['id']],
-                [
+            $all=new Allowence();
+            $all->employee_id=$request->employee_id;
+            $all->allName=$field['all_name'];
+            $all->allVal=$field['all_val'];
+            $all->save();
+            // Allowence::create(
+            //     //['employee_id'=>$request->employee_id, ],
+            //     [
                     
-                    'employee_id'=>$request->employee_id,
-                    'allName'=>$field['all_name'],
-                    'allVal'=>$field['all_val']
-                ]
-            );
+            //         'employee_id'=>$request->employee_id,
+            //         'allName'=>$field['all_name'],
+            //         'allVal'=>$field['all_val']
+            //     ]
+            // );
         }
         return redirect()->back();
     }

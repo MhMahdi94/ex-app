@@ -32,21 +32,21 @@ Company Page
                       <div class="form-group col-md-6">
                         <label for="english_name">{{ __('routes.Name(English)') }}</label>
                         <input type="text" name="english_name" class="form-control" id="english_name" value="{{ $employee->getTranslation('name', 'en')}}"
-                            placeholder="Enter Name" required>
+                             required>
                     </div>
                     <div class="form-group col-md-6">
                         <label for="arabic_name">{{ __('routes.Name(Arabic)') }}</label>
                         <input type="text" name="arabic_name" class="form-control" id="arabic_name" value="{{ $employee->getTranslation('name', 'ar')}}"
-                            placeholder="Enter Name" required>
+                             required>
                     </div>
                        
                         <div class="form-group">
                             <label for="email">{{__('routes.Email')}}</label>
-                            <input type="email" value="{{ $employee->email }}" name="email" class="form-control" id="email" placeholder="Enter email" required>
+                            <input type="email" value="{{ $employee->email }}" name="email" class="form-control" id="email"  required>
                         </div>
                         <div class="form-group">
                             <label for="mobile_no">{{__('routes.Mobile No')}}</label>
-                            <input type="text" value="{{ $employee->mobile_no }}" name="mobile_no" class="form-control" id="mobile_no" placeholder="Enter Mobile Number" required>
+                            <input type="text" value="{{ $employee->mobile_no }}" name="mobile_no" class="form-control" id="mobile_no"  required>
                         </div>
                         <div class="form-group">
                           <label for="status">{{__('routes.Status')}}</label>
@@ -59,7 +59,7 @@ Company Page
                         </div>
                         <div class="form-group col-md-12">
                           <label for="multiple-select-field" class="form-label">{{ __('routes.Role') }}</label>
-                          <select class="form-select" id="multiple-select-field" data-placeholder="Select Role"
+                          <select class="form-select" id="multiple-select-field" 
                               id="roles" name="roles[]" multiple required>
 
                               @foreach ($roles as $role)
