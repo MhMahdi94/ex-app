@@ -99,13 +99,14 @@
                 e.preventDefault();
                 console.log($(this).data('route'));
                 Swal.fire({
-                    title: "Are you sure?",
-                    text: "You won't be able to revert this!",
+                    title: "{{ __('routes.Are you sure?') }}",
+                    // text: "You won't be able to revert this!",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    confirmButtonText: "Yes, delete it!"
+                    cancelButtonText:"{{ __('routes.Cancel') }}",
+                    confirmButtonText: "{{ __('routes.Yes, delete it!') }}"
                 }).then((result) => {
 
                     if (result.isConfirmed) {
@@ -120,9 +121,9 @@
                             },
                             success: function(response, textStatus, xhr) {
                                 Swal.fire({
-                                    title: "Deleted!",
-                                    text: "Your file has been deleted.",
-                                    icon: "success"
+                                     title: "{{ __('routes.Deleted!') }}",
+            text: "{{ __('routes.Has been Successfully deleted.') }}",
+            icon: "success"
                                 });
                                 setTimeout(function() {
                                     //your code to be executed after 1 second

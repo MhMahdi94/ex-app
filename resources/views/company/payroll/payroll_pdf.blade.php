@@ -67,7 +67,7 @@
                                 <table id="example2" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th >{{__('routes.Name')}}</th>
                                             <th>Total Days</th>
                                             <th>Working</th>
                                             <th>Absent</th>

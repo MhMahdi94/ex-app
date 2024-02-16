@@ -13,12 +13,12 @@ Add Product Page
 @endsection
 @section('content')
  <!-- /.row -->
-<div class="container">
+<div class="page-content">
     <div class="row">
         <div class="col-12">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title"> Add Product</h3>
+              <h3 class="card-title"> {{ __('routes.Add Product') }}</h3>
 
               
             </div>
@@ -30,13 +30,13 @@ Add Product Page
                     {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name" >{{__('routes.Name')}}</label>
                             <input type="text" name="name" class="form-control" id="name"  required>
                         </div>
                        
                         {{-- <div class="form-group">
                           <label for="quantity">Quantity</label>
-                          <input type="text" name="quantity" class="form-control" id="quantity" placeholder="Enter Quantity" required>
+                          <input type="text" name="quantity" class="form-control" id="quantity"  required>
                       </div>
                        --}}
                     </div>

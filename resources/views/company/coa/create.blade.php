@@ -60,7 +60,7 @@ Account Page
                         </div>
                         <div class="form-group col-4">
                           <label for="balance">{{ __('routes.Balance') }}</label>
-                          <input type="text" value="0" name="balance" class="form-control mt-1" id="balance" placeholder="Enter Balance" required>
+                          <input type="text" value="0" name="balance" class="form-control mt-1" id="balance"  required>
                         </div>
                         <hr/>
                         <div class="form-group col-6">

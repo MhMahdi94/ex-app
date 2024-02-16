@@ -27,8 +27,8 @@ class ProfitLossController extends Controller
             ->selectRaw('account_id,sum(amount) as total_expenses')
             ->get()
             ; 
-        $total_revenues=Revenue::sum('amount');
-        $total_expenses=Expenses::sum('amount');
+        $total_revenues=Revenue::where('company_id',$user->company_id)->sum('amount');
+        $total_expenses=Expenses::where('company_id',$user->company_id)->sum('amount');
        
         //return $data;
         return view('company.profit_loss.index', compact('revenues','expenses','total_revenues','total_expenses'));
@@ -47,8 +47,8 @@ class ProfitLossController extends Controller
             ->selectRaw('account_id,sum(amount) as total_expenses')
             ->get()
             ; 
-        $total_revenues=Revenue::sum('amount');
-        $total_expenses=Expenses::sum('amount');
+        $total_revenues=Revenue::where('company_id',$user->company_id)->sum('amount');
+        $total_expenses=Expenses::where('company_id',$user->company_id)->sum('amount');
         // $accounts = AccountLog::whereNotIn('account_id', [4, 5])->groupBy('account_id')
         //     ->with('account')
         //     ->selectRaw('account_id,sum(debit) as total_debit, sum(credit) as total_credit')

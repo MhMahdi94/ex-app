@@ -60,9 +60,9 @@ Documents Page
                             <td>{{ $item->documentType->name  }}</td>
                            
                             {{-- <td>{{ $item->employee->name }}</td> --}}
-                            <td class="row">
+                            <td class="d-flex">
                               @if (Auth::guard('employee')->user()->can('show-document'))
-                                <a class="mr-2 btn btn-info" href="{{ route('company.documents.document_show',$item->id ) }}">show</a>
+                                <a class="btn btn-secondary" href="{{ route('company.documents.document_show',$item->id ) }}">{{ __('routes.Show') }}</a>
                               
                               @endif
                                 

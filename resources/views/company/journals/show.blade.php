@@ -121,7 +121,7 @@ Journal Page
       
            $("#dynamicAddRemove").append('<tr><td>'+
                           '</td>'+
-            '<td><input type="text" name="journalDetails['+i+'][debit]" placeholder="Enter Debit" class="form-control" /></td>'+
+            '<td><input type="text" name="journalDetails['+i+'][debit]" placeholder="Enter {{ __("routes.Debit") }}" class="form-control" /></td>'+
             '<td><input type="text" name="journalDetails['+i+'][credit]" placeholder="Enter Credit" class="form-control" /></td>'+
             '<td><input type="text" name="journalDetails['+i+'][descriprtion]"  class="form-control" /></td>'+
             '<td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');

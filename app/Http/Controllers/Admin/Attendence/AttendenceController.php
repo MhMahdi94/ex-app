@@ -56,9 +56,7 @@ class AttendenceController extends Controller
   //          'data' => $users
         ]; 
         
-        $pdf = Pdf::loadView('company.attendence.attendence_pdf', $data)->setOptions(['defaultFont' => 'sans-serif']);;
-        set_time_limit(300);
-        return $pdf->download('attendence.pdf');
+        return view('company.attendence.attendence_pdf', $data);//->setOptions(['defaultFont' => 'sans-serif']);;
     }
     /**
      * Show the form for creating a new resource.

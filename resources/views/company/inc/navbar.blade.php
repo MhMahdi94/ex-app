@@ -23,7 +23,7 @@
                   <div class="dropdown mx-4">
                       <a class="nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret "
                           href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                          <span style="font-size: 14px"> Change Language </span>
+                          <span style="font-size: 14px"> {{ __('routes.Change Language') }} </span>
                       </a>
                       <ul class="dropdown-menu dropdown-menu-end">
                           @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)

@@ -31,14 +31,14 @@ Admins Page
               @method("PUT")
               <div class="card-body ">
                   <div class="form-group">
-                      <label for="name">Name</label>
+                      <label for="name" >{{__('routes.Name')}}</label>
                       <input type="text" name="name" class="form-control" id="name" value="{{ $role->name }}"
                            required>
                   </div>
                  
                   <div class="form-group  mb-4 mt-2">
                      
-                      <label for="multiple-select-field" class="form-label">Permissions</label>
+                      <label for="multiple-select-field" class="form-label" >{{__('routes.Permissions')}}</label>
                       <select class="form-select" id="multiple-select-field"
                            id="permissions" name="permissions[]" multiple required>
 

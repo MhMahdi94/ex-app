@@ -31,7 +31,7 @@ Admins Page
                     <div class="card-body row g-3">
                      
                         <div class="form-group mb-2 col-md-12">
-                            <label for="name">Name</label>
+                            <label for="name" >{{__('routes.Name')}}</label>
                             <input type="text" name="name" value="{{ $service->name }}" class="form-control" id="name"  required>
                         </div>
                         

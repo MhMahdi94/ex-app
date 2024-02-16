@@ -16,7 +16,7 @@
                     
                     <table class="table table-bordered" id="dynamicAddRemove">
                         <tr>
-                            <th>Name</th>
+                            <th >{{__('routes.Name')}}</th>
                             {{-- <th>Price</th>
                             <th>Quantity</th> --}}
                             <th>Action</th>

@@ -30,7 +30,7 @@ Admins Page
                     @method('PUT')
                     <div class="card-body">
                         <div class="form-group mb-2">
-                            <label for="name">Name</label>
+                            <label for="name" >{{__('routes.Name')}}</label>
                             <input type="text" name="name" value="{{ $owner->name }}" class="form-control" id="name"  required>
                         </div>
                        {{--  --}}

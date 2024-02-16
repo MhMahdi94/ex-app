@@ -52,7 +52,7 @@ Import/Export Page
 
                       <div class="form-group ">
                         <label for="quantity">{{ __('routes.Quantity') }}</label>
-                        <input type="number"  name="quantity" class="form-control"  id="quantity" placeholder="Enter quantity" required>
+                        <input type="number"  name="quantity" class="form-control"  id="quantity"  required>
                     </div>
                     </div>
                     <!-- /.card-body -->

@@ -273,12 +273,23 @@ return [
     'Account Statement'=>'كشف حساب',
     'Balance Sheet'=>'ميزان المراجعة',
     'Profit and Loss'=>'الربح و الخسارة',
-
+    'Create Revenue'=>'تسجيل الايراد',
     'Edit Revenue'=>'تعديل الايراد',
+    'Create Expense'=>'تسجيل المصروف',
     'Edit Expense'=>'تعديل المصروف',
 
     'Cancel'=>'الغاء',
     'Done'=>'مكتمل',
     'Create Role'=>'انشاء الصلاحية',
-    'Edit Role'=>'تعديل الصلاحية'
+    'Edit Role'=>'تعديل الصلاحية',
+    'Remove'=>'حذف',
+    'Full Time'=>'دوام كامل',
+    'Part Time'=>'دوام جزئي',
+    'Remotly'=>'عن بعد',
+    'Hybrid'=>'هايبرد',
+    'Edit Department'=>'تعديل القسم',
+    'Show Document'=>'عرض السند',
+    'Document No'=>'رقم السند',
+    'Document Details'=>'تفاصيل السند'
+    
 ];

@@ -32,7 +32,7 @@ Company Page
                     <div class="card-body row">
                         <div class="form-group col-6">
                             <label for="jobTitle">Job Title</label>
-                            <input type="text" name="jobTitle" class="form-control" id="jobTitle" placeholder="Enter Job Title" value="{{ $details->jobTitle??'' }}" required>
+                            <input type="text" name="jobTitle" class="form-control" id="jobTitle"  value="{{ $details->jobTitle??'' }}" required>
                         </div>
                         <div class="form-group col-6">
                           <label for="dept_id">Company</label>
@@ -57,7 +57,7 @@ Company Page
                         </div>
                         <div class="form-group col-6">
                           <label for="salary">Salary</label>
-                          <input type="text" value="{{ $details->salary??'' }}" name="salary" class="form-control" id="salary" placeholder="Enter salary" required>
+                          <input type="text" value="{{ $details->salary??'' }}" name="salary" class="form-control" id="salary"  required>
                         </div>
                         {{-- <div class="form-group col-5">
                           <label for="allowence_name">Allowence Name</label>
@@ -78,8 +78,8 @@ Company Page
                             <th>Action</th>
                         </tr>
                         <tr>  
-                            <td><input type="text" name="allowenceFields[0][all_name]" placeholder="Allowence Name" class="form-control" /></td>  
-                            <td><input type="text" name="allowenceFields[0][all_val]" placeholder="Allowence Value" class="form-control" /></td>  
+                            <td><input type="text" name="allowenceFields[0][all_name]"  class="form-control" /></td>  
+                            <td><input type="text" name="allowenceFields[0][all_val]"  class="form-control" /></td>  
                             <td><button type="button" name="add" id="add-btn" class="btn btn-success">Add More</button></td>  
                         </tr>  
                     </table> 
@@ -147,7 +147,7 @@ Company Page
       
            ++i;
       
-           $("#dynamicAddRemove").append('<tr><td><input type="text" name="allowenceFields['+i+'][all_name]" placeholder="Allowence Name" class="form-control" /></td><td><input type="text" name="allowenceFields['+i+'][all_val]" placeholder="Allowence Value" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+           $("#dynamicAddRemove").append('<tr><td><input type="text" name="allowenceFields['+i+'][all_name]"  class="form-control" /></td><td><input type="text" name="allowenceFields['+i+'][all_val]"  class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
        });
       
        $(document).on('click', '.remove-tr', function(){  

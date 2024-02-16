@@ -31,7 +31,7 @@ Import/Export Page
                     {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="name">Name</label>
+                            <label for="name" >{{__('routes.Name')}}</label>
                             <input type="text" name="name" class="form-control" value="{{ $department->name }}" id="name"  required>
                         </div>
                        

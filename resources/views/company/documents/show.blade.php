@@ -18,9 +18,9 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">Show Document</h3>
+                        <h3 class="card-title">{{ __('routes.Show Document') }}</h3>
 
-                        <a class=" btn btn-dark float-right" href="{{ route('company.documents.report_pdf',$header->id) }}" target="_blank">Print</a>
+                        <a class=" btn btn-dark float-right" href="{{ route('company.documents.report_pdf',$header->id) }}" target="_blank">{{ __('routes.Print') }}</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body table-responsive">
@@ -31,39 +31,39 @@
                             {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
                             <div class="card-body row g-2">
                                 <div class="form-group col-md-4">
-                                    <label for="journal_date">Date</label>
+                                    <label for="journal_date">{{ __('routes.Date') }}</label>
                                     <input type="text" disabled name="journal_date" class="form-control"
                                         id="journal_date" placeholder="Enter Journal Date"
                                         value=" {{ $header->document_date }} " required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="journal_number">Document No</label>
+                                    <label for="journal_number">{{ __('routes.Document No') }}</label>
                                     <input type="text" disabled name="journal_number" class="form-control"
                                         id="journal_number" placeholder="Enter journal_number" value="{{ $header->id }}"
                                         required>
                                 </div>
                                 <div class="form-group col-md-4">
-                                    <label for="journal_number">Document Type</label>
+                                    <label for="journal_number">{{ __('routes.Document Type') }}</label>
                                     <input type="text" disabled name="journal_number" class="form-control"
                                         id="journal_number" placeholder="Enter journal_number"
                                         value="{{ $header->documentType->name }}" required>
                                 </div>
                                 <div class="form-group col-md-12">
-                                    <label for="description">Description</label>
+                                    <label for="description">{{ __('routes.Description') }}</label>
                                     <input type="text" disabled value={{ $header->document_description }}
                                         name="description" class="form-control" id="description"
                                          required>
                                 </div>
                                 <hr>
                                 <div class="card-header">
-                                    <h3 class="card-title">Document Details</h3>
+                                    <h3 class="card-title">{{ __('routes.Document Details') }}</h3>
 
 
                                 </div>
                                 <table class="table table-bordered" id="dynamicAddRemove">
                                     <tr>
-                                        <th>Account Name</th>
-                                        <th>amount</th>
+                                        <th>{{ __('routes.Account Name') }}</th>
+                                        <th>{{ __('routes.Amount') }}</th>
                                         {{-- <th>Action</th> --}}
                                     </tr>
                                     @foreach ($details as $item)
@@ -123,12 +123,12 @@
             $("#dynamicAddRemove").append('<tr><td>' +
                 '</td>' +
                 '<td><input type="text" name="journalDetails[' + i +
-                '][debit]" placeholder="Enter Debit" class="form-control" /></td>' +
+                '][debit]" placeholder="{{ __("routes.Debit") }}" class="form-control" /></td>' +
                 '<td><input type="text" name="journalDetails[' + i +
-                '][credit]" placeholder="Enter Credit" class="form-control" /></td>' +
+                '][credit]" placeholder="{{ __("routes.Credit") }}" class="form-control" /></td>' +
                 '<td><input type="text" name="journalDetails[' + i +
                 '][descriprtion]"  class="form-control" /></td>' +
-                '<td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+                '<td><button type="button" class="btn btn-danger remove-tr">{{ __("routes.Remove") }}</button></td></tr>');
         });
 
         $(document).on('click', '.remove-tr', function() {

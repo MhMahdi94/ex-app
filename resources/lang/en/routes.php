@@ -277,13 +277,21 @@ return [
     'Account Statement'=>'Account Statement',
     'Balance Sheet'=>'Balance Sheet',
     'Profit and Loss'=>'Profit and Loss',
-    
+    'Create Revenue'=>'Create Revenue',
     'Edit Revenue'=>'Edit Revenue',
     'Create Expense'=>'Create Expense',
     'Edit Expense'=>'Edit Expense',
     'Cancel'=>'Cancel',
     'Done'=>'Done',
     'Create Role'=>'Create Role',
-    'Edit Role'=>'Edit Role'
-    // 'Home'=>'Home',
+    'Edit Role'=>'Edit Role',
+    'Remove'=>'Remove',
+    'Full Time'=>'Full Time',
+    'Part Time'=>'Part Time',
+    'Remotly'=>'Remotly',
+    'Hybrid'=>'Hybrid',
+    'Edit Department'=>'Edit Department',
+    'Show Document'=>'Show Document',
+    'Document No'=>'Document No',
+    'Document Details'=>'Document Details'
 ];

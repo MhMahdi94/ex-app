@@ -64,14 +64,14 @@
                                             </div>
                                        <div class="col-md-2">
                                         <input type="text" name="debit" id="debit"
-                                        placeholder="Enter Debit" class="form-control " />
+                                        placeholder="{{ __('routes.Debit') }}" class="form-control " />
                                        </div>
                                        <div class="col-md-2">
                                         <input type="text" name="credit" id="credit"
-                                                placeholder="Enter credit" class="form-control" />
+                                                placeholder="{{ __('routes.Credit') }}" class="form-control" />
                                        </div>
                                        <div class="col-md-3">
-                                        <input type="text" name="descriprtion" id="descriprtion"
+                                        <input type="text" name="descriprtion" id="descriprtion" placeholder="{{ __('routes.Description') }}"
                                          class="form-control " />
                                        </div>
                                        
@@ -100,19 +100,19 @@
                                   <div class="form-group col-md-4">
                                     <label for="total_debit">{{ __('routes.Total Debit') }}</label>
                                     <input type="text" readonly name="total_debit" class="form-control sum_debit"
-                                        id="total_debit" placeholder="Enter total_debit" value="{{ 0}}"
+                                        id="total_debit"  value="{{ 0}}" 
                                         required>
                                   </div>
                                   <div class="form-group col-md-4">
                                     <label for="total_credit">{{ __('routes.Total Credit') }}</label>
                                     <input type="text" readonly name="total_credit" class="form-control sum_credit"
-                                        id="total_credit" placeholder="Enter total_credit" value="{{ 0}}"
+                                        id="total_credit"  value="{{ 0}}"
                                         required>
                                   </div>
                                   <div class="form-group col-md-4">
                                     <label for="balance">{{ __('routes.Balance') }} </label>
                                     <input type="text" readonly name="balance" class="form-control balance"
-                                        id="balance" placeholder="Enter balance" value="{{ 0}}"
+                                        id="balance"  value="{{ 0}}"
                                         required>
                                   </div>
                                  </div>
@@ -164,7 +164,7 @@
             ++i;
             
             $(".journal-list").append(`<tr><td >
-              <input type="text" hidden name="journalDetails[${i}][account_no]" placeholder="Enter Debit" class="form-control " readonly value=${$('#account_no').val()} >
+              <input type="text" hidden name="journalDetails[${i}][account_no]" placeholder="Enter" class="form-control " readonly value=${$('#account_no').val()} >
               <input type="text" name="" placeholder="Enter Debit" class="form-control " readonly value='${$('#account_no').find(":selected").text()}' ></td>
                 <td ><input type="text" name="journalDetails[${i}][debit]" placeholder="Enter Debit" class="form-control total-debit" readonly value=${$('#debit').val()} ></td>
                 <td><input type="text" name="journalDetails[${i}][credit]" placeholder="Enter Credit" class="form-control total-credit" readonly value=${$('#credit').val()}></td>

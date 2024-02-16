@@ -31,30 +31,13 @@
                             @csrf
                             <div class="card-body row g-2">
                                 {{-- {{ $accounts }} --}}
-                                <select name="account_id" id="" class="form-control select2">
+                                <select name="account_id" id="" class="form-control select2" required>
                                     @foreach ($accounts as $account)
                                       <option value="{{ $account->id }}">{{ $account->account_name }}</option>
                                       
                                     @endforeach
                                   </select>
-                                {{-- <div class="col-4">
-                                    <div class="form-group">
-                                        <label for="from">{{ __('routes.From') }}</label>
-                                        <input type="date" name="from" class="form-control" id="from" value="{{ $from??'' }}"
-                                            placeholder="From" />
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                    <div class="form-group">
-                                        <label for="to">{{ __('routes.To') }}</label>
-                                        <input type="date" name="to" class="form-control" id="to" value="{{ $to??'' }}"
-                                            placeholder="From" />
-                                    </div>
-                                </div>
-                                <div class="col-4">
-                                  
-                                </div> --}}
-                                <!-- /.card-body -->
+                                
 
                                 <div class="card-footer">
                                     <button type="submit" class="btn btn-secondary">{{ __('routes.Search') }}</button>

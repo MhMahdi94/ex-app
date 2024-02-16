@@ -37,7 +37,7 @@ Leave Settings
               <table class="table table-hover">
                 <thead>
                   <tr>
-                    <th>Name</th>
+                    <th >{{__('routes.Name')}}</th>
                     <th>Email</th>
                     <th>{{__('routes.Mobile No')}}</th>
                     <th>{{__('routes.Status')}}</th>

@@ -53,7 +53,7 @@ Leave Requests Page
                 <tbody>
                     @foreach ($data as $item)
                         <tr>
-                            <td>{{ $item->employee->name }}</td>
+                            <td>{{ $item->employee->name?? '' }}</td>
                             <td>{{ $item->startLeave }}</td>
                             <td>{{ $item->endLeave }}</td>
                             <td>{{ $item->getLeaveType->name }}</td>

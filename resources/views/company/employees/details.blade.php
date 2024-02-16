@@ -22,7 +22,7 @@
                     <div class="card-body row g-3">
                         <div class="form-group col-6 ">
                             <label for="jobTitle">{{ __('routes.Job Title') }}</label>
-                            <input type="text" name="jobTitle" class="form-control" id="jobTitle" placeholder="Enter Job Title" value="{{ $details->jobTitle??'' }}" required>
+                            <input type="text" name="jobTitle" class="form-control" id="jobTitle"  value="{{ $details->jobTitle??'' }}" required>
                         </div>
                         <div class="form-group col-6">
                           <label for="dept_id">{{ __('routes.Department') }}</label>
@@ -36,16 +36,16 @@
                           <label for="job_type">{{ __('routes.Job Type') }}</label>
                           <select name="job_type" id="" class="form-control select2">
                             {{-- @foreach ($companies as $company) --}}
-                              <option value="1">Full Time</option>
-                              <option value="2">Part Time</option>
-                              <option value="3">Remotly</option>
-                              <option value="3">Hybrid</option>
+                              <option value="1">{{ __('routes.Full Time') }}</option>
+                              <option value="2">{{ __('routes.Part Time') }}</option>
+                              <option value="3">{{ __('routes.Remotly') }}</option>
+                              <option value="3">{{ __('routes.Hybrid') }}</option>
                             {{-- @endforeach --}}
                           </select>
                         </div>
                         <div class="form-group col-6">
                           <label for="salary">{{ __('routes.Salary') }}</label>
-                          <input type="text" value="{{ $details->salary??'' }}" name="salary" class="form-control" id="salary" placeholder="Enter salary" required>
+                          <input type="text" value="{{ $details->salary??'' }}" name="salary" class="form-control" id="salary"  required>
                         </div>
                         <div class="table-responsive mt-3">
                        
@@ -60,22 +60,22 @@
                               @if (count($allowences)>0)
                                 <tr>
                                   <input type="hidden" name="allowenceFields[0][id]" value="{{ $allowences[0]['id']??'' }}"/> --}}
-                                  <td><input type="text" name="allowenceFields[0][all_name]" value="{{ $allowences[0]['allName'] }}" placeholder="Allowence Name" class="form-control" /></td>  
-                                  <td><input type="text" name="allowenceFields[0][all_val]" value="{{ $allowences[0]['allVal'] }}" placeholder="Allowence Value" class="form-control" /></td>  
+                                  <td><input type="text" name="allowenceFields[0][all_name]" value="{{ $allowences[0]['allName'] }}"  class="form-control" /></td>  
+                                  <td><input type="text" name="allowenceFields[0][all_val]" value="{{ $allowences[0]['allVal'] }}"  class="form-control" /></td>  
                                   <td><button type="button" name="add" id="add-btn" class="btn btn-success">{{ __('routes.Add More') }}</button></td>  
                                 </tr>  
                                 @for ($i=1; $i< count($allowences) ; $i++)
                                   <tr>
                                     <input type="hidden" name="allowenceFields[{{ $i }}][id]" value="{{ $allowences[$i]['id'] }}">
-                                    <td><input type="text" name="allowenceFields[{{ $i }}][all_name]" value="{{ $allowences[$i]['allName'] }}" placeholder="Allowence Name" class="form-control" /></td>  
-                                    <td><input type="text" name="allowenceFields[{{ $i }}][all_val]" value="{{ $allowences[$i]['allVal'] }}" placeholder="Allowence Value" class="form-control" /></td>  
+                                    <td><input type="text" name="allowenceFields[{{ $i }}][all_name]" value="{{ $allowences[$i]['allName'] }}"  class="form-control" /></td>  
+                                    <td><input type="text" name="allowenceFields[{{ $i }}][all_val]" value="{{ $allowences[$i]['allVal'] }}"  class="form-control" /></td>  
                                     <td><button type="button" class="btn btn-danger remove-tr">Remove</button></td> 
                                   </tr>
                                 @endfor
                               @else
                               <tr>
-                                <td><input type="text" name="allowenceFields[0][all_name]" placeholder="Allowence Name" class="form-control" /></td>  
-                                <td><input type="text" name="allowenceFields[0][all_val]"  placeholder="Allowence Value" class="form-control" /></td>  
+                                <td><input type="text" name="allowenceFields[0][all_name]"  class="form-control" /></td>  
+                                <td><input type="text" name="allowenceFields[0][all_val]"   class="form-control" /></td>  
                                 <td><button type="button" name="add" id="add-btn" class="btn btn-success">{{ __('routes.Add More') }}</button></td>  
                               </tr>  
                               @endif
@@ -132,7 +132,7 @@
       
            ++i;
       
-           $("#dynamicAddRemove").append('<tr><td><input type="text" name="allowenceFields['+i+'][all_name]" placeholder="Allowence Name" class="form-control" /></td><td><input type="text" name="allowenceFields['+i+'][all_val]" placeholder="Allowence Value" class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">Remove</button></td></tr>');
+           $("#dynamicAddRemove").append('<tr><td><input type="text" name="allowenceFields['+i+'][all_name]"  class="form-control" /></td><td><input type="text" name="allowenceFields['+i+'][all_val]"  class="form-control" /></td><td><button type="button" class="btn btn-danger remove-tr">{{ __("routes.Remove") }}</button></td></tr>');
        });
       
        $(document).on('click', '.remove-tr', function(){  

@@ -18,38 +18,38 @@ class AccountController extends Controller
     public function index()
     {
         //
-        $data=Accounts::get();
+        $data=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->get();
         $data1=[];//COALEVELTWO::get();
         return view('company.coa.index',compact('data','data1'));
     }
     public function assets()
     {
         //
-        $data=Accounts::where('account_parent_id',1)->get();
+        $data=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->where('account_parent_id',1)->get();
         return view('company.coa.assets',compact('data'));
     }    public function liabilities()
     {
         //
-        $data=Accounts::where('account_parent_id',2)->get();
+        $data=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->where('account_parent_id',2)->get();
         return view('company.coa.liabilities',compact('data'));
     }
     public function equity()
     {
         //
-        $data=Accounts::where('account_parent_id',3)->get();
+        $data=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->where('account_parent_id',3)->get();
         return view('company.coa.equity',compact('data'));
     }
    
     public function revenue()
     {
         //
-        $data=Accounts::where('account_parent_id',4)->get();
+        $data=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->where('account_parent_id',4)->get();
         return view('company.coa.revenue',compact('data'));
     } 
     public function expenses()
     {
         //
-        $data=Accounts::where('account_parent_id',5)->get();
+        $data=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->where('account_parent_id',5)->get();
         return view('company.coa.expenses',compact('data'));
     }
     public function generatePDF()
@@ -62,6 +62,7 @@ class AccountController extends Controller
             'date' => date('m/d/Y'),
             'data' => $users
         ]; 
+       // return $data;
         return view('company.coa.pdf', $data);
         // $data = [
         //     'foo' => 'bar'

@@ -18,7 +18,7 @@ Packages Page
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">Create Role</h3>
+                        <h3 class="card-title">{{ __('routes.Create Revenue') }}</h3>
 
 
                     </div>
