@@ -53,7 +53,12 @@ Import/Export Page
                       <div class="form-group ">
                         <label for="quantity">{{ __('routes.Quantity') }}</label>
                         <input type="number"  name="quantity" class="form-control"  id="quantity"  required>
-                    </div>
+                      </div>
+
+                      <div class="form-group ">
+                        <label for="price">{{ __('routes.Price') }}</label>
+                        <input type="number"  name="price" class="form-control"  id="price"  required>
+                      </div>
                     </div>
                     <!-- /.card-body -->
     

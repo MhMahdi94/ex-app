@@ -53,4 +53,8 @@ class Employees extends Authenticatable
     public function company(){
         return $this->belongsTo(Company::class);
     }
+
+    public function employeeDetails(){
+        return $this->hasOne(EmployeeDetails::class,'employee_id','id');
+    }
 }

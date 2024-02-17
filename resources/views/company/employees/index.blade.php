@@ -31,6 +31,7 @@
                                         <th>{{ __('routes.Name') }}</th>
                                         <th>{{ __('routes.Email') }}</th>
                                         <th>{{ __('routes.Mobile No') }}</th>
+                                        <th>{{ __('routes.Salary') }}</th>
                                         <th>{{ __('routes.Status') }}</th>
                                         <th>{{ __('routes.Actions') }}</th>
                                     </tr>
@@ -38,9 +39,10 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                         <tr>
-                                            <td>{{ $item->name }}</td>
+                                            <td>{{ $item->name }} <br/> {{ $item->employeeDetails->jobTitle }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->mobile_no }}</td>
+                                            <td>{{ $item->employeeDetails->salary + $item->total_allowences }}</td>
                                             <td>
                                                 <span
                                                     class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }} ">{{ $item->status ? __('routes.Active')  :  __('routes.Not Active') }}</span>
@@ -48,7 +50,7 @@
                                             <td class="d-flex   ">
                                                 <div class=" mx-1">
                                                     @if (Auth::guard('employee')->user()->can('details-employee'))
-                                                        <a class="btn btn-warning px-4"
+                                                        <a class="btn btn-warning "
                                                             href="{{ route('company.employees.employees_details', $item->id) }}">{{ __('routes.Details') }}</a>
                                                     @endif
 
@@ -56,7 +58,7 @@
                                                 </div>
                                                 <div class="mx-1">
                                                     @if (Auth::guard('employee')->user()->can('edit-employee'))
-                                                        <a class="btn btn-primary px-4"
+                                                        <a class="btn btn-primary "
                                                             href="{{ route('company.employees.employees_edit', $item->id) }}">{{ __('routes.Edit') }}</a>
                                                     @endif
 
@@ -69,7 +71,7 @@
                                                             data-route="{{ route('company.employees.employees_destroy', $item->id) }}">
                                                             @method('delete')
                                                             <button type="submit"
-                                                                class="btn btn-danger px-4 ">{{ __('routes.Delete') }}</button>
+                                                                class="btn btn-danger  ">{{ __('routes.Delete') }}</button>
                                                         </form>
                                                 </div>
                                     @endif

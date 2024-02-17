@@ -20,7 +20,15 @@ class EmployeeController extends Controller
     public function index()
     {
         //
-        $data=Employees::query()->where('company_id',Auth::guard('employee')->user()->company_id)->get();
+        $data=Employees::query()->where('company_id',Auth::guard('employee')->user()->company_id)->with('employeeDetails')->get();
+        // foreach ($data as $item ) {
+        //     # code...
+        // }
+        foreach ($data as $item) {
+            # code...
+            $total_allowences=Allowence::where('employee_id',$item->id)->sum('allVal');
+            $item['total_allowences']=$total_allowences;
+        }
         //return $data;
         return view('company.employees.index',compact('data'));
     }

@@ -56,11 +56,12 @@
             <table>
                 <thead>
                     <tr>
-                        <th>Product</th>
-                        <th>Operation</th>
-                        <th>Quantity</th>
-                        <th>Date</th>
-                        <th>By</th>
+                        <th>{{ __('routes.Product') }}</th>
+                        <th>{{__('routes.Operation')}}</th>
+                        <th>{{ __('routes.Quantity') }}</th>
+                        <th>{{ __('routes.Price') }}</th>
+                        <th>{{ __('routes.Date') }}</th>
+                        <th>{{ __('routes.By') }}</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -69,6 +70,7 @@
                         <th>{{ $item->product->name }}</th>
                         <th>{{ $item->operation->name }}</th>
                         <th>{{ $item->quantity }}</th>
+                        <th>{{ $item->price }}</th>
                         <th>{{ $item->date }}</th>
                         <th>{{ $item->user->name}}</th>
                     </tr>

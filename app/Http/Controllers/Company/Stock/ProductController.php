@@ -39,16 +39,20 @@ class ProductController extends Controller
         return view('company.products.import_export',compact('opertions','product'));
     }
     public function importExportUpdate(Request $request){
+        //return $request->all();
         $product=StockProduct::find($request->product_id);
         $quantity=0;
         if($request->operation_id == "2"){
             $quantity=$request->quantity + $product->quantity;
+            $product->price=$product->price+$request->price;
         }
 
         if($request->operation_id == '3'){
             $quantity= $product->quantity-$request->quantity ;
+            $product->price=$product->price-$request->price;
         }
         $product->quantity=$quantity;
+        
         $product->save();
 
         StockLog::create([
@@ -56,7 +60,8 @@ class ProductController extends Controller
             'product_id'=>$request->product_id,
             'quantity'=>$request->quantity,
             'date'=>Carbon::today()->format('Y-m-d'),
-            'user_id'=>Auth::guard('employee')->id()
+            'user_id'=>Auth::guard('employee')->id(),
+            'price'=>$request->price,
         ]);
        return redirect()->back();//[$request->all(), $product, $quantity];
     }

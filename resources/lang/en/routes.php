@@ -299,6 +299,8 @@ return [
     'Total Orders'=>'Total Orders',
     'Total Revenue'=>'Total Revenue',
     'Sales'=>'Sales',
-    'Best Seller'=>'Best Seller'
+    'Best Seller'=>'Best Seller',
+    'Unit'=>'Unit',
+    'By'=>'By'
 
 ];

@@ -13,7 +13,8 @@ class StockLog extends Model
         'product_id',
         'quantity',
         'date',
-        'user_id'
+        'user_id',
+        'price'
     ];
 
     public function operation(){
