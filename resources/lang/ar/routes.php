@@ -291,6 +291,12 @@ return [
     'Show Document'=>'عرض السند',
     'Document No'=>'رقم السند',
     'Document Details'=>'تفاصيل السند',
-    'Edit Product'=>'تعديل منتج'
+    'Edit Product'=>'تعديل منتج',
+
+    'Total Orders'=>'اجمالي الطلبات',
+    'Total Revenue'=>'اجمالي الايرادات',
+
+    'Sales'=>'المبيعات',
+    'Best Seller'=>'الاكثر مبيعا'
     
 ];

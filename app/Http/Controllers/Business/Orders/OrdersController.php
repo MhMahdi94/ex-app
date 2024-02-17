@@ -21,7 +21,7 @@ class OrdersController extends Controller
     public function index()
     {
         //
-        $data=PosRequest::get();
+        $data=PosRequest::where('company_id',Auth::guard('business')->user()->business_id)->get();
         return view('business.orders.index', compact('data'));
     }
 
@@ -49,7 +49,8 @@ class OrdersController extends Controller
         $pos_request=PosRequest::create([
             'client_id'=>$request->client_id
             ,
-            'total_order'=>$request->total_order
+            'total_order'=>$request->total_order,
+            'company_id'=>Auth::guard('business')->user()->business_id
         ]);
         // foreach ($request->product_id as $item) {
         //     # code...
@@ -65,6 +66,7 @@ class OrdersController extends Controller
                 'request_id'=>$pos_request->id,
                 'product_id'=> $request->product_id[$i],
                 'quantity'=> $request->quantities[$i],
+                'company_id'=>Auth::guard('business')->user()->business_id
             ]);
         }
         return redirect()->back();

@@ -295,5 +295,10 @@ return [
     'Document No'=>'Document No',
     'Document Details'=>'Document Details',
 
-    'Edit Product'=>'Edit Product'
+    'Edit Product'=>'Edit Product',
+    'Total Orders'=>'Total Orders',
+    'Total Revenue'=>'Total Revenue',
+    'Sales'=>'Sales',
+    'Best Seller'=>'Best Seller'
+
 ];

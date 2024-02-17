@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->integer('client_id');
             $table->float('total_order');
+            $table->integer('company_id');
             $table->timestamps();
         });
     }
