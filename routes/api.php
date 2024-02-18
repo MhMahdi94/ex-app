@@ -26,6 +26,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', function (Request $request) {
         return $request->user();
     });
+    //
     Route::apiResource('/summary',EmployeeSummaryController::class);
     Route::apiResource('/attendence',AttendenceController::class);
     Route::apiResource('/attendence-status',AttendenceStatusController::class);
@@ -33,5 +34,5 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('/leave-check',LeaveCheckController::class);
    
 });
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', 'App\Http\Controllers\API\AuthController@login');
 Route::post('/new-request', [NewRequestController::class, 'store']);
