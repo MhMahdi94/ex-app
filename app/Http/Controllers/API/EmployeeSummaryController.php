@@ -22,7 +22,7 @@ class EmployeeSummaryController extends Controller
         //
         $attendence=Attendence::where("user_id", auth()->user()->id)->count();
         $response['attendence']= $attendence;
-
+//
         $leave=LeaveRequest::where('user_id', auth()->user()->id)->count();
         $response['leave']= $leave;
         
