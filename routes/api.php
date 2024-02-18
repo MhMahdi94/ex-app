@@ -28,6 +28,7 @@ Route::middleware('auth:sanctum')->group(function () {
     });
     //
     Route::apiResource('/summary',EmployeeSummaryController::class);
+    Route::get('/login', 'App\Http\Controllers\API\EmployeeSummaryController@index');
     Route::apiResource('/attendence',AttendenceController::class);
     Route::apiResource('/attendence-status',AttendenceStatusController::class);
     Route::apiResource('/leave-request',LeaveRequestController::class);
