@@ -50,9 +50,14 @@ return [
     "Are you sure?"=>"هل انت متاكد؟",
     "warning"=>"تنبيه",
     "Deleted!"=>"تم الحذف",
+    "Rejected!"=>"تم الرفض",
+    "Accepted!"=>"تم التاكيد",
     "Yes, delete it!"=>"نعم, احذف !",
+    "Yes, reject it!"=>"نعم, ارفض !",
+    "Yes, accept it!"=>"نعم, اقبل !",
     "Has been Successfully deleted."=>"تمت عملية الحذف بنجاح",
-
+    "Has been Successfully accepted."=>"تمت عملية القبول بنجاح",
+    "Has been Successfully rejected."=>"تمت عملية الرفض بنجاح",
     //owners
     //list
     'Owners List'=>'قائمة ملاك الشركات',

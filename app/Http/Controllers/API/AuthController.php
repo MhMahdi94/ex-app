@@ -25,10 +25,7 @@ class AuthController extends Controller
        /** @var Employees $user */
        $user=Auth::guard('employee')->user();
        $token=$user->createToken('main')->plainTextToken;
-       //$response->header('X-App-Message', 'Hello world');
-    //    "Access-Control-Allow-Headers": "*",
-    //    "Access-Control-Allow-Origin": "*",
-    //    "Access-Control-Allow-Methods": "*"  
+       
        return response(compact('user','token')) 
         -> header('Access-Control-Allow-Headers', '*')
         -> header('Access-Control-Allow-Origin', '*')

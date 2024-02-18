@@ -17,7 +17,8 @@
                         </div>
 
                         <div class="d-flex ustify-content-between align-items-center" width='200'>
-                            @if (Auth::guard('employee')->user()->can('create-employee'))
+                            
+                            @if (Auth::guard('employee')->user()->can('create-employee') &&(count($data) <Auth::guard('employee')->user()->company->noOfEmployee ))
                                 <a class=" btn btn-success float-right"
                                     href="{{ route('company.employees.employees_create') }}">{{ __('routes.Add Employee') }}</a>
                             @endif

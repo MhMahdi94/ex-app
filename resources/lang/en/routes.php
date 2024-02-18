@@ -51,9 +51,14 @@ return [
     "Are you sure?"=>"Are you sure?",
     "warning"=>"warning",
     "Deleted!"=>"Deleted!",
+    "Rejected!"=>"Rejected!",
+    "Accepted!"=>"Accepted!",
     "Yes, delete it!"=>"Yes, delete it!",
+    "Yes, reject it!"=>"Yes, reject it!",
+    "Yes, accept it!"=>"Yes, accept it!",
     "Has been Successfully deleted."=>"Has been Successfully deleted.",
-
+    "Has been Successfully accepted."=>"Has been Successfully accepted.",
+    "Has been Successfully rejected."=>"Has been Successfully rejected.",
     //owners
     //list
     'Owners List'=>'Owners List',

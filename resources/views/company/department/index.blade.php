@@ -29,7 +29,7 @@ Departments Page
               </div>
 
               <div class="d-flex ustify-content-between align-items-center" width='200'>
-                @if (Auth::guard('employee')->user()->can('create-department'))
+                @if (Auth::guard('employee')->user()->can('create-department')&&(count($data) < Auth::guard('employee')->user()->company->noOfDept ))
                                         
                 <a class=" btn btn-success float-right"
                     href="{{ route('company.department.department_create') }}">{{ __('routes.Add Department') }}</a>
