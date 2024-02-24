@@ -308,6 +308,7 @@ return [
     'Sales'=>'Sales',
     'Best Seller'=>'Best Seller',
     'Unit'=>'Unit',
-    'By'=>'By'
+    'By'=>'By',
+    // 'Absent'=>'Absent'
 
 ];

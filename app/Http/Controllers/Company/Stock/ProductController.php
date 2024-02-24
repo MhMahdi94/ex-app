@@ -20,7 +20,8 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $data=StockProduct::get();
+        $data=StockProduct::where('company_id', Auth::guard('employee')->user()->company_id)
+        ->get();
         return view('company.products.index', compact('data'));
     }
 
@@ -88,6 +89,8 @@ class ProductController extends Controller
         //
         $product=StockProduct::create([
             'name'=>$request->name,
+            
+            'company_id'=>Auth::guard('employee')->user()->company_id,
         ]);
         StockLog::create([
             'operation_id'=>1,

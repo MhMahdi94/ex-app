@@ -138,8 +138,6 @@ Company Page
             <div class="card px-2">
                 <div class="card-header ">
                     <h6 class="mb-0 text-uppercase">{{__('routes.Companies List')  }}</h6>
-                  
-
                 </div>
                 <div class="card-body">
                     <table class="table mb-0">
