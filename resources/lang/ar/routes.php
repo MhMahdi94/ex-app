@@ -14,6 +14,7 @@ return [
     'Company Managment'=>'ادارة الشركات',
     'Service Managment'=>'ادارة الباقات',
     'Requests Managment'=>'ادارة الطلبات',
+    'Requests'=>'الطلبات',
     'Roles Managment'=>'ادارة الصلاحيات',
     'Bussiness Section'=>'قسم ادارة الاعمال',
     'Business Company'=>'الاعمال',
@@ -24,6 +25,7 @@ return [
     //admin mngmt
     //list
     'Admins List'=>'قائمة مدير النظام',
+    'Admins'=>'المدراء',
     'Add Admin'=>'اضافة مدير',
     'Name'=>'الاسم',
     

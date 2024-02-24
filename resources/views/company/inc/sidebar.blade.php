@@ -18,7 +18,7 @@
   with font-awesome or any other icon font library -->
 
    <li class="nav-item ">
-       <a href="#" class="nav-link">
+       <a href="{{ route('company.home.home') }}" class="nav-link">
 
            <p>
               {{__('routes.Dashboard')}}

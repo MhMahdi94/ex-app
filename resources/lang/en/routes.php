@@ -15,6 +15,7 @@ return [
     'Company Managment'=>'Company Managment',
     'Service Managment'=>'Service Managment',
     'Requests Managment'=>'Resquests Managment',
+    'Requests'=>'Requests',
     'Roles Managment'=>'Roles Managment',
     'Bussiness Section'=>'Bussiness Section',
     'Business Company'=>'Business Company',
@@ -26,6 +27,7 @@ return [
     //admin mngmt
     //list
     'Admins List'=>'Admins List',
+    'Admins'=>'Admins',
     'Add Admin'=>'Add Admin',
     'Name'=>'Name',
     'Name(Arabic)'=>'Name (Arabic)',
