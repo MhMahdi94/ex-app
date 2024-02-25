@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Firebase;
 use App\Http\Controllers\Controller;
 use App\Models\FirebaseConfig;
 use App\Models\FirebaseToken;
+use App\Models\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -51,6 +52,11 @@ class FirebaseController extends Controller
         $data=FirebaseToken::first();
         $result= sendNotification('Titke ','Body',$data->token);
         return $result;
+    }
+
+    public function getNotifications(){
+        $notifications=Notification::where(['user_id'=>Auth::id(),'guard_name'=>'employee'])->get();
+        return response(compact('notifications'),200);
     }
     /**
      * Display a listing of the resource.

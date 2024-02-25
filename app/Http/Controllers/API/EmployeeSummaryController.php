@@ -8,7 +8,9 @@ use App\Http\Requests\StoreSummaryRequest;
 use App\Http\Requests\UpdateSummaryRequest;
 use App\Models\API\Attendence;
 use App\Models\API\LeaveRequest;
+use App\Models\Notification;
 use Illuminate\Http\Client\Request;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeSummaryController extends Controller
 {
@@ -26,7 +28,7 @@ class EmployeeSummaryController extends Controller
         $leave=LeaveRequest::where('user_id', auth()->user()->id)->count();
         $response['leave']= $leave;
         
-        $response['notifications']= 10;//$leave;
+        $response['notifications']= Notification::where(['user_id'=>Auth::id(),'guard_name'=>'employee'])->count();//$leave;
         return response($response,200);
     }
 

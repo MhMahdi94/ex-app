@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Employees;
 use App\Models\FirebaseToken;
 use App\Models\LeaveRequset;
+use App\Models\Notification;
 // use App\Models\API\LeaveRequset;
 use Illuminate\Http\Request;
 
@@ -19,7 +20,7 @@ class LeaveRequestController extends Controller
     public function index()
     {
         //
-        $data=LeaveRequset::where('status',0)->with('employee')->get();
+        $data=LeaveRequset::with('employee')->get();
         // foreach ($data as $item) {
         //     # code...
         //     $employee=Employees::where('id', $item['employee_id'])->first();
@@ -75,10 +76,22 @@ class LeaveRequestController extends Controller
         if($request->status==1){
             $token=FirebaseToken::where(['user_id'=>$leave->employee_id, 'guard_name'=>'employee'])->first()->token;
             sendNotification(__('routes.Your leave request has been accepted'),__('routes.Your leave request has been accepted'),$token);
+            Notification::create([
+                'user_id'=>$leave->employee_id,
+                'guard_name'=>'employee',
+                'title'=>__('routes.Leave Request'),
+                'body'=>__('routes.Your leave request has been accepted'),
+            ]);
         }
         if($request->status==2){
             $token=FirebaseToken::where(['user_id'=>$leave->employee_id, 'guard_name'=>'employee'])->first()->token;
             sendNotification(__('routes.Your leave request has been rejected'),__('routes.Your leave request has been rejected'),$token);
+            Notification::create([
+                'user_id'=>$leave->employee_id,
+                'guard_name'=>'employee',
+                'title'=>__('routes.Leave Request'),
+                'body'=>__('routes.Your leave request has been rejected'),
+            ]);
         }
         return response(['success'=>1],200);
     }

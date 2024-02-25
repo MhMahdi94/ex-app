@@ -69,7 +69,7 @@
                                         </td>
                                         <td class="d-flex">
                                             <meta name="csrf-token" content="{{ csrf_token() }}">
-                                            @if (Auth::guard('employee')->user()->can('accept-leave'))
+                                            @if (Auth::guard('employee')->user()->can('accept-leave') && $item->status==0)
                                                 <form method="post" class="accept-form"
                                                     data-route="{{ route('company.leave-requests.leave_requests_update', $item->id) }}">
                                                     @method('put')
@@ -77,7 +77,7 @@
                                                         class="btn btn-success mr-2 ">{{ __('routes.Accept') }}</button>
                                                 </form>
                                             @endif
-                                            @if (Auth::guard('employee')->user()->can('accept-leave'))
+                                            @if (Auth::guard('employee')->user()->can('accept-leave') && $item->status==0)
                                                 <form method="post" class="delete-form mx-2"
                                                     data-route="{{ route('company.leave-requests.leave_requests_update', $item->id) }}">
                                                     @method('put')
