@@ -60,7 +60,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     //save token
     Route::post('/firebase/save_token', 'App\Http\Controllers\Admin\Firebase\FirebaseController@saveToken');
-   
+    Route::post('/firebase/send', 'App\Http\Controllers\Admin\Firebase\FirebaseController@sendMessage');
 });
 Route::post('/login', 'App\Http\Controllers\API\AuthController@login');
 Route::post('/new-request', [NewRequestController::class, 'store']);

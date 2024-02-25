@@ -134,7 +134,7 @@ Route::group([
         'as' => 'firebase.',],function ()  {
           Route::get('/config',[FirebaseController::class, 'config'])->name('firebase_config');
           Route::post('/config/set',[FirebaseController::class, 'setConfig'])->name('firebase_set_config');
-          Route::get('/create',[FirebaseController::class, 'create'])->name('firebase_create');
+         // Route::post('/send',[FirebaseController::class, 'sendMessage'])->name('firebase_send');
           Route::post('/store',[FirebaseController::class, 'store'])->name('firebase_store');
           Route::get('/edit/{id}',[FirebaseController::class, 'edit'])->name('firebase_edit');
           Route::put('/update/{id}',[FirebaseController::class, 'update'])->name('firebase_update');

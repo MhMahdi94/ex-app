@@ -8,6 +8,8 @@ use App\Models\FirebaseToken;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use function App\Helpers\sendNotification;
+
 class FirebaseController extends Controller
 {
 
@@ -44,12 +46,19 @@ class FirebaseController extends Controller
         );
         return response($data,200);
     }
+
+    public function sendMessage(Request $request){
+        $data=FirebaseToken::first();
+        $result= sendNotification('Titke ','Body',$data->token);
+        return $result;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
         //
+      
     }
 
     /**
