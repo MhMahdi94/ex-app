@@ -124,6 +124,18 @@
             </a>
            
         </li>
+
+        <li class="menu-label">{{ __('routes.Firebase Settings') }}</li>
+        <li class="nav-item">
+            <a href="{{ route('admin.firebase.firebase_config') }}" class="nav-link">
+
+                <p>
+                    {{ __('routes.Firebase Configuration') }}
+
+                </p>
+            </a>
+           
+        </li>
     </ul>
     <!--end navigation-->
 </div>

@@ -57,6 +57,9 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/leave-check', 'App\Http\Controllers\API\LeaveCheckController@store');
     Route::get('/leave-check/{id}', 'App\Http\Controllers\API\LeaveCheckController@show');
     Route::put('/leave-check/{id}', 'App\Http\Controllers\API\LeaveCheckController@update');
+
+    //save token
+    Route::post('/firebase/save_token', 'App\Http\Controllers\Admin\Firebase\FirebaseController@saveToken');
    
 });
 Route::post('/login', 'App\Http\Controllers\API\AuthController@login');

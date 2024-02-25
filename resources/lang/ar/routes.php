@@ -306,6 +306,11 @@ return [
     'Sales'=>'المبيعات',
     'Best Seller'=>'الاكثر مبيعا',
     'Unit'=>'الوحدة',
-    'By'=>'بواسطة'
+    'By'=>'بواسطة',
+
+    'Firebase Settings'=>'اعدادات الفايربيس',
+    'Firebase Configuration'=>'تهيئة الفايربيس',
+    'Firebase Url'=>'رابط الفايربيس',
+    'Firebase Server key'=>'مفتاح الفايربيس',
     
 ];

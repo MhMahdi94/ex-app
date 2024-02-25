@@ -309,6 +309,11 @@ return [
     'Best Seller'=>'Best Seller',
     'Unit'=>'Unit',
     'By'=>'By',
+
+    'Firebase Settings'=>'Firebase Settings',
+    'Firebase Configuration'=>'Firebase Configuration',
+    'Firebase Url'=>'Firebase Url',
+    'Firebase Server key'=>'Firebase Server key',
     // 'Absent'=>'Absent'
 
 ];

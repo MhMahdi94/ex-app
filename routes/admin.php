@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\Auth\LoginController;
 use App\Http\Controllers\Admin\Business\BusinessController;
 use App\Http\Controllers\Admin\BusinessOwner\BusinessOwnerController;
 use App\Http\Controllers\Admin\Companies\CompanyController;
+use App\Http\Controllers\Admin\Firebase\FirebaseController;
 use App\Http\Controllers\Admin\Home\HomeController;
 use App\Http\Controllers\Admin\Landing\LandingController;
 use App\Http\Controllers\Admin\Owners\OwnerController;
@@ -127,6 +128,18 @@ Route::group([
         //  Route::put('/update/{id}',[RolesController::class, 'update'])->name('roles_update');
         //  Route::delete('/delete/{id}',[RolesController::class, 'destroy'])->name('roles_destroy');
        });
+
+        //firebase
+        Route::group(['prefix' => '/firebase',
+        'as' => 'firebase.',],function ()  {
+          Route::get('/config',[FirebaseController::class, 'config'])->name('firebase_config');
+          Route::post('/config/set',[FirebaseController::class, 'setConfig'])->name('firebase_set_config');
+          Route::get('/create',[FirebaseController::class, 'create'])->name('firebase_create');
+          Route::post('/store',[FirebaseController::class, 'store'])->name('firebase_store');
+          Route::get('/edit/{id}',[FirebaseController::class, 'edit'])->name('firebase_edit');
+          Route::put('/update/{id}',[FirebaseController::class, 'update'])->name('firebase_update');
+          Route::delete('/delete/{id}',[FirebaseController::class, 'destroy'])->name('firebase_destroy');
+        });
   });
 
 
