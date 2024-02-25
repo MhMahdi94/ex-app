@@ -312,5 +312,9 @@ return [
     'Firebase Configuration'=>'تهيئة الفايربيس',
     'Firebase Url'=>'رابط الفايربيس',
     'Firebase Server key'=>'مفتاح الفايربيس',
+
+    //firebase messages
+    "Your leave request has been accepted"=>"تم قبول طلب الاجازة",
+    "Your leave request has been rejected"=>"تم رفض طلب الاجازة"
     
 ];

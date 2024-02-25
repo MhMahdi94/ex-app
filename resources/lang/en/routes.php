@@ -316,4 +316,8 @@ return [
     'Firebase Server key'=>'Firebase Server key',
     // 'Absent'=>'Absent'
 
+    //firebase messages
+    "Your leave request has been accepted"=>"Your leave request has been accepted",
+    "Your leave request has been rejected"=>"Your leave request has been rejected"
+
 ];

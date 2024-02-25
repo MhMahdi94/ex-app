@@ -4,9 +4,12 @@ namespace App\Http\Controllers\Company\Leave;
 
 use App\Http\Controllers\Controller;
 use App\Models\Employees;
+use App\Models\FirebaseToken;
 use App\Models\LeaveRequset;
 // use App\Models\API\LeaveRequset;
 use Illuminate\Http\Request;
+
+use function App\Helpers\sendNotification;
 
 class LeaveRequestController extends Controller
 {
@@ -64,9 +67,19 @@ class LeaveRequestController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        
         $leave=LeaveRequset::find($id);
+        //return $leave;
         $leave->status=$request->status;
         $leave->save();
+        if($request->status==1){
+            $token=FirebaseToken::where(['user_id'=>$leave->employee_id, 'guard_name'=>'employee'])->first()->token;
+            sendNotification(__('routes.Your leave request has been accepted'),__('routes.Your leave request has been accepted'),$token);
+        }
+        if($request->status==2){
+            $token=FirebaseToken::where(['user_id'=>$leave->employee_id, 'guard_name'=>'employee'])->first()->token;
+            sendNotification(__('routes.Your leave request has been rejected'),__('routes.Your leave request has been rejected'),$token);
+        }
         return response(['success'=>1],200);
     }
 
