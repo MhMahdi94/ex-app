@@ -4,7 +4,7 @@ return [
     "hello"    =>  "Hello",
     "Please log in to your account"=>"Please log in to your account",
     "Sign In"=>"Sign In",
-
+    "Logout"=>"Logout",
     //admin
 
     //sidebar

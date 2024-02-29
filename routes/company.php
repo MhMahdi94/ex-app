@@ -37,7 +37,7 @@ Route::group([
   //auth
   Route::get('/login', [LoginController::class, 'show_login_view'])->name('company.show_login');
   Route::post('login', [LoginController::class, 'login'])->name('company.login');
-  //Route::post('register',[LoginController::class, 'login'])->name('company.login');
+  Route::get('logout', [LoginController::class, 'logout'])->name('company.logout');
   //home
   Route::group([
     'prefix' => '/home',

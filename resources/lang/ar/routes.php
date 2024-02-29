@@ -4,6 +4,7 @@ return [
     "hello"    =>  "مرحبا",
     "Please log in to your account"=>"الرجاء تسجيل الدخول الى حسابك",
     "Sign In"=>"تسجيل الدخول",
+    "Logout"=>"تسجيل الخروج",
     //admin
 
     //sidebar

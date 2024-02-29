@@ -41,10 +41,10 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                         <tr>
-                                            <td>{{ $item->name }} <br /> {{ $item->employeeDetails->jobTitle }}</td>
+                                            <td>{{ $item->name }} <br /> {{ $item->employeeDetails->jobTitle??'' }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->mobile_no }}</td>
-                                            <td>{{ $item->employeeDetails->salary + $item->total_allowences }}</td>
+                                            <td>{{ $item->employeeDetails->salary??0 + $item->total_allowences??0 }}</td>
                                             <td>
                                                 <span
                                                     class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }} ">{{ $item->status ? __('routes.Active') : __('routes.Not Active') }}</span>
