@@ -35,7 +35,7 @@
                             @endif
                             @if (Auth::guard('employee')->user()->can('stock-report'))
                                 <a class=" btn btn-dark float-right mx-2"
-                                    href="{{ route('company.stock.report_pdf') }}">{{ __('routes.Report') }}</a>
+                                    href="{{ route('company.stock.report_pdf') }}" target="_Blank">{{ __('routes.Report') }}</a>
                             @endif
                         </div>
 

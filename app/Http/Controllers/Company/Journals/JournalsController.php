@@ -120,6 +120,7 @@ class JournalsController extends Controller
         
         $header=JournalHeader::find($id);
         $details=JournalDetail::where('journal_no',$id)->get();
+        //dd($details);
         return view('company.journals.show', compact('header','details'));
     }
 

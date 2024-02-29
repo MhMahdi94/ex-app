@@ -22,8 +22,9 @@ class AccountSeeder extends Seeder
             'account_level'=>1,
             'account_debit'=>0,
             'account_credit'=>0,
-            'account_balance' => 0, 
+            'account_balance' => 0,
             'company_id'=>1, 
+            
         ]);
         Accounts::create(['account_no'=>2, 
             'account_parent_id'=>0, 
@@ -33,8 +34,9 @@ class AccountSeeder extends Seeder
             'account_level'=>1,
             'account_debit'=>0,
             'account_credit'=>0,
-            'account_balance' => 0, 
+            'account_balance' => 0,
             'company_id'=>1, 
+            
         ]);
         Accounts::create(['account_no'=>3, 
             'account_parent_id'=>0, 
@@ -44,8 +46,10 @@ class AccountSeeder extends Seeder
             'account_level'=>1,
             'account_debit'=>0,
             'account_credit'=>0,
-            'account_balance' => 0, 
+            'account_balance' => 0,
             'company_id'=>1, 
+
+            
         ]);
         Accounts::create(['account_no'=>4, 
             'account_parent_id'=>0, 
@@ -55,7 +59,8 @@ class AccountSeeder extends Seeder
             'account_level'=>1,
             'account_debit'=>0,
             'account_credit'=>0,
-            'account_balance' => 0, 
+            'account_balance' => 0,
+            'company_id'=>1, 
             'company_id'=>1, 
         ]);
         Accounts::create(['account_no'=>5, 
@@ -66,8 +71,9 @@ class AccountSeeder extends Seeder
             'account_level'=>1,
             'account_debit'=>0,
             'account_credit'=>0,
-            'account_balance' => 0, 
+            'account_balance' => 0,
             'company_id'=>1, 
+            
         ]);
     }
 }

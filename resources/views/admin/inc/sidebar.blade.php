@@ -23,7 +23,7 @@
                 </p>
             </a>
         </li>
-      
+       
         <li class="nav-item">
             <a href="{{ route('admin.admins.admins_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 

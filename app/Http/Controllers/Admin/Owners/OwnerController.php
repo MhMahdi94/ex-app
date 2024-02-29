@@ -77,6 +77,14 @@ class OwnerController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        
+        $employee = Employees::find($id);
+        $employee->company_id=$request->company_id;
+        $employee->name=$request->name;
+        $employee->email=$request->email;
+        $employee->mobile_no=$request->mobile_no;
+        $employee->save();
+        return redirect()->back() ;
     }
 
     /**

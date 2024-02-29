@@ -17,8 +17,9 @@
                         </div>
 
                         <div class="d-flex ustify-content-between align-items-center" width='200'>
-                            
-                            @if (Auth::guard('employee')->user()->can('create-employee') &&(count($data) <Auth::guard('employee')->user()->company->noOfEmployee ))
+
+                            @if (Auth::guard('employee')->user()->can('create-employee') &&
+                                    count($data) < Auth::guard('employee')->user()->company->noOfEmployee)
                                 <a class=" btn btn-success float-right"
                                     href="{{ route('company.employees.employees_create') }}">{{ __('routes.Add Employee') }}</a>
                             @endif
@@ -40,13 +41,13 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                         <tr>
-                                            <td>{{ $item->name }} <br/> {{ $item->employeeDetails->jobTitle }}</td>
+                                            <td>{{ $item->name }} <br /> {{ $item->employeeDetails->jobTitle }}</td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->mobile_no }}</td>
                                             <td>{{ $item->employeeDetails->salary + $item->total_allowences }}</td>
                                             <td>
                                                 <span
-                                                    class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }} ">{{ $item->status ? __('routes.Active')  :  __('routes.Not Active') }}</span>
+                                                    class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }} ">{{ $item->status ? __('routes.Active') : __('routes.Not Active') }}</span>
                                             </td>
                                             <td class="d-flex   ">
                                                 <div class=" mx-1">
@@ -108,7 +109,7 @@
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    cancelButtonText:"{{ __('routes.Cancel') }}",
+                    cancelButtonText: "{{ __('routes.Cancel') }}",
                     confirmButtonText: "{{ __('routes.Yes, delete it!') }}"
                 }).then((result) => {
 
@@ -124,9 +125,9 @@
                             },
                             success: function(response, textStatus, xhr) {
                                 Swal.fire({
-                                     title: "{{ __('routes.Deleted!') }}",
-            text: "{{ __('routes.Has been Successfully deleted.') }}",
-            icon: "success"
+                                    title: "{{ __('routes.Deleted!') }}",
+                                    text: "{{ __('routes.Has been Successfully deleted.') }}",
+                                    icon: "success"
                                 });
                                 setTimeout(function() {
                                     //your code to be executed after 1 second

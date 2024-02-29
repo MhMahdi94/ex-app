@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Company\Account;
 
 use App\Http\Controllers\Controller;
+use App\Models\AccountParent;
 use App\Models\Accounts;
 use App\Models\AccountType;
 use App\Models\ReportType;
@@ -18,9 +19,10 @@ class AccountController extends Controller
     public function index()
     {
         //
+        $parents=AccountParent::get();
         $data=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->get();
-        $data1=[];//COALEVELTWO::get();
-        return view('company.coa.index',compact('data','data1'));
+        //COALEVELTWO::get();
+        return view('company.coa.index',compact('data','parents'));
     }
     public function assets()
     {
@@ -81,7 +83,7 @@ class AccountController extends Controller
     public function create()
     {
         //
-        $collections=Accounts::get();//$accounts;//->concat($accounts2);
+        $collections=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->get();//$accounts;//->concat($accounts2);
         //return $collections;
         $report_types=ReportType::get();
         $account_types=AccountType::get();
@@ -111,7 +113,14 @@ class AccountController extends Controller
         return redirect()->back();
         
     }
-
+    public function getChilds(string $id)
+    {
+        //
+        $accounts=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->where('account_parent_id',$id)->count();
+        $account=Accounts::find($id);
+        return [$id.''.$accounts+1, $account->account_level+1];
+        //compact('account');
+    }
     /**
      * Display the specified resource.
      */

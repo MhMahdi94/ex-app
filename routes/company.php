@@ -147,6 +147,7 @@ Route::group([
     Route::get('/expenses', [AccountController::class, 'expenses'])->name('coa_expenses');
     Route::get('/revenue', [AccountController::class, 'revenue'])->name('coa_revenue');
     Route::get('/create', [AccountController::class, 'create'])->name('coa_create');
+    Route::get('/childs/{id}', [AccountController::class, 'getChilds'])->name('coa_get_getChilds');
     Route::post('/store', [AccountController::class, 'store'])->name('coa_store');
     Route::get('/edit/{id}', [AccountController::class, 'edit'])->name('coa_edit');
     Route::get('/show/{id}', [AccountController::class, 'show'])->name('coa_show');

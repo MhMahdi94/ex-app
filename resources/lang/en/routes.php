@@ -318,6 +318,8 @@ return [
 
     //firebase messages
     "Your leave request has been accepted"=>"Your leave request has been accepted",
-    "Your leave request has been rejected"=>"Your leave request has been rejected"
+    "Your leave request has been rejected"=>"Your leave request has been rejected",
+
+    "Calendar"=>"Calendar"
 
 ];

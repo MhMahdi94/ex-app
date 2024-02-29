@@ -14,6 +14,8 @@ use App\Http\Controllers\Admin\Requests\RequestsController;
 use App\Http\Controllers\Admin\Roles\RoleController;
 use App\Http\Controllers\Admin\Roles\RolesController;
 use App\Http\Controllers\Api\NewRequestController;
+use App\Http\Controllers\Company\Calendar\CalendarController;
+use App\Http\Livewire\CompanyCalendar;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
@@ -139,6 +141,18 @@ Route::group([
           Route::get('/edit/{id}',[FirebaseController::class, 'edit'])->name('firebase_edit');
           Route::put('/update/{id}',[FirebaseController::class, 'update'])->name('firebase_update');
           Route::delete('/delete/{id}',[FirebaseController::class, 'destroy'])->name('firebase_destroy');
+        });
+
+        //calendar
+        Route::group(['prefix' => '/calendar',
+        'as' => 'calendar.',],function ()  {
+          Route::get('/',[CalendarController::class, 'index'])->name('calendar_index');
+          Route::get('/events',[CalendarController::class, 'getEvents'])->name('calendar_events');
+          Route::get('/create',[CalendarController::class, 'create'])->name('calendar_create');
+          Route::post('/store',[CalendarController::class, 'store'])->name('calendar_store');
+          Route::get('/edit/{id}',[CalendarController::class, 'edit'])->name('calendar_edit');
+          Route::put('/update/{id}',[CalendarController::class, 'update'])->name('calendar_update');
+          Route::delete('/delete/{id}',[CalendarController::class, 'destroy'])->name('calendar_destroy');
         });
   });
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Companies;
 
 use App\Http\Controllers\Controller;
+use App\Models\Accounts;
 use App\Models\Company;
 use App\Models\Employees;
 use Illuminate\Http\Request;
@@ -15,7 +16,7 @@ class CompanyController extends Controller
     public function index()
     {
         //
-        $data=Company::get();
+        $data = Company::get();
         return view('admin.companies.index', compact('data'));
     }
 
@@ -35,20 +36,81 @@ class CompanyController extends Controller
     public function store(Request $request)
     {
         //
-       // return $request->all();
-        Company::create(
+        // return $request->all();
+        $company = Company::create(
             [
-                'name'=>['en'=>$request->english_name,'ar'=>$request->arabic_name,],
-                'owner_id'=>$request->owner_id,
-                'email'=>$request->email,
-                'description'=>$request->description,
-                'noOfDept'=>$request->noOfDept,
-                'noOfEmployee'=>$request->noOfEmployee,
+                'name' => ['en' => $request->english_name, 'ar' => $request->arabic_name,],
+                'owner_id' => $request->owner_id,
+                'email' => $request->email,
+                'description' => $request->description,
+                'noOfDept' => $request->noOfDept,
+                'noOfEmployee' => $request->noOfEmployee,
                 //'mobile_no'=>$request->mobile_no,
-                'subscriptionStart'=>$request->subscriptionStart,
-                'subscriptionEnd'=>$request->subscriptionEnd,
+                'subscriptionStart' => $request->subscriptionStart,
+                'subscriptionEnd' => $request->subscriptionEnd,
             ]
         );
+        //init accounts
+        Accounts::create(['account_no'=>1, 
+            'account_parent_id'=>0, 
+            'account_name'=>'Assets', 
+            'account_type'=>1, 
+            'account_report'=>1, 
+            'account_level'=>0,
+            'account_debit'=>0,
+            'account_credit'=>0,
+            'account_balance' => 0,
+            'company_id'=>$company->id, 
+            
+        ]);
+        Accounts::create(['account_no'=>2, 
+            'account_parent_id'=>0, 
+            'account_name'=>'Liabilities', 
+            'account_type'=>1, 
+            'account_report'=>1, 
+            'account_level'=>0,
+            'account_debit'=>0,
+            'account_credit'=>0,
+            'account_balance' => 0,
+            'company_id'=>$company->id, 
+            
+        ]);
+        Accounts::create(['account_no'=>3, 
+            'account_parent_id'=>0, 
+            'account_name'=>'Equity', 
+            'account_type'=>1, 
+            'account_report'=>1, 
+            'account_level'=>0,
+            'account_debit'=>0,
+            'account_credit'=>0,
+            'account_balance' => 0,
+            'company_id'=>$company->id, 
+
+            
+        ]);
+        Accounts::create(['account_no'=>4, 
+            'account_parent_id'=>0, 
+            'account_name'=>'Revenue', 
+            'account_type'=>1, 
+            'account_report'=>2, 
+            'account_level'=>0,
+            'account_debit'=>0,
+            'account_credit'=>0,
+            'account_balance' => 0,
+            'company_id'=>$company->id, 
+        ]);
+        Accounts::create(['account_no'=>5, 
+            'account_parent_id'=>0, 
+            'account_name'=>'Expenses', 
+            'account_type'=>1, 
+            'account_report'=>2, 
+            'account_level'=>0,
+            'account_debit'=>0,
+            'account_credit'=>0,
+            'account_balance' => 0,
+            'company_id'=>$company->id, 
+            
+        ]);
         return redirect()->back();
     }
 

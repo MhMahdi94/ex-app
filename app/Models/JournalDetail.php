@@ -19,6 +19,6 @@ class JournalDetail extends Model
     ];
 
     public function account(){
-        return $this->belongsTo(Accounts::class,'journal_account_no');
+        return $this->belongsTo(Accounts::class,'journal_account_no','account_no');
     }
 }
