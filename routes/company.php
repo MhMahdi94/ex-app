@@ -7,6 +7,7 @@ use App\Http\Controllers\Company\Account\COALEVELONEController;
 use App\Http\Controllers\Company\AccountStatement\AccountStatementController;
 use App\Http\Controllers\Company\Auth\LoginController;
 use App\Http\Controllers\Company\BalanceSheet\BalanceSheetController;
+use App\Http\Controllers\Company\Calendar\CalendarController;
 use App\Http\Controllers\Company\Department\DepartmentController;
 use App\Http\Controllers\Company\Documents\DocumentController;
 use App\Http\Controllers\Company\Employee\EmployeeController;
@@ -295,5 +296,18 @@ Route::group([
     Route::get('/edit/{id}', [PayrollController::class, 'edit'])->name('payroll_edit');
     Route::put('/update/{id}', [PayrollController::class, 'update'])->name('payroll_update');
     Route::delete('/delete/{id}', [PayrollController::class, 'destroy'])->name('payroll_destroy');
+  });
+
+  //calendar
+  Route::group(['prefix' => '/calendar',
+  'as' => 'calendar.',],function ()  {
+    Route::get('/',[CalendarController::class, 'index'])->name('calendar_index');
+    Route::get('/events',[CalendarController::class, 'getEvents'])->name('calendar_events');
+    Route::post('/handle-event',[CalendarController::class, 'ajax'])->name('calendar_events');
+    Route::get('/create',[CalendarController::class, 'create'])->name('calendar_create');
+    Route::post('/store',[CalendarController::class, 'store'])->name('calendar_store');
+    Route::get('/edit/{id}',[CalendarController::class, 'edit'])->name('calendar_edit');
+    Route::put('/update/{id}',[CalendarController::class, 'update'])->name('calendar_update');
+    Route::delete('/delete/{id}',[CalendarController::class, 'destroy'])->name('calendar_destroy');
   });
 });

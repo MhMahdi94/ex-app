@@ -320,6 +320,7 @@ return [
     "Your leave request has been accepted"=>"Your leave request has been accepted",
     "Your leave request has been rejected"=>"Your leave request has been rejected",
 
-    "Calendar"=>"Calendar"
+    "Calendar"=>"Calendar",
+    "Event Title"=>"Event Title"
 
 ];

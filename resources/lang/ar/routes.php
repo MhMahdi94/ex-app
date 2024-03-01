@@ -318,6 +318,7 @@ return [
     "Your leave request has been accepted"=>"تم قبول طلب الاجازة",
     "Your leave request has been rejected"=>"تم رفض طلب الاجازة",
 
-    "Calendar"=>"التقويم"
+    "Calendar"=>"التقويم",
+    "Event Title"=>"العنوان"
     
 ];

@@ -143,17 +143,7 @@ Route::group([
           Route::delete('/delete/{id}',[FirebaseController::class, 'destroy'])->name('firebase_destroy');
         });
 
-        //calendar
-        Route::group(['prefix' => '/calendar',
-        'as' => 'calendar.',],function ()  {
-          Route::get('/',[CalendarController::class, 'index'])->name('calendar_index');
-          Route::get('/events',[CalendarController::class, 'getEvents'])->name('calendar_events');
-          Route::get('/create',[CalendarController::class, 'create'])->name('calendar_create');
-          Route::post('/store',[CalendarController::class, 'store'])->name('calendar_store');
-          Route::get('/edit/{id}',[CalendarController::class, 'edit'])->name('calendar_edit');
-          Route::put('/update/{id}',[CalendarController::class, 'update'])->name('calendar_update');
-          Route::delete('/delete/{id}',[CalendarController::class, 'destroy'])->name('calendar_destroy');
-        });
+        
   });
 
 

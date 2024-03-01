@@ -24,15 +24,15 @@
                 </p>
             </a>
         </li>
-        {{-- <li class="nav-item ">
-            <a href="{{ route('admin.calendar.calendar_index') }}" class="nav-link">
+        <li class="nav-item ">
+            <a href="{{ route('company.calendar.calendar_index') }}" class="nav-link">
 
                 <p>
                     {{ __('routes.Calendar') }}
 
                 </p>
             </a>
-        </li> --}}
+        </li>
         <li class="menu-label">{{ __('routes.Users Managment') }}</li>
         <li class="nav-item">
             <a href="{{ route('company.roles.roles_index') }}" class="nav-link">
