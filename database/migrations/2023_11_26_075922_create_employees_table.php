@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('added_by')->nullable();
             $table->string('updated_by')->nullable();
             $table->string('password');
+            $table->string('photo')->default('thrs.jpg');
             $table->tinyInteger('status')->default(1);
             $table->tinyInteger('is_owner')->default(0); //0 not owner 1 owner
             $table->integer('company_id');

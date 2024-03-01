@@ -27,6 +27,7 @@ class Employees extends Authenticatable
         'added_by',
         'updated_by',
         'password',
+        'photo',
         'is_owner',
     ];
     public $translatable = ['name'];

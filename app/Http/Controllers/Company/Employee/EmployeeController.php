@@ -20,17 +20,17 @@ class EmployeeController extends Controller
     public function index()
     {
         //
-        $data=Employees::query()->where('company_id',Auth::guard('employee')->user()->company_id)->with('employeeDetails')->get();
+        $data = Employees::query()->where('company_id', Auth::guard('employee')->user()->company_id)->with('employeeDetails')->get();
         // foreach ($data as $item ) {
         //     # code...
         // }
         foreach ($data as $item) {
             # code...
-            $total_allowences=Allowence::where('employee_id',$item->id)->sum('allVal');
-            $item['total_allowences']=$total_allowences;
+            $total_allowences = Allowence::where('employee_id', $item->id)->sum('allVal');
+            $item['total_allowences'] = $total_allowences;
         }
         //return $data;
-        return view('company.employees.index',compact('data'));
+        return view('company.employees.index', compact('data'));
     }
 
     /**
@@ -39,23 +39,23 @@ class EmployeeController extends Controller
     public function create()
     {
         //
-        $employee=Employees::where('company_id',1)->first();
-        $roles = Role::where('guard_name','employee')->pluck('name')->all();
-        $allowences=[];
-        
-        return view('company.employees.create', compact('employee','allowences','roles'));
+        $employee = Employees::where('company_id', 1)->first();
+        $roles = Role::where('guard_name', 'employee')->pluck('name')->all();
+        $allowences = [];
+
+        return view('company.employees.create', compact('employee', 'allowences', 'roles'));
     }
 
     public function details($id)
     {
         //
-       // $employee=Employees::where('company_id',1)->first();
-       //return Auth::guard('employee')->user()->company_id; 
-      $details=EmployeeDetails::where('employee_id',$id)->first();
-      $allowences=Allowence::where('employee_id',$id)->get();
-      $departments=Department::where('company_id',Auth::guard('employee')->user()->company_id)->get();
-      //return $departments;
-       return view('company.employees.details',compact('id','details','allowences','departments'));
+        // $employee=Employees::where('company_id',1)->first();
+        //return Auth::guard('employee')->user()->company_id; 
+        $details = EmployeeDetails::where('employee_id', $id)->first();
+        $allowences = Allowence::where('employee_id', $id)->get();
+        $departments = Department::where('company_id', Auth::guard('employee')->user()->company_id)->get();
+        //return $departments;
+        return view('company.employees.details', compact('id', 'details', 'allowences', 'departments'));
     }
     /**
      * Store a newly created resource in storage.
@@ -63,19 +63,26 @@ class EmployeeController extends Controller
     public function store(Request $request)
     {
         //
-      // return $request->all();
-      //return Auth::guard('employee')->user()->company_id;
-        $employee=Employees::create([
-            'company_id'=>Auth::guard('employee')->user()->company_id,
-            'name'=>['en'=>$request->english_name,'ar'=>$request->arabic_name,],
-            'email'=>$request->email,
-            'mobile_no'=>$request->mobile_no,
-            
-            'password'=>Hash::make( $request->password),
-            
-            'is_owner'=>0
+        //return $request->all();
+        if ($request->photo) {
+            $fileName = time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('uploads/img/employees'), $fileName);
+        }
+        //return $fileName;
+        
+        //return Auth::guard('employee')->user()->company_id;
+        $employee = Employees::create([
+            'company_id' => Auth::guard('employee')->user()->company_id,
+            'name' => ['en' => $request->english_name, 'ar' => $request->arabic_name,],
+            'email' => $request->email,
+            'mobile_no' => $request->mobile_no,
+            'photo' => $fileName,
+            'password' => Hash::make($request->password),
+
+            'is_owner' => 0
         ]);
         $employee->assignRole($request->roles);
+        // return $employee;
         return redirect()->back();
     }
 
@@ -84,7 +91,6 @@ class EmployeeController extends Controller
      */
     public function show(string $id)
     {
-        
     }
 
     /**
@@ -93,9 +99,9 @@ class EmployeeController extends Controller
     public function edit(string $id)
     {
         //
-        $employee=Employees::find($id);
-        $roles = Role::where('guard_name','employee')->pluck('name')->all();
-        return view('company.employees.edit', compact('employee','roles'));
+        $employee = Employees::find($id);
+        $roles = Role::where('guard_name', 'employee')->pluck('name')->all();
+        return view('company.employees.edit', compact('employee', 'roles'));
     }
 
     /**
@@ -104,11 +110,17 @@ class EmployeeController extends Controller
     public function update(Request $request, string $id)
     {
         //
-        $employee=Employees::find($id);
-        $employee->name=['en'=>$request->english_name,'ar'=>$request->arabic_name,];//$request->name;
-        $employee->email=$request->email;
-        $employee->mobile_no=$request->mobile_no;
-        $employee->status=$request->status;
+        return $request->all();
+        if ($request->photo) {
+            $fileName = time() . '.' . $request->photo->extension();
+            $request->photo->move(public_path('uploads/img/employees'), $fileName);
+        }
+        $employee = Employees::find($id);
+        $employee->name = ['en' => $request->english_name, 'ar' => $request->arabic_name,]; //$request->name;
+        $employee->email = $request->email;
+        $employee->mobile_no = $request->mobile_no;
+        $employee->status = $request->status;
+        $employee->photo= $fileName;
         $employee->save();
         return redirect()->back();
     }
@@ -120,6 +132,6 @@ class EmployeeController extends Controller
     {
         //
         Employees::find($id)->delete();
-        return response(['success'=>1],200);
+        return response(['success' => 1], 200);
     }
 }

@@ -319,6 +319,8 @@ return [
     "Your leave request has been rejected"=>"تم رفض طلب الاجازة",
 
     "Calendar"=>"التقويم",
-    "Event Title"=>"العنوان"
+    "Event Title"=>"العنوان",
+
+    "Photo"=>"الصورة"
     
 ];

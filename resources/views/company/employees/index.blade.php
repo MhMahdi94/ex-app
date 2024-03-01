@@ -16,7 +16,7 @@
                                     class='bx bx-search'></i></span>
                         </div>
 
-                        <div class="d-flex ustify-content-between align-items-center" width='200'>
+                        <div class="d-flex justify-content-between align-items-center" width='200'>
 
                             @if (Auth::guard('employee')->user()->can('create-employee') &&
                                     count($data) < Auth::guard('employee')->user()->company->noOfEmployee)
@@ -41,7 +41,12 @@
                                 <tbody>
                                     @foreach ($data as $item)
                                         <tr>
-                                            <td>{{ $item->name }} <br /> {{ $item->employeeDetails->jobTitle??'' }}</td>
+                                            <td class="d-flex">
+                                                <img class="rounded-circle p-0 mx-2 border" src="{{URL::asset('/uploads/img/employees/'.$item->photo)}}" width="50" height="50" alt="Contact Person">
+                                                <div class="">
+                                                    {{ $item->name }} <br /> {{ $item->employeeDetails->jobTitle??'' }}
+                                                </div>
+                                            </td>
                                             <td>{{ $item->email }}</td>
                                             <td>{{ $item->mobile_no }}</td>
                                             <td>{{ $item->employeeDetails->salary??0 + $item->total_allowences??0 }}</td>
@@ -49,8 +54,8 @@
                                                 <span
                                                     class="badge {{ $item->status ? 'bg-success' : 'bg-danger' }} ">{{ $item->status ? __('routes.Active') : __('routes.Not Active') }}</span>
                                             </td>
-                                            <td class="d-flex   ">
-                                                <div class=" mx-1">
+                                            <td class="d-flex gap-2 ">
+                                                <div class=" ">
                                                     @if (Auth::guard('employee')->user()->can('details-employee'))
                                                         <a class="btn btn-warning "
                                                             href="{{ route('company.employees.employees_details', $item->id) }}">{{ __('routes.Details') }}</a>
@@ -58,7 +63,7 @@
 
 
                                                 </div>
-                                                <div class="mx-1">
+                                                <div class="">
                                                     @if (Auth::guard('employee')->user()->can('edit-employee'))
                                                         <a class="btn btn-primary "
                                                             href="{{ route('company.employees.employees_edit', $item->id) }}">{{ __('routes.Edit') }}</a>
@@ -66,7 +71,7 @@
 
 
                                                 </div>
-                                                <div class="mx-1">
+                                                <div class="">
                                                     @if (Auth::guard('employee')->user()->can('delete-employee'))
                                                         <meta name="csrf-token" content="{{ csrf_token() }}">
                                                         <form method="post" class="delete-form"

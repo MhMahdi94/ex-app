@@ -25,11 +25,11 @@
                     <!-- /.card-header -->
                     <div class="card-body table-responsive p-0">
 
-                        <form method="POST" action="{{ route('company.employees.employees_store') }}"
+                        <form method="POST" action="{{ route('company.employees.employees_store') }}" enctype="multipart/form-data"
                             class='needs-validation' novalidate>
                             @csrf
                             {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
-                            <div class="card-body row g-3">
+                            <div class="card-body row ">
                                 <div class="form-group col-md-6">
                                     <label for="english_name">{{ __('routes.Name(English)') }}</label>
                                     <input type="text" name="english_name" class="form-control" id="english_name"
@@ -40,21 +40,27 @@
                                     <input type="text" name="arabic_name" class="form-control" id="arabic_name"
                                          required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label for="email">{{ __('routes.Email') }}</label>
                                     <input type="email" name="email" class="form-control" id="email"
                                          required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label for="mobile_no">{{ __('routes.Mobile No') }}</label>
                                     <input type="text" name="mobile_no" class="form-control" id="mobile_no"
                                          required>
                                 </div>
-                                <div class="form-group">
+                                <div class="form-group col-md-6">
                                     <label for="password">{{ __('routes.Password') }}</label>
                                     <input type="password" class="form-control" name="password" id="password"
                                          required>
                                 </div>
+                                <div class="form-group col-md-6 mb-3">
+									<label for="formFile" class="form-label">{{ __('routes.Photo') }}</label>
+                                    <input type="file" name="photo" class="form-control" id="photo"
+                                        required>
+								</div>
+                                
                                 <div class="form-group col-md-12">
                                     <label for="multiple-select-field" class="form-label">{{ __('routes.Role') }}</label>
                                     <select class="form-select" id="multiple-select-field" 

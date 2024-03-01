@@ -321,6 +321,7 @@ return [
     "Your leave request has been rejected"=>"Your leave request has been rejected",
 
     "Calendar"=>"Calendar",
-    "Event Title"=>"Event Title"
+    "Event Title"=>"Event Title",
+    "Photo"=>"Photo"
 
 ];
