@@ -1,78 +1,52 @@
-<!doctype html>
-<html lang="en">
+@extends('layout.pdf')
 
-<head>
-
-
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!--favicon-->
-    <link rel="icon" href="{{ asset('assets/images/thrs.jpg') }}" type="image/png" />
-    <!--plugins-->
-    <link href="{{ asset('assets/plugins/vectormap/jquery-jvectormap-2.0.2.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
-    <link href="{{ asset('assets/plugins/metismenu/css/metisMenu.min.css') }}" rel="stylesheet" />
-    <!-- loader-->
-    <link href="{{ asset('assets/css/pace.min.css') }}" rel="stylesheet" />
-    <script src="{{ asset('assets/js/pace.min.js') }}"></script>
-    <!-- Bootstrap CSS -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/bootstrap-extended.css') }}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <link href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
-    <link href="{{ asset('assets/css/icons.css') }}" rel="stylesheet">
-    <!-- Theme Style CSS -->
-    <link rel="stylesheet" href="{{ asset('assets/css/dark-theme.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/semi-dark.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/header-colors.css') }}" />
-    <title>Attendence Report</title>
-
-    <style>
-        table {
-            font-family: arial, sans-serif;
-            border-collapse: collapse;
-            width: 100%;
-        }
-
-        td,
-        th {
-            border: 1px solid #dddddd;
-            text-align: left;
-            padding: 8px;
-        }
-
-        tr:nth-child(even) {
-            background-color: #dddddd;
-        }
-    </style>
-</head>
-
-<body>
+@section('content')
+    <!-- /.row -->
     <div class="page-content">
-        <div class="row">
-            <div class="col-12">
-                
-                  
-                    <!-- /.card-header -->
-                  
-                    <div class="card">
-                        <div class="card-header d-flex justify-content-between align-items-center">
-                            <h3 class="mb-0 text-uppercase ">Payroll Sheet( {{ $from }} -> {{ $to }})</h3>
-                            {{-- <a class=" btn btn-primary float-right" href="{{ route('company.payroll.payroll_pdf') }}">Print</a> --}}
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="">
+                        <div class="d-flex gap-3">
+                            <div class="">
+                                <img src="{{ asset('assets/images/thrs.jpg') }}" width="80" height="80" alt="">
+                            </div>
+                            <div class="row">
+                                <span class="fs-6 fw-bold">{{ Auth::guard('employee')->user()->company->name }}</span>
+                                <span
+                                    class="text-secondary fs-6 fw-normal">{{ Auth::guard('employee')->user()->company->email }}</span>
+                                <label class="text-secondary  fw-normal"
+                                    style="font-size: 12px">{{ Auth::guard('employee')->user()->mobile_no }}</label>
+                            </div>
                         </div>
-                        <div class="card-body">
-                            <div class="table-responsive">
+
+                    </div>
+                    <div class="">
+                        <h6>
+                            {{ __('routes.Payroll Sheet') }} 
+                        </h6>
+                        <h6>{{ __('routes.Date') }}: {{ $date}}</h6>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="">
+
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive ">
                                 <table id="example2" class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th >{{__('routes.Name')}}</th>
-                                            <th>Total Days</th>
-                                            <th>Working</th>
-                                            <th>Absent</th>
-                                            <th>Salary</th>
-                                            <th>Current Salary</th>
+                                            <th>{{ __('routes.Name') }}</th>
+                                            <th>{{ __('routes.Total Days') }}</th>
+                                            <th>{{ __('routes.Working') }}</th>
+                                            <th>{{ __('routes.Absent') }}</th>
+                                            <th>{{ __('routes.Salary') }}</th>
+                                            <th>{{ __('routes.Current Salary') }}</th>
                                             {{-- <th>Actions</th> --}}
                                         </tr>
                                     </thead>
@@ -84,7 +58,7 @@
                                                 <td>{{ $diff }}</td>
                                                 <td>{{ $employee->check_in }}</td>
                                                 <td>{{ $diff-$employee->check_in }}</td>
-                                                <td>{{$employee->details->salary??0  }}</td>
+                                                <td>{{$employee->details->salary??0 }}</td>
                                                 <td>{{$employee->current_salary }}</td>
                                                 {{-- <td class="d-flex ">
                                                     <div class="mx-2">
@@ -108,14 +82,15 @@
                                 </table>
                             </div>
                         </div>
-                    
-                        
+                    </div>
+
                     <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
+                
             </div>
+
+            
         </div>
     </div>
-</body>
-
-</html>
+@endsection

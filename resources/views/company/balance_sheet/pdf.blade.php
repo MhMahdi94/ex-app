@@ -1,199 +1,92 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout.pdf')
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+@section('content')
+    <!-- /.row -->
+    <div class="page-content">
+        <div class="card">
+            <div class="card-header">
+                <div class="d-flex justify-content-between align-items-start">
+                    <div class="">
+                        <div class="d-flex gap-3">
+                            <div class="">
+                                <img src="{{ asset('assets/images/thrs.jpg') }}" width="80" height="80" alt="">
+                            </div>
+                            <div class="row">
+                                <span class="fs-6 fw-bold">{{ Auth::guard('employee')->user()->company->name }}</span>
+                                <span
+                                    class="text-secondary fs-6 fw-normal">{{ Auth::guard('employee')->user()->company->email }}</span>
+                                <label class="text-secondary  fw-normal"
+                                    style="font-size: 12px">{{ Auth::guard('employee')->user()->mobile_no }}</label>
+                            </div>
+                        </div>
 
-    <title></title>
+                    </div>
+                    <div class="">
+                        <h6>
+                            {{ __('routes.Balance Sheet') }} 
+                        </h6>
+                        <h6>{{ __('routes.Date') }}: {{ $date}}</h6>
+                    </div>
 
-    <!-- Favicon -->
-    <link rel="icon" href="./images/favicon.png" type="image/x-icon" />
+                </div>
+            </div>
 
-    <!-- Invoice styling -->
-    <style>
-        body {
-            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-            text-align: center;
-            color: #777;
-        }
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="">
 
-        body h1 {
-            font-weight: 300;
-            margin-bottom: 0px;
-            padding-bottom: 0px;
-            color: #000;
-        }
+                            <!-- /.card-header -->
+                            <div class="card-body table-responsive ">
+                                <table id="example2" class="table table-striped table-bordered">
+                                    <thead>
+                                        <tr>
+                                            {{-- <th>{{ __('routes.Date') }}</th> --}}
+                                            <th>{{ __('routes.Account No') }}</th>
+                                            <th>{{ __('routes.Account Name') }}</th>
+    
+                                            <th>{{ __('routes.Debit') }}</th>
+                                            <th>{{ __('routes.Credit') }}</th>
+                                            {{-- <th>{{ __('routes.Description') }}</th>
+                                            <th>{{ __('routes.Operation') }}</th> --}}
+                                            {{-- <th>Actions</th> --}}
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+    
+                                        @foreach ($accounts as $item)
+                                                <tr>
+                                                    <td>{{ $item->account->account_no??'' }}</td>
+                                                    <td>{{ $item->account->account_name??'' }}</td>
+                                                    <td>{{ $item->total_debit??''}}</td>
+                                                    <td>{{$item->total_credit??'' }}</td>
+                                                </tr>
+                                            @endforeach
+                                    </tbody>
+    
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
-        body h3 {
-            font-weight: 300;
-            margin-top: 10px;
-            margin-bottom: 20px;
-            font-style: italic;
-            color: #555;
-        }
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+                <div class="card-footer row">
+                    <div class="col">
+                        {{ __('routes.Total Debit') }}: {{ $total_debit }}
+                    </div>
+                    <div class="col">
+                        {{ __('routes.Total Credit') }}: {{ $total_credit }}
+                    </div>
+                    <div class="col">
+                        {{ __('routes.Balance') }}: {{ $diff }}
+                    </div>
+                </div>
+            </div>
 
-        body a {
-            color: #06f;
-        }
-
-        .invoice-box {
-            /* max-width: 800px; */
-            width: 500px;
-            margin: auto;
-            padding: 30px;
-            border: 1px solid #eee;
-            /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
-            font-size: 16px;
-            line-height: 24px;
-            font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
-            color: #555;
-        }
-
-        .invoice-box table {
-            width: 100%;
-            line-height: inherit;
-            text-align: left;
-            border-collapse: collapse;
-        }
-
-        .invoice-box table td {
-            padding: 5px;
-            vertical-align: top;
-        }
-
-        .invoice-box table tr td:nth-child(2) {
-            text-align: center;
-        }
-
-        .invoice-box table tr.top table td {
-            padding-bottom: 20px;
-        }
-
-        .invoice-box table tr.top table td.title {
-            font-size: 45px;
-            line-height: 45px;
-            color: #333;
-        }
-
-        .invoice-box table tr.information table td {
-            padding-bottom: 40px;
-        }
-
-        .invoice-box table tr.heading td {
-            background: #eee;
-            border-bottom: 1px solid #ddd;
-            font-weight: bold;
-        }
-
-        .invoice-box table tr.details td {
-            padding-bottom: 20px;
-        }
-
-        .invoice-box table tr.item td {
-            border-bottom: 1px solid #eee;
-        }
-
-        .invoice-box table tr.item.last td {
-            border-bottom: none;
-        }
-
-        .invoice-box table tr.total td:nth-child(2) {
-            border-top: 2px solid #eee;
-            font-weight: bold;
-        }
-
-        .table-bordered th,
-        .table-bordered td {
-            border: 1px solid;
-        }
-
-        @media only screen and (max-width: 600px) {
-            .invoice-box table tr.top table td {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-
-            .invoice-box table tr.information table td {
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-        }
-
-        /** RTL **/
-        .rtl {
-            direction: rtl;
-            font-family: 'almarai', sans-serif;
-        }
-
-        .rtl table {
-            text-align: right;
-        }
-
-        .rtl table tr td {
-            text-align: right;
-        }
-    </style>
-</head>
-
-<body>
-
-    <div class="invoice-box {{ app()->getLocale() == 'en' ? '' : 'rtl' }}">
-        <table>
-            <tr class="top">
-                <td colspan="2">
-                    <table>
-                        <tr>
-                            <td class="title">
-                                <img src="{{ asset('assets/images/thrs.jpg') }}" alt="Company logo"
-                                    style="width: 100px; max-width: 100px" />
-                            </td>
-
-                            <td>
-                                {{ __('routes.Balance Sheet') }}
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-
-
-
-            {{-- <thead> --}}
-            <tr>
-                <th>{{ __('routes.Account No') }}</th>
-                <th>{{ __('routes.Account Name') }}</th>
-
-                <th>{{ __('routes.Debit') }}</th>
-                <th>{{ __('routes.Credit') }}</th>
-            </tr>
-            {{-- </thead> --}}
-            <tbody>
-                @foreach ($accounts as $item)
-                    <tr class="item">
-                        <td>{{ $item->account->account_no??'' }}</td>
-                        <td>{{ $item->account->account_name??'' }}</td>
-                        <td>{{ $item->total_debit??'' }}</td>
-                        <td>{{ $item->total_credit??'' }}</td>
-
-                    </tr>
-                @endforeach
-            </tbody>
-        
             
-        </table>
-        <hr>
-        <table>
-            <tr>
-                <td>{{ __('routes.Total Debit') }}: {{ $total_debit }}</td>
-                <td> {{ __('routes.Total Credit') }}: {{ $total_credit }}</td>
-                <td>{{ __('routes.Balance') }}: {{ $diff }}</td>
-            </tr>
-        </table>
-
+        </div>
     </div>
-</body>
-
-</html>
+@endsection

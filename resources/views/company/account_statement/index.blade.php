@@ -33,7 +33,7 @@
                                 {{-- {{ $accounts }} --}}
                                 <select name="account_id" id="" class="form-control select2" required>
                                     @foreach ($accounts as $account)
-                                      <option value="{{ $account->id }}">{{ $account->account_name }}</option>
+                                      <option value="{{ $account->account_no }}">{{ $account->account_name }}</option>
                                       
                                     @endforeach
                                   </select>
@@ -48,7 +48,7 @@
                     <div class="card">
                         <div class="card-header d-flex justify-content-between align-items-center">
                             <h6 class="mb-0 text-uppercase ">{{ __('routes.Account Statement') }}</h6>
-                            {{$id }}
+                            {{-- {{$id }} --}}
                             <a class=" btn btn-dark float-right" href="{{ route('company.account-statement.report_pdf',$id) }}" target="_Blank">{{ __('routes.Print') }}</a>
                         </div>
                         <div class="card-body">

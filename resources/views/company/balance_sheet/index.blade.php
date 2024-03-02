@@ -41,6 +41,7 @@
                                         {{-- <th>Actions</th> --}}
                                     </tr>
                                 </thead>
+                                
                                 <tbody>
 
                                     @foreach ($accounts as $item)

@@ -49,6 +49,7 @@ class ProfitLossController extends Controller
             ; 
         $total_revenues=Revenue::where('company_id',$user->company_id)->sum('amount');
         $total_expenses=Expenses::where('company_id',$user->company_id)->sum('amount');
+        $date = date('m/d/Y');
         // $accounts = AccountLog::whereNotIn('account_id', [4, 5])->groupBy('account_id')
         //     ->with('account')
         //     ->selectRaw('account_id,sum(debit) as total_debit, sum(credit) as total_credit')
@@ -64,7 +65,7 @@ class ProfitLossController extends Controller
         //     'total_credit'=>$total_credit,
         //     'diff'=>$diff,
         // ]; 
-        return view('company.profit_loss.pdf', compact('revenues','expenses','total_revenues','total_expenses'));
+        return view('company.profit_loss.pdf', compact('revenues','expenses','total_revenues','total_expenses','date'));
        
     }
 

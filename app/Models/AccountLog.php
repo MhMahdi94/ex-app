@@ -11,6 +11,7 @@ class AccountLog extends Model
     protected $fillable=[
         'date',
         'account_id',
+        'account_report',
         'desc',
         'debit',
         'credit',
@@ -19,7 +20,7 @@ class AccountLog extends Model
     ];
 
     public function account(){
-        return $this->belongsTo(Accounts::class,'account_id');
+        return $this->belongsTo(Accounts::class,'account_id','account_no');
     }
 
     public function operationName(){

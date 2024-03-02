@@ -44,6 +44,7 @@ class BalanceSheetController extends Controller
             'total_debit'=>$total_debit,
             'total_credit'=>$total_credit,
             'diff'=>$diff,
+            
         ]; 
         return view('company.balance_sheet.pdf', $data);
        

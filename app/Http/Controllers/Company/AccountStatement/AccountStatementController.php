@@ -28,8 +28,9 @@ class AccountStatementController extends Controller
          $user=Auth::guard('employee')->user();
          $accounts=Accounts::where('company_id',$user->company_id)->get();
          $log=AccountLog::where('account_id',$request->account_id)->get();
+       //  return [$request->all(), $accounts, $log];
     //    // return [$employees, $diff];
-    $id=$request->account_id;
+            $id=$request->account_id;
          return view('company.account_statement.index',compact('accounts','log','id'));
     }
     public function generatePDF(String $id)
@@ -38,12 +39,15 @@ class AccountStatementController extends Controller
         $user=Auth::guard('employee')->user();
         $accounts=Accounts::where('company_id',$user->company_id)->get();
         $log=AccountLog::where('account_id',$id)->get();
-  
+        $total_debit=AccountLog::where('account_id',$id)->sum('debit');
+        $total_credit=AccountLog::where('account_id',$id)->sum('credit');
         $data = [
             'title' => __('routes.Account Statement'),
             'date' => date('m/d/Y'),
             'accounts' => $accounts,
-            'log'=>$log
+            'log'=>$log,
+            'total_debit'=>$total_debit,
+            'total_credit'=>$total_credit
         ]; 
         return view('company.account_statement.pdf', $data);
        

@@ -33,7 +33,7 @@ class JournalsController extends Controller
         $data=[];
         $date=Carbon::now()->toDateString();
         $count=JournalHeader::count();
-        $accounts=Accounts::where('company_id',Auth::guard('employee')->user()->id)->get();
+        $accounts=Accounts::where('company_id',Auth::guard('employee')->user()->company_id)->get();
         return view('company.journals.create', compact('data','date','count','accounts'));
     }
 
