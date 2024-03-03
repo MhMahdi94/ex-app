@@ -5,6 +5,7 @@ use App\Http\Controllers\Business\Auth\LoginController;
 use App\Http\Controllers\Business\Category\CategoryController;
 use App\Http\Controllers\Business\Client\ClientController;
 use App\Http\Controllers\Business\Home\HomeController;
+use App\Http\Controllers\Business\Invoice\InvoiceController;
 use App\Http\Controllers\Business\Orders\OrdersController;
 use App\Http\Controllers\Business\Product\ProductController;
 use App\Http\Controllers\Business\Services\ServicesController;
@@ -107,6 +108,19 @@ Route::group([
            Route::delete('/delete/{id}',[ServicesController::class, 'destroy'])->name('services_destroy');
            Route::get('/details/{id}',[ServicesController::class, 'details'])->name('services_details');
          });
+
+         //invoices
+        Route::group(['prefix' => '/invoices',
+        'as' => 'invoices.',],function ()  {
+          Route::get('/',[InvoiceController::class, 'index'])->name('invoices_index');
+          Route::get('/create',[InvoiceController::class, 'create'])->name('invoices_create');
+          Route::post('/store',[InvoiceController::class, 'store'])->name('invoices_store');
+          Route::get('/edit/{id}',[InvoiceController::class, 'edit'])->name('invoices_edit');
+          Route::get('/pdf/{id}',[InvoiceController::class, 'pdf'])->name('invoices_pdf');
+          Route::put('/update/{id}',[InvoiceController::class, 'update'])->name('invoices_update');
+          Route::delete('/delete/{id}',[InvoiceController::class, 'destroy'])->name('invoices_destroy');
+          Route::get('/details/{id}',[InvoiceController::class, 'details'])->name('invoices_details');
+        });
       
   });
 

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Business\Client;
 use App\Http\Controllers\Controller;
 use App\Models\PosClient;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ClientController extends Controller
 {
@@ -39,6 +40,7 @@ class ClientController extends Controller
             'mobile_no'=>$request->mobile_no,
             'email'=>$request->email,
             'address'=>$request->address,
+            'company_id'=>Auth::guard('business')->user()->business_id
         ]);
         return redirect()->back() ;
     }

@@ -43,24 +43,6 @@
             </a>
         </li>
         <li class="nav-item">
-            <a href="{{ route('business.products.products_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
-
-                <p>
-                    {{ __('routes.Products Managment') }}
-
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
-            <a href="{{ route('business.services.services_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
-
-                <p>
-                    {{ __('routes.Services Managment') }}
-
-                </p>
-            </a>
-        </li>
-        <li class="nav-item">
             <a href="{{ route('business.clients.clients_index') }}" class="nav-link {{ request()->is('thrs/admin/packages') ? 'active' : '' }}">
 
                 <p>
@@ -69,15 +51,50 @@
                 </p>
             </a>
         </li>
-        <li class="nav-item">
-            <a href="{{ route('business.orders.orders_index') }}" class="nav-link">
+        @if (Auth::guard('business')->user()->company->business_type == 1 || Auth::guard('business')->user()->company->business_type == 3)
+            <li class="nav-item">
+                <a href="{{ route('business.products.products_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
 
-                <p>
-                    {{ __('routes.Orders Managment') }}
+                    <p>
+                        {{ __('routes.Products Managment') }}
 
-                </p>
-            </a>
-        </li>
+                    </p>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ route('business.orders.orders_index') }}" class="nav-link">
+    
+                    <p>
+                        {{ __('routes.Orders Managment') }}
+    
+                    </p>
+                </a>
+            </li>
+        @endif
+        @if (Auth::guard('business')->user()->company->business_type == 2 || Auth::guard('business')->user()->company->business_type == 3)
+            <li class="nav-item">
+                <a href="{{ route('business.services.services_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+
+                    <p>
+                        {{ __('routes.Services Managment') }}
+
+                    </p>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a href="{{ route('business.invoices.invoices_index') }}" class="nav-link {{ request()->is('thrs/admin/admins') ? 'active' : '' }}">
+
+                    <p>
+                        {{ __('routes.Invoice Management') }}
+
+                    </p>
+                </a>
+            </li>
+        @endif
+        
+       
+        
        
     </ul>
     <!--end navigation-->

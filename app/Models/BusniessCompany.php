@@ -14,6 +14,7 @@ class BusniessCompany extends Model
         'mobile_no',
         'desc',
         'isActive',
+        'business_type',
         'subscriptionStart',
         'subscriptionEnd'
     ];

@@ -54,6 +54,15 @@ Company Page
                           <label for="description">{{ __('routes.Description') }}</label>
                           <textarea class="form-control" id="description"  name='description' required></textarea>
                         </div>
+                        <div class="form-group mb-2">
+                          <label for="business_type">{{ __('routes.Business') }}</label>
+                          <select name="business_type" id="business_type" class="form-control select2">
+                            @foreach ($business_types as $business_type)
+                              <option value="{{ $business_type->id }}">{{ $business_type->name }}</option>
+                            @endforeach
+                          </select>
+                        </div>
+                          
                     </div>
                     <!-- /.card-body -->
     

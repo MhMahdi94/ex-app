@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Business;
 
 use App\Http\Controllers\Controller;
+use App\Models\BusinessType;
 use App\Models\BusniessCompany;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,8 @@ class BusinessController extends Controller
     public function create()
     {
         //
-        return view('admin.business_companies.create');
+        $business_types=BusinessType::get();
+        return view('admin.business_companies.create', compact('business_types'));
     }
 
     /**
@@ -33,10 +35,12 @@ class BusinessController extends Controller
     public function store(Request $request)
     {
         //
+        //  return $request->all();
         BusniessCompany::create([
             'name'=>$request->name,
             'email'=>$request->email,
             'mobile_no'=>$request->mobile_no,
+            'business_type'=>$request->business_type,
             'subscriptionStart'=>$request->subscriptionStart,
             'subscriptionEnd'=>$request->subscriptionEnd,
             'is_owner'=>1,

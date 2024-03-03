@@ -321,6 +321,13 @@ return [
     "Calendar"=>"التقويم",
     "Event Title"=>"العنوان",
 
-    "Photo"=>"الصورة"
+    "Photo"=>"الصورة",
+    "Service"=>"خدمة",
+    "Invoice Management"=>"ادارة الفواتير",
+    "Add Invoice"=>"انشاء فاتورة",
+    
+    "Edit Invoice"=>"تعديل فاتورة",
+    "INVOICE TO:"=>"فاتورة الى:",
+    "INVOICE NO:"=>"رقم الفاتورة:"
     
 ];

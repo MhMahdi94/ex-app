@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('email');
             $table->string('mobile_no');
             $table->string('desc');
+            $table->integer('business_type');
             $table->boolean('isActive')->default(false);
             $table->dateTime('subscriptionStart');
             $table->dateTime('subscriptionEnd');

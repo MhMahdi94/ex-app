@@ -13,6 +13,7 @@ class PosClient extends Model
         'name',
         'mobile_no',
         'email',
-        'address'
+        'address',
+        'company_id'
     ];
 }

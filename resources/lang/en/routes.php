@@ -322,6 +322,14 @@ return [
 
     "Calendar"=>"Calendar",
     "Event Title"=>"Event Title",
-    "Photo"=>"Photo"
+    "Photo"=>"Photo",
+
+    "Service"=>"Service",
+    "Invoice Management"=>"Invoice Management",
+    "Add Invoice"=>"Add Invoice",
+    "Edit Invoice"=>"Edit Invoice",
+    "INVOICE TO:"=>"INVOICE TO:",
+    "INVOICE NO:"=>"INVOICE No:"
+    //"Product"=>"Product"
 
 ];
