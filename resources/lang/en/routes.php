@@ -329,7 +329,8 @@ return [
     "Add Invoice"=>"Add Invoice",
     "Edit Invoice"=>"Edit Invoice",
     "INVOICE TO:"=>"INVOICE TO:",
-    "INVOICE NO:"=>"INVOICE No:"
-    //"Product"=>"Product"
+    "INVOICE NO:"=>"INVOICE No:",
+    "Search For"=>"Search for",
+    "Mobile no or email"=>"Mobile no or email"
 
 ];

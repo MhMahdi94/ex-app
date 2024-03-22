@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 use Yoeunes\Toastr\Facades\Toastr;
 
+use function PHPUnit\Framework\isEmpty;
+
 class AdminsController extends Controller
 {
     //
@@ -17,15 +19,24 @@ class AdminsController extends Controller
      * Display a listing of the resource.
      */
     
-    public function index()
+    public function index(Request $request)
     {
         //
+       
         $data=Admin::get();
         $user = Admin::find(Auth::guard('admin')->user()->id);
        // dd($user->hasPermissionTo('create-admin'));
         return view('admin.admins.index',compact('data','user'));
     }
-
+    public function search(Request $request)
+    {
+        //
+        $data=Admin::where('email','LIKE',$request['query'])->orWhere('mobile_no','LIKE',$request['query'])-> get();
+      
+        $user = Admin::find(Auth::guard('admin')->user()->id);
+       // dd($user->hasPermissionTo('create-admin'));
+        return view('admin.admins.index',compact('data','user'));
+    }
     /**
      * Show the form for creating a new resource.
      */

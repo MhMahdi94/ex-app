@@ -14,104 +14,12 @@ Admins Page
 @section('content')
     <!-- /.row -->
     <div class="page-content">
-        <!-- search modal -->
-        <div class="modal" id="SearchModal" tabindex="-1">
-            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
-                <div class="modal-content">
-                    <div class="modal-header gap-2">
-                        <div class="position-relative popup-search w-100">
-                            <input class="form-control form-control-lg ps-5 border border-3 border-primary" type="search"
-                                placeholder="Search">
-                            <span
-                                class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-4"><i
-                                    class='bx bx-search'></i></span>
-                        </div>
-                        <button type="button" class="btn-close d-md-none" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="search-list">
-                            <p class="mb-1">Html Templates</p>
-                            <div class="list-group">
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action active align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-angular fs-4'></i>Best Html Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-vuejs fs-4'></i>Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-magento fs-4'></i>Responsive Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-shopify fs-4'></i>eCommerce Html Templates</a>
-                            </div>
-                            <p class="mb-1 mt-3">Web Designe Company</p>
-                            <div class="list-group">
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-windows fs-4'></i>Best Html Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-dropbox fs-4'></i>Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-opera fs-4'></i>Responsive Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-wordpress fs-4'></i>eCommerce Html Templates</a>
-                            </div>
-                            <p class="mb-1 mt-3">Software Development</p>
-                            <div class="list-group">
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-mailchimp fs-4'></i>Best Html Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-zoom fs-4'></i>Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-sass fs-4'></i>Responsive Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-vk fs-4'></i>eCommerce Html Templates</a>
-                            </div>
-                            <p class="mb-1 mt-3">Online Shoping Portals</p>
-                            <div class="list-group">
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-slack fs-4'></i>Best Html Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-skype fs-4'></i>Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-twitter fs-4'></i>Responsive Html5 Templates</a>
-                                <a href="javascript:;"
-                                    class="list-group-item list-group-item-action align-items-center d-flex gap-2 py-1"><i
-                                        class='bx bxl-vimeo fs-4'></i>eCommerce Html Templates</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- end search modal -->
-        <hr />
+        <div class="card">
+
         <div class="card">
             <div class="card-header d-flex justify-content-between align-items-center">
 
                 <h6 class="mb-0 text-uppercase ">{{ __('routes.Admins List') }}</h6>
-                <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
-                    data-bs-target="#SearchModal">
-                    <input class="form-control px-5" disabled type="search" placeholder="Search">
-                    <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i
-                            class='bx bx-search'></i></span>
-                </div>
-
-
-
-
                 {{-- {{ dd($user->can('create-admin')) }} --}}
                 <div class="d-flex ustify-content-between align-items-center" width='200'>
                     @if ($user->can('create-admin'))
@@ -121,6 +29,26 @@ Admins Page
 
                 </div>
             </div>
+            <div class="card-body">
+                <form method="POST" action="{{ route('admin.admins.admins_search') }}" class='needs-validation'
+                    novalidate>
+                    @csrf
+                    <div class="card-body row g-2">
+                        <div class="form-group col-md-12 ">
+                            <label for="query" class="mb-2">{{ __('routes.Search For') }}</label>
+                            <input type="text" name="query" class="form-control" id="query"  required placeholder="{{__('routes.Mobile no or email')  }}">
+                        </div>
+                        <!-- /.card-body -->
+
+                        <div class="card-footer">
+                            {{-- @if (Auth::guard('employee')->user()->can('search-attendence')) --}}
+                                <button type="submit" class="btn btn-secondary">{{ __('routes.Search') }}</button>
+                            {{-- @endif --}}
+                            
+                        </div>
+                </form>
+            </div>
+            <hr class="mb-2"/>
             <div class="card-body">
                 <div class="table-responsive">
                     <table id="example2" class="table table-striped table-bordered">

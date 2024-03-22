@@ -43,6 +43,7 @@ Route::group([
        Route::group(['prefix' => '/admins',
        'as' => 'admins.',],function ()  {
          Route::get('/',[AdminsController::class, 'index'])->name('admins_index');
+         Route::post('/search',[AdminsController::class, 'search'])->name('admins_search');
          Route::get('/create',[AdminsController::class, 'create'])->name('admins_create');
          Route::post('/store',[AdminsController::class, 'store'])->name('admins_store');
          Route::get('/edit/{id}',[AdminsController::class, 'edit'])->name('admins_edit');

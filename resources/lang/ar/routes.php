@@ -328,6 +328,8 @@ return [
     
     "Edit Invoice"=>"تعديل فاتورة",
     "INVOICE TO:"=>"فاتورة الى:",
-    "INVOICE NO:"=>"رقم الفاتورة:"
+    "INVOICE NO:"=>"رقم الفاتورة:",
+    "Search For"=>"ابحث عن",
+    "Mobile no or email"=>"رقم الموبايل او الايميل "
     
 ];
