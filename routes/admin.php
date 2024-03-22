@@ -54,6 +54,7 @@ Route::group([
       Route::group(['prefix' => '/companies',
       'as' => 'companies.',],function ()  {
         Route::get('/',[CompanyController::class, 'index'])->name('companies_index');
+        Route::post('/search',[CompanyController::class, 'search'])->name('companies_search');
         Route::get('/create',[CompanyController::class, 'create'])->name('companies_create');
         Route::post('/store',[CompanyController::class, 'store'])->name('companies_store');
         Route::get('/edit/{id}',[CompanyController::class, 'edit'])->name('companies_edit');
@@ -64,6 +65,7 @@ Route::group([
       Route::group(['prefix' => '/owners',
       'as' => 'owners.',],function ()  {
         Route::get('/',[OwnerController::class, 'index'])->name('owners_index');
+        Route::post('/search',[OwnerController::class, 'search'])->name('owners_search');
         Route::get('/create',[OwnerController::class, 'create'])->name('owners_create');
         Route::post('/store',[OwnerController::class, 'store'])->name('owners_store');
         Route::get('/edit/{id}',[OwnerController::class, 'edit'])->name('owners_edit');
@@ -84,6 +86,7 @@ Route::group([
       Route::group(['prefix' => '/business',
       'as' => 'business.',],function ()  {
         Route::get('/',[BusinessController::class, 'index'])->name('business_index');
+        Route::post('/search',[BusinessController::class, 'search'])->name('business_search');
         Route::get('/create',[BusinessController::class, 'create'])->name('business_create');
         Route::post('/store',[BusinessController::class, 'store'])->name('business_store');
         Route::get('/edit/{id}',[BusinessController::class, 'edit'])->name('business_edit');
@@ -94,6 +97,7 @@ Route::group([
       Route::group(['prefix' => '/business_owner',
       'as' => 'business_owner.',],function ()  {
         Route::get('/',[BusinessOwnerController::class, 'index'])->name('business_owner_index');
+        Route::post('/search',[BusinessOwnerController::class, 'search'])->name('business_owner_search');
         Route::get('/create',[BusinessOwnerController::class, 'create'])->name('business_owner_create');
         Route::post('/store',[BusinessOwnerController::class, 'store'])->name('business_owner_store');
         Route::get('/edit/{id}',[BusinessOwnerController::class, 'edit'])->name('business_owner_edit');

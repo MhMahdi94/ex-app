@@ -19,7 +19,15 @@ class CompanyController extends Controller
         $data = Company::get();
         return view('admin.companies.index', compact('data'));
     }
-
+    public function search(Request $request)
+    {
+        //
+        $data=Company::where('email','LIKE',$request['query'])-> get();
+      
+        
+       // dd($user->hasPermissionTo('create-admin'));
+        return view('admin.companies.index',compact('data'));
+    }
     /**
      * Show the form for creating a new resource.
      */

@@ -19,10 +19,7 @@ Companies Page
     <div class="card-header d-flex justify-content-between align-items-center">
      
         <h6 class="mb-0 text-uppercase ">{{ __('routes.Business List') }}</h6>
-        <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal" data-bs-target="#SearchModal">
-          <input class="form-control px-5" disabled type="search" placeholder="Search">
-          <span class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i class='bx bx-search'></i></span>
-          </div>
+        
       
      
 
@@ -35,6 +32,26 @@ Companies Page
         </div>
           
     </div>
+    <div class="card-body">
+      <form method="POST" action="{{ route('admin.business.business_search') }}" class='needs-validation'
+          novalidate>
+          @csrf
+          <div class="card-body row g-2">
+              <div class="form-group col-md-12 ">
+                  <label for="query" class="mb-2">{{ __('routes.Search For') }}</label>
+                  <input type="text" name="query" class="form-control" id="query"  required placeholder="{{__('routes.Mobile no or email')  }}">
+              </div>
+              <!-- /.card-body -->
+
+              <div class="card-footer">
+                  {{-- @if (Auth::guard('employee')->user()->can('search-attendence')) --}}
+                      <button type="submit" class="btn btn-secondary">{{ __('routes.Search') }}</button>
+                  {{-- @endif --}}
+                  
+              </div>
+      </form>
+  </div>
+  <hr class="mb-2"/>
     <div class="card-body">
       <div class="table-responsive">
         <table id="example2" class="table table-striped table-bordered">

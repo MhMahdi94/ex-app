@@ -21,20 +21,10 @@
                     <div class="card-header d-flex justify-content-between align-items-center">
 
                         <h6 class="mb-0 text-uppercase ">{{ __('routes.Roles List') }}</h6>
-                        <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
-                            data-bs-target="#SearchModal">
-                            <input class="form-control px-5" disabled type="search" placeholder="Search">
-                            <span
-                                class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i
-                                    class='bx bx-search'></i></span>
-                        </div>
-
-
-
-
 
                         <div class="d-flex ustify-content-between align-items-center" width='200'>
-                            <a class=" btn btn-primary float-right" href="{{ route('admin.roles.roles_create') }}">{{ __('routes.Add Role') }}</a>
+                            <a class=" btn btn-primary float-right"
+                                href="{{ route('admin.roles.roles_create') }}">{{ __('routes.Add Role') }}</a>
                         </div>
 
                     </div>
@@ -57,18 +47,19 @@
                                             <td>{{ $role->name }}</td>
                                             <td class="d-flex ">
                                                 <div class="mx-2">
-                                                    @if(Auth::guard('admin')->user()->can('edit-role'))
+                                                    @if (Auth::guard('admin')->user()->can('edit-role'))
                                                         <a class="btn btn-warning px-4"
                                                             href="{{ route('admin.roles.roles_edit', $role->id) }}">{{ __('routes.Edit') }}</a>
                                                     @endif
                                                 </div>
                                                 <div class="">
-                                                    @if(Auth::guard('admin')->user()->can('delete-role'))
+                                                    @if (Auth::guard('admin')->user()->can('delete-role'))
                                                         <meta name="csrf-token" content="{{ csrf_token() }}">
                                                         <form method="post" class="delete-form"
                                                             data-route="{{ route('admin.roles.roles_destroy', $role->id) }}">
                                                             @method('delete')
-                                                            <button type="submit" class="btn btn-danger px-4 ">{{ __('routes.Delete') }}</button>
+                                                            <button type="submit"
+                                                                class="btn btn-danger px-4 ">{{ __('routes.Delete') }}</button>
                                                         </form>
                                                     @endif
                                                 </div>
@@ -138,7 +129,7 @@
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#d33",
-                    cancelButtonText:"{{ __('routes.Cancel') }}",
+                    cancelButtonText: "{{ __('routes.Cancel') }}",
                     confirmButtonText: "{{ __('routes.Yes, delete it!') }}"
                 }).then((result) => {
 
@@ -155,8 +146,8 @@
                             success: function(response, textStatus, xhr) {
                                 Swal.fire({
                                     title: "{{ __('routes.Deleted!') }}",
-            text: "{{ __('routes.Has been Successfully deleted.') }}",
-            icon: "success"
+                                    text: "{{ __('routes.Has been Successfully deleted.') }}",
+                                    icon: "success"
                                 });
                                 setTimeout(function() {
                                     //your code to be executed after 1 second

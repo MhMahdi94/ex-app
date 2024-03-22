@@ -18,7 +18,18 @@ class BusinessController extends Controller
         $data=BusniessCompany::get();
         return view('admin.business_companies.index', compact('data'));
     }
-
+    public function search(Request $request)
+    {
+        //
+        $data=BusniessCompany::
+        where('email','LIKE',$request['query'])
+        ->orWhere('mobile_no','LIKE', $request['query'])
+        -> get();
+      
+        
+       // dd($user->hasPermissionTo('create-admin'));
+        return view('admin.business_companies.index',compact('data'));
+    }
     /**
      * Show the form for creating a new resource.
      */
