@@ -67,24 +67,13 @@ class LandingController extends Controller
         //
       //  return $request->all();
        
-        $feature= Feature::first();
-        if($feature){
-            $feature->title=['en'=>$request->title_english, 'ar'=>$request->title_arabic];
-           
-            $feature->desc=['en'=>$request->desc_english, 'ar'=>$request->desc_arabic];
-            
-            //$feature->banner_bg=$fileName;
-            $feature->save();
-        }
-        else{
-            Feature::create([
-                'title'=>['en'=>$request->title_english, 'ar'=>$request->title_arabic],
-            
-            'desc'=>['en'=>$request->desc_english, 'ar'=>$request->desc_arabic],
-            
-            
-            ]);
-        }
+      Feature::create([
+        'title'=>['en'=>$request->title_english, 'ar'=>$request->title_arabic],
+    
+    'desc'=>['en'=>$request->desc_english, 'ar'=>$request->desc_arabic],
+    
+    
+    ]);
          return redirect()->back();
     }
     public function edit_feature(String $id)

@@ -110,10 +110,10 @@
   </header><!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center" style="background: url('../../uploads/{{ $banner->banner_bg }}') top left">
-    <div class="container" data-aos="zoom-out" data-aos-delay="100">
-      <h1>{{ $banner->banner_title }}</h1>
-      <h2>{{ $banner->banner_desc }}</h2>
+  <section id="hero" class="d-flex align-items-center" style="background: url('../../uploads/{{ $banner->banner_bg }}') ; object-fit: cover">
+    <div class="container" data-aos="zoom-in" data-aos-delay="100">
+      <h1 class="text-gray-600">{{ $banner->banner_title }}</h1>
+      <span class="text-2xl">{{ $banner->banner_desc }}</span>
       {{-- <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -144,7 +144,6 @@
           @endforeach
          
 
-          =
         </div>
 
       </div>
