@@ -33,6 +33,19 @@ class EmployeeController extends Controller
         return view('company.employees.index', compact('data'));
     }
 
+    public function search(Request $request)
+    {
+        //
+        $q = Employees::query()->where('company_id', Auth::guard('employee')->user()->company_id)->with('employeeDetails');
+        $data= $q->where('email','LIKE',$request['query'])->orWhere('mobile_no','LIKE',$request['query'])->get();
+        foreach ($data as $item) {
+            # code...
+            $total_allowences = Allowence::where('employee_id', $item->id)->sum('allVal');
+            $item['total_allowences'] = $total_allowences;
+        }
+        return view('company.employees.index', compact('data'));
+    }
+
     /**
      * Show the form for creating a new resource.
      */

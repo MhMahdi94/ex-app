@@ -54,6 +54,7 @@ Route::group([
     'as' => 'employees.',
   ], function () {
     Route::get('/', [EmployeeController::class, 'index'])->name('employees_index');
+    Route::post('/search',[EmployeeController::class, 'search'])->name('employees_search');
     Route::get('/create', [EmployeeController::class, 'create'])->name('employees_create');
     Route::post('/store', [EmployeeController::class, 'store'])->name('employees_store');
     Route::get('/edit/{id}', [EmployeeController::class, 'edit'])->name('employees_edit');

@@ -21,13 +21,7 @@ Documents Page
            
         <div class="card-header d-flex justify-content-between align-items-center">
           <h6 class="mb-0 text-uppercase ">{{ __('routes.Documents List') }}</h6>
-          <div class="position-relative search-bar d-lg-block d-none" data-bs-toggle="modal"
-              data-bs-target="#SearchModal">
-              <input class="form-control px-5" disabled type="search" placeholder="Search">
-              <span
-                  class="position-absolute top-50 search-show ms-3 translate-middle-y start-0 top-50 fs-5"><i
-                      class='bx bx-search'></i></span>
-          </div>
+           
 
 
 
