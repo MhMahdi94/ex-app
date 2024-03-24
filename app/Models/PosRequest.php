@@ -9,7 +9,7 @@ class PosRequest extends Model
 {
     use HasFactory;
 
-    protected $fillable=['client_id','total_order'];
+    protected $fillable=['client_id','total_order','company_id'];
 
     public function client(){
         return $this->belongsTo(PosClient::class, 'client_id');

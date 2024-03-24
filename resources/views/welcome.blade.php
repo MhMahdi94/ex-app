@@ -2,31 +2,37 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>thrs</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <title>thrs</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <!-- Favicons -->
-  <link href="{{ asset('assets/images/thrs.jpg') }}" rel="icon">
-  <link href="{{ asset('assets/images/thrs.jpg') }}" rel="apple-touch-icon">
+    <!-- Favicons -->
+    <link href="{{ asset('assets/images/thrs.jpg') }}" rel="icon">
+    <link href="{{ asset('assets/images/thrs.jpg') }}" rel="apple-touch-icon">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-  <!-- Vendor CSS Files -->
-  <link href="{{ asset('asset/vendor/aos/aos.css') }}" rel="stylesheet">
-  <link href="{{ asset('asset/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('asset/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
-  <link href="{{ asset('asset/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('asset/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
-  <link href="{{ asset('asset/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Template Main CSS File -->
-  <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet">
+    <!-- Vendor CSS Files -->
+    <link href="{{ asset('asset/vendor/aos/aos.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
 
-  <!-- =======================================================
+    <!-- Template Main CSS File -->
+    <link href="{{ asset('asset/css/style.css') }}" rel="stylesheet">
+
+    <!-- =======================================================
   * Template Name: BizLand
   * Updated: Jan 29 2024 with Bootstrap v5.3.2
   * Template URL: https://bootstrapmade.com/bizland-bootstrap-business-template/
@@ -35,44 +41,46 @@
   ======================================================== -->
 </head>
 
-<body dir={{ app()->getLocale() == 'en' ? 'ltr' : 'rtl' }}>
+<body style="font-family: Cairo " dir={{ app()->getLocale() == 'en' ? 'ltr' : 'rtl' }}>
 
-  <!-- ======= Top Bar ======= -->
-  <section id="topbar" class="d-flex align-items-center">
-    <div class="container d-flex justify-content-center justify-content-md-between">
-      <div class="contact-info d-flex align-items-center">
-        <i class="bi bi-envelope d-flex align-items-center"><a href="mailto:contact@example.com">contact@example.com</a></i>
-        <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
-      </div>
-      {{-- <div class="social-links d-none d-md-flex align-items-center">
+    <!-- ======= Top Bar ======= -->
+    <section id="topbar" class="d-flex align-items-center">
+        <div class="container d-flex justify-content-center justify-content-md-between">
+            <div class="contact-info d-flex align-items-center">
+                <i class="bi bi-envelope d-flex align-items-center"><a
+                        href="mailto:contact@example.com">contact@example.com</a></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+            </div>
+            {{-- <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
         <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
       </div> --}}
-    </div>
-  </section>
+        </div>
+    </section>
 
-  <!-- ======= Header ======= -->
-  <header id="header" class="d-flex align-items-center">
-    <div class="container d-flex align-items-center justify-content-between">
+    <!-- ======= Header ======= -->
+    <header id="header" class="d-flex align-items-center">
+        <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">tHRS<span>.</span></a></h1>
-      <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="index.html" class="logo"><img src="asset/img/logo.png" alt=""></a>-->
+            <h1 class="logo"><a href="index.html">tHRS<span>.</span></a></h1>
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <!-- <a href="index.html" class="logo"><img src="asset/img/logo.png" alt=""></a>-->
 
-      <nav id="navbar" class="navbar">
-        <ul>
-          <li><a class="nav-link scrollto active" href="#hero">{{ __('routes.Home') }}</a></li>
-          <li><a class="nav-link scrollto" href="#featured-services">{{ __('routes.Features') }}</a></li>
-          <li><a class="nav-link scrollto" href="#services">{{ __('routes.Services') }}</a></li>
-          {{-- <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li> --}}
-          {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
-          <li><a class="nav-link scrollto" href="#contact">{{ __('routes.Contact') }}</a></li>
-          <li class="dropdown"><a href="#"><span>{{ __('routes.Sign In') }}</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="{{ route('admin.admin.show_login') }}">{{ __('routes.Admin') }}</a></li>
-              {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link scrollto active" href="#hero">{{ __('routes.Home') }}</a></li>
+                    <li><a class="nav-link scrollto" href="#featured-services">{{ __('routes.Features') }}</a></li>
+                    <li><a class="nav-link scrollto" href="#services">{{ __('routes.Services') }}</a></li>
+                    {{-- <li><a class="nav-link scrollto " href="#portfolio">Portfolio</a></li> --}}
+                    {{-- <li><a class="nav-link scrollto" href="#team">Team</a></li> --}}
+                    <li><a class="nav-link scrollto" href="#contact">{{ __('routes.Contact') }}</a></li>
+                    <li class="dropdown"><a href="#"><span>{{ __('routes.Sign In') }}</span> <i
+                                class="bi bi-chevron-down"></i></a>
+                        <ul>
+                            <li><a href="{{ route('admin.admin.show_login') }}">{{ __('routes.Admin') }}</a></li>
+                            {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
@@ -81,77 +89,80 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li> --}}
-              <li><a href="{{ route('company.company.show_login') }}">{{ __('routes.Company') }}</a></li>
-              <li><a href="{{ route('business.business.show_login') }}">{{ __('routes.Business') }}</a></li>
-            </ul>
-          </li>
-        </ul>
-        <div class="dropdown mx-4">
-          <a class="nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret "
-              href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              <span style="font-size: 14px"> {{ __('routes.Change Language') }} </span>
-          </a>
-          <ul class="dropdown-menu dropdown-menu-end">
-              @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                  <li>
-                      <a class="dropdown-item d-flex align-items-center" rel="alternate"
-                          hreflang="{{ $localeCode }}"
-                          href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                          {{ $properties['native'] }}
-                      </a>
-                  </li>
-              @endforeach
-          </ul>
-      </div>
-        <i class="bi bi-list mobile-nav-toggle"></i>
-      </nav><!-- .navbar -->
+                            <li><a href="{{ route('company.company.show_login') }}">{{ __('routes.Company') }}</a>
+                            </li>
+                            <li><a href="{{ route('business.business.show_login') }}">{{ __('routes.Business') }}</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="dropdown mx-4">
+                    <a class="nav-link dropdown-toggle gap-3 dropdown-toggle-nocaret " href="#" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <span style="font-size: 14px"> {{ __('routes.Change Language') }} </span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        @foreach (LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
+                            <li>
+                                <a class="dropdown-item d-flex align-items-center" rel="alternate"
+                                    hreflang="{{ $localeCode }}"
+                                    href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                    {{ $properties['native'] }}
+                                </a>
+                            </li>
+                        @endforeach
+                    </ul>
+                </div>
+                <i class="bi bi-list mobile-nav-toggle"></i>
+            </nav><!-- .navbar -->
 
-    </div>
-  </header><!-- End Header -->
+        </div>
+    </header><!-- End Header -->
 
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center" style="background: url('../../uploads/{{ $banner->banner_bg }}') ; object-fit: cover">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1 class="text-gray-600">{{ $banner->banner_title }}</h1>
-      <span class="text-2xl">{{ $banner->banner_desc }}</span>
-      {{-- <div class="d-flex">
+    <!-- ======= Hero Section ======= -->
+    <section id="hero" class="d-flex align-items-center"
+        style="background: url('../../uploads/{{ $banner->banner_bg }}') ; object-fit: cover">
+        <div class="container" data-aos="zoom-in" data-aos-delay="100">
+            <h1 class="text-gray-600">{{ $banner->banner_title }}</h1>
+            <span class="text-2xl">{{ $banner->banner_desc }}</span>
+            {{-- <div class="d-flex">
         <a href="#about" class="btn-get-started scrollto">Get Started</a>
         <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
       </div> --}}
-    </div>
-  </section><!-- End Hero -->
-
-  <main id="main">
-
-    <!-- ======= Featured Services Section ======= -->
-    <section id="featured-services" class="featured-services">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>{{ __('routes.Features') }}</h2>
-          <h3>{{ __('routes.Check our Features') }}</h3>
-          {{-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> --}}
         </div>
+    </section><!-- End Hero -->
 
-        <div class="row">
-          @foreach ($features as $feature)
-          <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
-            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-              {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
-              <h4 class="title"><a href="">{{ $feature->title }}</a></h4>
-              <p class="description">{{ $feature->desc }}</p>
+    <main id="main">
+
+        <!-- ======= Featured Services Section ======= -->
+        <section id="featured-services" class="featured-services">
+            <div class="container" data-aos="fade-up">
+                <div class="section-title">
+                    <h2>{{ __('routes.Features') }}</h2>
+                    <h3>{{ __('routes.Check our Features') }}</h3>
+                    {{-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> --}}
+                </div>
+
+                <div class="row">
+                    @foreach ($features as $feature)
+                        <div class="col-md-6 col-lg-3 d-flex align-items-stretch mb-5 mb-lg-0">
+                            <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
+                                {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
+                                <h4 class="title"><a href="">{{ $feature->title }}</a></h4>
+                                <p class="description">{{ $feature->desc }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+
+
+                </div>
+
             </div>
-          </div>
-          @endforeach
-         
+        </section>
+        <!-- End Featured Services Section -->
 
-        </div>
-
-      </div>
-    </section>
-    <!-- End Featured Services Section -->
-
-    <!-- ======= About Section ======= -->
-    {{-- <section id="about" class="about section-bg">
+        <!-- ======= About Section ======= -->
+        {{-- <section id="about" class="about section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -196,10 +207,10 @@
 
       </div>
     </section> --}}
-    <!-- End About Section -->
+        <!-- End About Section -->
 
-    <!-- ======= Skills Section ======= -->
-    {{-- <section id="skills" class="skills">
+        <!-- ======= Skills Section ======= -->
+        {{-- <section id="skills" class="skills">
       <div class="container" data-aos="fade-up">
 
         <div class="row skills-content">
@@ -258,10 +269,10 @@
 
       </div>
     </section> --}}
-    <!-- End Skills Section -->
+        <!-- End Skills Section -->
 
-    <!-- ======= Counts Section ======= -->
-    {{-- <section id="counts" class="counts">
+        <!-- ======= Counts Section ======= -->
+        {{-- <section id="counts" class="counts">
       <div class="container" data-aos="fade-up">
 
         <div class="row">
@@ -302,10 +313,10 @@
 
       </div>
     </section> --}}
-    <!-- End Counts Section -->
+        <!-- End Counts Section -->
 
-    <!-- ======= Clients Section ======= -->
-    {{-- <section id="clients" class="clients section-bg">
+        <!-- ======= Clients Section ======= -->
+        {{-- <section id="clients" class="clients section-bg">
       <div class="container" data-aos="zoom-in">
 
         <div class="row">
@@ -338,39 +349,40 @@
 
       </div>
     </section> --}}
-    <!-- End Clients Section -->
+        <!-- End Clients Section -->
 
-    <!-- ======= Services Section ======= -->
-    <section id="services" class="services">
-      <div class="container" data-aos="fade-up">
+        <!-- ======= Services Section ======= -->
+        <section id="services" class="services">
+            <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>{{ __('routes.Services') }}</h2>
-          <h3>{{ __('routes.Check our Services') }}</h3>
-          {{-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> --}}
-        </div>
+                <div class="section-title">
+                    <h2>{{ __('routes.Services') }}</h2>
+                    <h3>{{ __('routes.Check our Services') }}</h3>
+                    {{-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> --}}
+                </div>
 
-        <div class="row">
-         
+                <div class="row">
 
-        @foreach ($services as $service)
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
-              <h4><a href="">{{ $service->name }}</a></h4>
-              <p>{{ $service->desc }}</p>
+
+                    @foreach ($services as $service)
+                        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in"
+                            data-aos-delay="100">
+                            <div class="icon-box">
+                                {{-- <div class="icon"><i class="bx bxl-dribbble"></i></div> --}}
+                                <h4><a href="">{{ $service->name }}</a></h4>
+                                <p>{{ $service->desc }}</p>
+                            </div>
+                        </div>
+                    @endforeach
+
+                </div>
+
             </div>
-          </div>
-        @endforeach
+        </section>
+        <!-- End Services Section -->
 
-        </div>
-
-      </div>
-    </section>
-    <!-- End Services Section -->
-
-    <!-- ======= Testimonials Section ======= -->
-    {{-- <section id="testimonials" class="testimonials">
+        <!-- ======= Testimonials Section ======= -->
+        {{-- <section id="testimonials" class="testimonials">
       <div class="container" data-aos="zoom-in">
 
         <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
@@ -447,10 +459,10 @@
 
       </div>
     </section> --}}
-    <!-- End Testimonials Section -->
+        <!-- End Testimonials Section -->
 
-    <!-- ======= Portfolio Section ======= -->
-    {{-- <section id="portfolio" class="portfolio">
+        <!-- ======= Portfolio Section ======= -->
+        {{-- <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -566,10 +578,10 @@
 
       </div>
     </section> --}}
-    <!-- End Portfolio Section -->
+        <!-- End Portfolio Section -->
 
-    <!-- ======= Team Section ======= -->
-    {{-- <section id="team" class="team section-bg">
+        <!-- ======= Team Section ======= -->
+        {{-- <section id="team" class="team section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -656,10 +668,10 @@
 
       </div>
     </section> --}}
-    <!-- End Team Section -->
+        <!-- End Team Section -->
 
-    <!-- ======= Pricing Section ======= -->
-    {{-- <section id="pricing" class="pricing">
+        <!-- ======= Pricing Section ======= -->
+        {{-- <section id="pricing" class="pricing">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -743,10 +755,10 @@
 
       </div>
     </section> --}}
-    <!-- End Pricing Section -->
+        <!-- End Pricing Section -->
 
-    <!-- ======= Frequently Asked Questions Section ======= -->
-    {{-- <section id="faq" class="faq section-bg">
+        <!-- ======= Frequently Asked Questions Section ======= -->
+        {{-- <section id="faq" class="faq section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -819,19 +831,19 @@
 
       </div>
     </section> --}}
-    <!-- End Frequently Asked Questions Section -->
+        <!-- End Frequently Asked Questions Section -->
 
-    <!-- ======= Contact Section ======= -->
-    <section id="contact" class="contact">
-      <div class="container" data-aos="fade-up">
+        <!-- ======= Contact Section ======= -->
+        <section id="contact" class="contact">
+            <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-          <h2>{{ __('routes.Contact') }}</h2>
-          <h3><span>{{ __('routes.Contact Us') }}</span></h3>
-          {{-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> --}}
-        </div>
+                <div class="section-title">
+                    <h2>{{ __('routes.Contact') }}</h2>
+                    <h3><span>{{ __('routes.Contact Us') }}</span></h3>
+                    {{-- <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p> --}}
+                </div>
 
-        {{-- <div class="row" data-aos="fade-up" data-aos-delay="100">
+                {{-- <div class="row" data-aos="fade-up" data-aos-delay="100">
           <div class="col-lg-6">
             <div class="info-box mb-4">
               <i class="bx bx-map"></i>
@@ -858,69 +870,78 @@
 
         </div> --}}
 
-        <div class="row" data-aos="fade-up" data-aos-delay="100">
+                <div class="row" data-aos="fade-up" data-aos-delay="100">
 
-          {{-- <div class="col-lg-6 ">
+                    {{-- <div class="col-lg-6 ">
             <iframe class="mb-4 mb-lg-0" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" style="border:0; width: 100%; height: 384px;" allowfullscreen></iframe>
           </div> --}}
 
-          <div class="col-lg-12">
-            <form action="/new-request" method="post" role="form" class="php-email-form">
-              @csrf
-              <div class="row">
-                <div class="col form-group">
-                  <input type="text" name="name" class="form-control" id="name" placeholder="{{ __( 'routes.Name') }}" required>
-                </div>
-                <div class="col form-group">
-                  <input type="text" name="owner" class="form-control" id="owner" placeholder="{{ __( 'routes.Owner') }}" required>
-                </div>
-                
-              </div>
-              <div class="row">
-                <div class="col form-group">
-                  <input type="text" class="form-control" name="mobileNo" id="mobileNo" placeholder="{{ __( 'routes.Mobile No') }}" required>
-                </div>
-                <div class="col form-group">
-                  <input type="email" class="form-control" name="email" id="email" placeholder="{{ __( 'routes.Email') }}" required>
-                </div>
-              </div>
-              <div class="row">
-                <div class="col form-group">
-                  <input type="text" class="form-control" name="address" id="address" placeholder="{{ __( 'routes.Address') }}" required>
-                </div>
-              </div>
-              <div class="row">
-                
-                <input type="hidden" name="status" value='0'>
-                <div class="col form-group">
-                  <input type="number" class="form-control" name="noOfEmployee" id="noOfEmployee" placeholder="{{ __( 'routes.Employees') }}" required>
-                </div>
-                <div class="col form-group">
-                  <input type="number" class="form-control" name="noOfDepts" id="noOfDepts" placeholder="{{ __( 'routes.Departments') }}" required>
-                </div>
-              </div>
-              
-              <div class="my-3">
-                <div class="loading">{{ __('routes.Loading') }}</div>
-                <div class="error-message"></div>
-                <div class="sent-message">{{ __('routes.Your request has been sent. Thank you!') }}</div>
-              </div>
-              <div class="text-center"><button type="submit">{{ __('routes.Send Request') }}</button></div>
-            </form>
-          </div>
+                    <div class="col-lg-12">
+                        <form action="/new-request" method="post" role="form" class="php-email-form">
+                            @csrf
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input type="text" name="name" class="form-control" id="name"
+                                        placeholder="{{ __('routes.Name') }}" required>
+                                </div>
+                                <div class="col form-group">
+                                    <input type="text" name="owner" class="form-control" id="owner"
+                                        placeholder="{{ __('routes.Owner') }}" required>
+                                </div>
 
-        </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input type="text" class="form-control" name="mobileNo" id="mobileNo"
+                                        placeholder="{{ __('routes.Mobile No') }}" required>
+                                </div>
+                                <div class="col form-group">
+                                    <input type="email" class="form-control" name="email" id="email"
+                                        placeholder="{{ __('routes.Email') }}" required>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col form-group">
+                                    <input type="text" class="form-control" name="address" id="address"
+                                        placeholder="{{ __('routes.Address') }}" required>
+                                </div>
+                            </div>
+                            <div class="row">
 
-      </div>
-    </section>
-    <!-- End Contact Section -->
+                                <input type="hidden" name="status" value='0'>
+                                <div class="col form-group">
+                                    <input type="number" class="form-control" name="noOfEmployee" id="noOfEmployee"
+                                        placeholder="{{ __('routes.Employees') }}" required>
+                                </div>
+                                <div class="col form-group">
+                                    <input type="number" class="form-control" name="noOfDepts" id="noOfDepts"
+                                        placeholder="{{ __('routes.Departments') }}" required>
+                                </div>
+                            </div>
 
-  </main><!-- End #main -->
+                            <div class="my-3">
+                                <div class="loading">{{ __('routes.Loading') }}</div>
+                                <div class="error-message"></div>
+                                <div class="sent-message">{{ __('routes.Your request has been sent. Thank you!') }}
+                                </div>
+                            </div>
+                            <div class="text-center"><button type="submit">{{ __('routes.Send Request') }}</button>
+                            </div>
+                        </form>
+                    </div>
 
-  <!-- ======= Footer ======= -->
-  <footer id="footer">
+                </div>
 
-    {{-- <div class="footer-newsletter">
+            </div>
+        </section>
+        <!-- End Contact Section -->
+
+    </main><!-- End #main -->
+
+    <!-- ======= Footer ======= -->
+    <footer id="footer">
+
+        {{-- <div class="footer-newsletter">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-6">
@@ -934,7 +955,7 @@
       </div>
     </div> --}}
 
-    {{-- <div class="footer-top">
+        {{-- <div class="footer-top">
       <div class="container">
         <div class="row">
 
@@ -987,36 +1008,37 @@
       </div>
     </div> --}}
 
-    <div class="container py-4">
-      <div class="copyright">
-        &copy; Copyright <strong><span>thrs</span></strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
-        {{-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> --}}
-      </div>
-    </div>
-  </footer>
-  <!-- End Footer -->
+        <div class="container py-4">
+            <div class="copyright">
+                &copy; Copyright <strong><span>thrs</span></strong>. All Rights Reserved
+            </div>
+            <div class="credits">
+                <!-- All the links in the footer should remain intact. -->
+                <!-- You can delete the links only if you purchased the pro version. -->
+                <!-- Licensing information: https://bootstrapmade.com/license/ -->
+                <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/bizland-bootstrap-business-template/ -->
+                {{-- Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> --}}
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
 
-  <div id="preloader"></div>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div id="preloader"></div>
+    <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-  <!-- Vendor JS Files -->
-  <script src="{{ asset('asset/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-  <script src="{{ asset('asset/vendor/aos/aos.js') }}"></script>
-  <script src="{{ asset('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-  <script src="{{ asset('asset/vendor/glightbox/js/glightbox.min.js') }}"></script>
-  <script src="{{ asset('asset/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('asset/vendor/swiper/swiper-bundle.min.js') }}"></script>
-  <script src="{{ asset('asset/vendor/waypoints/noframework.waypoints.js') }}"></script>
-  <script src="{{ asset('asset/vendor/php-email-form/validate.js') }}"></script>
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('asset/vendor/purecounter/purecounter_vanilla.js') }}"></script>
+    <script src="{{ asset('asset/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('asset/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('asset/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('asset/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('asset/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('asset/vendor/waypoints/noframework.waypoints.js') }}"></script>
+    <script src="{{ asset('asset/vendor/php-email-form/validate.js') }}"></script>
 
-  <!-- Template Main JS File -->
-  <script src="{{ asset('asset/js/main.js') }}"></script>
+    <!-- Template Main JS File -->
+    <script src="{{ asset('asset/js/main.js') }}"></script>
 
 </body>
 

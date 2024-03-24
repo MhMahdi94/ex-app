@@ -330,6 +330,8 @@ return [
     "INVOICE TO:"=>"فاتورة الى:",
     "INVOICE NO:"=>"رقم الفاتورة:",
     "Search For"=>"ابحث عن",
-    "Mobile no or email"=>"رقم الموبايل او الايميل "
+    "Mobile no or email"=>"رقم الموبايل او الايميل ",
+
+    "Recent Products"=>"احدث المنتجات"
     
 ];

@@ -93,23 +93,14 @@ Company Page
         </div>
 
         <div class="row">
-            <div class="col-12 col-lg-12 col-xl-12 d-flex">
+            <div class="col-6 col-lg-6 col-xl-6 d-flex">
                 <div class="card radius-10 w-100">
                     <div class="card-body">
                         <div class="d-flex align-items-center">
                             <div>
                                 <h5 class="mb-0">{{ __('routes.Sales') }}</h5>
                             </div>
-                            {{-- <div class="dropdown options ms-auto">
-                        <div class="dropdown-toggle dropdown-toggle-nocaret" data-bs-toggle="dropdown">
-                          <i class='bx bx-dots-horizontal-rounded'></i>
-                        </div>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item" href="javascript:;">Action</a></li>
-                          <li><a class="dropdown-item" href="javascript:;">Another action</a></li>
-                          <li><a class="dropdown-item" href="javascript:;">Something else here</a></li>
-                        </ul>
-                      </div> --}}
+
                         </div>
                         <div class="d-flex align-items-center ms-auto font-13 gap-2 my-3">
                             {{-- <span class="border px-1 rounded cursor-pointer"><i class="bx bxs-circle me-1 text-primary"></i> {{ __('routes.Sales') }}</span> --}}
@@ -124,31 +115,49 @@ Company Page
                 </div>
             </div>
 
-            {{-- <div class="col-12 col-lg-4 col-xl-4 d-flex">
-           <div class="card radius-10 overflow-hidden w-100">
-            <div class="card-body">
-              <div class="d-flex align-items-center mb-3">
-                <h5 class="mb-0">{{ __('routes.Best Seller') }}</h5>
-                
-              </div>
-              
-              <ul class="list-group list-group-flush">
-                <li class="list-group-item d-flex justify-content-between align-items-center border-top">
-                  Product 1
-                  <span class="badge bg-primary rounded-pill">558</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Product 2
-                  <span class="badge bg-success rounded-pill">204</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between align-items-center">
-                  Product 3
-                  <span class="badge bg-danger rounded-pill">108</span>
-                </li>
-              </ul>
+            <div class="col-12 col-lg-3 col-xl-3 d-flex">
+                <div class="card radius-10 overflow-hidden w-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <h5 class="mb-0">{{ __('routes.Best Seller') }}</h5>
+
+                        </div>
+
+                        <ul class="list-group list-group-flush">
+
+                            @foreach ($best_sellers as $item)
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-top">
+                                    {{ $item->product->name }}
+                                    <span class="badge bg-primary rounded-pill">{{ $item->cnt }} </span>
+                                </li>
+                            @endforeach
+
+                        </ul>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div> --}}
+
+            <div class="col-12 col-lg-3 col-xl-3 d-flex">
+                <div class="card radius-10 overflow-hidden w-100">
+                    <div class="card-body">
+                        <div class="d-flex align-items-center mb-3">
+                            <h5 class="mb-0">{{ __('routes.Recent Products') }}</h5>
+
+                        </div>
+
+                        <ul class="list-group list-group-flush">
+
+                            @foreach ($recent_products as $item)
+                                <li class="list-group-item d-flex justify-content-between align-items-center border-top">
+                                    {{ $item->name }}
+                                    {{-- <span class="badge bg-primary rounded-pill">{{ $item->cnt }} </span> --}}
+                                </li>
+                            @endforeach
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div><!--End Row-->
 
     </div>

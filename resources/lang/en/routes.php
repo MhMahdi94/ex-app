@@ -331,6 +331,8 @@ return [
     "INVOICE TO:"=>"INVOICE TO:",
     "INVOICE NO:"=>"INVOICE No:",
     "Search For"=>"Search for",
-    "Mobile no or email"=>"Mobile no or email"
+    "Mobile no or email"=>"Mobile no or email",
+
+    "Recent Products"=>"Recent Products"
 
 ];
