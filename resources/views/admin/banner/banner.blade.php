@@ -42,7 +42,7 @@ Packages Page
                                 <div class="form-group ">
                                     <label for="banner_desc_english">{{ __('routes.Banner Description(English)') }}</label>
                                     <input type="text" name="banner_desc_english" class="form-control" id="banner_desc_english"
-                                         value="{{ $banner->getTranslation('banner_desc','ar')??'' }} "required>
+                                         value="{{ $banner->getTranslation('banner_desc','en')??'' }} "required>
                                 </div>
                                 <div class="form-group ">
                                     <label for="banner_desc_arabic">{{ __('routes.Banner Description(Arabic)') }}</label>
