@@ -89,13 +89,14 @@ class ProductController extends Controller
         //
         $product=StockProduct::create([
             'name'=>$request->name,
-            
+            'price'=>0,
             'company_id'=>Auth::guard('employee')->user()->company_id,
         ]);
         StockLog::create([
             'operation_id'=>1,
             'product_id'=>$product->id,
             'quantity'=>0,
+            'price'=>0,
             'date'=>Carbon::today()->format('Y-m-d'),
             'user_id'=>Auth::guard('employee')->id()
         ]);
