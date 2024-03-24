@@ -37,7 +37,7 @@ Packages Page
                                 <div class="form-group col-md-12 ">
                                     <label for="firebase_server_key">{{ __('routes.Firebase Server key') }}</label>
                                     <textarea type="text" name="firebase_server_key" class="form-control" id="firebase_server_key"
-                                        rows="5" value="{{ $firebase_config->server_key ?? '' }}" required>{{ $firebase_config->server_key }}</textarea>
+                                        rows="5" value="{{ $firebase_config->server_key?? '' }}" required>{{ $firebase_config->server_key }}</textarea>
                                 </div>
                                
                               
