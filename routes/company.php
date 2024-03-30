@@ -22,6 +22,7 @@ use App\Http\Controllers\Company\Payroll\PayrollController;
 use App\Http\Controllers\Company\ProfitLoss\ProfitLossController;
 use App\Http\Controllers\Company\Revenue\RevenueController;
 use App\Http\Controllers\Company\Roles\RolesController;
+use App\Http\Controllers\Company\Settings\SettingsController;
 use App\Http\Controllers\Company\Stock\ProductController;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -310,5 +311,20 @@ Route::group([
     Route::get('/edit/{id}',[CalendarController::class, 'edit'])->name('calendar_edit');
     Route::put('/update/{id}',[CalendarController::class, 'update'])->name('calendar_update');
     Route::delete('/delete/{id}',[CalendarController::class, 'destroy'])->name('calendar_destroy');
+  });
+
+  //general settings
+  Route::group([
+    'prefix' => '/settings',
+    'as' => 'settings.',
+  ], function () {
+    Route::get('/currency', [SettingsController::class, 'currency'])->name('settings_currnecy');
+    Route::get('/currency/create', [SettingsController::class, 'currency_create'])->name('settings_currnecy_create');
+    Route::post('/currency/store', [SettingsController::class, 'currency_store'])->name('settings_currnecy_store');
+    Route::post('/store', [SettingsController::class, 'store'])->name('leave_settings_store');
+    Route::get('/edit/{id}', [SettingsController::class, 'edit'])->name('leave_settings_edit');
+    Route::put('/update/{id}', [SettingsController::class, 'update'])->name('leave_settings_update');
+    Route::delete('/delete/{id}', [SettingsController::class, 'destroy'])->name('leave_settings_destroy');
+    Route::get('/details/{id}', [SettingsController::class, 'details'])->name('leave_settings_details');
   });
 });

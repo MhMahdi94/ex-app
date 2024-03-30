@@ -176,6 +176,16 @@
             </a>
         </li>
 
+        <li class="menu-label">{{ __('routes.General Settings') }}</li>
+        <li class="nav-item {{ request()->is('*/company/settings/currency') ? 'mm-active' : '' }}">
+            <a href="{{ route('company.settings.settings_currnecy') }}" class="nav-link">
+
+                <p>
+                    {{ __('routes.Currency') }}
+
+                </p>
+            </a>
+        </li>
     </ul>
     <!--end navigation-->
 </div>

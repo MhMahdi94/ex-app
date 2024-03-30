@@ -338,4 +338,9 @@ return [
     "Renew Contract"=>"تجديد العقد",
     "Duration"=>"المدة الزمنية",
     
+    "General Settings"=>"الاعدادات العامة",
+    "Currency"=>"العملة",
+    "Add Currency"=>"اضافة العملة",
+    "Currency Code"=>"كود العملة",
+    
 ];

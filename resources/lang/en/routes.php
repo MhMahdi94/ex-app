@@ -337,5 +337,8 @@ return [
     "Days remaining in your subscription"=>"Days remaining in your subscription",
     "Renew Contract"=>"Renew Contract",
     "Duration"=>"Duration",
-
+    "General Settings"=>"General Settings",
+    "Currency"=>"Currency",
+    "Add Currency"=>"Add Currency",
+    "Currency Code"=>"Currency Code",
 ];
