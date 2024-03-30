@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Landing;
 
 use App\Http\Controllers\Controller;
 use App\Models\Banner;
+use App\Models\Contact;
 use App\Models\Feature;
 use Illuminate\Http\Request;
 
@@ -18,7 +19,31 @@ class LandingController extends Controller
         
         return view('admin.banner.banner',compact('banner'));
     }
+    public function contact()
+    {
+        //
+        $contact= Contact::first();
+        
+        return view('admin.contact.contact',compact('contact'));
+    }
 
+    public function save_contact(Request $request)
+    {
+        
+        $contact= Contact::first();
+        if($contact){
+             $contact->mobile_no=$request->mobile_no;
+            $contact->email=$request->email;
+            $contact->save();
+        }
+        else{
+            Contact::create([
+            'mobile_no'=>$request->mobile_no,
+            'email'=>$request->email,
+            ]);
+        }
+        return redirect()->back();
+    }
     public function save_banner(Request $request)
     {
         //

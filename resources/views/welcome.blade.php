@@ -48,8 +48,8 @@
         <div class="container d-flex justify-content-center justify-content-md-between">
             <div class="contact-info d-flex align-items-center">
                 <i class="bi bi-envelope d-flex align-items-center"><a
-                        href="mailto:contact@example.com">contact@example.com</a></i>
-                <i class="bi bi-phone d-flex align-items-center ms-4"><span>+1 5589 55488 55</span></i>
+                        href="mailto:{{ $contact->email }}">{{ $contact->email }}</a></i>
+                <i class="bi bi-phone d-flex align-items-center ms-4"><span>{{ $contact->mobile_no }}</span></i>
             </div>
             {{-- <div class="social-links d-none d-md-flex align-items-center">
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
@@ -79,19 +79,11 @@
                     <li class="dropdown"><a href="#"><span>{{ __('routes.Sign In') }}</span> <i
                                 class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="{{ route('admin.admin.show_login') }}">{{ __('routes.Admin') }}</a></li>
-                            {{-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
-                  <li><a href="#">Deep Drop Down 1</a></li>
-                  <li><a href="#">Deep Drop Down 2</a></li>
-                  <li><a href="#">Deep Drop Down 3</a></li>
-                  <li><a href="#">Deep Drop Down 4</a></li>
-                  <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
-              </li> --}}
-                            <li><a href="{{ route('company.company.show_login') }}">{{ __('routes.Company') }}</a>
+                            <li><a href="{{ route('admin.admin.show_login') }}" target="_Blank">{{ __('routes.Admin') }}</a></li>
+                           
+                            <li><a href="{{ route('company.company.show_login') }}" target="_Blank">{{ __('routes.Company') }}</a>
                             </li>
-                            <li><a href="{{ route('business.business.show_login') }}">{{ __('routes.Business') }}</a>
+                            <li><a href="{{ route('business.business.show_login') }}" target="_Blank">{{ __('routes.Business') }}</a>
                             </li>
                         </ul>
                     </li>

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\NewRequestController;
 use App\Models\Banner;
+use App\Models\Contact;
 use App\Models\Feature;
 use App\Models\Package;
 use Illuminate\Support\Facades\Request;
@@ -29,7 +30,8 @@ Route::group([
         $banner=Banner::first();
         $services=Package::get();
         $features=Feature::get();
-          return view('welcome',compact('banner','services','features') );
+        $contact= Contact::first();
+          return view('welcome',compact('banner','services','features','contact') );
       })->name('welcome');
 
       Route::post('/new-request',[NewRequestController::class,'store'])->name('new_request');

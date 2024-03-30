@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!--favicon-->
-    <link rel="icon" href="{{ asset('assets/images/favicon-32x32.png') }}" type="image/png" />
+    <link rel="icon" href="{{ asset('assets/images/thrs.jpg') }}" type="image/png" />
     <!--plugins-->
     <link href="{{ asset('assets/plugins/simplebar/css/simplebar.css') }}" rel="stylesheet" />
     <link href="{{ asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css') }}" rel="stylesheet" />
@@ -34,7 +34,7 @@
                     <div
                         class="col-12 col-xl-7 col-xxl-8 auth-cover-left bg-gradient-burning align-items-center justify-content-center d-none d-xl-flex">
 
-                        <div class="card shadow-none bg-transparent shadow-none rounded-0 mb-0">
+                        <div class="card  bg-transparent shadow-none rounded-0 mb-0">
                             <div class="card-body">
                                 <img src="{{ asset('assets/images/login-images/login-cover.svg') }}"
                                     class="img-fluid auth-img-cover-login" width="650" alt="" />

@@ -124,7 +124,16 @@
             </a>
            
         </li>
+        <li class="nav-item {{ request()->is('*/admin/landing/contact') ? 'mm-active' : '' }}">
+            <a href="{{ route('admin.landing.landing_contact') }}" class="nav-link">
 
+                <p>
+                    {{ __('routes.Contact') }}
+
+                </p>
+            </a>
+           
+        </li>
         <li class="menu-label">{{ __('routes.Firebase Settings') }}</li>
         <li class="nav-item {{ request()->is('*/admin/firebase/config') ? 'mm-active' : '' }}">
             <a href="{{ route('admin.firebase.firebase_config') }}" class="nav-link">
