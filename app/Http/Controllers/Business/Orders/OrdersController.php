@@ -45,7 +45,7 @@ class OrdersController extends Controller
     public function store(Request $request)
     {
         //
-        //return $request->all();
+
         $pos_request = PosRequest::create([
             'client_id' => $request->client_id,
             
@@ -62,6 +62,9 @@ class OrdersController extends Controller
         // }
         for ($i = 0; $i < count($request->product_id); $i++) {
             # code...
+            $product= PosProduct::where('id',$request->product_id)->first();
+            $product->quantity=$product->quantity - $request->quantities[$i];
+            $product->save();
             PosRequestContent::create([
                 'request_id' => $pos_request->id,
                 'product_id' => $request->product_id[$i],
