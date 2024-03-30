@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Company\Stock;
 
 use App\Http\Controllers\Controller;
+use App\Models\Currency;
 use App\Models\StockLog;
 use App\Models\StockOperation;
 use App\Models\StockProduct;
@@ -37,10 +38,11 @@ class ProductController extends Controller
     public function importExport(string $id){
         $opertions=StockOperation::where('id','!=','1')->get();
         $product=StockProduct::find($id);
-        return view('company.products.import_export',compact('opertions','product'));
+        $currencies= Currency::where('company_id',Auth::guard('employee')->user()->company_id)->get();
+        return view('company.products.import_export',compact('opertions','product','currencies'));
     }
     public function importExportUpdate(Request $request){
-        //return $request->all();
+        
         $product=StockProduct::find($request->product_id);
         $quantity=0;
         if($request->operation_id == "2"){
@@ -63,6 +65,7 @@ class ProductController extends Controller
             'date'=>Carbon::today()->format('Y-m-d'),
             'user_id'=>Auth::guard('employee')->id(),
             'price'=>$request->price,
+            'currency_id'=>$request->currency_id
         ]);
        return redirect()->back();//[$request->all(), $product, $quantity];
     }

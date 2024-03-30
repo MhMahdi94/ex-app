@@ -15,7 +15,8 @@ class StockLog extends Model
         'date',
         'user_id',
         'price',
-        'company_id'
+        'company_id',
+        'currency_id'
     ];
 
     public function operation(){
@@ -27,5 +28,8 @@ class StockLog extends Model
 
     public function user(){
         return $this->belongsTo(Employees::class);
+    }
+    public function currency(){
+        return $this->belongsTo(Currency::class);
     }
 }
