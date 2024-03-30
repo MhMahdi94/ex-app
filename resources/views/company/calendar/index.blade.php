@@ -41,7 +41,7 @@
             var calendarEl = document.getElementById('calendar');
             const months = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"];
             let initialDate = new Date();
-            const SITEURL = 'https://intelligent-hugle.82-165-200-34.plesk.page/company/calendar';//'http://127.0.0.1:8000/company/calendar';
+            const SITEURL = 'http://127.0.0.1:8000/company/calendar';//'https://intelligent-hugle.82-165-200-34.plesk.page/company/calendar';//
             var calendar = new FullCalendar.Calendar(calendarEl, {
                 headerToolbar: {
                     left: 'prev,next',

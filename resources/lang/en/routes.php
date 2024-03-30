@@ -334,6 +334,8 @@ return [
     "Mobile no or email"=>"Mobile no or email",
 
     "Recent Products"=>"Recent Products",
-    "Days remaining in your subscription"=>"Days remaining in your subscription"
+    "Days remaining in your subscription"=>"Days remaining in your subscription",
+    "Renew Contract"=>"Renew Contract",
+    "Duration"=>"Duration",
 
 ];

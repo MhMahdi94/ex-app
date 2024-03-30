@@ -334,6 +334,8 @@ return [
 
     "Recent Products"=>"احدث المنتجات",
 
-    "Days remaining in your subscription"=>"يوم على نهاية اشتراكك معنا"
+    "Days remaining in your subscription"=>"يوم على نهاية اشتراكك معنا",
+    "Renew Contract"=>"تجديد العقد",
+    "Duration"=>"المدة الزمنية",
     
 ];

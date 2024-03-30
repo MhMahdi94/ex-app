@@ -22,13 +22,11 @@ Leave Slots Page
 
               
             </div>
-            <!-- /.card-header -->
             <div class="card-body table-responsive p-0">
              
                 <form method="POST" action="{{ route('company.leave-settings.leave_settings_store') }}" class='needs-validation' novalidate>
                     @csrf
-                    {{-- <input type="hidden" name="company_id" value="{{ $employee->company->id }}"> --}}
-                    <div class="card-body row g-2">
+                   <div class="card-body row g-2">
                         <div class="form-group col-6">
                             <label for="from">{{ __('routes.From') }} </label>
                             <input type="date" name="from" class="form-control" id="from"  required>
@@ -50,16 +48,13 @@ Leave Slots Page
                         </div>
                       
                     </div>
-                    <!-- /.card-body -->
     
                     <div class="card-footer">
                       <button type="submit" class="btn btn-primary">{{__('routes.Submit')}}</button>
                     </div>
                   </form>
             </div>
-            <!-- /.card-body -->
           </div>
-          <!-- /.card -->
         </div>
       </div>
 </div>

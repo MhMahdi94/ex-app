@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Accounts;
 use App\Models\Company;
 use App\Models\Employees;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -37,7 +38,26 @@ class CompanyController extends Controller
         // $owners=Employees::where('is_owner',1)->get();
         return view('admin.companies.create');
     }
-
+    public function renew(int $id)
+    {
+        //
+        // $owners=Employees::where('is_owner',1)->get();
+        $company= Company::find($id);
+        return view('admin.companies.renew', compact('company'));
+    }
+    public function renewContract(Request $request,int $id)
+    {
+        //
+        // $owners=Employees::where('is_owner',1)->get();
+        $subscriptionStart=$request->subsctiptionStart;
+        $subscriptionEnd= Carbon::parse($subscriptionStart)->addMonths($request->duration) ;
+        //return [$subscriptionStart,$subscriptionEnd];
+        $company= Company::find($id);
+        $company->subscriptionStart=$request->subscriptionStart;
+        $company->subscriptionEnd=$subscriptionEnd;
+        $company->save();
+        return redirect()->back();
+    }
     /**
      * Store a newly created resource in storage.
      */
@@ -136,6 +156,8 @@ class CompanyController extends Controller
     public function edit(string $id)
     {
         //
+        $company=Company::find($id);
+        return view('admin.companies.edit', compact('company'));
     }
 
     /**

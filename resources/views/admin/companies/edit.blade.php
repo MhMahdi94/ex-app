@@ -25,47 +25,43 @@ Admins Page
             <!-- /.card-header -->
           
             <div class="card-body table-responsive p-0">
-                <form method="POST" action="../update/{{ $admin->id }}" class='needs-validation' novalidate>
+                <form method="POST" action="../update/{{ $company->id }}" class='needs-validation' novalidate>
                     @csrf
                     @method('PUT')
                     <div class="card-body">
-                      <div class="form-group">
-                          <label for="name">{{ __('routes.Name') }}</label>
-                          <input type="text" name="name" class="form-control" id="name"  required>
-                      </div>
-                      <div class="form-group">
-                          <label for="email">{{ __('routes.Email') }}</label>
-                          <input type="email" name="email" class="form-control" id="email"  required>
-                      </div>
-                      <div class="form-group">
-                          <label for="mobile_no">{{ __('routes.Mobile No') }}</label>
-                          <input type="text" name="mobile_no" class="form-control" id="mobile_no"  required>
-                      </div>
-                      <div class="row g-1">
-                        <div class="form-group col-6">
-                            <label for="noOfEmployee">{{ __('routes.Employees') }}</label>
-                            <input type="number" name="noOfEmployee" class="form-control" id="noOfEmployee"  required>
+                      <div class="card-body row g-3">
+                        <div class="form-group col-md-6">
+                            <label for="english_name">{{ __('routes.Name(English)') }}</label>
+                            <input type="text" name="english_name" value="{{ $company->getTranslation('name','en') }}" class="form-control" id="english_name"  required>
                         </div>
-                        <div class="form-group col-6">
-                            <label for="noOfDept">{{ __('routes.Departments') }}</label>
-                            <input type="number" name="noOfDept" class="form-control" id="noOfDept"  required>
-                        </div>
+                        <div class="form-group col-md-6">
+                          <label for="arabic_name">{{ __('routes.Name(Arabic)') }}</label>
+                          <input type="text" name="arabic_name" value="{{ $company->getTranslation('name','ar') }}" class="form-control" id="arabic_name"  required>
                       </div>
-                      <div class="row g-1">
-                        <div class="form-group col-6">
-                            <label for="subscriptionStart">{{ __('routes.Subscription Start') }}</label>
-                            <input type="date" name="subscriptionStart" class="form-control" id="subscriptionStart"  required>
+                        <div class="form-group">
+                            <label for="email">{{ __('routes.Email') }}</label>
+                            <input type="email" name="email"  value="{{ $company->email }}" class="form-control" id="email"  required>
                         </div>
-                        <div class="form-group col-6">
-                            <label for="subscriptionEnd">{{ __('routes.Subscription End') }}</label>
-                            <input type="date" name="subscriptionEnd" class="form-control" id="subscriptionEnd"  required>
+                        <div class="form-group">
+                            <label for="mobile_no">{{ __('routes.Mobile No') }}</label>
+                            <input type="text" name="mobile_no" value="{{ $company->mobile_no }}" class="form-control" id="mobile_no"  required>
                         </div>
-                      </div>
-                      <div class="form-group">
-                        <label for="description">{{ __('routes.Description') }}</label>
-                        <textarea class="form-control" id="description"  name='description' required></textarea>
-                      </div>
-                      
+                        <div class="row g-1">
+                          <div class="form-group col-6">
+                              <label for="noOfEmployee">{{ __('routes.Employees') }}</label>
+                              <input type="number" name="noOfEmployee" value="{{ $company->noOfEmployee }}" class="form-control" id="noOfEmployee"  required>
+                          </div>
+                          <div class="form-group col-6">
+                              <label for="noOfDept">{{ __('routes.Departments') }}</label>
+                              <input type="number" name="noOfDept" value="{{ $company->noOfDept }}" class="form-control" id="noOfDept"  required>
+                          </div>
+                        </div>
+                       
+                        <div class="form-group">
+                          <label for="description">{{ __('routes.Description') }}</label>
+                          <textarea class="form-control" id="description"   name='description' required>{{ $company->description }}</textarea>
+                        </div>
+                    </div>
                     </div>
                     <!-- /.card-body -->
     

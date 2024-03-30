@@ -76,6 +76,7 @@ Admins Page
                                                 <a class="btn btn-warning px-4"
                                                     href="{{ route('admin.admins.admins_edit', $item->id) }}">{{ __('routes.Edit') }}</a>
                                             </div>
+                                            
                                         @endif
                                         @if ($user->can('delete-admin'))
                                           <div class="mx-2">

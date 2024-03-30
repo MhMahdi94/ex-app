@@ -56,6 +56,8 @@ Route::group([
         Route::get('/',[CompanyController::class, 'index'])->name('companies_index');
         Route::post('/search',[CompanyController::class, 'search'])->name('companies_search');
         Route::get('/create',[CompanyController::class, 'create'])->name('companies_create');
+        Route::get('/renew/{id}',[CompanyController::class, 'renew'])->name('companies_renew');
+        Route::put('/renew/{id}',[CompanyController::class, 'renewContract'])->name('companies_renew_contract');
         Route::post('/store',[CompanyController::class, 'store'])->name('companies_store');
         Route::get('/edit/{id}',[CompanyController::class, 'edit'])->name('companies_edit');
         Route::put('/update/{id}',[CompanyController::class, 'update'])->name('companies_update');

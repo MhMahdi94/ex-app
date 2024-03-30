@@ -38,12 +38,12 @@ Services Page
               
         </div>
             <!-- /.card-header -->
-            <div class="card-body table-responsive">
-              <table class="table table-striped table-bordered">
+            <div class="card-body table-fixed">
+              <table class="table table-striped table-bordered" style="width:100%">
                 <thead>
                   <tr>
                     <th>{{ __('routes.Name') }}</th>
-                    <th>{{ __('routes.Description') }}</th>
+                    <th style="width:50%">{{ __('routes.Description') }}</th>
                     <th>{{ __('routes.Actions') }}</th>
                   </tr>
                 </thead>
@@ -51,7 +51,12 @@ Services Page
                     @foreach ($data as $item)
                         <tr>
                             <td>{{ $item->name }}</td>
-                            <td>{{ $item->desc }}</td>
+                            <td style="width:30%">
+                            <span>
+
+                              {{ $item->desc }}
+                            </span>
+                            </td>
                             <td class="d-flex">
                               @if (Auth::guard('admin')->user()->can('edit-package'))
                                 <a class="mx-2 btn btn-warning" href="{{ route('admin.packages.packages_edit',$item->id ) }}">{{ __('routes.Edit') }}</a>
