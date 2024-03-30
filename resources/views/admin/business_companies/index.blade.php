@@ -58,13 +58,11 @@ Companies Page
           <thead>
             <tr>
               <th>{{ __('routes.Name') }}</th>
-              {{-- <th>Owner</th> --}}
+              <th>{{ __('routes.Description') }}</th>
               <th>{{ __('routes.Email') }}</th>
-              {{-- <th>Description</th> --}}
               <th>{{ __('routes.Mobile No') }}</th>
               <th>{{ __('routes.Subscription Start') }}</th>
               <th>{{ __('routes.Subscription End') }}</th>
-              {{-- <th>isActive</th> --}}
               <th>{{ __('routes.Actions') }}</th>
             </tr>
           </thead>
@@ -72,7 +70,7 @@ Companies Page
             @foreach ($data as $item)
                 <tr>
                   <td>{{ $item->name }}</td>
-                  {{-- <td>{{ $item->owner->name }}</td> --}}
+                  <td>{{ $item->desc }}</td>
                   <td>{{ $item->email }}</td>
                   {{-- <td>{{ $item->description }}</td> --}}
                   <td>{{ $item->mobile_no }}</td>

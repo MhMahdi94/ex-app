@@ -6,8 +6,8 @@
         <div>
             <h4 class="logo-text">tHRS Admin</h4>
         </div>
-        <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
-        </div>
+        {{-- <div class="toggle-icon ms-auto"><i class='bx bx-arrow-back'></i>
+        </div> --}}
      </div>
     <!--navigation-->
     <ul class="metismenu" id="menu">

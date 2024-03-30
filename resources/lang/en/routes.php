@@ -333,6 +333,7 @@ return [
     "Search For"=>"Search for",
     "Mobile no or email"=>"Mobile no or email",
 
-    "Recent Products"=>"Recent Products"
+    "Recent Products"=>"Recent Products",
+    "Days remaining in your subscription"=>"Days remaining in your subscription"
 
 ];

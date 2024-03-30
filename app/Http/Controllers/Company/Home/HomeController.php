@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Company\Home;
 use App\Http\Controllers\Controller;
 use App\Models\API\Attendence;
 use App\Models\API\LeaveRequest;
+use App\Models\Company;
 use App\Models\Department;
 use App\Models\Employees;
 use App\Models\Expenses;
@@ -17,6 +18,7 @@ use LaravelDaily\LaravelCharts\Classes\LaravelChart;
 
 class HomeController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      */
@@ -62,15 +64,21 @@ class HomeController extends Controller
         ];
         $chart1 = new LaravelChart($chart_options, $chart_options2);
 
-        $last_employees=Employees::where('company_id', Auth::guard('employee')->user()->company_id)
-            ->orderBy('id','desc')
+        $last_employees = Employees::where('company_id', Auth::guard('employee')->user()->company_id)
+            ->orderBy('id', 'desc')
             ->take(5)
             ->get();
 
-        $products=StockProduct::where('company_id', Auth::guard('employee')->user()->company_id)
+        $products = StockProduct::where('company_id', Auth::guard('employee')->user()->company_id)
             ->count();
-        $products_sum=StockProduct::where('company_id', Auth::guard('employee')->user()->company_id)
+        $products_sum = StockProduct::where('company_id', Auth::guard('employee')->user()->company_id)
             ->sum('price');
+        $subs_date = Company::where('id', Auth::guard('employee')->user()->company_id)->select('subscriptionEnd')->first();
+        $date = Carbon::parse($subs_date->subscriptionEnd);
+        $now = Carbon::now();
+
+        $remaining = $date->diffInDays($now);
+        
         return view('company.home.home', compact(
             'employees_count',
             'departments_count',
@@ -81,7 +89,8 @@ class HomeController extends Controller
             'last_employees',
             'leave_requests',
             'products',
-            'products_sum'
+            'products_sum',
+            'remaining'
 
         ));
     }

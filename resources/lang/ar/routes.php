@@ -332,6 +332,8 @@ return [
     "Search For"=>"ابحث عن",
     "Mobile no or email"=>"رقم الموبايل او الايميل ",
 
-    "Recent Products"=>"احدث المنتجات"
+    "Recent Products"=>"احدث المنتجات",
+
+    "Days remaining in your subscription"=>"يوم على نهاية اشتراكك معنا"
     
 ];

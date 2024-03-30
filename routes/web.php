@@ -30,7 +30,7 @@ Route::group([
         $services=Package::get();
         $features=Feature::get();
           return view('welcome',compact('banner','services','features') );
-      });
+      })->name('welcome');
 
       Route::post('/new-request',[NewRequestController::class,'store'])->name('new_request');
   });
