@@ -29,15 +29,20 @@
                         <form method="POST" action="{{ route('company.settings.settings_currnecy_store') }}" class='needs-validation'
                         novalidate>
                         @csrf
-                        <div class="card-body ">
+                        <div class="card-body row">
                             <div class="form-group">
                                 <label for="currency_name" >{{__('routes.Name')}}</label>
                                 <input type="text" name="currency_name" class="form-control" id="currency_name"
                                      required>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group col-md-6">
                                 <label for="currency_code" >{{__('routes.Currency Code')}}</label>
                                 <input type="text" name="currency_code" class="form-control" id="currency_code"
+                                     required>
+                            </div>
+                            <div class="form-group col-md-6">
+                                <label for="exchange_rate" >{{__('routes.Exchange Rate')}}</label>
+                                <input type="number" step="0.01" name="exchange_rate" class="form-control"  id="exchange_rate" value="1.00"
                                      required>
                             </div>
                             <!-- /.card-body -->

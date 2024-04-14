@@ -321,6 +321,9 @@ Route::group([
     Route::get('/currency', [SettingsController::class, 'currency'])->name('settings_currnecy');
     Route::get('/currency/create', [SettingsController::class, 'currency_create'])->name('settings_currnecy_create');
     Route::post('/currency/store', [SettingsController::class, 'currency_store'])->name('settings_currnecy_store');
+    Route::get('/currency/edit/{id}', [SettingsController::class, 'currency_edit'])->name('settings_currnecy_edit');
+    Route::put('/currency/update/{id}', [SettingsController::class, 'currency_update'])->name('settings_currnecy_update');
+    Route::delete('/currency/delete/{id}', [SettingsController::class, 'currency_delete'])->name('settings_currnecy_delete');
     Route::post('/store', [SettingsController::class, 'store'])->name('leave_settings_store');
     Route::get('/edit/{id}', [SettingsController::class, 'edit'])->name('leave_settings_edit');
     Route::put('/update/{id}', [SettingsController::class, 'update'])->name('leave_settings_update');
