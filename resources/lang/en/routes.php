@@ -341,5 +341,6 @@ return [
     "Currency"=>"Currency",
     "Add Currency"=>"Add Currency",
     "Currency Code"=>"Currency Code",
-    "Exchange Rate"=>"Exchange Rate"
+    "Exchange Rate"=>"Exchange Rate",
+    "Price (USD)"=>"Price (USD)"
 ];

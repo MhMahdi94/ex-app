@@ -43,6 +43,7 @@
                                     <th>{{__('routes.Operation')}}</th>
                                     <th>{{ __('routes.Quantity') }}</th>
                                     <th>{{ __('routes.Price') }}</th>
+                                    <th>{{ __('routes.Currency') }}</th>
                                     <th>{{ __('routes.Date') }}</th>
                                     <th>{{ __('routes.By') }}</th>
                                 </tr>
@@ -55,6 +56,7 @@
                                             <td>{{ $item->operation->name }}</td>
                                             <td>{{ $item->quantity }}</td>
                                             <td>{{ $item->price }}</td>
+                                            <td>{{ $item->currency->code }}</td>
                                             <td>{{ $item->date }}</td>
                                             <td>{{ $item->user->name}}</td>
                                         </tr>

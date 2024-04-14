@@ -47,12 +47,12 @@ class ProductController extends Controller
         $quantity=0;
         if($request->operation_id == "2"){
             $quantity=$request->quantity + $product->quantity;
-            $product->price=$product->price+$request->price;
+            $product->price=$product->price+$request->price_usd;
         }
 
         if($request->operation_id == '3'){
             $quantity= $product->quantity-$request->quantity ;
-            $product->price=$product->price-$request->price;
+            $product->price=$product->price-$request->price_usd;
         }
         $product->quantity=$quantity;
         
@@ -100,6 +100,7 @@ class ProductController extends Controller
             'product_id'=>$product->id,
             'quantity'=>0,
             'price'=>0,
+            'currency_id'=>1,
             'date'=>Carbon::today()->format('Y-m-d'),
             'user_id'=>Auth::guard('employee')->id()
         ]);

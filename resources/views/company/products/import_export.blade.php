@@ -57,15 +57,22 @@
                                     <input type="number" name="quantity" class="form-control" id="quantity" required>
                                 </div>
                                 <div class="row">
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
                                         <label for="price">{{ __('routes.Price') }}</label>
-                                        <input type="number" name="price" class="form-control" id="price" required>
+                                        <input type="number" name="price" step="0.0001" class="form-control price"
+                                            id="price" required min="0">
                                     </div>
-                                    <div class="form-group col-md-6">
+                                    <div class="form-group col-md-4">
+                                        <label for="price_usd">{{ __('routes.Price (USD)') }}</label>
+                                        <input readonly type="number" step="0.0001" name="price_usd" class="form-control"
+                                            id="price_usd" required>
+                                    </div>
+                                    <div class="form-group col-md-4">
                                         <label for="currency_id">{{ __('routes.Currency') }}</label>
-                                        <select name="currency_id" id="" class="form-control select2">
+                                        <select name="currency_id" id="" class="form-control select2 exchange_rate">
                                             @foreach ($currencies as $currency)
-                                                <option value="{{ $currency->id }}">{{ $currency->name }}
+                                            
+                                                <option class="currency-val" data-value="{{ $currency->exchange_rate }}" value="{{ $currency->id }}">{{ $currency->name }}
                                                     ({{ $currency->code }})
                                                 </option>
                                             @endforeach
@@ -109,5 +116,23 @@
                     }, false)
                 })
         })()
+    </script>
+    <script>
+        var exchange_rate=1;
+        $(".price").keyup(function() {
+            console.log("The text has been changed." +this.value );
+            $('#price_usd').val(this.value/exchange_rate);
+        });
+        $(".price").change(function() {
+            console.log("The text has been changed." +this.value );
+            $('#price_usd').val(this.value/exchange_rate);
+        });
+        $(".exchange_rate").change(function() {
+            // console.log($('.currency-val').data('value'));
+            var option = $('option:selected', this).attr('data-value');
+            console.log(option);
+            exchange_rate=option;
+            $('#price_usd').val($(".price").val()/exchange_rate);
+        });
     </script>
 @endsection

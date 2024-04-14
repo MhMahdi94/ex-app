@@ -42,6 +42,7 @@
                                     <th>{{ __('routes.Name') }}</th>
                                     <th>{{ __('routes.Quantity') }}</th>
                                     <th>{{ __('routes.Price') }}</th>
+                                    <th>{{ __('routes.Currency') }}</th>
                                     <th>{{ __('routes.Actions') }}</th>
                                 </tr>
                             </thead>
@@ -51,6 +52,7 @@
                                         <td>{{ $item->name }}</td>
                                         <td>{{ $item->quantity }}</td>
                                         <td>{{ $item->price }}</td>
+                                        <td>USD</td>
                                         <td class="d-flex  ">
                                             
                                             <a class="btn btn-warning px-4"

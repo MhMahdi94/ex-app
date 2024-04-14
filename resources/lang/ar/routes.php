@@ -343,5 +343,6 @@ return [
     "Add Currency"=>"اضافة العملة",
     "Currency Code"=>"كود العملة",
     "Exchange Rate"=>"سعر الصرف",
+    "Price (USD)"=>"السعر (USD)"
     
 ];
